@@ -67,7 +67,7 @@ def chillOut(appID):
         print "Sleeping for 5 minutes."
         time.sleep(5*60)
         try:
-            rBadge = requests.get(authData["myProfileURL"]+"/gamecards/"+str(k)+"/",cookies=cookies)
+            rBadge = requests.get(authData["myProfileURL"]+"/gamecards/"+str(appID)+"/",cookies=cookies)
             indBadgeData = bs4.BeautifulSoup(rBadge.text)
             badgeLeftString = indBadgeData.find_all("span",{"class": "progress_info_bold"})[0].contents[0]
             if "card drops" in badgeLeftString:
