@@ -1,3 +1,9 @@
+v0.3
+-----
+- Idling games with unicode characters no longer causes Idle Master to exit
+- When an error occurs it will now leave the console open until the user presses a key
+- Fixed a bug that may cause Idle Master to stop working when it can't access Steam
+
 v0.2
 -----
 - A more robust idling detector that can account for Steam being down (thanks Caerith)
