@@ -12,18 +12,22 @@ try:
 	execfile("./settings.txt",authData)
 except:
 	print "Error loading config file"
+	os.system('pause')
 	sys.exit()
 	
 if not authData["myProfileURL"]:
 	print "No Steam profile entered"
+	os.system('pause')
 	sys.exit()
 	
 if not authData["sessionid"]:
 	print "No sessionid set"
+	os.system('pause')
 	sys.exit()
 	
 if not authData["steamLogin"]:
 	print "No steamLogin set"
+	os.system('pause')
 	sys.exit()
 
 def generateCookies():
@@ -32,6 +36,7 @@ def generateCookies():
 		cookies = dict(sessionid=authData["sessionid"], steamLogin=authData["steamLogin"])
 	except:
 		print "Error setting cookies"
+		os.system('pause')
 		sys.exit()
 
 	return cookies
@@ -44,44 +49,46 @@ def dropDelay(numDrops):
 	return baseDelay
 	
 def idleOpen(appID):
-    try:
+	try:
 		print "Starting game " + getAppName(appID) + " to idle cards"
 		subprocess.Popen("steam-idle.exe "+str(appID))
-    except:
-        print "Error launching steam-idle with game ID "+str(appID)
-        sys.exit()
+	except:
+		print "Error launching steam-idle with game ID "+str(appID)
+		os.system('pause')
+		sys.exit()
 
 def idleClose(appID):
-    try:
-        print "Closing game " + getAppName(appID) 
-        os.system("taskkill.exe -im steam-idle.exe /F")
-    except:
-        print "Error closing game. Exiting."
-        sys.exit()
+	try:
+		print "Closing game " + getAppName(appID) 
+		os.system("taskkill.exe -im steam-idle.exe /F")
+	except:
+		print "Error closing game. Exiting."
+		os.system('pause')
+		sys.exit()
 
 def chillOut(appID):
-    print "Suspending operation for "+getAppName(appID)
-    idleClose(appID)
-    stillDown = True
-    while stillDown:
-        print "Sleeping for 5 minutes."
-        time.sleep(5*60)
-        try:
-            rBadge = requests.get(authData["myProfileURL"]+"/gamecards/"+str(appID)+"/",cookies=cookies)
-            indBadgeData = bs4.BeautifulSoup(rBadge.text)
-            badgeLeftString = indBadgeData.find_all("span",{"class": "progress_info_bold"})[0].contents[0]
-            if "card drops" in badgeLeftString:
-                stillDown = False
-        except:
-            print "Still unable to find drop info."
-    # Resume operations.
-    idleOpen(appID)
+	print "Suspending operation for "+getAppName(appID)
+	idleClose(appID)
+	stillDown = True
+	while stillDown:
+		print "Sleeping for 5 minutes."
+		time.sleep(5*60)
+		try:
+			rBadge = requests.get(authData["myProfileURL"]+"/gamecards/"+str(appID)+"/",cookies=cookies)
+			indBadgeData = bs4.BeautifulSoup(rBadge.text)
+			badgeLeftString = indBadgeData.find_all("span",{"class": "progress_info_bold"})[0].contents[0]
+			if "card drops" in badgeLeftString:
+				stillDown = False
+		except:
+			print "Still unable to find drop info."
+	# Resume operations.
+	idleOpen(appID)
 	
 def getAppName(appID):
 	try:
 		api = requests.get("http://store.steampowered.com/api/appdetails/?appids="+str(appID)+"&filters=basic")
 		api_data = json.loads(api.text)
-		return repr(api_data[str(appID)]["data"]["name"])
+		return str(unicode(api_data[str(appID)]["data"]["name"]))
 	except:
 		return "app "+str(appID)
 
@@ -90,6 +97,7 @@ try:
 	r = requests.get(authData["myProfileURL"]+"/badges/",cookies=cookies)
 except:
 	print "Error reading badge page"
+	os.system('pause')
 	sys.exit()
 	
 print "Finding games that have card drops remaining"
@@ -100,6 +108,7 @@ try:
 	badgeSet = badgePageData.find_all("div",{"class": "badge_title_stats"})
 except:
 	print "Error finding drop info"
+	os.system('pause')
 	sys.exit()
 
 for badge in badgeSet:
