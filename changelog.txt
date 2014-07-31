@@ -1,0 +1,14 @@
+v0.2
+-----
+- A more robust idling detector that can account for Steam being down (thanks Caerith)
+- Idle Master now uses your Steam profile URL in the settings rather than your Steam name
+- Apps are listed in the log by their store name instead of their App ID
+- Better error handling for users who haven't configured settings.txt
+- The program will now tell you how many games you need to idle on startup
+- The steam-idle kill process now properly blocks execution
+- This version has the correct steam-idle application
+- Source code (.cs) files are provided for steam-idle
+
+v0.1
+-----
+- Initial version
