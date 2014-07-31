@@ -81,7 +81,7 @@ def getAppName(appID):
 	try:
 		api = requests.get("http://store.steampowered.com/api/appdetails/?appids="+str(appID)+"&filters=basic")
 		api_data = json.loads(api.text)
-		return api_data[str(appID)]["data"]["name"]
+		return repr(api_data[str(appID)]["data"]["name"])
 	except:
 		return "app "+str(appID)
 
