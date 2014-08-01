@@ -101,6 +101,8 @@ def get_blacklist():
 
 	return blacklist
 
+print "Finding games that have card drops remaining"
+
 try:
 	cookies = generateCookies()
 	r = requests.get(myProfileURL+"/badges/",cookies=cookies)
@@ -108,8 +110,6 @@ except:
 	print "Error reading badge page"
 	os.system('pause')
 	sys.exit()
-	
-print "Finding games that have card drops remaining"
 
 try:
 	badgesLeft = {}
@@ -141,7 +141,7 @@ for badge in badgeSet:
 				badgesLeft[badgeId] = dropCountInt
 	except:
 		continue
-		
+
 print "Idle Master needs to idle " + str(len(badgesLeft)) + " games"
 
 for k, v in badgesLeft.items():
@@ -180,7 +180,7 @@ for k, v in badgesLeft.items():
 				# Suspend operations until Steam can be reached.
 				chillOut(k)
 				maxFail+=1
-			break
+				break
 
 	idleClose(k)
 	print "Successfully completed idling cards for "+getAppName(k)
