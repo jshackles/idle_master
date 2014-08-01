@@ -1,6 +1,7 @@
 v0.3
 -----
 - Added support for accounts with Steam Family View enabled
+- Added a way to blacklist games from being idled by Idle Master
 - Idling games with unicode characters no longer causes Idle Master to exit
 - When an error occurs it will now leave the console open until the user presses a key
 - Fixed a bug that may cause Idle Master to stop working when it can't access Steam

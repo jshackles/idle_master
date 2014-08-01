@@ -88,6 +88,19 @@ def getAppName(appID):
 	except:
 		return "app "+str(appID)
 
+def get_blacklist():
+	try:
+		with open('blacklist.txt', 'r') as f:
+			lines = f.readlines()
+		blacklist = [int(n.strip()) for n in lines]		
+	except:
+		blacklist = [];
+
+	if not blacklist:
+		print "No games have been blacklisted"
+
+	return blacklist
+
 try:
 	cookies = generateCookies()
 	r = requests.get(myProfileURL+"/badges/",cookies=cookies)
@@ -107,6 +120,8 @@ except:
 	os.system('pause')
 	sys.exit()
 
+blacklist = get_blacklist()
+
 for badge in badgeSet:
 	try:
 		dropCount = badge.find_all("span",{"class": "progress_info_bold"})[0].contents[0]
@@ -119,7 +134,11 @@ for badge in badgeSet:
 			linkGuess = badge.find_parent().find_parent().find_parent().find_all("a")[0]["href"]
 			junk, badgeId = linkGuess.split("/gamecards/",1)
 			badgeId = int(badgeId.replace("/",""))
-			badgesLeft[badgeId] = dropCountInt
+			if badgeId in blacklist:
+				print getAppName(badgeId) + " on blacklist, skipping game"
+				continue
+			else:
+				badgesLeft[badgeId] = dropCountInt
 	except:
 		continue
 		
