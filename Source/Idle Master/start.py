@@ -10,13 +10,9 @@ import json
 try:
 	authData={}
 	execfile("./settings.txt",authData)
+	myProfileURL = "http://steamcommunity.com/profiles/"+authData["steamLogin"][:17]
 except:
 	print "Error loading config file"
-	os.system('pause')
-	sys.exit()
-	
-if not authData["myProfileURL"]:
-	print "No Steam profile entered"
 	os.system('pause')
 	sys.exit()
 	
@@ -74,7 +70,7 @@ def chillOut(appID):
 		print "Sleeping for 5 minutes."
 		time.sleep(5*60)
 		try:
-			rBadge = requests.get(authData["myProfileURL"]+"/gamecards/"+str(appID)+"/",cookies=cookies)
+			rBadge = requests.get(myProfileURL+"/gamecards/"+str(appID)+"/",cookies=cookies)
 			indBadgeData = bs4.BeautifulSoup(rBadge.text)
 			badgeLeftString = indBadgeData.find_all("span",{"class": "progress_info_bold"})[0].contents[0]
 			if "card drops" in badgeLeftString:
@@ -94,7 +90,7 @@ def getAppName(appID):
 
 try:
 	cookies = generateCookies()
-	r = requests.get(authData["myProfileURL"]+"/badges/",cookies=cookies)
+	r = requests.get(myProfileURL+"/badges/",cookies=cookies)
 except:
 	print "Error reading badge page"
 	os.system('pause')
@@ -146,7 +142,7 @@ for k, v in badgesLeft.items():
 				stillHaveDrops=0
 
 			print "Checking to see if "+getAppName(k)+" has remaining card drops"
-			rBadge = requests.get(authData["myProfileURL"]+"/gamecards/"+str(k)+"/",cookies=cookies)
+			rBadge = requests.get(myProfileURL+"/gamecards/"+str(k)+"/",cookies=cookies)
 			indBadgeData = bs4.BeautifulSoup(rBadge.text)
 			badgeLeftString = indBadgeData.find_all("span",{"class": "progress_info_bold"})[0].contents[0]
 			if "No card drops" in badgeLeftString:
