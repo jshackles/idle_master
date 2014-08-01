@@ -186,3 +186,4 @@ for k, v in badgesLeft.items():
 	print "Successfully completed idling cards for "+getAppName(k)
 
 print "Successfully completed idling process"
+os.system('pause')
