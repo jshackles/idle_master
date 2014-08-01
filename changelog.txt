@@ -1,8 +1,10 @@
 v0.3
 -----
+- Added support for accounts with Steam Family View enabled
 - Idling games with unicode characters no longer causes Idle Master to exit
 - When an error occurs it will now leave the console open until the user presses a key
 - Fixed a bug that may cause Idle Master to stop working when it can't access Steam
+- Removed the need to enter your Steam profile URL, which is now determined automatically
 
 v0.2
 -----
