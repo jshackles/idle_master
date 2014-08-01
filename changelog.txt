@@ -1,3 +1,8 @@
+v0.4
+-----
+- Added sorting options to settings.txt
+- Fixed a bug in online-detection function that would cause Idle Master close prematurely
+
 v0.3
 -----
 - Added support for accounts with Steam Family View enabled

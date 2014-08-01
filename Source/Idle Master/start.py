@@ -9,6 +9,7 @@ import json
 
 try:
 	authData={}
+	authData["sort"]=""
 	execfile("./settings.txt",authData)
 	myProfileURL = "http://steamcommunity.com/profiles/"+authData["steamLogin"][:17]
 except:
@@ -142,9 +143,22 @@ for badge in badgeSet:
 	except:
 		continue
 
+def getKey(item):
+	if authData["sort"]=="mostcards" or authData["sort"]=="leastcards":
+		return item[1]
+	else:
+		return item[0]
+
+if authData["sort"]=="":
+	games = badgesLeft.items()
+if authData["sort"]=="mostcards":
+	games = sorted(badgesLeft.items(), key=getKey, reverse=True)
+if authData["sort"]=="leastcards":
+	games = sorted(badgesLeft.items(), key=getKey, reverse=False)
+
 print "Idle Master needs to idle " + str(len(badgesLeft)) + " games"
 
-for k, v in badgesLeft.items():
+for k, v in games:
 	delay = dropDelay(int(v))
 	stillHaveDrops=1
 	numCycles=50
