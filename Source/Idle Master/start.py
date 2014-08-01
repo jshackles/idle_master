@@ -29,7 +29,7 @@ if not authData["steamLogin"]:
 def generateCookies():
 	global authData
 	try:
-		cookies = dict(sessionid=authData["sessionid"], steamLogin=authData["steamLogin"])
+		cookies = dict(sessionid=authData["sessionid"], steamLogin=authData["steamLogin"], steamparental=authData["steamparental"])
 	except:
 		print "Error setting cookies"
 		os.system('pause')

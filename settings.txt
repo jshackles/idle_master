@@ -1,2 +1,3 @@
 sessionid = ""
 steamLogin = ""
+steamparental = ""
