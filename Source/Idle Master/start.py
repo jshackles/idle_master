@@ -13,17 +13,17 @@ try:
 	execfile("./settings.txt",authData)
 	myProfileURL = "http://steamcommunity.com/profiles/"+authData["steamLogin"][:17]
 except:
-	print "Error loading config file"
+	print time.strftime("%X - ") + "Error loading config file"
 	os.system('pause')
 	sys.exit()
 	
 if not authData["sessionid"]:
-	print "No sessionid set"
+	print time.strftime("%X - ") + "No sessionid set"
 	os.system('pause')
 	sys.exit()
 	
 if not authData["steamLogin"]:
-	print "No steamLogin set"
+	print time.strftime("%X - ") + "No steamLogin set"
 	os.system('pause')
 	sys.exit()
 
@@ -32,7 +32,7 @@ def generateCookies():
 	try:
 		cookies = dict(sessionid=authData["sessionid"], steamLogin=authData["steamLogin"], steamparental=authData["steamparental"])
 	except:
-		print "Error setting cookies"
+		print time.strftime("%X - ") + "Error setting cookies"
 		os.system('pause')
 		sys.exit()
 
@@ -47,28 +47,28 @@ def dropDelay(numDrops):
 	
 def idleOpen(appID):
 	try:
-		print "Starting game " + getAppName(appID) + " to idle cards"
+		print time.strftime("%X - ") + "Starting game " + getAppName(appID) + " to idle cards"
 		subprocess.Popen("steam-idle.exe "+str(appID))
 	except:
-		print "Error launching steam-idle with game ID "+str(appID)
+		print time.strftime("%X - ") + "Error launching steam-idle with game ID "+str(appID)
 		os.system('pause')
 		sys.exit()
 
 def idleClose(appID):
 	try:
-		print "Closing game " + getAppName(appID) 
+		print time.strftime("%X - ") + "Closing game " + getAppName(appID) 
 		os.system("taskkill.exe -im steam-idle.exe /F")
 	except:
-		print "Error closing game. Exiting."
+		print time.strftime("%X - ") + "Error closing game. Exiting."
 		os.system('pause')
 		sys.exit()
 
 def chillOut(appID):
-	print "Suspending operation for "+getAppName(appID)
+	print time.strftime("%X - ") + "Suspending operation for "+getAppName(appID)
 	idleClose(appID)
 	stillDown = True
 	while stillDown:
-		print "Sleeping for 5 minutes."
+		print time.strftime("%X - ") + "Sleeping for 5 minutes."
 		time.sleep(5*60)
 		try:
 			rBadge = requests.get(myProfileURL+"/gamecards/"+str(appID)+"/",cookies=cookies)
@@ -77,7 +77,7 @@ def chillOut(appID):
 			if "card drops" in badgeLeftString:
 				stillDown = False
 		except:
-			print "Still unable to find drop info."
+			print time.strftime("%X - ") + "Still unable to find drop info."
 	# Resume operations.
 	idleOpen(appID)
 	
@@ -98,17 +98,17 @@ def get_blacklist():
 		blacklist = [];
 
 	if not blacklist:
-		print "No games have been blacklisted"
+		print time.strftime("%X - ") + "No games have been blacklisted"
 
 	return blacklist
 
-print "Finding games that have card drops remaining"
+print time.strftime("%X - ") + "Finding games that have card drops remaining"
 
 try:
 	cookies = generateCookies()
 	r = requests.get(myProfileURL+"/badges/",cookies=cookies)
 except:
-	print "Error reading badge page"
+	print time.strftime("%X - ") + "Error reading badge page"
 	os.system('pause')
 	sys.exit()
 
@@ -117,7 +117,7 @@ try:
 	badgePageData = bs4.BeautifulSoup(r.text)
 	badgeSet = badgePageData.find_all("div",{"class": "badge_title_stats"})
 except:
-	print "Error finding drop info"
+	print time.strftime("%X - ") + "Error finding drop info"
 	os.system('pause')
 	sys.exit()
 
@@ -136,7 +136,7 @@ for badge in badgeSet:
 			junk, badgeId = linkGuess.split("/gamecards/",1)
 			badgeId = int(badgeId.replace("/",""))
 			if badgeId in blacklist:
-				print getAppName(badgeId) + " on blacklist, skipping game"
+				print time.strftime("%X - ") + getAppName(badgeId) + " on blacklist, skipping game"
 				continue
 			else:
 				badgesLeft[badgeId] = dropCountInt
@@ -156,7 +156,7 @@ if authData["sort"]=="mostcards":
 if authData["sort"]=="leastcards":
 	games = sorted(badgesLeft.items(), key=getKey, reverse=False)
 
-print "Idle Master needs to idle " + str(len(badgesLeft)) + " games"
+print time.strftime("%X - ") + "Idle Master needs to idle " + str(len(badgesLeft)) + " games"
 
 for k, v in games:
 	delay = dropDelay(int(v))
@@ -168,27 +168,27 @@ for k, v in games:
 
 	while stillHaveDrops==1:
 		try:
-			print "Sleeping for "+str(delay / 60)+" minutes"
+			print time.strftime("%X - ") + "Sleeping for "+str(delay / 60)+" minutes"
 			time.sleep(delay)
 			numCycles-=1
 			if numCycles<1: # Sanity check against infinite loop
 				stillHaveDrops=0
 
-			print "Checking to see if "+getAppName(k)+" has remaining card drops"
+			print time.strftime("%X - ") + "Checking to see if "+getAppName(k)+" has remaining card drops"
 			rBadge = requests.get(myProfileURL+"/gamecards/"+str(k)+"/",cookies=cookies)
 			indBadgeData = bs4.BeautifulSoup(rBadge.text)
 			badgeLeftString = indBadgeData.find_all("span",{"class": "progress_info_bold"})[0].contents[0]
 			if "No card drops" in badgeLeftString:
-				print "No card drops remaining"
+				print time.strftime("%X - ") + "No card drops remaining"
 				stillHaveDrops=0
 			else:
 				dropCountInt, junk = badgeLeftString.split(" ",1)
 				dropCountInt = int(dropCountInt)
 				delay = dropDelay(dropCountInt)
-				print getAppName(k) + " has "+str(dropCountInt)+" card drops remaining"
+				print time.strftime("%X - ") + getAppName(k) + " has "+str(dropCountInt)+" card drops remaining"
 		except:
 			if maxFail>0:
-				print "Error checking if drops are done, number of tries remaining: "+str(maxFail)
+				print time.strftime("%X - ") + "Error checking if drops are done, number of tries remaining: "+str(maxFail)
 				maxFail-=1
 			else:
 				# Suspend operations until Steam can be reached.
@@ -197,7 +197,7 @@ for k, v in games:
 				break
 
 	idleClose(k)
-	print "Successfully completed idling cards for "+getAppName(k)
+	print time.strftime("%X - ") + "Successfully completed idling cards for "+getAppName(k)
 
-print "Successfully completed idling process"
+print time.strftime("%X - ") + "Successfully completed idling process"
 os.system('pause')
