@@ -6,7 +6,7 @@ This program will determine which of your Steam games still have Steam Trading C
 Requirements
 -------
 
-This application requires Steam to be open and for you to be logged in.  This program is designed to work with Microsoft Windows.
+This application requires Steam to be open and for you to be logged in.  This program works with Windows, OSX, and Linux.  Non-Windows version are available in the "Releases" folder.
 
 Setup
 -------
