@@ -1,8 +1,11 @@
 v0.4
 -----
 - Added sorting options to settings.txt
-- Fixed a bug in online-detection function that would cause Idle Master close prematurely
+- Fixed a bug in online-detection function that would cause Idle Master to close prematurely
 - Added check to see if user's cookie data is valid
+- Idle Master no longer relies on the taskkill application which is not present in Windows XP
+- Initial support for OSX and Linux platforms
+- Includes in-depth documentation for sorting and blacklist functionality
 
 v0.3
 -----

@@ -121,7 +121,7 @@ except:
 	sys.exit()
 
 try:
-	badgesLeft = {}
+	badgesLeft = []
 	badgePageData = bs4.BeautifulSoup(r.text)
 	badgeSet = badgePageData.find_all("div",{"class": "badge_title_stats"})
 except:
@@ -136,6 +136,9 @@ if not userinfo:
 	sys.exit()
 
 blacklist = get_blacklist()
+
+if authData["sort"]=="mostvalue" or authData["sort"]=="leastvalue":
+	print "Getting card values, please wait..."
 
 for badge in badgeSet:
 	try:
@@ -153,32 +156,46 @@ for badge in badgeSet:
 				print getAppName(badgeId) + " on blacklist, skipping game"
 				continue
 			else:
-				badgesLeft[badgeId] = dropCountInt
+				if authData["sort"]=="mostvalue" or authData["sort"]=="leastvalue":
+					gameValue = requests.get("http://api.enhancedsteam.com/market_data/average_card_price/?appid="+str(badgeId)+"&cur=usd")
+					push = [badgeId, dropCountInt, float(str(gameValue.text)) * dropCountInt]
+					badgesLeft.append(push)
+				else:
+					push = [badgeId, dropCountInt, 0]
+					badgesLeft.append(push)
 	except:
 		continue
+
+print "Idle Master needs to idle " + str(len(badgesLeft)) + " games"
 
 def getKey(item):
 	if authData["sort"]=="mostcards" or authData["sort"]=="leastcards":
 		return item[1]
+	elif authData["sort"]=="mostvalue" or authData["sort"]=="leastvalue":
+		return item[2]
 	else:
 		return item[0]
 
-if authData["sort"]=="":
-	games = badgesLeft.items()
-if authData["sort"]=="mostcards":
-	games = sorted(badgesLeft.items(), key=getKey, reverse=True)
-if authData["sort"]=="leastcards":
-	games = sorted(badgesLeft.items(), key=getKey, reverse=False)
+sortValues = ["", "mostcards", "leastcards", "mostvalue", "leastvalue"]
+if authData["sort"] in sortValues:
+	if authData["sort"]=="":
+		games = badgesLeft
+	if authData["sort"]=="mostcards" or authData["sort"]=="mostvalue":
+		games = sorted(badgesLeft, key=getKey, reverse=True)
+	if authData["sort"]=="leastcards" or authData["sort"]=="leastvalue":
+		games = sorted(badgesLeft, key=getKey, reverse=False)
+else:
+	print "Invalid sort value"
+	raw_input("Press Enter to continue...")
+	sys.exit()
 
-print "Idle Master needs to idle " + str(len(badgesLeft)) + " games"
-
-for k, v in games:
-	delay = dropDelay(int(v))
+for appID, drops, value in games:
+	delay = dropDelay(int(drops))
 	stillHaveDrops=1
 	numCycles=50
 	maxFail=2
 	
-	idleOpen(k)
+	idleOpen(appID)
 
 	while stillHaveDrops==1:
 		try:
@@ -188,8 +205,8 @@ for k, v in games:
 			if numCycles<1: # Sanity check against infinite loop
 				stillHaveDrops=0
 
-			print "Checking to see if "+getAppName(k)+" has remaining card drops"
-			rBadge = requests.get(myProfileURL+"/gamecards/"+str(k)+"/",cookies=cookies)
+			print "Checking to see if "+getAppName(appID)+" has remaining card drops"
+			rBadge = requests.get(myProfileURL+"/gamecards/"+str(appID)+"/",cookies=cookies)
 			indBadgeData = bs4.BeautifulSoup(rBadge.text)
 			badgeLeftString = indBadgeData.find_all("span",{"class": "progress_info_bold"})[0].contents[0]
 			if "No card drops" in badgeLeftString:
@@ -199,19 +216,19 @@ for k, v in games:
 				dropCountInt, junk = badgeLeftString.split(" ",1)
 				dropCountInt = int(dropCountInt)
 				delay = dropDelay(dropCountInt)
-				print getAppName(k) + " has "+str(dropCountInt)+" card drops remaining"
+				print getAppName(appID) + " has "+str(dropCountInt)+" card drops remaining"
 		except:
 			if maxFail>0:
 				print "Error checking if drops are done, number of tries remaining: "+str(maxFail)
 				maxFail-=1
 			else:
 				# Suspend operations until Steam can be reached.
-				chillOut(k)
+				chillOut(appID)
 				maxFail+=1
 				break
 
-	idleClose(k)
-	print "Successfully completed idling cards for "+getAppName(k)
+	idleClose(appID)
+	print "Successfully completed idling cards for "+getAppName(appID)
 
 print "Successfully completed idling process"
 raw_input("Press Enter to continue...")
