@@ -129,6 +129,12 @@ except:
 	raw_input("Press Enter to continue...")
 	sys.exit()
 
+userinfo = badgePageData.find("div",{"class": "user_avatar"})
+if not userinfo:
+	print "Invalid cookie data, cannot log in to Steam"
+	raw_input("Press Enter to continue...")
+	sys.exit()
+
 blacklist = get_blacklist()
 
 for badge in badgeSet:

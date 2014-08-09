@@ -2,6 +2,7 @@ v0.4
 -----
 - Added sorting options to settings.txt
 - Fixed a bug in online-detection function that would cause Idle Master close prematurely
+- Added check to see if user's cookie data is valid
 
 v0.3
 -----
