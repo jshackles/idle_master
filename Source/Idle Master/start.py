@@ -7,6 +7,8 @@ import sys
 import os
 import json
 
+os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
+
 try:
 	authData={}
 	authData["sort"]=""
@@ -14,17 +16,17 @@ try:
 	myProfileURL = "http://steamcommunity.com/profiles/"+authData["steamLogin"][:17]
 except:
 	print "Error loading config file"
-	os.system('pause')
+	raw_input("Press Enter to continue...")
 	sys.exit()
 	
 if not authData["sessionid"]:
 	print "No sessionid set"
-	os.system('pause')
+	raw_input("Press Enter to continue...")
 	sys.exit()
 	
 if not authData["steamLogin"]:
 	print "No steamLogin set"
-	os.system('pause')
+	raw_input("Press Enter to continue...")
 	sys.exit()
 
 def generateCookies():
@@ -33,7 +35,7 @@ def generateCookies():
 		cookies = dict(sessionid=authData["sessionid"], steamLogin=authData["steamLogin"], steamparental=authData["steamparental"])
 	except:
 		print "Error setting cookies"
-		os.system('pause')
+		raw_input("Press Enter to continue...")
 		sys.exit()
 
 	return cookies
@@ -48,19 +50,25 @@ def dropDelay(numDrops):
 def idleOpen(appID):
 	try:
 		print "Starting game " + getAppName(appID) + " to idle cards"
-		subprocess.Popen("steam-idle.exe "+str(appID))
+		global process_idle
+		if sys.platform.startswith('win32'):
+			process_idle = subprocess.Popen("steam-idle.exe "+str(appID))
+		elif sys.platform.startswith('darwin'):
+			process_idle = subprocess.Popen(["./steam-idle", str(appID)])
+		elif sys.platform.startswith('linux'):
+			process_idle = subprocess.Popen(["python2", "steam-idle.py", str(appID)])
 	except:
 		print "Error launching steam-idle with game ID "+str(appID)
-		os.system('pause')
+		raw_input("Press Enter to continue...")
 		sys.exit()
 
 def idleClose(appID):
 	try:
 		print "Closing game " + getAppName(appID) 
-		os.system("taskkill.exe -im steam-idle.exe /F")
+		process_idle.terminate()
 	except:
 		print "Error closing game. Exiting."
-		os.system('pause')
+		raw_input("Press Enter to continue...")
 		sys.exit()
 
 def chillOut(appID):
@@ -109,7 +117,7 @@ try:
 	r = requests.get(myProfileURL+"/badges/",cookies=cookies)
 except:
 	print "Error reading badge page"
-	os.system('pause')
+	raw_input("Press Enter to continue...")
 	sys.exit()
 
 try:
@@ -118,7 +126,7 @@ try:
 	badgeSet = badgePageData.find_all("div",{"class": "badge_title_stats"})
 except:
 	print "Error finding drop info"
-	os.system('pause')
+	raw_input("Press Enter to continue...")
 	sys.exit()
 
 blacklist = get_blacklist()
@@ -200,4 +208,4 @@ for k, v in games:
 	print "Successfully completed idling cards for "+getAppName(k)
 
 print "Successfully completed idling process"
-os.system('pause')
+raw_input("Press Enter to continue...")
