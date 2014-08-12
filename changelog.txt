@@ -1,3 +1,8 @@
+v0.5
+-----
+- Added support for 32 bit Windows
+
+
 v0.4
 -----
 - Added sorting options to settings.txt
