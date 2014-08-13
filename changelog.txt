@@ -1,6 +1,7 @@
 v0.5
 -----
 - Added support for 32 bit Windows
+- Added timestamps and terminal coloring to the display output
 
 
 v0.4
