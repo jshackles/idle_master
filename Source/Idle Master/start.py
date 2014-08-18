@@ -7,6 +7,7 @@ import sys
 import os
 import json
 import logging
+import datetime
 from colorama import init, Fore, Back, Style
 init()
 
@@ -62,6 +63,10 @@ def idleOpen(appID):
 	try:
 		logging.warning("Starting game " + getAppName(appID) + " to idle cards")
 		global process_idle
+		global idle_time
+
+		idle_time = time.time()
+
 		if sys.platform.startswith('win32'):
 			process_idle = subprocess.Popen("steam-idle.exe "+str(appID))
 		elif sys.platform.startswith('darwin'):
@@ -77,6 +82,8 @@ def idleClose(appID):
 	try:
 		logging.warning("Closing game " + getAppName(appID))
 		process_idle.terminate()
+		total_time = int(time.time() - idle_time)
+		logging.warning(getAppName(appID) + " took " + Fore.GREEN + str(datetime.timedelta(seconds=total_time)) + Fore.RESET + " to idle.")
 	except:
 		logging.warning(Fore.RED + "Error closing game. Exiting." + Fore.RESET)
 		raw_input("Press Enter to continue...")
@@ -106,13 +113,13 @@ def getAppName(appID):
 		api_data = json.loads(api.text)
 		return Fore.CYAN + str(unicode(api_data[str(appID)]["data"]["name"])) + Fore.RESET
 	except:
-		return Fore.CYAN + "app "+str(appID) + Fore.RESET
+		return Fore.CYAN + "App "+str(appID) + Fore.RESET
 
 def get_blacklist():
 	try:
 		with open('blacklist.txt', 'r') as f:
 			lines = f.readlines()
-		blacklist = [int(n.strip()) for n in lines]		
+		blacklist = [int(n.strip()) for n in lines]
 	except:
 		blacklist = [];
 
