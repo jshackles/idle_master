@@ -217,12 +217,6 @@ for appID, drops, value in games:
 
 	while stillHaveDrops==1:
 		try:
-			logging.warning("Sleeping for " + str(delay / 60) + " minutes")
-			time.sleep(delay)
-			numCycles-=1
-			if numCycles<1: # Sanity check against infinite loop
-				stillHaveDrops=0
-
 			logging.warning("Checking to see if " + getAppName(appID) + " has remaining card drops")
 			rBadge = requests.get(myProfileURL + "/gamecards/" + str(appID) + "/",cookies=cookies)
 			indBadgeData = bs4.BeautifulSoup(rBadge.text)
@@ -235,6 +229,12 @@ for appID, drops, value in games:
 				dropCountInt = int(dropCountInt)
 				delay = dropDelay(dropCountInt)
 				logging.warning(getAppName(appID) + " has " + str(dropCountInt) + " card drops remaining")
+				logging.warning("Sleeping for " + str(delay / 60) + " minutes")
+				time.sleep(delay)
+				numCycles-=1
+				if numCycles<1: # Sanity check against infinite loop
+					stillHaveDrops=0
+
 		except:
 			if maxFail>0:
 				logging.warning("Error checking if drops are done, number of tries remaining: " + str(maxFail))
