@@ -8,6 +8,7 @@ import os
 import json
 import logging
 import datetime
+import ctypes
 from colorama import init, Fore, Back, Style
 init()
 
@@ -18,6 +19,9 @@ console = logging.StreamHandler()
 console.setLevel(logging.WARNING)
 console.setFormatter(logging.Formatter("[ %(asctime)s ] %(message)s", "%m/%d/%Y %I:%M:%S %p"))
 logging.getLogger('').addHandler(console)
+
+if sys.platform.startswith('win32'):
+	ctypes.windll.kernel32.SetConsoleTitleA("Idle Master")
 
 logging.warning(Fore.GREEN + "WELCOME TO IDLE MASTER" + Fore.RESET)
 
@@ -114,6 +118,14 @@ def getAppName(appID):
 		return Fore.CYAN + str(unicode(api_data[str(appID)]["data"]["name"])) + Fore.RESET
 	except:
 		return Fore.CYAN + "App "+str(appID) + Fore.RESET
+
+def getPlainAppName(appid):
+	try:
+		api = requests.get("http://store.steampowered.com/api/appdetails/?appids=" + str(appID) + "&filters=basic")
+		api_data = json.loads(api.text)
+		return str(unicode(api_data[str(appID)]["data"]["name"]))
+	except:
+		return "App "+str(appID)
 
 def get_blacklist():
 	try:
@@ -215,6 +227,11 @@ for appID, drops, value in games:
 	
 	idleOpen(appID)
 
+	logging.warning(getAppName(appID) + " has " + str(drops) + " card drops remaining")
+
+	if sys.platform.startswith('win32'):
+		ctypes.windll.kernel32.SetConsoleTitleA("Idle Master - Idling " + getPlainAppName(appID) + " [" + str(drops) + " remaining]")
+
 	while stillHaveDrops==1:
 		try:
 			logging.warning("Sleeping for " + str(delay / 60) + " minutes")
@@ -235,6 +252,8 @@ for appID, drops, value in games:
 				dropCountInt = int(dropCountInt)
 				delay = dropDelay(dropCountInt)
 				logging.warning(getAppName(appID) + " has " + str(dropCountInt) + " card drops remaining")
+				if sys.platform.startswith('win32'):
+					ctypes.windll.kernel32.SetConsoleTitleA("Idle Master - Idling " + getPlainAppName(appID) + " [" + str(dropCountInt) + " remaining]")
 		except:
 			if maxFail>0:
 				logging.warning("Error checking if drops are done, number of tries remaining: " + str(maxFail))
