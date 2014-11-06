@@ -159,6 +159,20 @@ except:
 	raw_input("Press Enter to continue...")
 	sys.exit()
 
+# For profiles with multiple pages
+try:
+	badgePages = int(badgePageData.find_all("a",{"class": "pagelink"})[-1].text)
+	if badgePages:
+		logging.warning(str(badgePages) + " badge pages found.  Gathering additional data")
+		currentpage = 2
+		while currentpage <= badgePages:
+			r = requests.get(myProfileURL+"/badges/?p="+str(currentpage),cookies=cookies)
+			badgePageData = bs4.BeautifulSoup(r.text)
+			badgeSet = badgeSet + badgePageData.find_all("div",{"class": "badge_title_stats"})
+			currentpage = currentpage + 1
+except:
+	logging.warning("Reading badge page, please wait")
+
 userinfo = badgePageData.find("div",{"class": "user_avatar"})
 if not userinfo:
 	logging.warning(Fore.RED + "Invalid cookie data, cannot log in to Steam" + Fore.RESET)

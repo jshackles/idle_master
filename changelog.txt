@@ -3,7 +3,7 @@ v0.5
 - Added support for 32 bit Windows
 - Added timestamps and terminal coloring to the display output
 - After a game completes idling, Idle Master will now display how long it idled for
-
+- Added support for pagination in badge pages
 
 v0.4
 -----
