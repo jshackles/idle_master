@@ -28,6 +28,7 @@ logging.warning(Fore.GREEN + "WELCOME TO IDLE MASTER" + Fore.RESET)
 try:
 	authData={}
 	authData["sort"]=""
+	authData["steamparental"]=""
 	execfile("./settings.txt",authData)
 	myProfileURL = "http://steamcommunity.com/profiles/"+authData["steamLogin"][:17]
 except:
