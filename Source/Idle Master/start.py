@@ -116,7 +116,7 @@ def getAppName(appID):
 	try:
 		api = requests.get("http://store.steampowered.com/api/appdetails/?appids=" + str(appID) + "&filters=basic")
 		api_data = json.loads(api.text)
-		return Fore.CYAN + str(unicode(api_data[str(appID)]["data"]["name"])) + Fore.RESET
+		return Fore.CYAN + api_data[str(appID)]["data"]["name"].encode('ascii', 'ignore') + Fore.RESET
 	except:
 		return Fore.CYAN + "App "+str(appID) + Fore.RESET
 
@@ -124,7 +124,7 @@ def getPlainAppName(appid):
 	try:
 		api = requests.get("http://store.steampowered.com/api/appdetails/?appids=" + str(appID) + "&filters=basic")
 		api_data = json.loads(api.text)
-		return str(unicode(api_data[str(appID)]["data"]["name"]))
+		return api_data[str(appID)]["data"]["name"].encode('ascii', 'ignore')
 	except:
 		return "App "+str(appID)
 
