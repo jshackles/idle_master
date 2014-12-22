@@ -2,6 +2,7 @@ import requests
 import cookielib
 import bs4
 import time
+import re
 import subprocess
 import sys
 import os
@@ -29,6 +30,7 @@ try:
 	authData={}
 	authData["sort"]=""
 	authData["steamparental"]=""
+	authData["hasPlayTime"]="false"
 	execfile("./settings.txt",authData)
 	myProfileURL = "http://steamcommunity.com/profiles/"+authData["steamLogin"][:17]
 except:
@@ -116,7 +118,7 @@ def getAppName(appID):
 	try:
 		api = requests.get("http://store.steampowered.com/api/appdetails/?appids=" + str(appID) + "&filters=basic")
 		api_data = json.loads(api.text)
-		return Fore.CYAN + str(unicode(api_data[str(appID)]["data"]["name"])) + Fore.RESET
+		return Fore.CYAN + api_data[str(appID)]["data"]["name"].encode('ascii', 'ignore') + Fore.RESET
 	except:
 		return Fore.CYAN + "App "+str(appID) + Fore.RESET
 
@@ -124,7 +126,7 @@ def getPlainAppName(appid):
 	try:
 		api = requests.get("http://store.steampowered.com/api/appdetails/?appids=" + str(appID) + "&filters=basic")
 		api_data = json.loads(api.text)
-		return str(unicode(api_data[str(appID)]["data"]["name"]))
+		return api_data[str(appID)]["data"]["name"].encode('ascii', 'ignore')
 	except:
 		return "App "+str(appID)
 
@@ -186,9 +188,13 @@ if authData["sort"]=="mostvalue" or authData["sort"]=="leastvalue":
 	logging.warning("Getting card values, please wait...")
 
 for badge in badgeSet:
+
 	try:
+		badge_text = badge.get_text()
 		dropCount = badge.find_all("span",{"class": "progress_info_bold"})[0].contents[0]
-		if "No card drops" in dropCount:
+		has_playtime = re.search("[0-9\.] hrs on record", badge_text) != None
+        
+		if "No card drops" in dropCount or (has_playtime == False and authData["hasPlayTime"].lower() == "true") :
 			continue
 		else:
 			# Remaining drops

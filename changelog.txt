@@ -1,7 +1,8 @@
 v0.6
 -----
-- the SteamParental setting is now optional and can be omitted
-
+- Added an option to only get cards from previously played games
+- The SteamParental setting is now optional and can be omitted
+- The program will now correct parse app names with unicode characters
 
 v0.5
 -----
