@@ -15,7 +15,7 @@ init()
 
 os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
 
-logging.basicConfig(filename="idlemaster.log",filemode="w",format="[ %(asctime)s ] %(message)s", datefmt="%m/%d/%Y %I:%M:%S %p",level=logging.DEBUG)
+logging.basicConfig(filename="idlemaster.log",filemode="w",format="[ %(asctime)s ] %(message)s", datefmt="%Y-%m-%d %H:%M:%S",level=logging.DEBUG)
 console = logging.StreamHandler()
 console.setLevel(logging.WARNING)
 console.setFormatter(logging.Formatter("[ %(asctime)s ] %(message)s", "%m/%d/%Y %I:%M:%S %p"))
