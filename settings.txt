@@ -1,5 +1,5 @@
-sessionid = ""
-steamLogin = ""
+sessionid = "MjA1NDIzODM4Mw%3D%3D"
+steamLogin = "76561198091930546%7C%7CA58A52A5FB3BD3CE7691267662A8981F1E9729E0"
 steamparental = ""
 sort = ""
 hasPlayTime = "false"
