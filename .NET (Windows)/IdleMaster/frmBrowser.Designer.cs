@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBrowser));
             this.wbAuth = new System.Windows.Forms.WebBrowser();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tmrCheck = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // wbAuth
             // 
+            this.wbAuth.AllowWebBrowserDrop = false;
             this.wbAuth.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wbAuth.Location = new System.Drawing.Point(0, 0);
             this.wbAuth.MinimumSize = new System.Drawing.Size(20, 20);
@@ -66,6 +69,11 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // tmrCheck
+            // 
+            this.tmrCheck.Interval = 1000;
+            this.tmrCheck.Tick += new System.EventHandler(this.tmrCheck_Tick);
+            // 
             // frmBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -90,5 +98,6 @@
         private System.Windows.Forms.WebBrowser wbAuth;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer tmrCheck;
     }
 }

@@ -60,7 +60,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTimer = new System.Windows.Forms.ToolStripStatusLabel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.picReadingPage = new System.Windows.Forms.PictureBox();
             this.btnSkip = new System.Windows.Forms.Button();
             this.picIdleStatus = new System.Windows.Forms.PictureBox();
@@ -323,19 +322,9 @@
             // 
             // notifyIcon1
             // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Idle Master";
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(237, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // picReadingPage
             // 
@@ -419,7 +408,6 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(324, 332);
             this.Controls.Add(this.picReadingPage);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSkip);
             this.Controls.Add(this.lblGameName);
             this.Controls.Add(this.picIdleStatus);
@@ -499,7 +487,6 @@
         private System.Windows.Forms.ToolStripMenuItem resumeIdlingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem skipGameToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox picReadingPage;
         private System.Windows.Forms.ToolStripMenuItem blacklistToolStripMenuItem;
 

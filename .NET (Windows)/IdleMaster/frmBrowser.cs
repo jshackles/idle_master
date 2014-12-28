@@ -13,6 +13,9 @@ namespace IdleMaster
 {
     public partial class frmBrowser : Form
     {
+
+        public int seconds_waiting = 20;
+
         public frmBrowser()
         {
             // This initializes the components on the form
@@ -31,13 +34,16 @@ namespace IdleMaster
             // Find the page header, and remove it.  This gives the login form a more streamlined look.
             dynamic htmldoc = wbAuth.Document.DomDocument as dynamic;
             dynamic global_header = htmldoc.GetElementById("global_header") as dynamic;
-            global_header.parentNode.removeChild(global_header);
+            if (global_header != null)
+            {
+                global_header.parentNode.removeChild(global_header);
+            }
 
             // Get the URL of the page that just finished loading
             string url = wbAuth.Url.AbsoluteUri;
 
             // If the page it just finished loading isn't the login page
-            if (url != "https://steamcommunity.com/login/home/?goto=my/profile")
+            if (url != "https://steamcommunity.com/login/home/?goto=my/profile" && url != "https://store.steampowered.com//login/transfer" && url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
             {
                 // Get a list of cookies from the current page
                 CookieContainer container = GetUriCookieContainer(wbAuth.Url);
@@ -126,14 +132,34 @@ namespace IdleMaster
         // This code executes each time the web browser control is in the process of navigating
         private void wbAuth_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
-            // Check to see if the page it's navigating to isn't the Steam login page
-            if (e.Url.AbsoluteUri != "https://steamcommunity.com/login/home/?goto=my/profile")
+            // Get the url that's being navigated to
+            String url = e.Url.AbsoluteUri;
+
+            // Check to see if the page it's navigating to isn't the Steam login page or related calls
+            if (url != "https://steamcommunity.com/login/home/?goto=my/profile" && url != "https://store.steampowered.com//login/transfer" && url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
             {
+                // start the sanity check timer
+                tmrCheck.Enabled = true;
+
                 // If it's navigating to a page other than the Steam login page, hide the browser control and resize the form
                 wbAuth.Visible = false;
                 this.Height = 81;
                 this.Width = 272;
             }            
+        }
+
+        private void tmrCheck_Tick(object sender, EventArgs e)
+        {
+            // Prevents the application from "saving" for more than 30 seconds and will attempt to save the cookie data after that time
+            if (seconds_waiting > 0)
+            {
+                seconds_waiting = seconds_waiting - 1;
+            }
+            else
+            {
+                tmrCheck.Enabled = false;
+                wbAuth_DocumentCompleted(null, null);
+            }
         }
     }
 }
