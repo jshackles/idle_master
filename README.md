@@ -6,19 +6,21 @@ This program will determine which of your Steam games still have Steam Trading C
 Requirements
 -------
 
-This application requires Steam to be open and for you to be logged in.  This program works with Windows, OSX, and Linux.  Non-Windows version are available in the "Releases" folder.
+This application requires Steam to be open and for you to be logged in.  This program is now being developed exclusively for Microsoft Windows.
+
+Non-Windows versions are available in the "Python (non-Windows)" folder but may be depricated or feature incomplete.
 
 Setup
 -------
 
-Please read the included Setup Instructions.pdf file for detailed setup instructions and frequently asked questions.
+If you are an end user you can download an install Idle Master directly from http://www.steamidlemaster.com or by launching setup.exe included in the root of this repository.  You can also download the source repository above and compile the application using Microsoft Visual Studio.
 
-Authors
+Credits
 -------
 
-jshackles and Stumpokapow
+Idle Master was created jshackles, based on the original code created by Stumpokapow.
 
-steam-idle was writen in C# using Steamworks.NET and CSteamworks by Riley Labrecque
+Idle Master was writen in C# using Steamworks.NET and CSteamworks by Riley Labrecque (https://github.com/rlabrecque/CSteamworks), and using open source icons from Open Iconic (https://github.com/iconic/open-iconic).
 
 License
 -------
