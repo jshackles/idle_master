@@ -147,7 +147,8 @@ namespace IdleMaster
             btnResume.Visible = false;
             btnPause.Visible = true;
             resumeIdlingToolStripMenuItem.Enabled = false;
-            pauseIdlingToolStripMenuItem.Enabled = true;
+            pauseIdlingToolStripMenuItem.Enabled = false;
+            skipGameToolStripMenuItem.Enabled = false;
 
             this.Height = 370;
         }
@@ -479,7 +480,9 @@ namespace IdleMaster
                 lblSteamStatus.Text = "Steam is running";
                 lblSteamStatus.ForeColor = System.Drawing.Color.Green;
                 picSteamStatus.Image = Properties.Resources.imgTrue;
-                tmrCheckSteam.Interval = 5000;
+                tmrCheckSteam.Interval = 5000;                
+                skipGameToolStripMenuItem.Enabled = true;
+                pauseIdlingToolStripMenuItem.Enabled = true;
                 steamReady = true;
             }
             else
@@ -488,6 +491,8 @@ namespace IdleMaster
                 lblSteamStatus.ForeColor = System.Drawing.Color.Black;
                 picSteamStatus.Image = Properties.Resources.imgFalse;
                 tmrCheckSteam.Interval = 500;
+                skipGameToolStripMenuItem.Enabled = false;
+                pauseIdlingToolStripMenuItem.Enabled = false;
                 steamReady = false;
             }
         }
