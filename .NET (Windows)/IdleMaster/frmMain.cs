@@ -588,20 +588,25 @@ namespace IdleMaster
 
         private void btnSkip_Click(object sender, EventArgs e)
         {
+          if (steamReady)
+          {
             badgesLeft.Remove(currentAppID);
             stopIdle();
             if (badgesLeft.Count != 0)
             {
-                startIdle(badgesLeft.First().Key);
+              startIdle(badgesLeft.First().Key);
             }
             else
             {
-                idleComplete();
+              idleComplete();
             }
+          }
         }
 
         private void btnPause_Click(object sender, EventArgs e)
         {
+          if (steamReady)
+          {
             // Stop the steam-idle process
             stopIdle();
 
@@ -616,6 +621,7 @@ namespace IdleMaster
 
             // Focus the resume button
             btnResume.Focus();
+          }
         }
 
         private void btnResume_Click(object sender, EventArgs e)
