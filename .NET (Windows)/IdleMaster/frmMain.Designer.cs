@@ -40,7 +40,7 @@
             this.lblIdle = new System.Windows.Forms.Label();
             this.lblCurrentStatus = new System.Windows.Forms.Label();
             this.lblCurrentRemaining = new System.Windows.Forms.Label();
-            this.lblGameName = new System.Windows.Forms.Label();
+            this.lblGameName = new System.Windows.Forms.LinkLabel();
             this.mnuTop = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -465,7 +465,7 @@
         private System.Windows.Forms.Label lblCurrentStatus;
         private System.Windows.Forms.Label lblCurrentRemaining;
         private System.Windows.Forms.PictureBox picIdleStatus;
-        private System.Windows.Forms.Label lblGameName;
+        private System.Windows.Forms.LinkLabel lblGameName;
         private System.Windows.Forms.MenuStrip mnuTop;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
