@@ -80,9 +80,10 @@
             // lblCookieStatus
             // 
             this.lblCookieStatus.AutoSize = true;
-            this.lblCookieStatus.Location = new System.Drawing.Point(33, 58);
+            this.lblCookieStatus.Location = new System.Drawing.Point(41, 72);
+            this.lblCookieStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCookieStatus.Name = "lblCookieStatus";
-            this.lblCookieStatus.Size = new System.Drawing.Size(186, 13);
+            this.lblCookieStatus.Size = new System.Drawing.Size(245, 17);
             this.lblCookieStatus.TabIndex = 0;
             this.lblCookieStatus.Text = "Idle Master is not connected to Steam";
             // 
@@ -94,9 +95,10 @@
             // lblSteamStatus
             // 
             this.lblSteamStatus.AutoSize = true;
-            this.lblSteamStatus.Location = new System.Drawing.Point(32, 35);
+            this.lblSteamStatus.Location = new System.Drawing.Point(40, 44);
+            this.lblSteamStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSteamStatus.Name = "lblSteamStatus";
-            this.lblSteamStatus.Size = new System.Drawing.Size(103, 13);
+            this.lblSteamStatus.Size = new System.Drawing.Size(138, 17);
             this.lblSteamStatus.TabIndex = 3;
             this.lblSteamStatus.Text = "Steam is not running";
             // 
@@ -108,10 +110,12 @@
             // 
             // lnkResetCookies
             // 
+            this.lnkResetCookies.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkResetCookies.AutoSize = true;
-            this.lnkResetCookies.Location = new System.Drawing.Point(201, 58);
+            this.lnkResetCookies.Location = new System.Drawing.Point(258, 72);
+            this.lnkResetCookies.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lnkResetCookies.Name = "lnkResetCookies";
-            this.lnkResetCookies.Size = new System.Drawing.Size(52, 13);
+            this.lnkResetCookies.Size = new System.Drawing.Size(70, 17);
             this.lnkResetCookies.TabIndex = 4;
             this.lnkResetCookies.TabStop = true;
             this.lnkResetCookies.Text = "(Sign out)";
@@ -119,10 +123,12 @@
             // 
             // lnkSignIn
             // 
+            this.lnkSignIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkSignIn.AutoSize = true;
-            this.lnkSignIn.Location = new System.Drawing.Point(216, 58);
+            this.lnkSignIn.Location = new System.Drawing.Point(272, 72);
+            this.lnkSignIn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lnkSignIn.Name = "lnkSignIn";
-            this.lnkSignIn.Size = new System.Drawing.Size(45, 13);
+            this.lnkSignIn.Size = new System.Drawing.Size(61, 17);
             this.lnkSignIn.TabIndex = 5;
             this.lnkSignIn.TabStop = true;
             this.lnkSignIn.Text = "(Sign in)";
@@ -131,9 +137,10 @@
             // lblDrops
             // 
             this.lblDrops.AutoSize = true;
-            this.lblDrops.Location = new System.Drawing.Point(33, 84);
+            this.lblDrops.Location = new System.Drawing.Point(41, 105);
+            this.lblDrops.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDrops.Name = "lblDrops";
-            this.lblDrops.Size = new System.Drawing.Size(105, 13);
+            this.lblDrops.Size = new System.Drawing.Size(142, 17);
             this.lblDrops.TabIndex = 9;
             this.lblDrops.Text = "card drops remaining";
             this.lblDrops.Visible = false;
@@ -141,9 +148,10 @@
             // lblIdle
             // 
             this.lblIdle.AutoSize = true;
-            this.lblIdle.Location = new System.Drawing.Point(33, 99);
+            this.lblIdle.Location = new System.Drawing.Point(41, 124);
+            this.lblIdle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdle.Name = "lblIdle";
-            this.lblIdle.Size = new System.Drawing.Size(86, 13);
+            this.lblIdle.Size = new System.Drawing.Size(115, 17);
             this.lblIdle.TabIndex = 10;
             this.lblIdle.Text = "games left to idle";
             this.lblIdle.Visible = false;
@@ -151,28 +159,33 @@
             // lblCurrentStatus
             // 
             this.lblCurrentStatus.AutoSize = true;
-            this.lblCurrentStatus.Location = new System.Drawing.Point(16, 133);
+            this.lblCurrentStatus.Location = new System.Drawing.Point(20, 166);
+            this.lblCurrentStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCurrentStatus.Name = "lblCurrentStatus";
-            this.lblCurrentStatus.Size = new System.Drawing.Size(88, 13);
+            this.lblCurrentStatus.Size = new System.Drawing.Size(120, 17);
             this.lblCurrentStatus.TabIndex = 11;
             this.lblCurrentStatus.Text = "Currently in-game";
             // 
             // lblCurrentRemaining
             // 
-            this.lblCurrentRemaining.Location = new System.Drawing.Point(165, 291);
+            this.lblCurrentRemaining.Location = new System.Drawing.Point(206, 360);
+            this.lblCurrentRemaining.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCurrentRemaining.Name = "lblCurrentRemaining";
-            this.lblCurrentRemaining.Size = new System.Drawing.Size(147, 13);
+            this.lblCurrentRemaining.Size = new System.Drawing.Size(184, 23);
             this.lblCurrentRemaining.TabIndex = 12;
             this.lblCurrentRemaining.Text = "3 card drops remaining";
             this.lblCurrentRemaining.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblGameName
             // 
+            this.lblGameName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblGameName.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblGameName.Location = new System.Drawing.Point(100, 133);
+            this.lblGameName.Location = new System.Drawing.Point(128, 166);
+            this.lblGameName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGameName.Name = "lblGameName";
-            this.lblGameName.Size = new System.Drawing.Size(170, 13);
+            this.lblGameName.Size = new System.Drawing.Size(212, 20);
             this.lblGameName.TabIndex = 16;
+            this.lblGameName.TabStop = true;
             this.lblGameName.Text = "Game Name";
             // 
             // mnuTop
@@ -183,8 +196,9 @@
             this.helpToolStripMenuItem});
             this.mnuTop.Location = new System.Drawing.Point(0, 0);
             this.mnuTop.Name = "mnuTop";
+            this.mnuTop.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
             this.mnuTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.mnuTop.Size = new System.Drawing.Size(324, 24);
+            this.mnuTop.Size = new System.Drawing.Size(405, 28);
             this.mnuTop.TabIndex = 19;
             this.mnuTop.Text = "menuStrip1";
             // 
@@ -196,14 +210,14 @@
             this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgSettings;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
             this.settingsToolStripMenuItem.Text = "&Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -211,20 +225,20 @@
             // 
             this.blacklistToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgBlacklist;
             this.blacklistToolStripMenuItem.Name = "blacklistToolStripMenuItem";
-            this.blacklistToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.blacklistToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
             this.blacklistToolStripMenuItem.Text = "&Blacklist";
             this.blacklistToolStripMenuItem.Click += new System.EventHandler(this.blacklistToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(114, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(129, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgExit;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -235,14 +249,14 @@
             this.resumeIdlingToolStripMenuItem,
             this.skipGameToolStripMenuItem});
             this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
-            this.gameToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.gameToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.gameToolStripMenuItem.Text = "&Game";
             // 
             // pauseIdlingToolStripMenuItem
             // 
             this.pauseIdlingToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pauseIdlingToolStripMenuItem.Image")));
             this.pauseIdlingToolStripMenuItem.Name = "pauseIdlingToolStripMenuItem";
-            this.pauseIdlingToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.pauseIdlingToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
             this.pauseIdlingToolStripMenuItem.Text = "&Pause Idling";
             this.pauseIdlingToolStripMenuItem.Click += new System.EventHandler(this.pauseIdlingToolStripMenuItem_Click);
             // 
@@ -251,7 +265,7 @@
             this.resumeIdlingToolStripMenuItem.Enabled = false;
             this.resumeIdlingToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("resumeIdlingToolStripMenuItem.Image")));
             this.resumeIdlingToolStripMenuItem.Name = "resumeIdlingToolStripMenuItem";
-            this.resumeIdlingToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.resumeIdlingToolStripMenuItem.Size = new System.Drawing.Size(172, 24);
             this.resumeIdlingToolStripMenuItem.Text = "Resume Idling";
             this.resumeIdlingToolStripMenuItem.Click += new System.EventHandler(this.resumeIdlingToolStripMenuItem_Click);
             // 
@@ -259,7 +273,7 @@
             // 
             this.skipGameToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("skipGameToolStripMenuItem.Image")));
             this.skipGameToolStripMenuItem.Name = "skipGameToolStripMenuItem";
-            this.skipGameToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.skipGameToolStripMenuItem.Size = new System.Drawing.Size(172, 24);
             this.skipGameToolStripMenuItem.Text = "&Skip Game";
             this.skipGameToolStripMenuItem.Click += new System.EventHandler(this.skipGameToolStripMenuItem_Click);
             // 
@@ -268,14 +282,14 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgInfo;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -295,9 +309,10 @@
             this.pbIdle,
             this.toolStripStatusLabel1,
             this.lblTimer});
-            this.ssFooter.Location = new System.Drawing.Point(0, 310);
+            this.ssFooter.Location = new System.Drawing.Point(0, 389);
             this.ssFooter.Name = "ssFooter";
-            this.ssFooter.Size = new System.Drawing.Size(324, 22);
+            this.ssFooter.Padding = new System.Windows.Forms.Padding(1, 0, 18, 0);
+            this.ssFooter.Size = new System.Drawing.Size(405, 26);
             this.ssFooter.SizingGrip = false;
             this.ssFooter.TabIndex = 20;
             this.ssFooter.Text = "statusStrip1";
@@ -306,18 +321,18 @@
             // pbIdle
             // 
             this.pbIdle.Name = "pbIdle";
-            this.pbIdle.Size = new System.Drawing.Size(200, 16);
+            this.pbIdle.Size = new System.Drawing.Size(250, 22);
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(65, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(81, 23);
             this.toolStripStatusLabel1.Text = "Next check";
             // 
             // lblTimer
             // 
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(34, 17);
+            this.lblTimer.Size = new System.Drawing.Size(44, 23);
             this.lblTimer.Text = "15:00";
             // 
             // notifyIcon1
@@ -329,9 +344,10 @@
             // picReadingPage
             // 
             this.picReadingPage.Image = global::IdleMaster.Properties.Resources.imgSpin;
-            this.picReadingPage.Location = new System.Drawing.Point(16, 82);
+            this.picReadingPage.Location = new System.Drawing.Point(20, 102);
+            this.picReadingPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picReadingPage.Name = "picReadingPage";
-            this.picReadingPage.Size = new System.Drawing.Size(16, 16);
+            this.picReadingPage.Size = new System.Drawing.Size(20, 20);
             this.picReadingPage.TabIndex = 26;
             this.picReadingPage.TabStop = false;
             this.picReadingPage.Visible = false;
@@ -339,9 +355,10 @@
             // btnSkip
             // 
             this.btnSkip.Image = global::IdleMaster.Properties.Resources.imgSkipSmall;
-            this.btnSkip.Location = new System.Drawing.Point(292, 133);
+            this.btnSkip.Location = new System.Drawing.Point(365, 166);
+            this.btnSkip.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSkip.Name = "btnSkip";
-            this.btnSkip.Size = new System.Drawing.Size(16, 16);
+            this.btnSkip.Size = new System.Drawing.Size(20, 20);
             this.btnSkip.TabIndex = 23;
             this.btnSkip.UseVisualStyleBackColor = true;
             this.btnSkip.Click += new System.EventHandler(this.btnSkip_Click);
@@ -349,43 +366,49 @@
             // picIdleStatus
             // 
             this.picIdleStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picIdleStatus.Location = new System.Drawing.Point(306, 313);
+            this.picIdleStatus.Location = new System.Drawing.Point(382, 393);
+            this.picIdleStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picIdleStatus.Name = "picIdleStatus";
-            this.picIdleStatus.Size = new System.Drawing.Size(16, 16);
+            this.picIdleStatus.Size = new System.Drawing.Size(20, 20);
             this.picIdleStatus.TabIndex = 15;
             this.picIdleStatus.TabStop = false;
             // 
             // picCookieStatus
             // 
-            this.picCookieStatus.Location = new System.Drawing.Point(16, 56);
+            this.picCookieStatus.Location = new System.Drawing.Point(20, 70);
+            this.picCookieStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picCookieStatus.Name = "picCookieStatus";
-            this.picCookieStatus.Size = new System.Drawing.Size(16, 16);
+            this.picCookieStatus.Size = new System.Drawing.Size(20, 20);
             this.picCookieStatus.TabIndex = 8;
             this.picCookieStatus.TabStop = false;
             // 
             // picSteamStatus
             // 
-            this.picSteamStatus.Location = new System.Drawing.Point(16, 34);
+            this.picSteamStatus.Location = new System.Drawing.Point(20, 42);
+            this.picSteamStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picSteamStatus.Name = "picSteamStatus";
-            this.picSteamStatus.Size = new System.Drawing.Size(16, 16);
+            this.picSteamStatus.Size = new System.Drawing.Size(20, 20);
             this.picSteamStatus.TabIndex = 7;
             this.picSteamStatus.TabStop = false;
             // 
             // picApp
             // 
             this.picApp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picApp.Location = new System.Drawing.Point(16, 152);
+            this.picApp.Location = new System.Drawing.Point(20, 190);
+            this.picApp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picApp.Name = "picApp";
-            this.picApp.Size = new System.Drawing.Size(292, 136);
+            this.picApp.Size = new System.Drawing.Size(364, 170);
+            this.picApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picApp.TabIndex = 6;
             this.picApp.TabStop = false;
             // 
             // btnPause
             // 
             this.btnPause.Image = global::IdleMaster.Properties.Resources.imgPauseSmall;
-            this.btnPause.Location = new System.Drawing.Point(276, 133);
+            this.btnPause.Location = new System.Drawing.Point(345, 166);
+            this.btnPause.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(16, 16);
+            this.btnPause.Size = new System.Drawing.Size(20, 20);
             this.btnPause.TabIndex = 22;
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
@@ -393,9 +416,10 @@
             // btnResume
             // 
             this.btnResume.Image = global::IdleMaster.Properties.Resources.imgPlaySmall;
-            this.btnResume.Location = new System.Drawing.Point(276, 133);
+            this.btnResume.Location = new System.Drawing.Point(345, 166);
+            this.btnResume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnResume.Name = "btnResume";
-            this.btnResume.Size = new System.Drawing.Size(16, 16);
+            this.btnResume.Size = new System.Drawing.Size(20, 20);
             this.btnResume.TabIndex = 24;
             this.btnResume.UseVisualStyleBackColor = true;
             this.btnResume.Visible = false;
@@ -403,13 +427,12 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(324, 332);
+            this.ClientSize = new System.Drawing.Size(405, 417);
             this.Controls.Add(this.picReadingPage);
             this.Controls.Add(this.btnSkip);
-            this.Controls.Add(this.lblGameName);
             this.Controls.Add(this.picIdleStatus);
             this.Controls.Add(this.lblCurrentRemaining);
             this.Controls.Add(this.lblCurrentStatus);
@@ -426,9 +449,11 @@
             this.Controls.Add(this.ssFooter);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnResume);
+            this.Controls.Add(this.lblGameName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuTop;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Idle Master";

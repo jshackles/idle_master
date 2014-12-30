@@ -2,7 +2,7 @@
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <PublishUrlHistory>ftp://steamidlemaster.com/idlemaster/install/|ftp://steamidlemaster.com/install/|publish\</PublishUrlHistory>
-    <InstallUrlHistory>http://steamidlemaster.com/install/</InstallUrlHistory>
+    <InstallUrlHistory>http://www.steamidlemaster.com/install/|http://steamidlemaster.com/install/</InstallUrlHistory>
     <SupportUrlHistory />
     <UpdateUrlHistory />
     <BootstrapperUrlHistory />

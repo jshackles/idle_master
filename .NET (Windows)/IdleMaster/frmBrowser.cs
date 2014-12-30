@@ -25,7 +25,7 @@ namespace IdleMaster
         private void frmBrowser_Load(object sender, EventArgs e)
         {
             // When the form is loaded, navigate to the Steam login page using the web browser control
-            wbAuth.Navigate("https://steamcommunity.com/login/home/?goto=my/profile");            
+            wbAuth.Navigate("https://steamcommunity.com/login/home/?goto=my/profile");
         }
 
         // This code block executes each time a new document is loaded into the web browser control
@@ -143,8 +143,13 @@ namespace IdleMaster
 
                 // If it's navigating to a page other than the Steam login page, hide the browser control and resize the form
                 wbAuth.Visible = false;
-                this.Height = 81;
-                this.Width = 272;
+
+                // Scale the form based on the user's DPI settings
+                Graphics graphics = this.CreateGraphics();
+                double scaleY = graphics.DpiY * 0.84375;
+                double scaleX = graphics.DpiX * 2.84;
+                this.Height = Convert.ToInt32(scaleY);
+                this.Width = Convert.ToInt32(scaleX);
             }            
         }
 

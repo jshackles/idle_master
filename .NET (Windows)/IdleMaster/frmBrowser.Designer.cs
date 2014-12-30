@@ -46,7 +46,7 @@
             this.wbAuth.Name = "wbAuth";
             this.wbAuth.ScriptErrorsSuppressed = true;
             this.wbAuth.ScrollBarsEnabled = false;
-            this.wbAuth.Size = new System.Drawing.Size(915, 782);
+            this.wbAuth.Size = new System.Drawing.Size(976, 798);
             this.wbAuth.TabIndex = 0;
             this.wbAuth.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.wbAuth_DocumentCompleted);
             this.wbAuth.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.wbAuth_Navigating);
@@ -78,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 782);
+            this.ClientSize = new System.Drawing.Size(976, 798);
             this.Controls.Add(this.wbAuth);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);

@@ -115,6 +115,7 @@ namespace IdleMaster
 
             // Update game image
             picApp.Load("http://cdn.akamai.steamstatic.com/steam/apps/" + appid + "/header_292x136.jpg");
+            picApp.Visible = true;
 
             // Update label controls
             lblCurrentRemaining.Text = badgesLeft[appid] + " card drops remaining";
@@ -151,7 +152,9 @@ namespace IdleMaster
             pauseIdlingToolStripMenuItem.Enabled = false;
             skipGameToolStripMenuItem.Enabled = false;
 
-            this.Height = 370;
+            Graphics graphics = this.CreateGraphics();
+            double scale = graphics.DpiY * 3.85;
+            this.Height = Convert.ToInt32(scale);
         }
 
         private void lblGameName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
@@ -164,6 +167,7 @@ namespace IdleMaster
             {
                 lblGameName.Visible = false;
                 picApp.Image = null;
+                picApp.Visible = false;
                 lblCurrentStatus.Text = "Not in game";
                 picIdleStatus.Image = null;
 
@@ -174,7 +178,9 @@ namespace IdleMaster
                 ssFooter.Visible = false;
 
                 // Resize the form
-                this.Height = 188;
+                Graphics graphics = this.CreateGraphics();
+                double scale = graphics.DpiY * 1.9583;
+                this.Height = Convert.ToInt32(scale);
 
                 // Kill the idling process
                 Idle.Kill();
@@ -442,7 +448,20 @@ namespace IdleMaster
             }
 
             // Set the form height
-            this.Height = 156;
+            Graphics graphics = this.CreateGraphics();
+            double scale = graphics.DpiY * 1.625;
+            this.Height = Convert.ToInt32(scale);
+
+            // Set the location of certain elements so that they scale correctly for different DPI settings
+            double lblGameName_scale = graphics.DpiX * 1.14;
+            double lnkSignIn_scale = graphics.DpiX * 2.35;
+            double lnkSignOut_scale = graphics.DpiX * 2.15;
+            Point point = new Point(Convert.ToInt32(lblGameName_scale), Convert.ToInt32(lblGameName.Location.Y));
+            lblGameName.Location = point;
+            point = new Point(Convert.ToInt32(lnkSignIn_scale), Convert.ToInt32(lnkSignIn.Location.Y));
+            lnkSignIn.Location = point;
+            point = new Point(Convert.ToInt32(lnkSignOut_scale), Convert.ToInt32(lnkResetCookies.Location.Y));
+            lnkResetCookies.Location = point;
         }
 
         private void frmMain_FormClose(object sender, FormClosedEventArgs e)
@@ -518,7 +537,9 @@ namespace IdleMaster
             badgesLeft.Clear();
 
             // Resize the form
-            this.Height = 156;
+            Graphics graphics = this.CreateGraphics();
+            double scale = graphics.DpiY * 1.625;
+            this.Height = Convert.ToInt32(scale);
 
             // Set timer intervals
             tmrCheckSteam.Interval = 500;
