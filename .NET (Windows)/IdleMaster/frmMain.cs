@@ -111,6 +111,7 @@ namespace IdleMaster
             // Update game name
             lblGameName.Visible = true;
             lblGameName.Text = GetAppName(appid);
+            lblGameName.LinkClicked += lblGameName_LinkClicked;
 
             // Update game image
             picApp.Load("http://cdn.akamai.steamstatic.com/steam/apps/" + appid + "/header_292x136.jpg");
@@ -150,6 +151,10 @@ namespace IdleMaster
             pauseIdlingToolStripMenuItem.Enabled = true;
 
             this.Height = 370;
+        }
+
+        private void lblGameName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            Process.Start("http://store.steampowered.com/app/" + currentAppID);
         }
 
         public void stopIdle()
