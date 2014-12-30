@@ -153,7 +153,7 @@ namespace IdleMaster
             skipGameToolStripMenuItem.Enabled = false;
 
             Graphics graphics = this.CreateGraphics();
-            double scale = graphics.DpiY * 3.85;
+            double scale = graphics.DpiY * 3.86;
             this.Height = Convert.ToInt32(scale);
         }
 
@@ -201,22 +201,31 @@ namespace IdleMaster
         public async Task<string> GetHttpAsync(String url)
         {
             String content = "";
-            
-            CookieContainer cookies = generateCookies();
-            HttpWebRequest r = (HttpWebRequest)WebRequest.Create(url);
-            r.Method = "GET";
-            r.CookieContainer = cookies;            
-            HttpWebResponse res = (HttpWebResponse)await r.GetResponseAsync();
-            if (res != null)
+            try
             {
-                if (res.StatusCode == HttpStatusCode.OK)
+                CookieContainer cookies = generateCookies();
+                HttpWebRequest r = (HttpWebRequest)WebRequest.Create(url);
+                r.Method = "GET";
+                r.CookieContainer = cookies;            
+                HttpWebResponse res = (HttpWebResponse)await r.GetResponseAsync();
+                if (res != null)
                 {
-                    Stream stream = res.GetResponseStream();
-                    using (StreamReader reader = new StreamReader(stream))
+                    if (res.StatusCode == HttpStatusCode.OK)
                     {
-                        content = reader.ReadToEnd();                        
+                        Stream stream = res.GetResponseStream();
+                        using (StreamReader reader = new StreamReader(stream))
+                        {
+                            content = reader.ReadToEnd();
+                        }
                     }
                 }
+                picIdleStatus.Image = Properties.Resources.imgSpin;
+            }
+            catch (Exception)
+            {
+                // Try again in 60 seconds
+                timeLeft = 60;
+                picIdleStatus.Image = Properties.Resources.imgFalse;
             }
             return content;
         }
