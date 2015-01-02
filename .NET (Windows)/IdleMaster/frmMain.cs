@@ -27,6 +27,7 @@ namespace IdleMaster
         public int totalCardsRemaining;
         public int totalGamesRemaining;
         public String currentAppID;
+        public Boolean idlingComplete = false;
         
         public CookieContainer generateCookies()
         {
@@ -157,10 +158,6 @@ namespace IdleMaster
             this.Height = Convert.ToInt32(scale);
         }
 
-        private void lblGameName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            Process.Start("http://store.steampowered.com/app/" + currentAppID);
-        }
-
         public void stopIdle()
         {
             try 
@@ -196,6 +193,9 @@ namespace IdleMaster
             // Deactivate the timer control and inform the user that the program is finished
             tmrCardDropCheck.Enabled = false;
             lblCurrentStatus.Text = "Idling complete";
+
+            // Set idlingComplete to prevent the application from continuing to check for card drops
+            idlingComplete = true;
         }
 
         public async Task<string> GetHttpAsync(String url)
@@ -530,6 +530,11 @@ namespace IdleMaster
             }
         }
 
+        private void lblGameName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("http://store.steampowered.com/app/" + currentAppID);
+        }
+
         private void lnkResetCookies_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Clear the settings
@@ -622,7 +627,10 @@ namespace IdleMaster
             {
                 tmrCardDropCheck.Enabled = false;
                 await checkCardDrops(currentAppID);
-                tmrCardDropCheck.Enabled = true;
+                if (idlingComplete == false)
+                {
+                    tmrCardDropCheck.Enabled = true;
+                }
             }
         }
 
