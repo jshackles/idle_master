@@ -45,6 +45,17 @@ namespace IdleMaster
             // If the page it just finished loading isn't the login page
             if (url != "https://steamcommunity.com/login/home/?goto=my/profile" && url != "https://store.steampowered.com//login/transfer" && url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
             {
+
+                dynamic parental_notice = htmldoc.GetElementById("parental_notice") as dynamic;
+                if (parental_notice != null)
+                {
+                    // Steam family options enabled
+                    wbAuth.Show();
+                    this.Width = 1000;
+                    this.Height = 350;
+                    return;
+                }
+
                 // Get a list of cookies from the current page
                 CookieContainer container = GetUriCookieContainer(wbAuth.Url);
                 var cookies = container.GetCookies(wbAuth.Url);

@@ -245,6 +245,7 @@ namespace IdleMaster
                 // Invalid cookie data
                 cookieReady = false;
                 lnkResetCookies_LinkClicked(null, null);
+                picReadingPage.Visible = false;
                 return;
             }
 
