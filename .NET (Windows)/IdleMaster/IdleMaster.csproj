@@ -75,7 +75,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Steamworks.NET">
-      <HintPath>..\..\..\Desktop\Steamworks.NET-Standalone_5.0.0\Windows-x86\Steamworks.NET.dll</HintPath>
+      <HintPath>..\packages\Steamworks.NET\Steamworks.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -178,6 +178,7 @@
             this.lblGameName.TabIndex = 16;
             this.lblGameName.TabStop = true;
             this.lblGameName.Text = "Game Name";
+            this.lblGameName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblGameName_LinkClicked);
             // 
             // mnuTop
             // 

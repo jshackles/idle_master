@@ -112,7 +112,6 @@ namespace IdleMaster
             // Update game name
             lblGameName.Visible = true;
             lblGameName.Text = GetAppName(appid);
-            lblGameName.LinkClicked += lblGameName_LinkClicked;
 
             // Update game image
             picApp.Load("http://cdn.akamai.steamstatic.com/steam/apps/" + appid + "/header_292x136.jpg");
