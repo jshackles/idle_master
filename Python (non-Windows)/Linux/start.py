@@ -1,3 +1,4 @@
+#!/usr/bin/python2
 import requests
 import cookielib
 import bs4
