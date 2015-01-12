@@ -1,4 +1,0 @@
-sessionid = ""
-steamLogin = ""
-steamparental = ""
-sort = ""

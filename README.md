@@ -8,7 +8,7 @@ Requirements
 
 This application requires Steam to be open and for you to be logged in.  This program is now being developed exclusively for Microsoft Windows.
 
-Non-Windows versions are available in the "Python (non-Windows)" folder but may be depricated or feature incomplete.
+Non-Windows versions are available in the [Python repository](https://github.com/jshackles/idle_master_py) but may be depricated or feature incomplete.
 
 Setup
 -------
