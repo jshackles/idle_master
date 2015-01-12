@@ -27,7 +27,6 @@ namespace IdleMaster
         public int totalCardsRemaining;
         public int totalGamesRemaining;
         public String currentAppID;
-        public Boolean idlingComplete = false;
         
         public CookieContainer generateCookies()
         {
@@ -192,9 +191,6 @@ namespace IdleMaster
             // Deactivate the timer control and inform the user that the program is finished
             tmrCardDropCheck.Enabled = false;
             lblCurrentStatus.Text = "Idling complete";
-
-            // Set idlingComplete to prevent the application from continuing to check for card drops
-            idlingComplete = true;
         }
 
         public async Task<string> GetHttpAsync(String url)
@@ -627,7 +623,7 @@ namespace IdleMaster
             {
                 tmrCardDropCheck.Enabled = false;
                 await checkCardDrops(currentAppID);
-                if (idlingComplete == false)
+                if (badgesLeft.Count != 0)
                 {
                     tmrCardDropCheck.Enabled = true;
                 }
