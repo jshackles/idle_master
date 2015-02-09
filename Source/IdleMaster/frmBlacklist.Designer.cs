@@ -34,8 +34,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtAppid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRemove = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,16 +86,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "App ID:";
             // 
-            // btnRemove
-            // 
-            this.btnRemove.Image = global::IdleMaster.Properties.Resources.imgFalse;
-            this.btnRemove.Location = new System.Drawing.Point(289, 13);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(28, 28);
-            this.btnRemove.TabIndex = 2;
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -106,6 +96,16 @@
             this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Image = global::IdleMaster.Properties.Resources.imgTrash;
+            this.btnRemove.Location = new System.Drawing.Point(289, 13);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(28, 28);
+            this.btnRemove.TabIndex = 2;
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // frmBlacklist
             // 
