@@ -161,12 +161,16 @@
             // 
             // lblCurrentRemaining
             // 
-            this.lblCurrentRemaining.Location = new System.Drawing.Point(154, 292);
+            this.lblCurrentRemaining.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblCurrentRemaining.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentRemaining.ForeColor = System.Drawing.Color.Blue;
+            this.lblCurrentRemaining.Location = new System.Drawing.Point(170, 292);
             this.lblCurrentRemaining.Name = "lblCurrentRemaining";
-            this.lblCurrentRemaining.Size = new System.Drawing.Size(138, 19);
+            this.lblCurrentRemaining.Size = new System.Drawing.Size(124, 19);
             this.lblCurrentRemaining.TabIndex = 12;
             this.lblCurrentRemaining.Text = "3 card drops remaining";
             this.lblCurrentRemaining.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCurrentRemaining.Click += new System.EventHandler(this.lblCurrentRemaining_Click);
             // 
             // lblGameName
             // 

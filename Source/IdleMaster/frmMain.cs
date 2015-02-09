@@ -743,9 +743,12 @@ namespace IdleMaster
             this.WindowState = FormWindowState.Normal;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void lblCurrentRemaining_Click(object sender, EventArgs e)
         {
-            timeLeft = 3;
+            if (timeLeft > 2)
+            {
+                timeLeft = 2;
+            }            
         }
 
         private void blacklistToolStripMenuItem_Click(object sender, EventArgs e)
