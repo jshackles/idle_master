@@ -48,6 +48,7 @@ namespace IdleMaster
             string name = Regex.Match(api_raw, "\"game\",\"name\":\"(.+?)\"").Groups[1].Value;
             name = name.Replace("\\u00ae", "®");
             name = name.Replace("\\u2122", "™");
+            name = name.Replace("\\u2019", "'");
             reader.Close();
             response.Close();
             return name;
