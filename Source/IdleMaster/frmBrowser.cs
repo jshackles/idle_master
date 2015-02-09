@@ -16,6 +16,12 @@ namespace IdleMaster
 
         public int seconds_waiting = 20;
 
+        [DllImport("wininet.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern bool InternetSetOption(int hInternet,int dwOption,string lpBuffer,int dwBufferLength);
+
+        [DllImport("wininet.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern bool InternetSetCookie(string lpszUrlName, string lpszCookieName, string lpszCookieData);
+
         public frmBrowser()
         {
             // This initializes the components on the form
@@ -24,6 +30,14 @@ namespace IdleMaster
 
         private void frmBrowser_Load(object sender, EventArgs e)
         {
+            // Remove any existing session state data
+            InternetSetOption(0, 42, null, 0);
+
+            // Delete Steam cookie data from the browser control
+            InternetSetCookie("http://steamcommunity.com", "sessionid", ";expires=Mon, 01 Jan 0001 00:00:00 GMT");
+            InternetSetCookie("http://steamcommunity.com", "steamLogin", ";expires=Mon, 01 Jan 0001 00:00:00 GMT");
+            InternetSetCookie("http://steamcommunity.com", "steamRememberLogin", ";expires=Mon, 01 Jan 0001 00:00:00 GMT");
+            
             // When the form is loaded, navigate to the Steam login page using the web browser control
             wbAuth.Navigate("https://steamcommunity.com/login/home/?goto=my/profile");
         }
