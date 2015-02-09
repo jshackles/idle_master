@@ -764,5 +764,19 @@ namespace IdleMaster
                 }
             }
         }
+
+        private void blacklistCurrentGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Collections.Specialized.StringCollection blacklist = new System.Collections.Specialized.StringCollection();
+            foreach (String appid in Properties.Settings.Default.blacklist)
+            {
+                blacklist.Add(appid);
+            }
+            blacklist.Add(currentAppID);
+            Properties.Settings.Default.blacklist = blacklist;
+            Properties.Settings.Default.Save();
+
+            btnSkip.PerformClick();
+        }
     }
 }
