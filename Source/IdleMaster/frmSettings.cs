@@ -36,6 +36,10 @@ namespace IdleMaster
             {
                 Properties.Settings.Default.sort = "mostcards";
             }
+            if (radIdleMostValue.Checked == true)
+            {
+                Properties.Settings.Default.sort = "mostvalue";
+            }
             
             if (chkMinToTray.Checked == true)
             {
@@ -59,6 +63,9 @@ namespace IdleMaster
                     break;
                 case "mostcards":
                     radIdleMostDrops.Checked = true;
+                    break;
+                case "mostvalue":
+                    radIdleMostValue.Checked = true;
                     break;
                 default:
                     break;

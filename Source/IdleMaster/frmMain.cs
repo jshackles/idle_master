@@ -14,6 +14,7 @@ using System.Windows.Forms;
 
 using HtmlAgilityPack;
 using Steamworks;
+using Newtonsoft.Json;
 
 namespace IdleMaster
 {
@@ -71,6 +72,7 @@ namespace IdleMaster
 
         public void SortBadges(String method)
         {
+            lblDrops.Text = "Sorting results based on your settings, please wait...";
             Dictionary<string, string> tempBadgesLeft = new Dictionary<string, string>();
             switch (method)
             {
@@ -93,6 +95,44 @@ namespace IdleMaster
                     {
                         tempBadgesLeft.Add(pair.Key, pair.Value);
                     }
+                    break;
+                case "mostvalue":
+                    // Compile the list of appids that need to be idled
+                    string appids = "";
+                    foreach (KeyValuePair<string, string> pair in badgesLeft)
+                    {
+                        appids += pair.Key + ",";
+                    }
+                    appids = appids.Remove(appids.Length-1);
+
+                    // Query the API to retrieve the average card values of each appid
+                    WebRequest request = WebRequest.Create("http://api.enhancedsteam.com/market_data/average_card_prices/im.php?appids=" + appids);
+                    WebResponse response = request.GetResponse();
+                    Stream dataStream = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(dataStream, Encoding.UTF8);
+                    string json = reader.ReadToEnd();
+                    reader.Close();
+                    response.Close();
+
+                    // Parse the response and sort it appropriately
+                    DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(json);
+                    DataTable dataTable = dataSet.Tables["avg_values"];
+                    DataView dataView = dataTable.DefaultView;
+                    dataView.Sort = "avg_price desc";
+                    DataTable sorted = dataView.ToTable();
+
+                    foreach (DataRow row in sorted.Rows)
+                    {
+                        if (row["avg_price"].ToString() != "")
+                        {
+                            string DropsLeft = "";
+                            if (badgesLeft.TryGetValue(row["appid"].ToString(), out DropsLeft))
+                            {
+                                tempBadgesLeft.Add(row["appid"].ToString(), DropsLeft);
+                            }
+                        }
+                    }
+
                     break;
                 default:
                     return;

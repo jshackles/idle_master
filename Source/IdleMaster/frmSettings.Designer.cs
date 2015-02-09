@@ -32,6 +32,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkMinToTray = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radIdleMostValue = new System.Windows.Forms.RadioButton();
             this.radIdleLeastDrops = new System.Windows.Forms.RadioButton();
             this.radIdleMostDrops = new System.Windows.Forms.RadioButton();
             this.radIdleDefault = new System.Windows.Forms.RadioButton();
@@ -63,20 +64,32 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.radIdleMostValue);
             this.groupBox2.Controls.Add(this.radIdleLeastDrops);
             this.groupBox2.Controls.Add(this.radIdleMostDrops);
             this.groupBox2.Controls.Add(this.radIdleDefault);
             this.groupBox2.Location = new System.Drawing.Point(13, 70);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(322, 84);
+            this.groupBox2.Size = new System.Drawing.Size(322, 92);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Idling Order";
             // 
+            // radIdleMostValue
+            // 
+            this.radIdleMostValue.AutoSize = true;
+            this.radIdleMostValue.Location = new System.Drawing.Point(7, 35);
+            this.radIdleMostValue.Name = "radIdleMostValue";
+            this.radIdleMostValue.Size = new System.Drawing.Size(233, 17);
+            this.radIdleMostValue.TabIndex = 3;
+            this.radIdleMostValue.TabStop = true;
+            this.radIdleMostValue.Text = "Prioritize games with the highest card values";
+            this.radIdleMostValue.UseVisualStyleBackColor = true;
+            // 
             // radIdleLeastDrops
             // 
             this.radIdleLeastDrops.AutoSize = true;
-            this.radIdleLeastDrops.Location = new System.Drawing.Point(7, 56);
+            this.radIdleLeastDrops.Location = new System.Drawing.Point(7, 69);
             this.radIdleLeastDrops.Name = "radIdleLeastDrops";
             this.radIdleLeastDrops.Size = new System.Drawing.Size(295, 17);
             this.radIdleLeastDrops.TabIndex = 2;
@@ -86,7 +99,7 @@
             // radIdleMostDrops
             // 
             this.radIdleMostDrops.AutoSize = true;
-            this.radIdleMostDrops.Location = new System.Drawing.Point(7, 38);
+            this.radIdleMostDrops.Location = new System.Drawing.Point(7, 52);
             this.radIdleMostDrops.Name = "radIdleMostDrops";
             this.radIdleMostDrops.Size = new System.Drawing.Size(299, 17);
             this.radIdleMostDrops.TabIndex = 1;
@@ -97,7 +110,7 @@
             // 
             this.radIdleDefault.AutoSize = true;
             this.radIdleDefault.Checked = true;
-            this.radIdleDefault.Location = new System.Drawing.Point(7, 20);
+            this.radIdleDefault.Location = new System.Drawing.Point(7, 18);
             this.radIdleDefault.Name = "radIdleDefault";
             this.radIdleDefault.Size = new System.Drawing.Size(155, 17);
             this.radIdleDefault.TabIndex = 0;
@@ -109,7 +122,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(260, 160);
+            this.btnCancel.Location = new System.Drawing.Point(261, 167);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -120,7 +133,7 @@
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(179, 160);
+            this.btnOK.Location = new System.Drawing.Point(180, 167);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 3;
@@ -134,7 +147,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(347, 195);
+            this.ClientSize = new System.Drawing.Size(348, 202);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupBox2);
@@ -164,5 +177,6 @@
         private System.Windows.Forms.RadioButton radIdleDefault;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.RadioButton radIdleMostValue;
     }
 }
