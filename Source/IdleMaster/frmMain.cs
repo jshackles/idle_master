@@ -50,6 +50,7 @@ namespace IdleMaster
             name = name.Replace("\\u00ae", "®");
             name = name.Replace("\\u2122", "™");
             name = name.Replace("\\u2019", "'");
+            name = name.Replace("\\u00f6", "ö");
             reader.Close();
             response.Close();
             return name;
