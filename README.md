@@ -18,7 +18,7 @@ If you are an end user you can download an install Idle Master directly from htt
 Credits
 -------
 
-Idle Master was created jshackles, based on the original code created by Stumpokapow.
+Idle Master was created by jshackles, based on the original code created by Stumpokapow.
 
 Idle Master was writen in C# using Steamworks.NET and CSteamworks by Riley Labrecque (https://github.com/rlabrecque/CSteamworks), and using open source icons from Open Iconic (https://github.com/iconic/open-iconic).
 
