@@ -51,6 +51,8 @@
             this.pauseIdlingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resumeIdlingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skipGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.blacklistCurrentGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrReadyToGo = new System.Windows.Forms.Timer(this.components);
@@ -68,8 +70,7 @@
             this.picApp = new System.Windows.Forms.PictureBox();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnResume = new System.Windows.Forms.Button();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.blacklistCurrentGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmrStartNext = new System.Windows.Forms.Timer(this.components);
             this.mnuTop.SuspendLayout();
             this.ssFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReadingPage)).BeginInit();
@@ -264,7 +265,7 @@
             this.resumeIdlingToolStripMenuItem.Enabled = false;
             this.resumeIdlingToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("resumeIdlingToolStripMenuItem.Image")));
             this.resumeIdlingToolStripMenuItem.Name = "resumeIdlingToolStripMenuItem";
-            this.resumeIdlingToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.resumeIdlingToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.resumeIdlingToolStripMenuItem.Text = "Resume Idling";
             this.resumeIdlingToolStripMenuItem.Click += new System.EventHandler(this.resumeIdlingToolStripMenuItem_Click);
             // 
@@ -275,6 +276,19 @@
             this.skipGameToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.skipGameToolStripMenuItem.Text = "&Skip Current Game";
             this.skipGameToolStripMenuItem.Click += new System.EventHandler(this.skipGameToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(191, 6);
+            // 
+            // blacklistCurrentGameToolStripMenuItem
+            // 
+            this.blacklistCurrentGameToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgBlacklist;
+            this.blacklistCurrentGameToolStripMenuItem.Name = "blacklistCurrentGameToolStripMenuItem";
+            this.blacklistCurrentGameToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.blacklistCurrentGameToolStripMenuItem.Text = "&Blacklist Current Game";
+            this.blacklistCurrentGameToolStripMenuItem.Click += new System.EventHandler(this.blacklistCurrentGameToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -415,18 +429,9 @@
             this.btnResume.Visible = false;
             this.btnResume.Click += new System.EventHandler(this.btnResume_Click);
             // 
-            // toolStripMenuItem2
+            // tmrStartNext
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(191, 6);
-            // 
-            // blacklistCurrentGameToolStripMenuItem
-            // 
-            this.blacklistCurrentGameToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgBlacklist;
-            this.blacklistCurrentGameToolStripMenuItem.Name = "blacklistCurrentGameToolStripMenuItem";
-            this.blacklistCurrentGameToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.blacklistCurrentGameToolStripMenuItem.Text = "&Blacklist Current Game";
-            this.blacklistCurrentGameToolStripMenuItem.Click += new System.EventHandler(this.blacklistCurrentGameToolStripMenuItem_Click);
+            this.tmrStartNext.Tick += new System.EventHandler(this.tmrStartNext_Tick);
             // 
             // frmMain
             // 
@@ -518,6 +523,7 @@
         private System.Windows.Forms.ToolStripMenuItem blacklistToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem blacklistCurrentGameToolStripMenuItem;
+        private System.Windows.Forms.Timer tmrStartNext;
 
     }
 }

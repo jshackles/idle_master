@@ -451,7 +451,13 @@ namespace IdleMaster
 
                     if (badgesLeft.Count != 0)
                     {
-                        startIdle(badgesLeft.First().Key);
+                        // Make a short but random amount of time pass
+                        Random rand = new Random();
+                        int wait = rand.Next(3, 9);
+                        wait = wait * 1000;
+
+                        tmrStartNext.Interval = wait;
+                        tmrStartNext.Enabled = true;
                     }
                     else
                     {
@@ -818,6 +824,12 @@ namespace IdleMaster
             Properties.Settings.Default.Save();
 
             btnSkip.PerformClick();
+        }
+
+        private void tmrStartNext_Tick(object sender, EventArgs e)
+        {
+            startIdle(badgesLeft.First().Key);
+            tmrStartNext.Enabled = false;
         }
     }
 }
