@@ -76,5 +76,11 @@ namespace IdleMaster
                 chkMinToTray.Checked = true;
             }
         }
+
+        private void btnAdvanced_Click(object sender, EventArgs e)
+        {
+            frmSettingsAdvanced frm = new frmSettingsAdvanced();
+            frm.ShowDialog();
+        }
     }
 }

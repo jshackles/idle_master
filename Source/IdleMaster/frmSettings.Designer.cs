@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkMinToTray = new System.Windows.Forms.CheckBox();
@@ -38,6 +39,8 @@
             this.radIdleDefault = new System.Windows.Forms.RadioButton();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
+            this.ttHints = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAdvanced = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -141,6 +144,17 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // btnAdvanced
+            // 
+            this.btnAdvanced.Image = global::IdleMaster.Properties.Resources.imgLock;
+            this.btnAdvanced.Location = new System.Drawing.Point(12, 167);
+            this.btnAdvanced.Name = "btnAdvanced";
+            this.btnAdvanced.Size = new System.Drawing.Size(25, 23);
+            this.btnAdvanced.TabIndex = 4;
+            this.ttHints.SetToolTip(this.btnAdvanced, "Display advanced authentication information");
+            this.btnAdvanced.UseVisualStyleBackColor = true;
+            this.btnAdvanced.Click += new System.EventHandler(this.btnAdvanced_Click);
+            // 
             // frmSettings
             // 
             this.AcceptButton = this.btnOK;
@@ -148,6 +162,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(348, 202);
+            this.Controls.Add(this.btnAdvanced);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupBox2);
@@ -178,5 +193,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.RadioButton radIdleMostValue;
+        private System.Windows.Forms.Button btnAdvanced;
+        private System.Windows.Forms.ToolTip ttHints;
     }
 }

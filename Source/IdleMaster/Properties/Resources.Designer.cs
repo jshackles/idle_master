@@ -103,6 +103,16 @@ namespace IdleMaster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imgLock {
+            get {
+                object obj = ResourceManager.GetObject("imgLock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imgPause {
             get {
                 object obj = ResourceManager.GetObject("imgPause", resourceCulture);
@@ -196,6 +206,16 @@ namespace IdleMaster.Properties {
         internal static System.Drawing.Bitmap imgTrue {
             get {
                 object obj = ResourceManager.GetObject("imgTrue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgView {
+            get {
+                object obj = ResourceManager.GetObject("imgView", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
