@@ -456,7 +456,6 @@ namespace IdleMaster
                         int wait = rand.Next(3, 9);
                         wait = wait * 1000;
 
-                        tmrCardDropCheck.Enabled = false;
                         tmrStartNext.Interval = wait;
                         tmrStartNext.Enabled = true;
                     }
@@ -672,7 +671,7 @@ namespace IdleMaster
             {
                 tmrCardDropCheck.Enabled = false;
                 await checkCardDrops(currentAppID);
-                if (badgesLeft.Count != 0)
+                if (badgesLeft.Count != 0 && timeLeft != 0)
                 {
                     tmrCardDropCheck.Enabled = true;
                 }
@@ -831,7 +830,6 @@ namespace IdleMaster
         {
             startIdle(badgesLeft.First().Key);
             tmrStartNext.Enabled = false;
-            tmrCardDropCheck.Enabled = true;
         }
     }
 }
