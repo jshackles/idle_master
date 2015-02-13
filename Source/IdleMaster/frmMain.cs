@@ -456,6 +456,7 @@ namespace IdleMaster
                         int wait = rand.Next(3, 9);
                         wait = wait * 1000;
 
+                        tmrCardDropCheck.Enabled = false;
                         tmrStartNext.Interval = wait;
                         tmrStartNext.Enabled = true;
                     }
@@ -830,6 +831,7 @@ namespace IdleMaster
         {
             startIdle(badgesLeft.First().Key);
             tmrStartNext.Enabled = false;
+            tmrCardDropCheck.Enabled = true;
         }
     }
 }
