@@ -451,6 +451,9 @@ namespace IdleMaster
 
                     if (badgesLeft.Count != 0)
                     {
+                        // Give the user notification that the next game will start soon
+                        lblCurrentStatus.Text = "Loading next game...";
+
                         // Make a short but random amount of time pass
                         Random rand = new Random();
                         int wait = rand.Next(3, 9);
