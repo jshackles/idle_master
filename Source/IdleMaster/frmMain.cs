@@ -834,5 +834,11 @@ namespace IdleMaster
             startIdle(badgesLeft.First().Key);
             tmrStartNext.Enabled = false;
         }
+
+        private void changelogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangelog frm = new frmChangelog();
+            frm.Show();
+        }
     }
 }
