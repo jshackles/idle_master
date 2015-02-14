@@ -55,6 +55,8 @@
             this.blacklistCurrentGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changelogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.officialGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrReadyToGo = new System.Windows.Forms.Timer(this.components);
             this.tmrCardDropCheck = new System.Windows.Forms.Timer(this.components);
@@ -295,6 +297,8 @@
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changelogToolStripMenuItem,
+            this.officialGroupToolStripMenuItem,
+            this.toolStripMenuItem3,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -307,6 +311,19 @@
             this.changelogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.changelogToolStripMenuItem.Text = "&Release Notes";
             this.changelogToolStripMenuItem.Click += new System.EventHandler(this.changelogToolStripMenuItem_Click);
+            // 
+            // officialGroupToolStripMenuItem
+            // 
+            this.officialGroupToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgGlobe;
+            this.officialGroupToolStripMenuItem.Name = "officialGroupToolStripMenuItem";
+            this.officialGroupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.officialGroupToolStripMenuItem.Text = "&Official Group";
+            this.officialGroupToolStripMenuItem.Click += new System.EventHandler(this.officialGroupToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
             // 
             // aboutToolStripMenuItem
             // 
@@ -535,6 +552,8 @@
         private System.Windows.Forms.ToolStripMenuItem blacklistCurrentGameToolStripMenuItem;
         private System.Windows.Forms.Timer tmrStartNext;
         private System.Windows.Forms.ToolStripMenuItem changelogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem officialGroupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
 
     }
 }

@@ -65,7 +65,7 @@ namespace IdleMaster.Properties {
         ///{\colortbl ;\red79\green129\blue189;}
         ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang9\b\f0\fs32 Idle Master Release Notes\cf0\b0\fs22\par
         ///\ul Version 0.8:\ulnone\par
-        ///\pard{\pntext\f1\&apos;B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\&apos;B7}}\fi-360\li720\sa200\sl276\slmult1 The application can now prioritize games with the highest card values.  This can be changed [rest of string was truncated]&quot;;.
+        ///\pard{\pntext\f1\&apos;B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\&apos;B7}}\fi-360\li720\sa200\sl276\slmult1 The application can now prioritize games with the highest card values.  This can be configu [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Changelog {
             get {
@@ -109,6 +109,16 @@ namespace IdleMaster.Properties {
         internal static System.Drawing.Bitmap imgFalse {
             get {
                 object obj = ResourceManager.GetObject("imgFalse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgGlobe {
+            get {
+                object obj = ResourceManager.GetObject("imgGlobe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

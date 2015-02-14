@@ -840,5 +840,10 @@ namespace IdleMaster
             frmChangelog frm = new frmChangelog();
             frm.Show();
         }
+
+        private void officialGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://steamcommunity.com/groups/idlemastery");
+        }
     }
 }
