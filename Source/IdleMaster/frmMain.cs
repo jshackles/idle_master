@@ -518,6 +518,9 @@ namespace IdleMaster
             lnkSignIn.Location = point;
             point = new Point(Convert.ToInt32(lnkSignOut_scale), Convert.ToInt32(lnkResetCookies.Location.Y));
             lnkResetCookies.Location = point;
+
+            //disabling the gameToolStripMenuItem until user logs in and steam is running
+            gameToolStripMenuItem.Enabled = false;
         }
 
         private void frmMain_FormClose(object sender, FormClosedEventArgs e)
@@ -542,6 +545,9 @@ namespace IdleMaster
                 lnkSignIn.Visible = false;
                 lnkResetCookies.Visible = true;
                 cookieReady = true;
+
+                //If steam is ready and we are connected enable the game menu
+                gameToolStripMenuItem.Enabled = steamReady;
             }
             else
             {
@@ -551,6 +557,7 @@ namespace IdleMaster
                 lnkSignIn.Visible = true;
                 lnkResetCookies.Visible = false;
                 cookieReady = false;
+                gameToolStripMenuItem.Enabled = false;
             }
         }
 
@@ -573,7 +580,11 @@ namespace IdleMaster
                 tmrCheckSteam.Interval = 500;
                 skipGameToolStripMenuItem.Enabled = false;
                 pauseIdlingToolStripMenuItem.Enabled = false;
+                if (steamReady) {
+                    stopIdle();
+                }
                 steamReady = false;
+                gameToolStripMenuItem.Enabled = false;
             }
         }
 
