@@ -8,7 +8,7 @@ Requirements
 
 This application requires Steam to be open and for you to be logged in.  This program is now being developed exclusively for Microsoft Windows.
 
-Non-Windows versions are available in the "Python (non-Windows)" folder but may be depricated or feature incomplete.
+Non-Windows versions are available in the [Python repository](https://github.com/jshackles/idle_master_py) but may be depricated or feature incomplete.
 
 Setup
 -------
@@ -18,7 +18,7 @@ If you are an end user you can download an install Idle Master directly from htt
 Credits
 -------
 
-Idle Master was created jshackles, based on the original code created by Stumpokapow.
+Idle Master was created by jshackles, based on the original code created by Stumpokapow.
 
 Idle Master was writen in C# using Steamworks.NET and CSteamworks by Riley Labrecque (https://github.com/rlabrecque/CSteamworks), and using open source icons from Open Iconic (https://github.com/iconic/open-iconic).
 
