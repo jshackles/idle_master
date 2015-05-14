@@ -15,7 +15,7 @@ using System.Windows.Forms;
 using HtmlAgilityPack;
 using Steamworks;
 using Newtonsoft.Json;
-
+ 
 namespace IdleMaster
 {
     public partial class frmMain : Form
@@ -47,10 +47,7 @@ namespace IdleMaster
             StreamReader reader = new StreamReader(dataStream, Encoding.UTF8);
             string api_raw = reader.ReadToEnd();            
             string name = Regex.Match(api_raw, "\"game\",\"name\":\"(.+?)\"").Groups[1].Value;
-            name = name.Replace("\\u00ae", "®");
-            name = name.Replace("\\u2122", "™");
-            name = name.Replace("\\u2019", "'");
-            name = name.Replace("\\u00f6", "ö");
+            name = Regex.Unescape(name);
             reader.Close();
             response.Close();
             return name;
