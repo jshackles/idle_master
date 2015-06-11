@@ -74,6 +74,7 @@
             this.btnPause = new System.Windows.Forms.Button();
             this.btnResume = new System.Windows.Forms.Button();
             this.tmrStartNext = new System.Windows.Forms.Timer(this.components);
+            this.tmrBadgeReload = new System.Windows.Forms.Timer(this.components);
             this.mnuTop.SuspendLayout();
             this.ssFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReadingPage)).BeginInit();
@@ -308,7 +309,7 @@
             // 
             this.changelogToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgDocument;
             this.changelogToolStripMenuItem.Name = "changelogToolStripMenuItem";
-            this.changelogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.changelogToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.changelogToolStripMenuItem.Text = "&Release Notes";
             this.changelogToolStripMenuItem.Click += new System.EventHandler(this.changelogToolStripMenuItem_Click);
             // 
@@ -316,20 +317,20 @@
             // 
             this.officialGroupToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgGlobe;
             this.officialGroupToolStripMenuItem.Name = "officialGroupToolStripMenuItem";
-            this.officialGroupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.officialGroupToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.officialGroupToolStripMenuItem.Text = "&Official Group";
             this.officialGroupToolStripMenuItem.Click += new System.EventHandler(this.officialGroupToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(145, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgInfo;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -460,6 +461,11 @@
             // 
             this.tmrStartNext.Tick += new System.EventHandler(this.tmrStartNext_Tick);
             // 
+            // tmrBadgeReload
+            // 
+            this.tmrBadgeReload.Interval = 1000;
+            this.tmrBadgeReload.Tick += new System.EventHandler(this.tmrBadgeReload_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,6 +560,7 @@
         private System.Windows.Forms.ToolStripMenuItem changelogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem officialGroupToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.Timer tmrBadgeReload;
 
     }
 }

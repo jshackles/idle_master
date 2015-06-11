@@ -275,9 +275,19 @@ namespace IdleMaster
         public async Task LoadBadgesAsync()
         {
             string response = await GetHttpAsync(Properties.Settings.Default.myProfileURL + "/badges/");
+            if (response == "")
+            {
+                // badge page didn't load
+                picReadingPage.Image = null;
+                lblDrops.Text = "Badge page didn't load, will retry in 10 seconds";
+                ReloadCount = 10;
+                tmrBadgeReload.Enabled = true;
+                return;
+            }
             HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
             document.LoadHtml(response);
             HtmlNodeCollection user_avatar = document.DocumentNode.SelectNodes("//div[contains(@class,'user_avatar')]");
+
             try
             {
                 int Count = user_avatar.Count;
@@ -849,6 +859,19 @@ namespace IdleMaster
         private void officialGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("http://steamcommunity.com/groups/idlemastery");
+        }
+
+        int ReloadCount = 10;
+        private void tmrBadgeReload_Tick(object sender, EventArgs e)
+        {
+            ReloadCount = ReloadCount - 1;
+            lblDrops.Text = "Badge page didn't load, will retry in " +  ReloadCount + " seconds";
+
+            if (ReloadCount == 0)
+            {
+                tmrBadgeReload.Enabled = false;
+                tmrReadyToGo.Enabled = true;
+            }            
         }
     }
 }
