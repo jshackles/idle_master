@@ -40,16 +40,24 @@ namespace IdleMaster
         }
 
         public string GetAppName(String appid)
-        {            
-            WebRequest request = WebRequest.Create("http://store.steampowered.com/api/appdetails/?appids=" + appid + "&filters=basic");
-            WebResponse response = request.GetResponse();
-            Stream dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream, Encoding.UTF8);
-            string api_raw = reader.ReadToEnd();            
-            string name = Regex.Match(api_raw, "\"game\",\"name\":\"(.+?)\"").Groups[1].Value;
-            name = Regex.Unescape(name);
-            reader.Close();
-            response.Close();
+        {
+            string name = "App " + appid;
+            try
+            {
+                WebRequest request = WebRequest.Create("http://store.steampowered.com/api/appdetails/?appids=" + appid + "&filters=basic");
+                WebResponse response = request.GetResponse();
+                Stream dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream, Encoding.UTF8);
+                string api_raw = reader.ReadToEnd();            
+                name = Regex.Match(api_raw, "\"game\",\"name\":\"(.+?)\"").Groups[1].Value;
+                name = Regex.Unescape(name);
+                reader.Close();
+                response.Close();
+            }
+            catch
+            {
+
+            }
             return name;
         }
 
