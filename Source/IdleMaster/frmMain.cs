@@ -160,8 +160,15 @@ namespace IdleMaster
             lblGameName.Text = GetAppName(appid);
 
             // Update game image
-            picApp.Load("http://cdn.akamai.steamstatic.com/steam/apps/" + appid + "/header_292x136.jpg");
-            picApp.Visible = true;
+            try
+            {
+                picApp.Load("http://cdn.akamai.steamstatic.com/steam/apps/" + appid + "/header_292x136.jpg");
+                picApp.Visible = true;
+            }
+            catch (Exception)
+            {
+
+            }
 
             // Update label controls
             lblCurrentRemaining.Text = badgesLeft[appid] + " card drops remaining";
