@@ -50,6 +50,15 @@ namespace IdleMaster
                 Properties.Settings.Default.minToTray = false;
             }
 
+            if (chkIgnoreClientStatus.Checked == true)
+            {
+                Properties.Settings.Default.ignoreclient = true;
+            }
+            else
+            {
+                Properties.Settings.Default.ignoreclient = false;
+            }
+
             Properties.Settings.Default.Save();
             this.Close();
         }
@@ -74,6 +83,11 @@ namespace IdleMaster
             if (Properties.Settings.Default.minToTray == true)
             {
                 chkMinToTray.Checked = true;
+            }
+
+            if (Properties.Settings.Default.ignoreclient == true)
+            {
+                chkIgnoreClientStatus.Checked = true;
             }
         }
 

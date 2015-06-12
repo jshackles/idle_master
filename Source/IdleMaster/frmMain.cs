@@ -48,15 +48,18 @@ namespace IdleMaster
                 WebResponse response = request.GetResponse();
                 Stream dataStream = response.GetResponseStream();
                 StreamReader reader = new StreamReader(dataStream, Encoding.UTF8);
-                string api_raw = reader.ReadToEnd();            
-                name = Regex.Match(api_raw, "\"game\",\"name\":\"(.+?)\"").Groups[1].Value;
+                string api_raw = reader.ReadToEnd();
+                if (Regex.IsMatch(api_raw, "\"game\",\"name\":\"(.+?)\""))
+                {
+                    name = Regex.Match(api_raw, "\"game\",\"name\":\"(.+?)\"").Groups[1].Value;
+                }                
                 name = Regex.Unescape(name);
                 reader.Close();
-                response.Close();
+                response.Close();                
             }
-            catch
+            catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             return name;
         }
@@ -310,39 +313,51 @@ namespace IdleMaster
 
             int totaldrops = 0;
 
-            foreach (HtmlNode badge in document.DocumentNode.SelectNodes("//div[contains(@class,'badge_title_stats')]"))
+            try
             {
-                string appid = Regex.Match(badge.InnerHtml, @"card_drop_info_gamebadge_(\d+)_").Groups[1].Value;
-                HtmlNodeCollection row = badge.SelectNodes(".//span[contains(@class, 'progress_info_bold')]");
-                if (row != null)
-                {                    
-                    foreach (HtmlNode data in row)
+                foreach (HtmlNode badge in document.DocumentNode.SelectNodes("//div[contains(@class,'badge_title_stats')]"))
+                {
+                    string appid = Regex.Match(badge.InnerHtml, @"card_drop_info_gamebadge_(\d+)_").Groups[1].Value;
+                    HtmlNodeCollection row = badge.SelectNodes(".//span[contains(@class, 'progress_info_bold')]");
+                    if (row != null)
                     {
-                        if (data != null)
+                        foreach (HtmlNode data in row)
                         {
-                            if (Regex.Match(data.InnerHtml, @"\d").Length > 0)
+                            if (data != null)
                             {
-                                string remaining = Regex.Match(data.InnerHtml, @"(\d+)").Groups[1].Value;
-                                totaldrops = totaldrops + Convert.ToInt16(remaining);
-                                if (badgesLeft.ContainsKey(appid) == false)
+                                if (Regex.Match(data.InnerHtml, @"\d").Length > 0)
                                 {
-                                    Boolean onBlacklist = false; ;
-                                    foreach (String blApp in Properties.Settings.Default.blacklist)
+                                    string remaining = Regex.Match(data.InnerHtml, @"(\d+)").Groups[1].Value;
+                                    totaldrops = totaldrops + Convert.ToInt16(remaining);
+                                    if (badgesLeft.ContainsKey(appid) == false)
                                     {
-                                        if (blApp == appid)
+                                        Boolean onBlacklist = false; ;
+                                        foreach (String blApp in Properties.Settings.Default.blacklist)
                                         {
-                                            onBlacklist = true;
+                                            if (blApp == appid)
+                                            {
+                                                onBlacklist = true;
+                                            }
                                         }
-                                    }
-                                    if (onBlacklist == false)
-                                    {
-                                        badgesLeft.Add(appid, remaining);
+                                        if (onBlacklist == false)
+                                        {
+                                            badgesLeft.Add(appid, remaining);
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+            }
+            catch (Exception)
+            {
+                // badge page didn't load
+                picReadingPage.Image = null;
+                lblDrops.Text = "Badge page didn't load, will retry in 10 seconds";
+                ReloadCount = 10;
+                tmrBadgeReload.Enabled = true;
+                return;
             }
 
             // Detect if the user has multiple badge pages
@@ -578,24 +593,38 @@ namespace IdleMaster
 
         private void tmrCheckSteam_Tick(object sender, EventArgs e)
         {
-            if (SteamAPI.IsSteamRunning() == true) {
-                lblSteamStatus.Text = "Steam is running";
+            if (Properties.Settings.Default.ignoreclient == true)
+            {
+                lblSteamStatus.Text = "Steam client status ignored";
                 lblSteamStatus.ForeColor = System.Drawing.Color.Green;
                 picSteamStatus.Image = Properties.Resources.imgTrue;
-                tmrCheckSteam.Interval = 5000;                
+                tmrCheckSteam.Interval = 5000;
                 skipGameToolStripMenuItem.Enabled = true;
                 pauseIdlingToolStripMenuItem.Enabled = true;
                 steamReady = true;
             }
             else
             {
-                lblSteamStatus.Text = "Steam is not running";
-                lblSteamStatus.ForeColor = System.Drawing.Color.Black;
-                picSteamStatus.Image = Properties.Resources.imgFalse;
-                tmrCheckSteam.Interval = 500;
-                skipGameToolStripMenuItem.Enabled = false;
-                pauseIdlingToolStripMenuItem.Enabled = false;
-                steamReady = false;
+                if (SteamAPI.IsSteamRunning() == true)
+                {
+                    lblSteamStatus.Text = "Steam is running";
+                    lblSteamStatus.ForeColor = System.Drawing.Color.Green;
+                    picSteamStatus.Image = Properties.Resources.imgTrue;
+                    tmrCheckSteam.Interval = 5000;
+                    skipGameToolStripMenuItem.Enabled = true;
+                    pauseIdlingToolStripMenuItem.Enabled = true;
+                    steamReady = true;
+                }
+                else
+                {
+                    lblSteamStatus.Text = "Steam is not running";
+                    lblSteamStatus.ForeColor = System.Drawing.Color.Black;
+                    picSteamStatus.Image = Properties.Resources.imgFalse;
+                    tmrCheckSteam.Interval = 500;
+                    skipGameToolStripMenuItem.Enabled = false;
+                    pauseIdlingToolStripMenuItem.Enabled = false;
+                    steamReady = false;
+                }
             }
         }
 

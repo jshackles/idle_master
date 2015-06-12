@@ -79,3 +79,10 @@ Thumbs.db
 
 # Folder config file
 Desktop.ini
+
+############
+## Security
+############
+
+# Certificate file extensions
+*.pfx
