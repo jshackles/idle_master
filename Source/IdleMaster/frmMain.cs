@@ -64,6 +64,31 @@ namespace IdleMaster
             return name;
         }
 
+        public string GetUserName(String steamid)
+        {
+            string user_name = "User " + steamid;
+            try
+            {
+                WebRequest request = WebRequest.Create("http://api.enhancedsteam.com/steamapi/GetPlayerSummaries/?steamids=" + steamid);
+                WebResponse response = request.GetResponse();
+                Stream dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream, Encoding.UTF8);
+                string api_raw = reader.ReadToEnd();
+                if (Regex.IsMatch(api_raw, "\"personaname\": \"(.+?)\""))
+                {
+                    user_name = Regex.Match(api_raw, "\"personaname\": \"(.+?)\"").Groups[1].Value;
+                }
+                user_name = Regex.Unescape(user_name);
+                reader.Close();
+                response.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return user_name;
+        }
+
         private void CopyResource(string resourceName, string file)
         {
             using (Stream resource = GetType().Assembly.GetManifestResourceStream(resourceName))
@@ -681,6 +706,12 @@ namespace IdleMaster
             if (cookieReady && steamReady)
             {
                 // Update the form elements
+                if (Properties.Settings.Default.showUsername)
+                {
+                    lblSignedOnAs.Text = "Signed in as " + GetUserName(Properties.Settings.Default.steamLogin.Substring(0, 17));
+                    lblSignedOnAs.Visible = true;
+                }
+
                 lblDrops.Visible = true;
                 lblDrops.Text = "Reading badge page, please wait...";
                 lblIdle.Visible = false;
@@ -795,6 +826,16 @@ namespace IdleMaster
                 stopIdle();
                 badgesLeft.Clear();
                 tmrReadyToGo.Enabled = true;
+            }
+
+            if (Properties.Settings.Default.showUsername)
+            {
+                lblSignedOnAs.Text = "Signed in as " + GetUserName(Properties.Settings.Default.steamLogin.Substring(0, 17));
+                lblSignedOnAs.Visible = true;
+            }
+            else
+            {
+                lblSignedOnAs.Visible = false;
             }
         }
 

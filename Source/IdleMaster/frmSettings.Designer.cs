@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkIgnoreClientStatus = new System.Windows.Forms.CheckBox();
             this.chkMinToTray = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radIdleMostValue = new System.Windows.Forms.RadioButton();
@@ -41,21 +42,32 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.ttHints = new System.Windows.Forms.ToolTip(this.components);
             this.btnAdvanced = new System.Windows.Forms.Button();
-            this.chkIgnoreClientStatus = new System.Windows.Forms.CheckBox();
+            this.chkShowUsername = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkShowUsername);
             this.groupBox1.Controls.Add(this.chkIgnoreClientStatus);
             this.groupBox1.Controls.Add(this.chkMinToTray);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(322, 68);
+            this.groupBox1.Size = new System.Drawing.Size(322, 98);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General";
+            // 
+            // chkIgnoreClientStatus
+            // 
+            this.chkIgnoreClientStatus.AutoSize = true;
+            this.chkIgnoreClientStatus.Location = new System.Drawing.Point(7, 44);
+            this.chkIgnoreClientStatus.Name = "chkIgnoreClientStatus";
+            this.chkIgnoreClientStatus.Size = new System.Drawing.Size(148, 17);
+            this.chkIgnoreClientStatus.TabIndex = 1;
+            this.chkIgnoreClientStatus.Text = "Ignore Steam client status";
+            this.chkIgnoreClientStatus.UseVisualStyleBackColor = true;
             // 
             // chkMinToTray
             // 
@@ -73,7 +85,7 @@
             this.groupBox2.Controls.Add(this.radIdleLeastDrops);
             this.groupBox2.Controls.Add(this.radIdleMostDrops);
             this.groupBox2.Controls.Add(this.radIdleDefault);
-            this.groupBox2.Location = new System.Drawing.Point(13, 89);
+            this.groupBox2.Location = new System.Drawing.Point(13, 117);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(322, 92);
             this.groupBox2.TabIndex = 1;
@@ -127,7 +139,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(261, 189);
+            this.btnCancel.Location = new System.Drawing.Point(261, 231);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -138,7 +150,7 @@
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(180, 189);
+            this.btnOK.Location = new System.Drawing.Point(180, 231);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 3;
@@ -150,7 +162,7 @@
             // 
             this.btnAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdvanced.Image = global::IdleMaster.Properties.Resources.imgLock;
-            this.btnAdvanced.Location = new System.Drawing.Point(12, 189);
+            this.btnAdvanced.Location = new System.Drawing.Point(12, 231);
             this.btnAdvanced.Name = "btnAdvanced";
             this.btnAdvanced.Size = new System.Drawing.Size(25, 23);
             this.btnAdvanced.TabIndex = 4;
@@ -158,15 +170,15 @@
             this.btnAdvanced.UseVisualStyleBackColor = true;
             this.btnAdvanced.Click += new System.EventHandler(this.btnAdvanced_Click);
             // 
-            // chkIgnoreClientStatus
+            // chkShowUsername
             // 
-            this.chkIgnoreClientStatus.AutoSize = true;
-            this.chkIgnoreClientStatus.Location = new System.Drawing.Point(7, 44);
-            this.chkIgnoreClientStatus.Name = "chkIgnoreClientStatus";
-            this.chkIgnoreClientStatus.Size = new System.Drawing.Size(148, 17);
-            this.chkIgnoreClientStatus.TabIndex = 1;
-            this.chkIgnoreClientStatus.Text = "Ignore Steam client status";
-            this.chkIgnoreClientStatus.UseVisualStyleBackColor = true;
+            this.chkShowUsername.AutoSize = true;
+            this.chkShowUsername.Location = new System.Drawing.Point(7, 68);
+            this.chkShowUsername.Name = "chkShowUsername";
+            this.chkShowUsername.Size = new System.Drawing.Size(219, 17);
+            this.chkShowUsername.TabIndex = 2;
+            this.chkShowUsername.Text = "Show Steam username of signed on user";
+            this.chkShowUsername.UseVisualStyleBackColor = true;
             // 
             // frmSettings
             // 
@@ -174,7 +186,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(348, 224);
+            this.ClientSize = new System.Drawing.Size(348, 266);
             this.Controls.Add(this.btnAdvanced);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
@@ -209,5 +221,6 @@
         private System.Windows.Forms.Button btnAdvanced;
         private System.Windows.Forms.ToolTip ttHints;
         private System.Windows.Forms.CheckBox chkIgnoreClientStatus;
+        private System.Windows.Forms.CheckBox chkShowUsername;
     }
 }

@@ -59,6 +59,15 @@ namespace IdleMaster
                 Properties.Settings.Default.ignoreclient = false;
             }
 
+            if (chkShowUsername.Checked == true)
+            {
+                Properties.Settings.Default.showUsername = true;
+            }
+            else
+            {
+                Properties.Settings.Default.showUsername = false;
+            }
+
             Properties.Settings.Default.Save();
             this.Close();
         }
@@ -88,6 +97,11 @@ namespace IdleMaster
             if (Properties.Settings.Default.ignoreclient == true)
             {
                 chkIgnoreClientStatus.Checked = true;
+            }
+
+            if (Properties.Settings.Default.showUsername == true)
+            {
+                chkShowUsername.Checked = true;
             }
         }
 

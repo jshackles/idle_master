@@ -132,5 +132,17 @@ namespace IdleMaster.Properties {
                 this["ignoreclient"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool showUsername {
+            get {
+                return ((bool)(this["showUsername"]));
+            }
+            set {
+                this["showUsername"] = value;
+            }
+        }
     }
 }

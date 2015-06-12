@@ -75,6 +75,7 @@
             this.btnResume = new System.Windows.Forms.Button();
             this.tmrStartNext = new System.Windows.Forms.Timer(this.components);
             this.tmrBadgeReload = new System.Windows.Forms.Timer(this.components);
+            this.lblSignedOnAs = new System.Windows.Forms.Label();
             this.mnuTop.SuspendLayout();
             this.ssFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReadingPage)).BeginInit();
@@ -140,7 +141,7 @@
             // lblDrops
             // 
             this.lblDrops.AutoSize = true;
-            this.lblDrops.Location = new System.Drawing.Point(31, 85);
+            this.lblDrops.Location = new System.Drawing.Point(31, 92);
             this.lblDrops.Name = "lblDrops";
             this.lblDrops.Size = new System.Drawing.Size(105, 13);
             this.lblDrops.TabIndex = 9;
@@ -150,7 +151,7 @@
             // lblIdle
             // 
             this.lblIdle.AutoSize = true;
-            this.lblIdle.Location = new System.Drawing.Point(31, 101);
+            this.lblIdle.Location = new System.Drawing.Point(31, 108);
             this.lblIdle.Name = "lblIdle";
             this.lblIdle.Size = new System.Drawing.Size(86, 13);
             this.lblIdle.TabIndex = 10;
@@ -384,7 +385,7 @@
             // picReadingPage
             // 
             this.picReadingPage.Image = global::IdleMaster.Properties.Resources.imgSpin;
-            this.picReadingPage.Location = new System.Drawing.Point(15, 83);
+            this.picReadingPage.Location = new System.Drawing.Point(15, 90);
             this.picReadingPage.Name = "picReadingPage";
             this.picReadingPage.Size = new System.Drawing.Size(15, 16);
             this.picReadingPage.TabIndex = 26;
@@ -466,12 +467,23 @@
             this.tmrBadgeReload.Interval = 1000;
             this.tmrBadgeReload.Tick += new System.EventHandler(this.tmrBadgeReload_Tick);
             // 
+            // lblSignedOnAs
+            // 
+            this.lblSignedOnAs.AutoSize = true;
+            this.lblSignedOnAs.Location = new System.Drawing.Point(30, 71);
+            this.lblSignedOnAs.Name = "lblSignedOnAs";
+            this.lblSignedOnAs.Size = new System.Drawing.Size(69, 13);
+            this.lblSignedOnAs.TabIndex = 27;
+            this.lblSignedOnAs.Text = "Signed on as";
+            this.lblSignedOnAs.Visible = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(304, 339);
+            this.Controls.Add(this.lblSignedOnAs);
             this.Controls.Add(this.picReadingPage);
             this.Controls.Add(this.btnSkip);
             this.Controls.Add(this.picIdleStatus);
@@ -561,6 +573,7 @@
         private System.Windows.Forms.ToolStripMenuItem officialGroupToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.Timer tmrBadgeReload;
+        private System.Windows.Forms.Label lblSignedOnAs;
 
     }
 }
