@@ -362,7 +362,11 @@ namespace IdleMaster
                                             if (blApp == appid)
                                             {
                                                 onBlacklist = true;
-                                            }
+                                            }                                            
+                                        }
+                                        if (appid == "368020" || appid == "335590")
+                                        {
+                                            onBlacklist = true;
                                         }
                                         if (onBlacklist == false)
                                         {
