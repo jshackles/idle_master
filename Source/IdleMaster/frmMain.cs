@@ -435,18 +435,17 @@ namespace IdleMaster
 
         public async Task checkCardDrops(String appid)
         {
-            string response = await GetHttpAsync(Properties.Settings.Default.myProfileURL + "/gamecards/" + appid + "/");
-            HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
-            document.LoadHtml(response);
-            HtmlNodeCollection drops = document.DocumentNode.SelectNodes("//span[contains(@class,'progress_info_bold')]");
             try
             {
+                string response = await GetHttpAsync(Properties.Settings.Default.myProfileURL + "/gamecards/" + appid + "/");
+                HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
+                document.LoadHtml(response);
+                HtmlNodeCollection drops = document.DocumentNode.SelectNodes("//span[contains(@class,'progress_info_bold')]");
+            
                 String numDrops = drops[0].InnerText;
                 lblCurrentRemaining.Text = numDrops;
                 int intDrops;
                 if (Int32.TryParse(Regex.Match(numDrops, @"(\d+)").Groups[1].Value, out intDrops)) {
-                    // card drops remaining
-                    Console.WriteLine(GetAppName(appid) + " has " + intDrops + " card drops remaining.");
 
                     // Determine if the drop count has changed
                     int dropsSoFar = Int32.Parse(badgesLeft[appid]) - intDrops;
@@ -472,9 +471,6 @@ namespace IdleMaster
                 }
                 else
                 {
-                    // no card drops remaining
-                    Console.WriteLine(GetAppName(appid) + " has no card drops remaining.");
-
                     badgesLeft.Remove(appid);
 
                     // Update totals
@@ -507,8 +503,9 @@ namespace IdleMaster
             }
             catch (Exception)
             {
-                return;
+                
             }
+            return;
         }
 
         public frmMain()
@@ -707,7 +704,16 @@ namespace IdleMaster
 
         private async void tmrCardDropCheck_Tick(object sender, EventArgs e)
         {
-            if (timeLeft > 0)
+            if (timeLeft <= 0)
+            {
+                tmrCardDropCheck.Enabled = false;
+                await checkCardDrops(currentAppID);
+                if (badgesLeft.Count != 0 && timeLeft != 0)
+                {
+                    tmrCardDropCheck.Enabled = true;
+                }
+            }
+            else
             {
                 timeLeft = timeLeft - 1;
                 int minutes = timeLeft / 60;
@@ -720,16 +726,7 @@ namespace IdleMaster
                 {
                     lblTimer.Text = minutes + ":" + seconds;
                 }
-            }
-            else
-            {
-                tmrCardDropCheck.Enabled = false;
-                await checkCardDrops(currentAppID);
-                if (badgesLeft.Count != 0 && timeLeft != 0)
-                {
-                    tmrCardDropCheck.Enabled = true;
-                }
-            }
+            }            
         }
 
         private void btnSkip_Click(object sender, EventArgs e)
