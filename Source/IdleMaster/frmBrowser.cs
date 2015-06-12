@@ -14,7 +14,7 @@ namespace IdleMaster
     public partial class frmBrowser : Form
     {
 
-        public int seconds_waiting = 20;
+        public int seconds_waiting = 30;
 
         [DllImport("wininet.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern bool InternetSetOption(int hInternet,int dwOption,string lpBuffer,int dwBufferLength);
@@ -188,7 +188,7 @@ namespace IdleMaster
             else
             {
                 tmrCheck.Enabled = false;
-                wbAuth_DocumentCompleted(null, null);
+                this.Close();
             }
         }
     }
