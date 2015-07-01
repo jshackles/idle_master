@@ -249,8 +249,9 @@ namespace IdleMaster
                 this.Height = Convert.ToInt32(scale);
 
                 // Kill the idling process
-                TwoHoursProcesses.ForEach(p => p.Kill());
-                Idle.Kill();
+                TwoHoursProcesses.Where(p => !p.HasExited).ToList().ForEach(p => p.Kill());
+                if (!Idle.HasExited)
+                  Idle.Kill();
             }
             catch (Exception)
             {
