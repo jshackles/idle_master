@@ -334,7 +334,7 @@ namespace IdleMaster
                 foreach (HtmlNode badge in document.DocumentNode.SelectNodes("//div[contains(@class,'badge_title_stats')]"))
                 {
                     string appid = Regex.Match(badge.InnerHtml, @"card_drop_info_gamebadge_(\d+)_").Groups[1].Value;
-                    string hours = Regex.Match(badge.ChildNodes[0].InnerText.Replace(",", "").Trim(), @"\d+").Value;
+                    string hours = Regex.Match(badge.ChildNodes[2].InnerText.Replace(",", "").Trim(), @"\d+").Value;
                     int hour = int.Parse(string.IsNullOrWhiteSpace(hours) ? "0" : hours);
                     HtmlNodeCollection row = badge.SelectNodes(".//span[contains(@class, 'progress_info_bold')]");
                     if (row != null)
