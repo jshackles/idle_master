@@ -20,8 +20,9 @@ namespace IdleMaster
 {
     public partial class frmMain : Form
     {
+        public List<Process> TwoHoursProcesses = new List<Process>(); // Storage for games process with < 2 hours.
         public Process Idle; // This process handle will control steam-idle.exe
-        public Dictionary<string, string> badgesLeft = new Dictionary<string, string>();
+        public List<Badge> badgesLeft = new List<Badge>();
         public Boolean cookieReady = false;
         public Boolean steamReady = false;
         public int timeLeft = 900;
@@ -107,37 +108,18 @@ namespace IdleMaster
         public void SortBadges(String method)
         {
             lblDrops.Text = "Sorting results based on your settings, please wait...";
-            Dictionary<string, string> tempBadgesLeft = new Dictionary<string, string>();
+            List<Badge> tempBadgesLeft = new List<Badge>();
             switch (method)
             {
                 case "mostcards":
-                    var mcitems = from pair in badgesLeft
-                            orderby pair.Value descending
-                            select pair;
-
-                    foreach (KeyValuePair<string, string> pair in mcitems)
-                    {
-                        tempBadgesLeft.Add(pair.Key, pair.Value);
-                    }
+                    tempBadgesLeft = badgesLeft.OrderByDescending(b => b.RemainingCard).ToList();
                     break;
                 case "leastcards":
-                    var lcitems = from pair in badgesLeft
-                                orderby pair.Value ascending
-                                select pair;
-
-                    foreach (KeyValuePair<string, string> pair in lcitems)
-                    {
-                        tempBadgesLeft.Add(pair.Key, pair.Value);
-                    }
+                    tempBadgesLeft = badgesLeft.OrderBy(b => b.RemainingCard).ToList();
                     break;
                 case "mostvalue":
                     // Compile the list of appids that need to be idled
-                    string appids = "";
-                    foreach (KeyValuePair<string, string> pair in badgesLeft)
-                    {
-                        appids += pair.Key + ",";
-                    }
-                    appids = appids.Remove(appids.Length-1);
+                    var appids = string.Join(",", badgesLeft);
 
                     // Query the API to retrieve the average card values of each appid
                     WebRequest request = WebRequest.Create("http://api.enhancedsteam.com/market_data/average_card_prices/im.php?appids=" + appids);
@@ -159,10 +141,10 @@ namespace IdleMaster
                     {
                         if (row["avg_price"].ToString() != "")
                         {
-                            string DropsLeft = "";
-                            if (badgesLeft.TryGetValue(row["appid"].ToString(), out DropsLeft))
+                            var badge = badgesLeft.FirstOrDefault(b => b.AppId == row["appid"].ToString());
+                            if (badge != null)
                             {
-                                tempBadgesLeft.Add(row["appid"].ToString(), DropsLeft);
+                                tempBadgesLeft.Add(badge);
                             }
                         }
                     }
@@ -177,7 +159,13 @@ namespace IdleMaster
         }
 
         public void startIdle(String appid)
-        {            
+        {
+            foreach (var badge in badgesLeft.Where(b => b.HoursPlayed < 2 && b.AppId != appid))
+            {
+              // Place user "In game" for card drops
+              TwoHoursProcesses.Add(Process.Start(new ProcessStartInfo("steam-idle.exe", badge.AppId) { WindowStyle = ProcessWindowStyle.Hidden }));
+            }
+            
             // Place user "In game" for card drops
             ProcessStartInfo startInfo = new ProcessStartInfo("steam-idle.exe", appid);
             startInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -199,11 +187,12 @@ namespace IdleMaster
             }
 
             // Update label controls
-            lblCurrentRemaining.Text = badgesLeft[appid] + " card drops remaining";
+            var remained = badgesLeft.Single(b => b.AppId == appid).RemainingCard;
+            lblCurrentRemaining.Text = remained + " card drops remaining";
             lblCurrentStatus.Text = "Currently in-game";
 
             // Set progress bar values and show the footer
-            pbIdle.Maximum = Int32.Parse(badgesLeft[appid]);
+            pbIdle.Maximum = Int32.Parse(remained);
             pbIdle.Value = 0;
             ssFooter.Visible = true;
 
@@ -260,6 +249,7 @@ namespace IdleMaster
                 this.Height = Convert.ToInt32(scale);
 
                 // Kill the idling process
+                TwoHoursProcesses.ForEach(p => p.Kill());
                 Idle.Kill();
             }
             catch (Exception)
@@ -343,6 +333,8 @@ namespace IdleMaster
                 foreach (HtmlNode badge in document.DocumentNode.SelectNodes("//div[contains(@class,'badge_title_stats')]"))
                 {
                     string appid = Regex.Match(badge.InnerHtml, @"card_drop_info_gamebadge_(\d+)_").Groups[1].Value;
+                    string hours = Regex.Match(badge.ChildNodes[0].InnerText.Replace(",", "").Trim(), @"\d+").Value;
+                    int hour = int.Parse(string.IsNullOrWhiteSpace(hours) ? "0" : hours);
                     HtmlNodeCollection row = badge.SelectNodes(".//span[contains(@class, 'progress_info_bold')]");
                     if (row != null)
                     {
@@ -354,7 +346,7 @@ namespace IdleMaster
                                 {
                                     string remaining = Regex.Match(data.InnerHtml, @"(\d+)").Groups[1].Value;
                                     totaldrops = totaldrops + Convert.ToInt16(remaining);
-                                    if (badgesLeft.ContainsKey(appid) == false)
+                                    if (!badgesLeft.Any(b => b.AppId == appid))
                                     {
                                         Boolean onBlacklist = false; ;
                                         foreach (String blApp in Properties.Settings.Default.blacklist)
@@ -370,7 +362,7 @@ namespace IdleMaster
                                         }
                                         if (onBlacklist == false)
                                         {
-                                            badgesLeft.Add(appid, remaining);
+                                            badgesLeft.Add(new Badge() { AppId = appid, RemainingCard = remaining, HoursPlayed = hour});
                                         }
                                     }
                                 }
@@ -406,6 +398,8 @@ namespace IdleMaster
                     foreach (HtmlNode badge in document.DocumentNode.SelectNodes("//div[contains(@class,'badge_title_stats')]"))
                     {
                         string appid = Regex.Match(badge.InnerHtml, @"card_drop_info_gamebadge_(\d+)_").Groups[1].Value;
+                        string hours = Regex.Match(badge.ChildNodes[0].InnerText.Replace(",", "").Trim(), @"\d+").Value;
+                        int hour = int.Parse(string.IsNullOrWhiteSpace(hours) ? "0" : hours);
                         HtmlNodeCollection row = badge.SelectNodes(".//span[contains(@class, 'progress_info_bold')]");
                         if (row != null)
                         {
@@ -417,7 +411,7 @@ namespace IdleMaster
                                     {
                                         string remaining = Regex.Match(data.InnerHtml, @"(\d+)").Groups[1].Value;
                                         totaldrops = totaldrops + Convert.ToInt16(remaining);
-                                        if (badgesLeft.ContainsKey(appid) == false)
+                                        if (!badgesLeft.Any(b => b.AppId == appid))
                                         {
                                             Boolean onBlacklist = false; ;
                                             foreach (String blApp in Properties.Settings.Default.blacklist)
@@ -429,7 +423,7 @@ namespace IdleMaster
                                             }
                                             if (onBlacklist == false)
                                             {
-                                                badgesLeft.Add(appid, remaining);
+                                                badgesLeft.Add(new Badge() { AppId = appid, RemainingCard = remaining, HoursPlayed = hour});
                                             }
                                         }
                                     }
@@ -477,7 +471,7 @@ namespace IdleMaster
                 if (Int32.TryParse(Regex.Match(numDrops, @"(\d+)").Groups[1].Value, out intDrops)) {
 
                     // Determine if the drop count has changed
-                    int dropsSoFar = Int32.Parse(badgesLeft[appid]) - intDrops;
+                    int dropsSoFar = Int32.Parse(badgesLeft.Single(b => b.AppId == appid).RemainingCard) - intDrops;
                     int dropsBefore = pbIdle.Value;
 
                     if (dropsBefore != dropsSoFar)
@@ -500,7 +494,7 @@ namespace IdleMaster
                 }
                 else
                 {
-                    badgesLeft.Remove(appid);
+                    badgesLeft.RemoveAll(b => b.AppId == appid);
 
                     // Update totals
                     totalCardsRemaining = totalCardsRemaining - 1;
@@ -728,7 +722,7 @@ namespace IdleMaster
 
                 if (badgesLeft.Count != 0)
                 {
-                    startIdle(badgesLeft.First().Key);
+                    startIdle(badgesLeft.First().AppId);
                 }
                 else
                 {
@@ -768,11 +762,11 @@ namespace IdleMaster
         {
           if (steamReady)
           {
-            badgesLeft.Remove(currentAppID);
+            badgesLeft.RemoveAll(b => b.AppId == currentAppID);
             stopIdle();
             if (badgesLeft.Count != 0)
             {
-              startIdle(badgesLeft.First().Key);
+              startIdle(badgesLeft.First().AppId);
             }
             else
             {
@@ -924,7 +918,7 @@ namespace IdleMaster
 
         private void tmrStartNext_Tick(object sender, EventArgs e)
         {
-            startIdle(badgesLeft.First().Key);
+            startIdle(badgesLeft.First().AppId);
             tmrStartNext.Enabled = false;
         }
 
