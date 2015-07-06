@@ -71,8 +71,7 @@ namespace IdleMaster
     {
       this.StringId = id;
       this.RemainingCard = string.IsNullOrWhiteSpace(remaining) ? 0 : int.Parse(remaining);
-    //this.HoursPlayed = string.IsNullOrWhiteSpace(hours) ? 0 : int.Parse(hours);
-      this.HoursPlayed = 1;
+      this.HoursPlayed = string.IsNullOrWhiteSpace(hours) ? 0 : int.Parse(hours);
     }
 
     public Badge()
