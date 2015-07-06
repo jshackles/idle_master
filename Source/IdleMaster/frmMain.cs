@@ -184,12 +184,11 @@ namespace IdleMaster
       }
 
       // Update label controls
-      var remained = badgesLeft.Single(b => b == badge).RemainingCard;
-      lblCurrentRemaining.Text = remained + " card drops remaining";
+      lblCurrentRemaining.Text = badge.RemainingCard + " card drops remaining";
       lblCurrentStatus.Text = "Currently in-game";
 
       // Set progress bar values and show the footer
-      pbIdle.Maximum = remained;
+      pbIdle.Maximum = badge.RemainingCard;
       pbIdle.Value = 0;
       ssFooter.Visible = true;
 
@@ -721,7 +720,16 @@ namespace IdleMaster
       {
         tmrCardDropCheck.Enabled = false;
         await CheckCardDrops(CurrentBadge);
-        badgesLeft.Where(b => !Equals(b, CurrentBadge) && b.HoursPlayed >= 2 && b.IdleProcess != null).ToList().ForEach(b => b.StopIdle());
+
+        badgesLeft
+          .Where(b => b.IdleProcess != null)
+          .ToList()
+          .ForEach(async b => b.CheckCardDrops(await GetHttpAsync(Properties.Settings.Default.myProfileURL + "/gamecards/" + b.StringId + "/")));
+        badgesLeft
+          .Where(b => !Equals(b, CurrentBadge) && b.HoursPlayed >= 2 && b.IdleProcess != null)
+          .ToList()
+          .ForEach(b => b.StopIdle());
+
         if (badgesLeft.Count != 0 && timeLeft != 0)
         {
           tmrCardDropCheck.Enabled = true;

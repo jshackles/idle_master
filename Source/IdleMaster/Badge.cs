@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace IdleMaster
@@ -30,6 +31,28 @@ namespace IdleMaster
     {
       if (this.IdleProcess != null && !this.IdleProcess.HasExited)
         this.IdleProcess.Kill();
+    }
+
+    public void CheckCardDrops(string badgePage)
+    {
+      try
+      {
+        HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
+        document.LoadHtml(badgePage);
+        var badgeNode = document.DocumentNode.SelectNodes("//div[contains(@class,'badge_title_stats')]")[0];
+
+        string hours = Regex.Match(badgeNode.ChildNodes[2].InnerText.Replace(",", string.Empty), @"\d+").Value;
+        string numDrops = Regex.Match(badgeNode.ChildNodes["span"].InnerText, @"\d+").Value; ;
+        int intDrops;
+        if (Int32.TryParse(Regex.Match(numDrops, @"\d+").Value, out intDrops))
+          this.RemainingCard = intDrops;
+        this.HoursPlayed = int.Parse(hours);
+      }
+      catch (Exception)
+      {
+
+      }
+      return;
     }
 
     public override bool Equals(object obj)
