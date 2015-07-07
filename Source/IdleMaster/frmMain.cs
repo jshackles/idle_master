@@ -26,8 +26,8 @@ namespace IdleMaster
     public Boolean cookieReady = false;
     public Boolean steamReady = false;
     public int timeLeft = 900;
-    public int totalCardsRemaining;
-    public int totalGamesRemaining;
+    public int CardsRemaining { get { return this.badgesLeft.Sum(b => b.RemainingCard); } }
+    public int GamesRemaining { get { return this.badgesLeft.Count; } }
     public Badge CurrentBadge;
 
     public CookieContainer generateCookies()
@@ -119,7 +119,7 @@ namespace IdleMaster
           break;
         case "mostvalue":
           // Compile the list of appids that need to be idled
-          var appids = string.Join(",", badgesLeft);
+          var appids = string.Join(",", badgesLeft.Select(b => b.AppId));
 
           // Query the API to retrieve the average card values of each appid
           WebRequest request = WebRequest.Create("http://api.enhancedsteam.com/market_data/average_card_prices/im.php?appids=" + appids);
@@ -323,8 +323,6 @@ namespace IdleMaster
         return;
       }
 
-      int totaldrops = 0;
-
       try
       {
         foreach (HtmlNode badge in document.DocumentNode.SelectNodes("//div[contains(@class,'badge_title_stats')]"))
@@ -339,8 +337,6 @@ namespace IdleMaster
 
           if (!string.IsNullOrWhiteSpace(remaining) && !badgesLeft.Any(b => b.StringId == appid))
           {
-            totaldrops = totaldrops + Convert.ToInt16(remaining);
-
             var onBlacklist = Properties.Settings.Default.blacklist.Contains(appid);
 
             if (appid == "368020" || appid == "335590")
@@ -390,7 +386,6 @@ namespace IdleMaster
                     if (Regex.Match(data.InnerHtml, @"\d").Length > 0)
                     {
                       string remaining = Regex.Match(data.InnerHtml, @"(\d+)").Groups[1].Value;
-                      totaldrops = totaldrops + Convert.ToInt16(remaining);
                       if (!badgesLeft.Any(b => b.StringId == appid))
                       {
                         Boolean onBlacklist = false; ;
@@ -423,14 +418,10 @@ namespace IdleMaster
       picReadingPage.Visible = false;
       lblIdle.Text = badgesLeft.Count + " games left to idle";
       lblIdle.Visible = true;
-      lblDrops.Text = totaldrops + " card drops remaining";
+      lblDrops.Text = CardsRemaining + " card drops remaining";
       lblDrops.Visible = true;
 
-      // Set global variable values
-      totalCardsRemaining = totaldrops;
-      totalGamesRemaining = badgesLeft.Count;
-
-      if (totaldrops == 0)
+      if (CardsRemaining == 0)
       {
         idleComplete();
       }
@@ -451,39 +442,15 @@ namespace IdleMaster
         int intDrops;
         if (Int32.TryParse(Regex.Match(numDrops, @"\d+").Value, out intDrops))
         {
-
-          // Determine if the drop count has changed
-          int dropsSoFar = badgesLeft.Single(b => b == badge).RemainingCard - intDrops;
-          int dropsBefore = pbIdle.Value;
-
-          if (dropsBefore != dropsSoFar)
-          {
-            totalCardsRemaining = totalCardsRemaining - (dropsSoFar - dropsBefore);
-            lblDrops.Text = totalCardsRemaining + " card drops remaining";
-            pbIdle.Value = dropsSoFar;
-          }
-
-          // Resets the clock based on the number of remaining drops
-          if (intDrops == 1)
-          {
-            timeLeft = 300;
-          }
-          else
-          {
-            timeLeft = 900;
-          }
           badge.RemainingCard = intDrops;
           badge.HoursPlayed = int.Parse(hours);
+
+          // Resets the clock based on the number of remaining drops
+          timeLeft = intDrops == 1 ? 300 : 900;
         }
         else
         {
           badgesLeft.RemoveAll(b => b == badge);
-
-          // Update totals
-          totalCardsRemaining = totalCardsRemaining - 1;
-          totalGamesRemaining = totalGamesRemaining - 1;
-          lblIdle.Text = totalGamesRemaining + " games left to idle";
-          lblDrops.Text = totalCardsRemaining + " card drops remaining";
 
           // Stop idling the current game
           stopIdle();
@@ -506,6 +473,10 @@ namespace IdleMaster
             idleComplete();
           }
         }
+        // Update totals
+        lblIdle.Text = GamesRemaining + " games left to idle";
+        lblDrops.Text = CardsRemaining + " card drops remaining";
+        pbIdle.Value = pbIdle.Maximum - badge.RemainingCard;
       }
       catch (Exception)
       {
