@@ -1,11 +1,14 @@
-﻿namespace IdleMaster
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace IdleMaster
 {
     partial class frmBlacklist
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,7 +31,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBlacklist));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBlacklist));
             this.lstBlacklist = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -133,12 +136,12 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox lstBlacklist;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtAppid;
-        private System.Windows.Forms.Label label1;
+        private ListBox lstBlacklist;
+        private GroupBox groupBox1;
+        private Button btnRemove;
+        private Button btnSave;
+        private Button btnAdd;
+        private TextBox txtAppid;
+        private Label label1;
     }
 }

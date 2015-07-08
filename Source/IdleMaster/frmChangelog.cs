@@ -1,25 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using IdleMaster.Properties;
 
 namespace IdleMaster
 {
-    public partial class frmChangelog : Form
+  public partial class frmChangelog : Form
+  {
+    public frmChangelog()
     {
-        public frmChangelog()
-        {
-            InitializeComponent();
-        }
-
-        private void frmChangelog_Load(object sender, EventArgs e)
-        {
-            rtbChangelog.Rtf = Properties.Resources.Changelog;
-        }
+      InitializeComponent();
     }
+
+    private void frmChangelog_Load(object sender, EventArgs e)
+    {
+      rtbChangelog.Rtf = Resources.Changelog;
+    }
+  }
 }

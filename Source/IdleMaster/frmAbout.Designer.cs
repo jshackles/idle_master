@@ -1,11 +1,14 @@
-﻿namespace IdleMaster
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace IdleMaster
 {
     partial class frmAbout
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,7 +31,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAbout));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAbout));
             this.btnOK = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblVersion = new System.Windows.Forms.Label();
@@ -101,9 +104,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblVersion;
-        private System.Windows.Forms.Label label2;
+        private Button btnOK;
+        private PictureBox pictureBox1;
+        private Label lblVersion;
+        private Label label2;
     }
 }

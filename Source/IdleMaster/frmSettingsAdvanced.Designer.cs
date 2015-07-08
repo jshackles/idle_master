@@ -1,11 +1,14 @@
-﻿namespace IdleMaster
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace IdleMaster
 {
     partial class frmSettingsAdvanced
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -29,7 +32,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettingsAdvanced));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettingsAdvanced));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -153,14 +156,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtSessionID;
-        private System.Windows.Forms.TextBox txtSteamLogin;
-        private System.Windows.Forms.TextBox txtSteamParental;
-        private System.Windows.Forms.Button btnView;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.ToolTip ttHelp;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private TextBox txtSessionID;
+        private TextBox txtSteamLogin;
+        private TextBox txtSteamParental;
+        private Button btnView;
+        private Button btnUpdate;
+        private ToolTip ttHelp;
     }
 }

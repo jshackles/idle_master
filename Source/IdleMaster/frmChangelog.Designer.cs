@@ -1,11 +1,14 @@
-﻿namespace IdleMaster
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace IdleMaster
 {
     partial class frmChangelog
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,7 +31,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChangelog));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChangelog));
             this.rtbChangelog = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
@@ -60,6 +63,6 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox rtbChangelog;
+        private RichTextBox rtbChangelog;
     }
 }

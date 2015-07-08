@@ -1,11 +1,14 @@
-﻿namespace IdleMaster
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace IdleMaster
 {
     partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -29,7 +32,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.lblCookieStatus = new System.Windows.Forms.Label();
             this.tmrCheckCookieData = new System.Windows.Forms.Timer(this.components);
             this.lblSteamStatus = new System.Windows.Forms.Label();
@@ -528,52 +531,52 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblCookieStatus;
-        private System.Windows.Forms.Timer tmrCheckCookieData;
-        private System.Windows.Forms.Label lblSteamStatus;
-        private System.Windows.Forms.Timer tmrCheckSteam;
-        private System.Windows.Forms.LinkLabel lnkResetCookies;
-        private System.Windows.Forms.LinkLabel lnkSignIn;
-        private System.Windows.Forms.PictureBox picApp;
-        private System.Windows.Forms.PictureBox picSteamStatus;
-        private System.Windows.Forms.PictureBox picCookieStatus;
-        private System.Windows.Forms.Label lblDrops;
-        private System.Windows.Forms.Label lblIdle;
-        private System.Windows.Forms.Label lblCurrentStatus;
-        private System.Windows.Forms.Label lblCurrentRemaining;
-        private System.Windows.Forms.PictureBox picIdleStatus;
-        private System.Windows.Forms.LinkLabel lblGameName;
-        private System.Windows.Forms.MenuStrip mnuTop;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.Timer tmrReadyToGo;
-        private System.Windows.Forms.Timer tmrCardDropCheck;
-        private System.Windows.Forms.StatusStrip ssFooter;
-        private System.Windows.Forms.ToolStripProgressBar pbIdle;
-        private System.Windows.Forms.ToolStripStatusLabel lblTimer;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Button btnPause;
-        private System.Windows.Forms.Button btnSkip;
-        private System.Windows.Forms.Button btnResume;
-        private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pauseIdlingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem resumeIdlingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem skipGameToolStripMenuItem;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.PictureBox picReadingPage;
-        private System.Windows.Forms.ToolStripMenuItem blacklistToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem blacklistCurrentGameToolStripMenuItem;
-        private System.Windows.Forms.Timer tmrStartNext;
-        private System.Windows.Forms.ToolStripMenuItem changelogToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem officialGroupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
-        private System.Windows.Forms.Timer tmrBadgeReload;
-        private System.Windows.Forms.Label lblSignedOnAs;
+        private Label lblCookieStatus;
+        private Timer tmrCheckCookieData;
+        private Label lblSteamStatus;
+        private Timer tmrCheckSteam;
+        private LinkLabel lnkResetCookies;
+        private LinkLabel lnkSignIn;
+        private PictureBox picApp;
+        private PictureBox picSteamStatus;
+        private PictureBox picCookieStatus;
+        private Label lblDrops;
+        private Label lblIdle;
+        private Label lblCurrentStatus;
+        private Label lblCurrentRemaining;
+        private PictureBox picIdleStatus;
+        private LinkLabel lblGameName;
+        private MenuStrip mnuTop;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem settingsToolStripMenuItem;
+        private ToolStripSeparator toolStripMenuItem1;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
+        private Timer tmrReadyToGo;
+        private Timer tmrCardDropCheck;
+        private StatusStrip ssFooter;
+        private ToolStripProgressBar pbIdle;
+        private ToolStripStatusLabel lblTimer;
+        private ToolStripStatusLabel toolStripStatusLabel1;
+        private Button btnPause;
+        private Button btnSkip;
+        private Button btnResume;
+        private ToolStripMenuItem gameToolStripMenuItem;
+        private ToolStripMenuItem pauseIdlingToolStripMenuItem;
+        private ToolStripMenuItem resumeIdlingToolStripMenuItem;
+        private ToolStripMenuItem skipGameToolStripMenuItem;
+        private NotifyIcon notifyIcon1;
+        private PictureBox picReadingPage;
+        private ToolStripMenuItem blacklistToolStripMenuItem;
+        private ToolStripSeparator toolStripMenuItem2;
+        private ToolStripMenuItem blacklistCurrentGameToolStripMenuItem;
+        private Timer tmrStartNext;
+        private ToolStripMenuItem changelogToolStripMenuItem;
+        private ToolStripMenuItem officialGroupToolStripMenuItem;
+        private ToolStripSeparator toolStripMenuItem3;
+        private Timer tmrBadgeReload;
+        private Label lblSignedOnAs;
 
     }
 }

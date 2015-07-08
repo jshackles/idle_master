@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
+﻿using System.Diagnostics;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using HtmlAgilityPack;
 
 namespace IdleMaster
 {
@@ -13,8 +9,8 @@ namespace IdleMaster
     public int AppId { get; set; }
     public string StringId
     {
-      get { return this.AppId.ToString(); }
-      set { this.AppId = string.IsNullOrWhiteSpace(value) ? 0 : int.Parse(value); }
+      get { return AppId.ToString(); }
+      set { AppId = string.IsNullOrWhiteSpace(value) ? 0 : int.Parse(value); }
     }
     public int RemainingCard { get; set; }
     public int HoursPlayed { get; set; }
@@ -23,55 +19,51 @@ namespace IdleMaster
 
     public Process Idle()
     {
-      this.IdleProcess = Process.Start(new ProcessStartInfo("steam-idle.exe", this.AppId.ToString()) { WindowStyle = ProcessWindowStyle.Hidden });
-      return this.IdleProcess;
+      IdleProcess = Process.Start(new ProcessStartInfo("steam-idle.exe", AppId.ToString()) { WindowStyle = ProcessWindowStyle.Hidden });
+      return IdleProcess;
     }
 
     public void StopIdle()
     {
-      if (this.IdleProcess != null && !this.IdleProcess.HasExited)
-        this.IdleProcess.Kill();
+      if (IdleProcess != null && !IdleProcess.HasExited)
+        IdleProcess.Kill();
     }
 
     public void CheckCardDrops(string badgePage)
     {
       try
       {
-        HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
+        var document = new HtmlDocument();
         document.LoadHtml(badgePage);
         var badgeNode = document.DocumentNode.SelectNodes("//div[contains(@class,'badge_title_stats')]")[0];
 
-        string hours = Regex.Match(badgeNode.ChildNodes[2].InnerText.Replace(",", string.Empty), @"\d+").Value;
-        string numDrops = Regex.Match(badgeNode.ChildNodes["span"].InnerText, @"\d+").Value; ;
+        var hours = Regex.Match(badgeNode.ChildNodes[2].InnerText.Replace(",", string.Empty), @"\d+").Value;
+        var numDrops = Regex.Match(badgeNode.ChildNodes["span"].InnerText, @"\d+").Value; ;
         int intDrops;
-        if (Int32.TryParse(Regex.Match(numDrops, @"\d+").Value, out intDrops))
-          this.RemainingCard = intDrops;
-        this.HoursPlayed = int.Parse(hours);
+        if (int.TryParse(Regex.Match(numDrops, @"\d+").Value, out intDrops))
+          RemainingCard = intDrops;
+        HoursPlayed = int.Parse(hours);
       }
-      catch (Exception)
-      {
-
-      }
-      return;
+      catch { }
     }
 
     public override bool Equals(object obj)
     {
-      if (obj is Badge)
-        return Equals(this.AppId, ((Badge)obj).AppId);
-      return false;
+      var badge = obj as Badge;
+      return badge != null && Equals(AppId, badge.AppId);
     }
 
     public override int GetHashCode()
     {
-      return this.AppId.GetHashCode();
+      return AppId.GetHashCode();
     }
 
-    public Badge(string id, string remaining, string hours) : this()
+    public Badge(string id, string remaining, string hours)
+      : this()
     {
-      this.StringId = id;
-      this.RemainingCard = string.IsNullOrWhiteSpace(remaining) ? 0 : int.Parse(remaining);
-      this.HoursPlayed = string.IsNullOrWhiteSpace(hours) ? 0 : int.Parse(hours);
+      StringId = id;
+      RemainingCard = string.IsNullOrWhiteSpace(remaining) ? 0 : int.Parse(remaining);
+      HoursPlayed = string.IsNullOrWhiteSpace(hours) ? 0 : int.Parse(hours);
     }
 
     public Badge()

@@ -1,11 +1,14 @@
-﻿namespace IdleMaster
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace IdleMaster
 {
     partial class frmSettings
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -29,7 +32,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkIgnoreClientStatus = new System.Windows.Forms.CheckBox();
             this.chkMinToTray = new System.Windows.Forms.CheckBox();
@@ -209,18 +212,18 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox chkMinToTray;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radIdleLeastDrops;
-        private System.Windows.Forms.RadioButton radIdleMostDrops;
-        private System.Windows.Forms.RadioButton radIdleDefault;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.RadioButton radIdleMostValue;
-        private System.Windows.Forms.Button btnAdvanced;
-        private System.Windows.Forms.ToolTip ttHints;
-        private System.Windows.Forms.CheckBox chkIgnoreClientStatus;
-        private System.Windows.Forms.CheckBox chkShowUsername;
+        private GroupBox groupBox1;
+        private CheckBox chkMinToTray;
+        private GroupBox groupBox2;
+        private RadioButton radIdleLeastDrops;
+        private RadioButton radIdleMostDrops;
+        private RadioButton radIdleDefault;
+        private Button btnCancel;
+        private Button btnOK;
+        private RadioButton radIdleMostValue;
+        private Button btnAdvanced;
+        private ToolTip ttHints;
+        private CheckBox chkIgnoreClientStatus;
+        private CheckBox chkShowUsername;
     }
 }
