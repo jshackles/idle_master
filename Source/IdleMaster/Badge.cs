@@ -6,14 +6,20 @@ namespace IdleMaster
 {
   public class Badge
   {
+    public double AveragePrice { get; set; }
+
     public int AppId { get; set; }
+
     public string StringId
     {
       get { return AppId.ToString(); }
       set { AppId = string.IsNullOrWhiteSpace(value) ? 0 : int.Parse(value); }
     }
+
     public int RemainingCard { get; set; }
+
     public int HoursPlayed { get; set; }
+
 
     public Process IdleProcess;
 

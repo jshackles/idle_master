@@ -9,7 +9,9 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using System.Windows.Forms;
+using System.Xml;
 using IdleMaster.Properties;
 using Newtonsoft.Json;
 using Steamworks;
@@ -69,18 +71,12 @@ namespace IdleMaster
       var userName = "User " + steamid;
       try
       {
-        var request = WebRequest.Create("http://api.enhancedsteam.com/steamapi/GetPlayerSummaries/?steamids=" + steamid);
-        var response = request.GetResponse();
-        var dataStream = response.GetResponseStream();
-        var reader = new StreamReader(dataStream, Encoding.UTF8);
-        var apiRaw = reader.ReadToEnd();
-        if (Regex.IsMatch(apiRaw, "\"personaname\": \"(.+?)\""))
-        {
-          userName = Regex.Match(apiRaw, "\"personaname\": \"(.+?)\"").Groups[1].Value;
-        }
-        userName = Regex.Unescape(userName);
-        reader.Close();
-        response.Close();
+        var xmlRaw = new WebClient().DownloadString(string.Format("http://steamcommunity.com/profiles/{0}/?xml=1", steamid));
+        var xml = new XmlDocument();
+        xml.LoadXml(xmlRaw);
+        var nameNode = xml.SelectSingleNode("//steamID");
+        if (nameNode != null)
+          userName = Regex.Unescape(nameNode.InnerText);
       }
       catch (Exception e)
       {
@@ -107,54 +103,30 @@ namespace IdleMaster
     public void SortBadges(string method)
     {
       lblDrops.Text = "Sorting results based on your settings, please wait...";
-      var tempBadgesLeft = new List<Badge>();
       switch (method)
       {
         case "mostcards":
-          tempBadgesLeft = Badges.OrderByDescending(b => b.RemainingCard).ToList();
+          Badges = Badges.OrderByDescending(b => b.RemainingCard).ToList();
           break;
         case "leastcards":
-          tempBadgesLeft = Badges.OrderBy(b => b.RemainingCard).ToList();
+          Badges = Badges.OrderBy(b => b.RemainingCard).ToList();
           break;
         case "mostvalue":
-          // Compile the list of appids that need to be idled
-          var appids = string.Join(",", Badges.Select(b => b.AppId));
-
-          // Query the API to retrieve the average card values of each appid
-          var request = WebRequest.Create("http://api.enhancedsteam.com/market_data/average_card_prices/im.php?appids=" + appids);
-          var response = request.GetResponse();
-          var dataStream = response.GetResponseStream();
-          var reader = new StreamReader(dataStream, Encoding.UTF8);
-          var json = reader.ReadToEnd();
-          reader.Close();
-          response.Close();
-
-          // Parse the response and sort it appropriately
-          var dataSet = JsonConvert.DeserializeObject<DataSet>(json);
-          var dataTable = dataSet.Tables["avg_values"];
-          var dataView = dataTable.DefaultView;
-          dataView.Sort = "avg_price desc";
-          var sorted = dataView.ToTable();
-
-          foreach (DataRow row in sorted.Rows)
+          var query = string.Format("http://api.enhancedsteam.com/market_data/average_card_prices/im.php?appids={0}",
+            string.Join(",", Badges.Select(b => b.AppId)));
+          var json = new WebClient().DownloadString(query);
+          var convertedJson = JsonConvert.DeserializeObject<EnhancedsteamHelper>(json);
+          foreach (var price in convertedJson.Avg_Values)
           {
-            if (row["avg_price"].ToString() == string.Empty)
-              continue;
-
-            var badge = Badges.FirstOrDefault(b => b.StringId == row["appid"].ToString());
+            var badge = Badges.SingleOrDefault(b => b.AppId == price.AppId);
             if (badge != null)
-            {
-              tempBadgesLeft.Add(badge);
-            }
+              badge.AveragePrice = price.Avg_Price;
           }
-
+          Badges = Badges.OrderByDescending(b => b.AveragePrice).ToList();
           break;
         default:
           return;
       }
-
-      Badges.Clear();
-      Badges = tempBadgesLeft;
     }
 
     public void StartIdle(Badge badge)
