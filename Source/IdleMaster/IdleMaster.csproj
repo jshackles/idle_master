@@ -97,6 +97,9 @@
   <ItemGroup>
     <Compile Include="AvgValues.cs" />
     <Compile Include="Badge.cs" />
+    <Compile Include="CookieClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>

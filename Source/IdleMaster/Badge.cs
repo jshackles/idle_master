@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics;
+using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using HtmlAgilityPack;
+using IdleMaster.Properties;
 
 namespace IdleMaster
 {
@@ -10,6 +13,8 @@ namespace IdleMaster
 
     public int AppId { get; set; }
 
+    public string Name { get; set; }
+
     public string StringId
     {
       get { return AppId.ToString(); }
@@ -18,7 +23,7 @@ namespace IdleMaster
 
     public int RemainingCard { get; set; }
 
-    public int HoursPlayed { get; set; }
+    public double HoursPlayed { get; set; }
 
 
     public Process IdleProcess;
@@ -35,22 +40,27 @@ namespace IdleMaster
         IdleProcess.Kill();
     }
 
-    public void CheckCardDrops(string badgePage)
+    public async Task<bool> CanCardDrops()
     {
       try
       {
         var document = new HtmlDocument();
-        document.LoadHtml(badgePage);
-        var badgeNode = document.DocumentNode.SelectNodes("//div[contains(@class,'badge_title_stats')]")[0];
+        var response = await CookieClient.GetHttpAsync(Settings.Default.myProfileURL + "/gamecards/" + StringId);
+        document.LoadHtml(response);
 
-        var hours = Regex.Match(badgeNode.ChildNodes[2].InnerText.Replace(",", string.Empty), @"\d+").Value;
-        var numDrops = Regex.Match(badgeNode.ChildNodes["span"].InnerText, @"\d+").Value; ;
-        int intDrops;
-        if (int.TryParse(Regex.Match(numDrops, @"\d+").Value, out intDrops))
-          RemainingCard = intDrops;
-        HoursPlayed = int.Parse(hours);
+        var hoursNode = document.DocumentNode.SelectSingleNode("//div[@class=\"badge_title_stats\"]").ChildNodes["br"].PreviousSibling;
+        var hours = Regex.Match(hoursNode.InnerText, @"[0-9\.,]+").Value;
+
+        var cardNode = hoursNode.ParentNode.SelectSingleNode(".//span[@class=\"progress_info_bold\"]");
+        var cards = cardNode == null ? string.Empty : Regex.Match(cardNode.InnerText, @"[0-9]+").Value;
+
+        RemainingCard = string.IsNullOrWhiteSpace(cards) ? 0 : int.Parse(cards);
+        HoursPlayed = string.IsNullOrWhiteSpace(hours) ? 0 : double.Parse(hours, new NumberFormatInfo());
+
+        return RemainingCard != 0;
       }
       catch { }
+      return false;
     }
 
     public override bool Equals(object obj)
@@ -64,12 +74,18 @@ namespace IdleMaster
       return AppId.GetHashCode();
     }
 
-    public Badge(string id, string remaining, string hours)
+    public override string ToString()
+    {
+      return string.IsNullOrWhiteSpace(Name) ? StringId : Name;
+    }
+
+    public Badge(string id, string name, string remaining, string hours)
       : this()
     {
       StringId = id;
+      Name = name;
       RemainingCard = string.IsNullOrWhiteSpace(remaining) ? 0 : int.Parse(remaining);
-      HoursPlayed = string.IsNullOrWhiteSpace(hours) ? 0 : int.Parse(hours);
+      HoursPlayed = string.IsNullOrWhiteSpace(hours) ? 0 : double.Parse(hours, new NumberFormatInfo());
     }
 
     public Badge()

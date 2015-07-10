@@ -30,7 +30,7 @@ namespace IdleMaster
 
     private void frmSettingsAdvanced_Load(object sender, EventArgs e)
     {
-      if (Settings.Default.sessionid != "")
+      if (!string.IsNullOrWhiteSpace(Settings.Default.sessionid))
       {
         txtSessionID.Text = Settings.Default.sessionid;
         txtSessionID.Enabled = false;
@@ -40,7 +40,7 @@ namespace IdleMaster
         txtSessionID.PasswordChar = '\0';
       }
 
-      if (Settings.Default.steamLogin != "")
+      if (!string.IsNullOrWhiteSpace(Settings.Default.steamLogin))
       {
         txtSteamLogin.Text = Settings.Default.steamLogin;
         txtSteamLogin.Enabled = false;
@@ -50,7 +50,7 @@ namespace IdleMaster
         txtSteamLogin.PasswordChar = '\0';
       }
 
-      if (Settings.Default.steamparental != "")
+      if (!string.IsNullOrWhiteSpace(Settings.Default.steamparental))
       {
         txtSteamParental.Text = Settings.Default.steamparental;
         txtSteamParental.Enabled = false;
@@ -88,7 +88,7 @@ namespace IdleMaster
       try
       {
         // Check to see if data is valid
-        var response = await GetHttpAsync("http://steamcommunity.com/profiles/" + txtSteamLogin.Text.Substring(0, 17) + "/badges/");
+        var response = await CookieClient.GetHttpAsync("http://steamcommunity.com/profiles/" + txtSteamLogin.Text.Substring(0, 17) + "/badges/");
         var document = new HtmlDocument();
         document.LoadHtml(response);
         var user_avatar = document.DocumentNode.SelectNodes("//div[contains(@class,'user_avatar')]");
@@ -125,39 +125,6 @@ namespace IdleMaster
         MessageBox.Show("The data you've entered isn't valid.  Please try again.");
         btnUpdate.Enabled = true;
       }
-    }
-
-    public async Task<string> GetHttpAsync(string url)
-    {
-      var content = string.Empty;
-      try
-      {
-        var cookies = new CookieContainer();
-        var target = new Uri("http://steamcommunity.com");
-        cookies.Add(new Cookie("sessionid", txtSessionID.Text.Trim()) { Domain = target.Host });
-        cookies.Add(new Cookie("steamLogin", txtSteamLogin.Text.Trim()) { Domain = target.Host });
-        cookies.Add(new Cookie("steamparental", txtSteamParental.Text.Trim()) { Domain = target.Host });
-        var r = (HttpWebRequest)WebRequest.Create(url);
-        r.Method = "GET";
-        r.CookieContainer = cookies;
-        var res = (HttpWebResponse)await r.GetResponseAsync();
-        if (res != null)
-        {
-          if (res.StatusCode == HttpStatusCode.OK)
-          {
-            var stream = res.GetResponseStream();
-            using (var reader = new StreamReader(stream))
-            {
-              content = reader.ReadToEnd();
-            }
-          }
-        }
-      }
-      catch (Exception)
-      {
-
-      }
-      return content;
     }
 
     private async void btnUpdate_Click(object sender, EventArgs e)
