@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -26,18 +27,23 @@ namespace IdleMaster
     public double HoursPlayed { get; set; }
 
 
-    public Process IdleProcess;
+    private Process idleProcess;
+
+    public bool InIdle { get { return idleProcess != null && !idleProcess.HasExited; } }
 
     public Process Idle()
     {
-      IdleProcess = Process.Start(new ProcessStartInfo("steam-idle.exe", AppId.ToString()) { WindowStyle = ProcessWindowStyle.Hidden });
-      return IdleProcess;
+      if (InIdle)
+        return idleProcess;
+
+      idleProcess = Process.Start(new ProcessStartInfo("steam-idle.exe", AppId.ToString()) { WindowStyle = ProcessWindowStyle.Hidden });
+      return idleProcess;
     }
 
     public void StopIdle()
     {
-      if (IdleProcess != null && !IdleProcess.HasExited)
-        IdleProcess.Kill();
+      if (InIdle)
+        idleProcess.Kill();
     }
 
     public async Task<bool> CanCardDrops()
@@ -59,7 +65,10 @@ namespace IdleMaster
 
         return RemainingCard != 0;
       }
-      catch { }
+      catch (Exception ex)
+      {
+        Logger.Exception(ex, "Badge -> CanCardDrops, for id = " + AppId);
+      }
       return false;
     }
 

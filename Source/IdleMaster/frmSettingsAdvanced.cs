@@ -108,8 +108,9 @@ namespace IdleMaster
 
         Close();
       }
-      catch (Exception)
+      catch (Exception ex)
       {
+        Logger.Exception(ex, "frmSettingsAdvanced -> CheckAndSave");
         // Invalid cookie data, reset the form
         btnUpdate.Text = "Update";
         txtSessionID.Text = "";

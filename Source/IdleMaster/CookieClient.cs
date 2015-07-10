@@ -45,7 +45,10 @@ namespace IdleMaster
       {
         content = await client.DownloadStringTaskAsync(url);
       }
-      catch { }
+      catch (Exception ex)
+      {
+        Logger.Exception(ex, "CookieClient -> GetHttpAsync, for url = " + url);
+      }
       return content;
     }
 

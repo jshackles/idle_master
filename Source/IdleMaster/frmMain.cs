@@ -18,21 +18,28 @@ namespace IdleMaster
 {
   public partial class frmMain : Form
   {
-    public List<Process> TwoHoursProcesses = new List<Process>(); // Storage for games process with < 2 hours.
-    public Process Idle; // This process handle will control steam-idle.exe
     public List<Badge> AllBadges { get; set; }
 
     public IEnumerable<Badge> CanIdleBadges
     {
       get { return AllBadges.Where(b => b.RemainingCard != 0); }
     }
-    
+
     public bool IsCookieReady;
     public bool IsSteamReady;
     public int TimeLeft = 900;
     public int CardsRemaining { get { return CanIdleBadges.Sum(b => b.RemainingCard); } }
     public int GamesRemaining { get { return CanIdleBadges.Count(); } }
     public Badge CurrentBadge;
+
+    internal void UpdateStateInfo()
+    {
+      // Update totals
+      lblIdle.Text = string.Format("{0} games left to idle, {1} idle now.", GamesRemaining, CanIdleBadges.Count(b => b.InIdle));
+      lblDrops.Text = CardsRemaining + " card drops remaining";
+      lblIdle.Visible = GamesRemaining != 0;
+      lblDrops.Visible = CardsRemaining != 0;
+    }
 
     public string GetUserName(string steamid)
     {
@@ -46,9 +53,10 @@ namespace IdleMaster
         if (nameNode != null)
           userName = Regex.Unescape(nameNode.InnerText);
       }
-      catch (Exception e)
+      catch (Exception ex)
       {
-        Console.WriteLine(e.Message);
+        Console.WriteLine(ex.Message);
+        Logger.Exception(ex, "frmMain -> GetUserName, for steamid = " + steamid);
       }
       return userName;
     }
@@ -99,41 +107,41 @@ namespace IdleMaster
 
     public void StartIdle(Badge badge)
     {
-      // Place user "In game" for card drops
-      Idle = badge.Idle();
+      // Set the currentAppID value
+      CurrentBadge = badge;
 
-      foreach (var badgeLeft in CanIdleBadges.Where(b => b.HoursPlayed < 2 && b.RemainingCard != 0 && !Equals(b, badge)))
-        TwoHoursProcesses.Add(badgeLeft.Idle());
+      // Place user "In game" for card drops
+      CurrentBadge.Idle();
+
+      foreach (var badgeToIdle in CanIdleBadges.Where(b => b.HoursPlayed < 2 && b.RemainingCard != 0 && !Equals(b, CurrentBadge)))
+        badgeToIdle.Idle();
 
       // Update game name
       lblGameName.Visible = true;
-      lblGameName.Text = badge.Name;
+      lblGameName.Text = CurrentBadge.Name;
 
       // Update game image
       try
       {
-        picApp.Load("http://cdn.akamai.steamstatic.com/steam/apps/" + badge.StringId + "/header_292x136.jpg");
+        picApp.Load("http://cdn.akamai.steamstatic.com/steam/apps/" + CurrentBadge.StringId + "/header_292x136.jpg");
         picApp.Visible = true;
       }
-      catch (Exception)
+      catch (Exception ex)
       {
-
+        Logger.Exception(ex, "frmMain -> StartIdle -> load pic, for id = " + CurrentBadge.AppId);
       }
 
       // Update label controls
-      lblCurrentRemaining.Text = badge.RemainingCard + " card drops remaining";
+      lblCurrentRemaining.Text = CurrentBadge.RemainingCard + " card drops remaining";
       lblCurrentStatus.Text = "Currently in-game";
 
       // Set progress bar values and show the footer
-      pbIdle.Maximum = badge.RemainingCard;
+      pbIdle.Maximum = CurrentBadge.RemainingCard;
       pbIdle.Value = 0;
       ssFooter.Visible = true;
 
       // Start the animated "working" gif
       picIdleStatus.Image = Resources.imgSpin;
-
-      // Set the currentAppID value
-      CurrentBadge = badge;
 
       // Start the timer that will check if drops remain
       tmrCardDropCheck.Enabled = true;
@@ -175,13 +183,12 @@ namespace IdleMaster
         Height = Convert.ToInt32(scale);
 
         // Kill the idling process
-        TwoHoursProcesses.Where(p => !p.HasExited).ToList().ForEach(p => p.Kill());
-        if (Idle != null && !Idle.HasExited)
-          Idle.Kill();
+        foreach (var badge in AllBadges.Where(b => b.InIdle))
+          badge.StopIdle();
       }
-      catch (Exception)
+      catch (Exception ex)
       {
-
+        Logger.Exception(ex, "frmMain -> StopIdle");
       }
     }
 
@@ -210,8 +217,9 @@ namespace IdleMaster
           {
             document.DocumentNode.SelectNodes("//div[contains(@class,'user_avatar')]").ToString();
           }
-          catch (Exception)
+          catch (Exception ex)
           {
+            Logger.Exception(ex, "frmMain -> LoadBadgesAsync -> find user avatar, for profile = " + Settings.Default.myProfileURL);
             // Invalid cookie data
             IsCookieReady = false;
             lnkResetCookies_LinkClicked(null, null);
@@ -247,8 +255,9 @@ namespace IdleMaster
           }
         }
       }
-      catch (Exception)
+      catch (Exception ex)
       {
+        Logger.Exception(ex, "Badge -> LoadBadgesAsync, for profile = " + Settings.Default.myProfileURL);
         // badge page didn't load
         picReadingPage.Image = null;
         lblDrops.Text = "Badge page didn't load, will retry in 10 seconds";
@@ -260,10 +269,7 @@ namespace IdleMaster
       SortBadges(Settings.Default.sort);
 
       picReadingPage.Visible = false;
-      lblIdle.Text = GamesRemaining + " games left to idle";
-      lblIdle.Visible = true;
-      lblDrops.Text = CardsRemaining + " card drops remaining";
-      lblDrops.Visible = true;
+      UpdateStateInfo();
 
       if (CardsRemaining == 0)
       {
@@ -303,10 +309,8 @@ namespace IdleMaster
       }
 
       lblCurrentRemaining.Text = badge.RemainingCard + " card drops remaining";
-      // Update totals
-      lblIdle.Text = GamesRemaining + " games left to idle";
-      lblDrops.Text = CardsRemaining + " card drops remaining";
       pbIdle.Value = pbIdle.Maximum - badge.RemainingCard;
+      UpdateStateInfo();
     }
 
     public frmMain()
@@ -355,14 +359,7 @@ namespace IdleMaster
 
     private void frmMain_FormClose(object sender, FormClosedEventArgs e)
     {
-      try
-      {
-        StopIdle();
-      }
-      catch (Exception)
-      {
-
-      }
+      StopIdle();
     }
 
     private void tmrCheckCookieData_Tick(object sender, EventArgs e)
@@ -475,10 +472,10 @@ namespace IdleMaster
         tmrCardDropCheck.Enabled = false;
         await CheckCardDrops(CurrentBadge);
 
-        foreach (var badge in CanIdleBadges.Where(b => b.IdleProcess != null))
+        foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge) && b.InIdle))
           await badge.CanCardDrops();
 
-        foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge) && b.HoursPlayed >= 2 && b.IdleProcess != null))
+        foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge) && b.HoursPlayed >= 2 && b.InIdle))
           badge.StopIdle();
 
         tmrCardDropCheck.Enabled = CanIdleBadges.Any() && TimeLeft != 0;
@@ -495,10 +492,14 @@ namespace IdleMaster
       if (!IsSteamReady)
         return;
 
-      AllBadges.RemoveAll(b => Equals(b, CurrentBadge));
       StopIdle();
+      AllBadges.RemoveAll(b => Equals(b, CurrentBadge));
+      UpdateStateInfo();
       if (CanIdleBadges.Any())
+      {
         StartIdle(CanIdleBadges.First());
+        UpdateStateInfo();
+      }
       else
         IdleComplete();
     }
