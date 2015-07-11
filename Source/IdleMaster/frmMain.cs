@@ -41,8 +41,13 @@ namespace IdleMaster
       lblDrops.Visible = CardsRemaining != 0;
     }
 
-    public string GetUserName(string steamid)
+    public string GetUserName()
     {
+      var steamid = WebUtility.UrlDecode(Settings.Default.steamLogin);
+      var index = steamid.IndexOfAny(new[] { '|' }, 0);
+      if (index != -1)
+        steamid = steamid.Remove(index);
+
       var userName = "User " + steamid;
       try
       {
@@ -51,7 +56,7 @@ namespace IdleMaster
         xml.LoadXml(xmlRaw);
         var nameNode = xml.SelectSingleNode("//steamID");
         if (nameNode != null)
-          userName = Regex.Unescape(nameNode.InnerText);
+          userName = WebUtility.HtmlDecode(nameNode.InnerText);
       }
       catch (Exception ex)
       {
@@ -110,11 +115,11 @@ namespace IdleMaster
       // Set the currentAppID value
       CurrentBadge = badge;
 
-      // Place user "In game" for card drops
-      CurrentBadge.Idle();
-
       foreach (var badgeToIdle in CanIdleBadges.Where(b => b.HoursPlayed < 2 && b.RemainingCard != 0 && !Equals(b, CurrentBadge)))
         badgeToIdle.Idle();
+
+      // Place user "In game" for card drops
+      CurrentBadge.Idle();
 
       // Update game name
       lblGameName.Visible = true;
@@ -238,11 +243,13 @@ namespace IdleMaster
           {
             var appIdNode = badge.SelectSingleNode(".//a[@class=\"badge_row_overlay\"]").Attributes["href"].Value;
             var appid = Regex.Match(appIdNode, @"gamecards/(\d+)/").Groups[1].Value;
-            if (string.IsNullOrWhiteSpace(appid) || AllBadges.Any(b => b.StringId == appid))
+            
+            if (string.IsNullOrWhiteSpace(appid) || AllBadges.Any(b => b.StringId == appid) || 
+              Settings.Default.blacklist.Contains(appid) || appid == "368020" || appid == "335590")
               continue;
 
-            var hoursNode = badge.SelectSingleNode(".//div[@class=\"badge_title_stats\"]").ChildNodes["br"].PreviousSibling;
-            var hours = Regex.Match(hoursNode.InnerText, @"[0-9\.,]+").Value;
+            var hoursNode = badge.SelectSingleNode(".//div[@class=\"badge_title_stats\"]").ChildNodes["br"];
+            var hours = hoursNode == null ? string.Empty : Regex.Match(hoursNode.PreviousSibling.InnerText, @"[0-9\.,]+").Value;
 
             var nameNode = badge.SelectSingleNode(".//div[@class=\"badge_title\"]");
             var name = WebUtility.HtmlDecode(nameNode.FirstChild.InnerText).Trim();
@@ -250,8 +257,7 @@ namespace IdleMaster
             var cardNode = badge.SelectSingleNode(".//span[@class=\"progress_info_bold\"]");
             var cards = cardNode == null ? string.Empty : Regex.Match(cardNode.InnerText, @"[0-9]+").Value;
 
-            if (!Settings.Default.blacklist.Contains(appid) && appid != "368020" && appid != "335590")
-              AllBadges.Add(new Badge(appid, name, cards, hours));
+            AllBadges.Add(new Badge(appid, name, cards, hours));
           }
         }
       }
@@ -445,7 +451,7 @@ namespace IdleMaster
       // Update the form elements
       if (Settings.Default.showUsername)
       {
-        lblSignedOnAs.Text = "Signed in as " + GetUserName(Settings.Default.steamLogin.Substring(0, 17));
+        lblSignedOnAs.Text = "Signed in as " + GetUserName();
         lblSignedOnAs.Visible = true;
       }
 
@@ -552,7 +558,7 @@ namespace IdleMaster
       }
 
       if (Settings.Default.showUsername)
-        lblSignedOnAs.Text = "Signed in as " + GetUserName(Settings.Default.steamLogin.Substring(0, 17));
+        lblSignedOnAs.Text = "Signed in as " + GetUserName();
 
       lblSignedOnAs.Visible = Settings.Default.showUsername;
     }
