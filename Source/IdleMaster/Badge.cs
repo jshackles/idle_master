@@ -72,6 +72,12 @@ namespace IdleMaster
       return false;
     }
 
+    public void UpdateStats(string remaining, string hours)
+    {
+      RemainingCard = string.IsNullOrWhiteSpace(remaining) ? 0 : int.Parse(remaining);
+      HoursPlayed = string.IsNullOrWhiteSpace(hours) ? 0 : double.Parse(hours, new NumberFormatInfo());
+    }
+
     public override bool Equals(object obj)
     {
       var badge = obj as Badge;
@@ -93,8 +99,7 @@ namespace IdleMaster
     {
       StringId = id;
       Name = name;
-      RemainingCard = string.IsNullOrWhiteSpace(remaining) ? 0 : int.Parse(remaining);
-      HoursPlayed = string.IsNullOrWhiteSpace(hours) ? 0 : double.Parse(hours, new NumberFormatInfo());
+      UpdateStats(remaining, hours);
     }
 
     public Badge()

@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -110,16 +111,25 @@ namespace IdleMaster
       }
     }
 
+    public void UpdateIdleProcesses()
+    {
+      foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge) && b.HoursPlayed >= 2 && b.InIdle))
+        badge.StopIdle();
+
+      foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge) && b.HoursPlayed < 2).Take(30))
+        badge.Idle();
+    }
+
     public void StartIdle(Badge badge)
     {
       // Set the currentAppID value
       CurrentBadge = badge;
 
-      foreach (var badgeToIdle in CanIdleBadges.Where(b => b.HoursPlayed < 2 && b.RemainingCard != 0 && !Equals(b, CurrentBadge)))
-        badgeToIdle.Idle();
-
       // Place user "In game" for card drops
       CurrentBadge.Idle();
+      Thread.Sleep(500);
+
+      UpdateIdleProcesses();
 
       // Update game name
       lblGameName.Visible = true;
@@ -139,6 +149,7 @@ namespace IdleMaster
       // Update label controls
       lblCurrentRemaining.Text = CurrentBadge.RemainingCard + " card drops remaining";
       lblCurrentStatus.Text = "Currently in-game";
+      UpdateStateInfo();
 
       // Set progress bar values and show the footer
       pbIdle.Maximum = CurrentBadge.RemainingCard;
@@ -244,12 +255,11 @@ namespace IdleMaster
             var appIdNode = badge.SelectSingleNode(".//a[@class=\"badge_row_overlay\"]").Attributes["href"].Value;
             var appid = Regex.Match(appIdNode, @"gamecards/(\d+)/").Groups[1].Value;
             
-            if (string.IsNullOrWhiteSpace(appid) || AllBadges.Any(b => b.StringId == appid) || 
-              Settings.Default.blacklist.Contains(appid) || appid == "368020" || appid == "335590")
+            if (string.IsNullOrWhiteSpace(appid) || Settings.Default.blacklist.Contains(appid) || appid == "368020" || appid == "335590")
               continue;
 
-            var hoursNode = badge.SelectSingleNode(".//div[@class=\"badge_title_stats\"]").ChildNodes["br"];
-            var hours = hoursNode == null ? string.Empty : Regex.Match(hoursNode.PreviousSibling.InnerText, @"[0-9\.,]+").Value;
+            var hoursNode = badge.SelectSingleNode(".//div[@class=\"badge_title_stats_playtime\"]");
+            var hours = hoursNode == null ? string.Empty : Regex.Match(hoursNode.InnerText, @"[0-9\.,]+").Value;
 
             var nameNode = badge.SelectSingleNode(".//div[@class=\"badge_title\"]");
             var name = WebUtility.HtmlDecode(nameNode.FirstChild.InnerText).Trim();
@@ -257,7 +267,11 @@ namespace IdleMaster
             var cardNode = badge.SelectSingleNode(".//span[@class=\"progress_info_bold\"]");
             var cards = cardNode == null ? string.Empty : Regex.Match(cardNode.InnerText, @"[0-9]+").Value;
 
-            AllBadges.Add(new Badge(appid, name, cards, hours));
+            var badgeInMemory = AllBadges.FirstOrDefault(b => b.StringId == appid);
+            if (badgeInMemory != null)
+              badgeInMemory.UpdateStats(cards, hours);
+            else
+              AllBadges.Add(new Badge(appid, name, cards, hours));
           }
         }
       }
@@ -478,11 +492,10 @@ namespace IdleMaster
         tmrCardDropCheck.Enabled = false;
         await CheckCardDrops(CurrentBadge);
 
-        foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge) && b.InIdle))
-          await badge.CanCardDrops();
+        if (CanIdleBadges.Any(b => !Equals(b, CurrentBadge) && b.InIdle))
+          await LoadBadgesAsync();
 
-        foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge) && b.HoursPlayed >= 2 && b.InIdle))
-          badge.StopIdle();
+        UpdateIdleProcesses();
 
         tmrCardDropCheck.Enabled = CanIdleBadges.Any() && TimeLeft != 0;
       }
