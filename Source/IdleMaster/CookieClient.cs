@@ -2,6 +2,7 @@
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 using IdleMaster.Properties;
 
 namespace IdleMaster
@@ -37,19 +38,34 @@ namespace IdleMaster
       return cookies;
     }
 
-    public static async Task<string> GetHttpAsync(string url)
+    public static async Task<string> GetHttpAsync(string url, int count = 3)
     {
-      var client = new CookieClient();
-      var content = string.Empty;
-      try
+      while (true)
       {
-        content = await client.DownloadStringTaskAsync(url);
+        var client = new CookieClient();
+        var content = string.Empty;
+        try
+        {
+          content = await client.DownloadStringTaskAsync(url);
+        }
+        catch (Exception ex)
+        {
+          Logger.Exception(ex, "CookieClient -> GetHttpAsync, for url = " + url);
+        }
+        
+        if (!string.IsNullOrWhiteSpace(content) || count == 0) 
+          return content;
+
+        count = count - 1;
       }
-      catch (Exception ex)
-      {
-        Logger.Exception(ex, "CookieClient -> GetHttpAsync, for url = " + url);
-      }
-      return content;
+    }
+
+    public static async Task<bool> IsLogined()
+    {
+      var response = await GetHttpAsync(Settings.Default.myProfileURL);
+      var document = new HtmlDocument();
+      document.LoadHtml(response);
+      return document.DocumentNode.SelectSingleNode("//a[@class=\"global_action_link\"]") == null;
     }
 
     public CookieClient()

@@ -229,20 +229,6 @@ namespace IdleMaster
           var response = await CookieClient.GetHttpAsync(profileLink + pages[i]);
           document.LoadHtml(response);
 
-          try
-          {
-            document.DocumentNode.SelectNodes("//div[contains(@class,'user_avatar')]").ToString();
-          }
-          catch (Exception ex)
-          {
-            Logger.Exception(ex, "frmMain -> LoadBadgesAsync -> find user avatar, for profile = " + Settings.Default.myProfileURL);
-            // Invalid cookie data
-            IsCookieReady = false;
-            lnkResetCookies_LinkClicked(null, null);
-            picReadingPage.Visible = false;
-            return;
-          }
-
           var pageNodes = document.DocumentNode.SelectNodes("//a[@class=\"pagelink\"]");
           if (pageNodes != null)
           {
