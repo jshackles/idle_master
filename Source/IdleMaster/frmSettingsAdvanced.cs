@@ -1,15 +1,11 @@
-﻿using HtmlAgilityPack;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HtmlAgilityPack;
+using IdleMaster.Properties;
+using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 
 namespace IdleMaster
 {
@@ -35,9 +31,9 @@ namespace IdleMaster
 
         private void frmSettingsAdvanced_Load(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.sessionid != "")
+            if (Settings.Default.sessionid != "")
             {
-                txtSessionID.Text = Properties.Settings.Default.sessionid.ToString();
+                txtSessionID.Text = Settings.Default.sessionid;
                 txtSessionID.Enabled = false;
             }
             else
@@ -45,9 +41,9 @@ namespace IdleMaster
                 txtSessionID.PasswordChar = '\0';
             }
 
-            if (Properties.Settings.Default.steamLogin != "")
+            if (Settings.Default.steamLogin != "")
             {
-                txtSteamLogin.Text = Properties.Settings.Default.steamLogin.ToString();
+                txtSteamLogin.Text = Settings.Default.steamLogin;
                 txtSteamLogin.Enabled = false;
             }
             else
@@ -55,9 +51,9 @@ namespace IdleMaster
                 txtSteamLogin.PasswordChar = '\0';
             }
 
-            if (Properties.Settings.Default.steamparental != "")
+            if (Settings.Default.steamparental != "")
             {
-                txtSteamParental.Text = Properties.Settings.Default.steamparental.ToString();
+                txtSteamParental.Text = Settings.Default.steamparental;
                 txtSteamParental.Enabled = false;
             }
             else
@@ -94,25 +90,25 @@ namespace IdleMaster
             {
                 // Check to see if data is valid
                 string response = await GetHttpAsync("http://steamcommunity.com/profiles/" + txtSteamLogin.Text.Substring(0, 17) + "/badges/");
-                HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
+                HtmlDocument document = new HtmlDocument();
                 document.LoadHtml(response);
                 HtmlNodeCollection user_avatar = document.DocumentNode.SelectNodes("//div[contains(@class,'user_avatar')]");
             
                 int Count = user_avatar.Count;
 
                 // Assign values to the settings
-                Properties.Settings.Default.sessionid = txtSessionID.Text.Trim();
-                Properties.Settings.Default.steamLogin = txtSteamLogin.Text.Trim();
+                Settings.Default.sessionid = txtSessionID.Text.Trim();
+                Settings.Default.steamLogin = txtSteamLogin.Text.Trim();
                 if (txtSteamLogin.Text.Length > 17)
                 {
-                    Properties.Settings.Default.myProfileURL = "http://steamcommunity.com/profiles/" + txtSteamLogin.Text.Substring(0, 17);
+                    Settings.Default.myProfileURL = "http://steamcommunity.com/profiles/" + txtSteamLogin.Text.Substring(0, 17);
                 }
-                Properties.Settings.Default.steamparental = txtSteamParental.Text.Trim();
+                Settings.Default.steamparental = txtSteamParental.Text.Trim();
 
                 // Save all of the data to the program settings file, and close this form
-                Properties.Settings.Default.Save();
+                Settings.Default.Save();
 
-                this.Close();
+                Close();
             }
             catch (Exception)
             {
@@ -133,7 +129,7 @@ namespace IdleMaster
             }
         }
 
-        public async Task<string> GetHttpAsync(String url)
+        private async Task<string> GetHttpAsync(String url)
         {
             String content = "";
             try
@@ -147,15 +143,12 @@ namespace IdleMaster
                 r.Method = "GET";
                 r.CookieContainer = cookies;            
                 HttpWebResponse res = (HttpWebResponse)await r.GetResponseAsync();
-                if (res != null)
+                if (res?.StatusCode == HttpStatusCode.OK)
                 {
-                    if (res.StatusCode == HttpStatusCode.OK)
+                    Stream stream = res.GetResponseStream();
+                    using (StreamReader reader = new StreamReader(stream))
                     {
-                        Stream stream = res.GetResponseStream();
-                        using (StreamReader reader = new StreamReader(stream))
-                        {
-                            content = reader.ReadToEnd();
-                        }
+                        content = reader.ReadToEnd();
                     }
                 }
             }

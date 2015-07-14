@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
+using IdleMaster.Properties;
 
 namespace IdleMaster
 {
     public partial class frmBrowser : Form
     {
-
-        public int seconds_waiting = 30;
+        private int seconds_waiting = 30;
 
         [DllImport("wininet.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern bool InternetSetOption(int hInternet,int dwOption,string lpBuffer,int dwBufferLength);
@@ -46,8 +42,8 @@ namespace IdleMaster
         private void wbAuth_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {   
             // Find the page header, and remove it.  This gives the login form a more streamlined look.
-            dynamic htmldoc = wbAuth.Document.DomDocument as dynamic;
-            dynamic global_header = htmldoc.GetElementById("global_header") as dynamic;
+            dynamic htmldoc = wbAuth.Document.DomDocument;
+            dynamic global_header = htmldoc.GetElementById("global_header");
             if (global_header != null)
             {
                 global_header.parentNode.removeChild(global_header);
@@ -60,13 +56,13 @@ namespace IdleMaster
             if (url != "https://steamcommunity.com/login/home/?goto=my/profile" && url != "https://store.steampowered.com//login/transfer" && url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
             {
 
-                dynamic parental_notice = htmldoc.GetElementById("parental_notice") as dynamic;
+                dynamic parental_notice = htmldoc.GetElementById("parental_notice");
                 if (parental_notice != null)
                 {
                     // Steam family options enabled
                     wbAuth.Show();
-                    this.Width = 1000;
-                    this.Height = 350;
+                    Width = 1000;
+                    Height = 350;
                     return;
                 }
 
@@ -80,33 +76,33 @@ namespace IdleMaster
                     // Save the "sessionid" cookie
                     if (cookie.Name == "sessionid")
                     {                        
-                        Properties.Settings.Default.sessionid = cookie.Value;
+                        Settings.Default.sessionid = cookie.Value;
                     }
 
                     // Save the "steamLogin" cookie and construct and save the user's profile link
                     else if (cookie.Name == "steamLogin")
                     {
-                        Properties.Settings.Default.steamLogin = cookie.Value;
-                        Properties.Settings.Default.myProfileURL = "http://steamcommunity.com/profiles/" + cookie.Value.Substring(0,17);
+                        Settings.Default.steamLogin = cookie.Value;
+                        Settings.Default.myProfileURL = "http://steamcommunity.com/profiles/" + cookie.Value.Substring(0,17);
                     }
 
                     // Save the "steamparental" cookie"
                     else if (cookie.Name == "steamparental")
                     {
-                        Properties.Settings.Default.steamparental = cookie.Value;
+                        Settings.Default.steamparental = cookie.Value;
                     }
                 }
 
                 // Save all of the data to the program settings file, and close this form
-                Properties.Settings.Default.Save();
-                this.Close();
+                Settings.Default.Save();
+                Close();
             }
         }
 
         // Imports the InternetGetCookieEx function from wininet.dll which allows the application to access the cookie data from the web browser control
         // Reference: http://stackoverflow.com/questions/3382498/is-it-possible-to-transfer-authentication-from-webbrowser-to-webrequest
         [DllImport("wininet.dll", SetLastError = true)]
-        public static extern bool InternetGetCookieEx(
+        private static extern bool InternetGetCookieEx(
             string url,
             string cookieName,
             StringBuilder cookieData,
@@ -118,7 +114,7 @@ namespace IdleMaster
         private const Int32 InternetCookieHttponly = 0x2000;
 
         // This function returns cookie data based on a uniform resource identifier
-        public static CookieContainer GetUriCookieContainer(Uri uri)
+        private static CookieContainer GetUriCookieContainer(Uri uri)
         {
             // First, create a null cookie container
             CookieContainer cookies = null;
@@ -170,11 +166,11 @@ namespace IdleMaster
                 wbAuth.Visible = false;
 
                 // Scale the form based on the user's DPI settings
-                Graphics graphics = this.CreateGraphics();
+                Graphics graphics = CreateGraphics();
                 double scaleY = graphics.DpiY * 0.84375;
                 double scaleX = graphics.DpiX * 2.84;
-                this.Height = Convert.ToInt32(scaleY);
-                this.Width = Convert.ToInt32(scaleX);
+                Height = Convert.ToInt32(scaleY);
+                Width = Convert.ToInt32(scaleX);
             }            
         }
 
@@ -188,7 +184,7 @@ namespace IdleMaster
             else
             {
                 tmrCheck.Enabled = false;
-                this.Close();
+                Close();
             }
         }
     }

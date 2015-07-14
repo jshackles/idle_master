@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using IdleMaster.Properties;
 
 namespace IdleMaster
 {
@@ -19,62 +13,69 @@ namespace IdleMaster
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (radIdleDefault.Checked == true)
+            Settings.Default.minToTray = chkMinToTray.Checked;
+
+            Settings.Default.ignoreclient = chkIgnoreClientStatus.Checked;
+
+            Settings.Default.showUsername = chkShowUsername.Checked;
+
+            if (radIdleDefault.Checked)
             {
-                Properties.Settings.Default.sort = "default";
+                Settings.Default.sort = "default";
             }
-            if (radIdleLeastDrops.Checked == true)
+            if (radIdleLeastDrops.Checked)
             {
-                Properties.Settings.Default.sort = "leastcards";
+                Settings.Default.sort = "leastcards";
             }
-            if (radIdleMostDrops.Checked == true)
+            if (radIdleMostDrops.Checked)
             {
-                Properties.Settings.Default.sort = "mostcards";
+                Settings.Default.sort = "mostcards";
             }
-            if (radIdleMostValue.Checked == true)
+            if (radIdleMostValue.Checked)
             {
-                Properties.Settings.Default.sort = "mostvalue";
-            }
-            
-            if (chkMinToTray.Checked == true)
-            {
-                Properties.Settings.Default.minToTray = true;
-            }
-            else
-            {
-                Properties.Settings.Default.minToTray = false;
+                Settings.Default.sort = "mostvalue";
             }
 
-            if (chkIgnoreClientStatus.Checked == true)
+            if (radCompletionDefault.Checked)
             {
-                Properties.Settings.Default.ignoreclient = true;
+                Settings.Default.completion = "default";
             }
-            else
+            if (radCompletionExit.Checked)
             {
-                Properties.Settings.Default.ignoreclient = false;
+                Settings.Default.completion = "exit";
             }
-
-            if (chkShowUsername.Checked == true)
+            if (radCompletionShutdown.Checked)
             {
-                Properties.Settings.Default.showUsername = true;
-            }
-            else
-            {
-                Properties.Settings.Default.showUsername = false;
+                Settings.Default.completion = "shutdown";
             }
 
-            Properties.Settings.Default.Save();
-            this.Close();
+            Settings.Default.Save();
+            Close();
         }
 
         private void frmSettings_Load(object sender, EventArgs e)
         {
-            switch (Properties.Settings.Default.sort)
+            if (Settings.Default.minToTray)
+            {
+                chkMinToTray.Checked = true;
+            }
+
+            if (Settings.Default.ignoreclient)
+            {
+                chkIgnoreClientStatus.Checked = true;
+            }
+
+            if (Settings.Default.showUsername)
+            {
+                chkShowUsername.Checked = true;
+            }
+
+            switch (Settings.Default.sort)
             {
                 case "leastcards":
                     radIdleLeastDrops.Checked = true;
@@ -85,23 +86,16 @@ namespace IdleMaster
                 case "mostvalue":
                     radIdleMostValue.Checked = true;
                     break;
-                default:
+            }
+
+            switch (Settings.Default.completion)
+            {
+                case "exit":
+                    radCompletionExit.Checked = true;
                     break;
-            }
-
-            if (Properties.Settings.Default.minToTray == true)
-            {
-                chkMinToTray.Checked = true;
-            }
-
-            if (Properties.Settings.Default.ignoreclient == true)
-            {
-                chkIgnoreClientStatus.Checked = true;
-            }
-
-            if (Properties.Settings.Default.showUsername == true)
-            {
-                chkShowUsername.Checked = true;
+                case "shutdown":
+                    radCompletionShutdown.Checked = true;
+                    break;
             }
         }
 

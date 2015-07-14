@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using IdleMaster.Properties;
 
 namespace IdleMaster
 {
@@ -17,23 +13,23 @@ namespace IdleMaster
             InitializeComponent();
         }
 
-        public void LoadBlacklist()
+        private void LoadBlacklist()
         {
-            foreach (String appid in Properties.Settings.Default.blacklist)
+            foreach (String appid in Settings.Default.blacklist)
             {
                 lstBlacklist.Items.Add(appid);
             }
         }
 
-        public void SaveBlacklist()
+        private void SaveBlacklist()
         {
-            System.Collections.Specialized.StringCollection blacklist = new System.Collections.Specialized.StringCollection();
+            StringCollection blacklist = new StringCollection();
             foreach (String appid in lstBlacklist.Items)
             {
                 blacklist.Add(appid);
             }
-            Properties.Settings.Default.blacklist = blacklist;
-            Properties.Settings.Default.Save();
+            Settings.Default.blacklist = blacklist;
+            Settings.Default.Save();
         }
 
         private void frmBlacklist_Load(object sender, EventArgs e)
@@ -54,12 +50,9 @@ namespace IdleMaster
             if (Int32.TryParse(txtAppid.Text, out result) == true)
             {
                 Boolean onBlacklist = false;
-                foreach (String blApp in lstBlacklist.Items)
+                foreach (string blApp in lstBlacklist.Items.Cast<string>().Where(blApp => blApp == txtAppid.Text))
                 {
-                    if (blApp == txtAppid.Text)
-                    {
-                        onBlacklist = true;
-                    }
+                    onBlacklist = true;
                 }
                 if (onBlacklist == false)
                 {
