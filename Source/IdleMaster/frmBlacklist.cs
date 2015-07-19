@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using IdleMaster.Properties;
 
 namespace IdleMaster
 {
@@ -17,23 +13,23 @@ namespace IdleMaster
             InitializeComponent();
         }
 
-        public void LoadBlacklist()
+        private void LoadBlacklist()
         {
-            foreach (String appid in Properties.Settings.Default.blacklist)
+            foreach (var appid in Settings.Default.blacklist)
             {
                 lstBlacklist.Items.Add(appid);
             }
         }
 
-        public void SaveBlacklist()
+        private void SaveBlacklist()
         {
-            System.Collections.Specialized.StringCollection blacklist = new System.Collections.Specialized.StringCollection();
-            foreach (String appid in lstBlacklist.Items)
+            var blacklist = new StringCollection();
+            foreach (string appid in lstBlacklist.Items)
             {
                 blacklist.Add(appid);
             }
-            Properties.Settings.Default.blacklist = blacklist;
-            Properties.Settings.Default.Save();
+            Settings.Default.blacklist = blacklist;
+            Settings.Default.Save();
         }
 
         private void frmBlacklist_Load(object sender, EventArgs e)
@@ -45,21 +41,18 @@ namespace IdleMaster
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveBlacklist();
-            this.Close();
+            Close();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             int result;
-            if (Int32.TryParse(txtAppid.Text, out result) == true)
+            if (int.TryParse(txtAppid.Text, out result))
             {
-                Boolean onBlacklist = false;
-                foreach (String blApp in lstBlacklist.Items)
+                var onBlacklist = false;
+                foreach (var blApp in lstBlacklist.Items.Cast<string>().Where(blApp => blApp == txtAppid.Text))
                 {
-                    if (blApp == txtAppid.Text)
-                    {
-                        onBlacklist = true;
-                    }
+                    onBlacklist = true;
                 }
                 if (onBlacklist == false)
                 {

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using IdleMaster.Properties;
 
 namespace IdleMaster
 {
@@ -19,7 +13,7 @@ namespace IdleMaster
 
         private void frmChangelog_Load(object sender, EventArgs e)
         {
-            rtbChangelog.Rtf = Properties.Resources.Changelog;
+            rtbChangelog.Rtf = Resources.Changelog;
         }
     }
 }

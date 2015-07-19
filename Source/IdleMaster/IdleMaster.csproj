@@ -80,7 +80,7 @@
     </Reference>
     <Reference Include="Steamworks.NET, Version=5.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Steamworks.NET\Steamworks.NET.dll</HintPath>
+      <HintPath>..\..\steam-idle Source\steam-idle\Steamworks.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
