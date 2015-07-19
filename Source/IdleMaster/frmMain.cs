@@ -476,6 +476,7 @@ namespace IdleMaster
       if (TimeLeft <= 0)
       {
         tmrCardDropCheck.Enabled = false;
+        CurrentBadge.Idle();
         await CheckCardDrops(CurrentBadge);
 
         if (CanIdleBadges.Any(b => !Equals(b, CurrentBadge) && b.InIdle))
