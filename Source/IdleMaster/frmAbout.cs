@@ -21,12 +21,12 @@ namespace IdleMaster
         {
             if (ApplicationDeployment.IsNetworkDeployed)
             {
-                string version = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
+                var version = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
                 lblVersion.Text = "Idle Master v" + version;
             }
             else
             {
-                string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
                 lblVersion.Text = "Idle Master v" + version;
             }
         }

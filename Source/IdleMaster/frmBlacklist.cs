@@ -15,7 +15,7 @@ namespace IdleMaster
 
         private void LoadBlacklist()
         {
-            foreach (String appid in Settings.Default.blacklist)
+            foreach (var appid in Settings.Default.blacklist)
             {
                 lstBlacklist.Items.Add(appid);
             }
@@ -23,8 +23,8 @@ namespace IdleMaster
 
         private void SaveBlacklist()
         {
-            StringCollection blacklist = new StringCollection();
-            foreach (String appid in lstBlacklist.Items)
+            var blacklist = new StringCollection();
+            foreach (string appid in lstBlacklist.Items)
             {
                 blacklist.Add(appid);
             }
@@ -41,16 +41,16 @@ namespace IdleMaster
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveBlacklist();
-            this.Close();
+            Close();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             int result;
-            if (Int32.TryParse(txtAppid.Text, out result) == true)
+            if (int.TryParse(txtAppid.Text, out result))
             {
-                Boolean onBlacklist = false;
-                foreach (string blApp in lstBlacklist.Items.Cast<string>().Where(blApp => blApp == txtAppid.Text))
+                var onBlacklist = false;
+                foreach (var blApp in lstBlacklist.Items.Cast<string>().Where(blApp => blApp == txtAppid.Text))
                 {
                     onBlacklist = true;
                 }

@@ -92,9 +92,9 @@ namespace IdleMaster
                 string response = await GetHttpAsync("http://steamcommunity.com/profiles/" + txtSteamLogin.Text.Substring(0, 17) + "/badges/");
                 HtmlDocument document = new HtmlDocument();
                 document.LoadHtml(response);
-                HtmlNodeCollection user_avatar = document.DocumentNode.SelectNodes("//div[contains(@class,'user_avatar')]");
+                HtmlNodeCollection userAvatar = document.DocumentNode.SelectNodes("//div[contains(@class,'user_avatar')]");
             
-                int Count = user_avatar.Count;
+                int Count = userAvatar.Count;
 
                 // Assign values to the settings
                 Settings.Default.sessionid = txtSessionID.Text.Trim();
@@ -129,9 +129,9 @@ namespace IdleMaster
             }
         }
 
-        private async Task<string> GetHttpAsync(String url)
+        private async Task<string> GetHttpAsync(string url)
         {
-            String content = "";
+            string content = "";
             try
             {
                 CookieContainer cookies = new CookieContainer();
