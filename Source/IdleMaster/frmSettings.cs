@@ -1,114 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using IdleMaster.Properties;
 
 namespace IdleMaster
 {
-    public partial class frmSettings : Form
+  public partial class frmSettings : Form
+  {
+    public frmSettings()
     {
-        public frmSettings()
-        {
-            InitializeComponent();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-            if (radIdleDefault.Checked == true)
-            {
-                Properties.Settings.Default.sort = "default";
-            }
-            if (radIdleLeastDrops.Checked == true)
-            {
-                Properties.Settings.Default.sort = "leastcards";
-            }
-            if (radIdleMostDrops.Checked == true)
-            {
-                Properties.Settings.Default.sort = "mostcards";
-            }
-            if (radIdleMostValue.Checked == true)
-            {
-                Properties.Settings.Default.sort = "mostvalue";
-            }
-            
-            if (chkMinToTray.Checked == true)
-            {
-                Properties.Settings.Default.minToTray = true;
-            }
-            else
-            {
-                Properties.Settings.Default.minToTray = false;
-            }
-
-            if (chkIgnoreClientStatus.Checked == true)
-            {
-                Properties.Settings.Default.ignoreclient = true;
-            }
-            else
-            {
-                Properties.Settings.Default.ignoreclient = false;
-            }
-
-            if (chkShowUsername.Checked == true)
-            {
-                Properties.Settings.Default.showUsername = true;
-            }
-            else
-            {
-                Properties.Settings.Default.showUsername = false;
-            }
-
-            Properties.Settings.Default.Save();
-            this.Close();
-        }
-
-        private void frmSettings_Load(object sender, EventArgs e)
-        {
-            switch (Properties.Settings.Default.sort)
-            {
-                case "leastcards":
-                    radIdleLeastDrops.Checked = true;
-                    break;
-                case "mostcards":
-                    radIdleMostDrops.Checked = true;
-                    break;
-                case "mostvalue":
-                    radIdleMostValue.Checked = true;
-                    break;
-                default:
-                    break;
-            }
-
-            if (Properties.Settings.Default.minToTray == true)
-            {
-                chkMinToTray.Checked = true;
-            }
-
-            if (Properties.Settings.Default.ignoreclient == true)
-            {
-                chkIgnoreClientStatus.Checked = true;
-            }
-
-            if (Properties.Settings.Default.showUsername == true)
-            {
-                chkShowUsername.Checked = true;
-            }
-        }
-
-        private void btnAdvanced_Click(object sender, EventArgs e)
-        {
-            frmSettingsAdvanced frm = new frmSettingsAdvanced();
-            frm.ShowDialog();
-        }
+      InitializeComponent();
     }
+
+    private void btnCancel_Click(object sender, EventArgs e)
+    {
+      Close();
+    }
+
+    private void btnOK_Click(object sender, EventArgs e)
+    {
+      if (radIdleDefault.Checked)
+      {
+        Settings.Default.sort = "default";
+      }
+      if (radIdleLeastDrops.Checked)
+      {
+        Settings.Default.sort = "leastcards";
+      }
+      if (radIdleMostDrops.Checked)
+      {
+        Settings.Default.sort = "mostcards";
+      }
+      if (radIdleMostValue.Checked)
+      {
+        Settings.Default.sort = "mostvalue";
+      }
+
+      Settings.Default.minToTray = chkMinToTray.Checked;
+
+      Settings.Default.ignoreclient = chkIgnoreClientStatus.Checked;
+
+      Settings.Default.showUsername = chkShowUsername.Checked;
+
+      Settings.Default.Save();
+      Close();
+    }
+
+    private void frmSettings_Load(object sender, EventArgs e)
+    {
+      switch (Settings.Default.sort)
+      {
+        case "leastcards":
+          radIdleLeastDrops.Checked = true;
+          break;
+        case "mostcards":
+          radIdleMostDrops.Checked = true;
+          break;
+        case "mostvalue":
+          radIdleMostValue.Checked = true;
+          break;
+        default:
+          break;
+      }
+
+      if (Settings.Default.minToTray)
+      {
+        chkMinToTray.Checked = true;
+      }
+
+      if (Settings.Default.ignoreclient)
+      {
+        chkIgnoreClientStatus.Checked = true;
+      }
+
+      if (Settings.Default.showUsername)
+      {
+        chkShowUsername.Checked = true;
+      }
+    }
+
+    private void btnAdvanced_Click(object sender, EventArgs e)
+    {
+      var frm = new frmSettingsAdvanced();
+      frm.ShowDialog();
+    }
+  }
 }
