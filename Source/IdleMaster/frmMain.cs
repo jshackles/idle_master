@@ -97,7 +97,7 @@ namespace IdleMaster
         case "mostvalue":
           var query = string.Format("http://api.enhancedsteam.com/market_data/average_card_prices/im.php?appids={0}",
             string.Join(",", AllBadges.Select(b => b.AppId)));
-          var json = new WebClient().DownloadString(query);
+          var json = new WebClient() { Encoding = Encoding.UTF8 }.DownloadString(query);
           var convertedJson = JsonConvert.DeserializeObject<EnhancedsteamHelper>(json);
           foreach (var price in convertedJson.Avg_Values)
           {
