@@ -1,10 +1,7 @@
 ﻿using System;
-using System.IO;
-using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using IdleMaster.Properties;
-using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 
 namespace IdleMaster
 {
@@ -97,6 +94,7 @@ namespace IdleMaster
         {
           Settings.Default.Save();
           Close();
+          return;
         }
       }
       catch (Exception ex)
