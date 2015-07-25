@@ -9,21 +9,10 @@ namespace IdleMaster
 {
   public static class Logger
   {
-    /// <summary>
-    /// Указатель блокировки.
-    /// </summary>
     private static readonly object LogLock = new object();
 
-    /// <summary>
-    /// Ссылка на файл лога исключений.
-    /// </summary>
     private static readonly string ExceptionPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @".\error.log";
 
-    /// <summary>
-    /// Добавление записи в лог.
-    /// </summary>
-    /// <param name="ex">Исключение.</param>
-    /// <param name="messages">Сообщение.</param>
     public static void Exception(Exception ex, params string[] messages)
     {
       var contents = string.Concat(DateTime.Now, "   ", string.Join(Environment.NewLine, messages),
@@ -31,11 +20,6 @@ namespace IdleMaster
       Write(contents, ExceptionPath);
     }
 
-    /// <summary>
-    /// Записать в историю.
-    /// </summary>
-    /// <param name="contents">Сообщение.</param>
-    /// <param name="path">Файл.</param>
     private static void Write(string contents, string path)
     {
       Console.WriteLine(contents);
