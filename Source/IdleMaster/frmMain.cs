@@ -43,31 +43,6 @@ namespace IdleMaster
       lblDrops.Visible = CardsRemaining != 0;
     }
 
-    public string GetUserName()
-    {
-      var steamid = WebUtility.UrlDecode(Settings.Default.steamLogin);
-      var index = steamid.IndexOfAny(new[] { '|' }, 0);
-      if (index != -1)
-        steamid = steamid.Remove(index);
-
-      var userName = "User " + steamid;
-      try
-      {
-        var xmlRaw = new WebClient() {Encoding = Encoding.UTF8}.DownloadString(string.Format("http://steamcommunity.com/profiles/{0}/?xml=1", steamid));
-        var xml = new XmlDocument();
-        xml.LoadXml(xmlRaw);
-        var nameNode = xml.SelectSingleNode("//steamID");
-        if (nameNode != null)
-          userName = WebUtility.HtmlDecode(nameNode.InnerText);
-      }
-      catch (Exception ex)
-      {
-        Console.WriteLine(ex.Message);
-        Logger.Exception(ex, "frmMain -> GetUserName, for steamid = " + steamid);
-      }
-      return userName;
-    }
-
     private void CopyResource(string resourceName, string file)
     {
       using (var resource = GetType().Assembly.GetManifestResourceStream(resourceName))
@@ -452,7 +427,7 @@ namespace IdleMaster
       // Update the form elements
       if (Settings.Default.showUsername)
       {
-        lblSignedOnAs.Text = "Signed in as " + GetUserName();
+        lblSignedOnAs.Text = SteamProfile.GetSignedAs();
         lblSignedOnAs.Visible = true;
       }
 
@@ -559,7 +534,7 @@ namespace IdleMaster
       }
 
       if (Settings.Default.showUsername)
-        lblSignedOnAs.Text = "Signed in as " + GetUserName();
+        lblSignedOnAs.Text = SteamProfile.GetSignedAs();
 
       lblSignedOnAs.Visible = Settings.Default.showUsername;
     }

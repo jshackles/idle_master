@@ -86,8 +86,7 @@ namespace IdleMaster
       {
         Settings.Default.sessionid = txtSessionID.Text.Trim();
         Settings.Default.steamLogin = txtSteamLogin.Text.Trim();
-        if (txtSteamLogin.Text.Length > 17)
-          Settings.Default.myProfileURL = "http://steamcommunity.com/profiles/" + txtSteamLogin.Text.Substring(0, 17);
+        Settings.Default.myProfileURL = SteamProfile.GetSteamUrl();
         Settings.Default.steamparental = txtSteamParental.Text.Trim();
 
         if (await CookieClient.IsLogined())
