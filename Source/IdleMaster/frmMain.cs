@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -52,7 +53,7 @@ namespace IdleMaster
       var userName = "User " + steamid;
       try
       {
-        var xmlRaw = new WebClient().DownloadString(string.Format("http://steamcommunity.com/profiles/{0}/?xml=1", steamid));
+        var xmlRaw = new WebClient() {Encoding = Encoding.UTF8}.DownloadString(string.Format("http://steamcommunity.com/profiles/{0}/?xml=1", steamid));
         var xml = new XmlDocument();
         xml.LoadXml(xmlRaw);
         var nameNode = xml.SelectSingleNode("//steamID");
