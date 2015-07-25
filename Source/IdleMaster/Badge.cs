@@ -54,7 +54,7 @@ namespace IdleMaster
         var response = await CookieClient.GetHttpAsync(Settings.Default.myProfileURL + "/gamecards/" + StringId);
         document.LoadHtml(response);
 
-        var hoursNode = document.DocumentNode.SelectSingleNode("//div[@class=\"badge_title_stats\"]").ChildNodes["br"].PreviousSibling;
+        var hoursNode = document.DocumentNode.SelectSingleNode("//div[@class=\"badge_title_stats_playtime\"]");
         var hours = Regex.Match(hoursNode.InnerText, @"[0-9\.,]+").Value;
 
         var cardNode = hoursNode.ParentNode.SelectSingleNode(".//span[@class=\"progress_info_bold\"]");
