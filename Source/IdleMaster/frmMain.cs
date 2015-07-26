@@ -94,6 +94,8 @@ namespace IdleMaster
 
       foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge) && b.HoursPlayed < 2).Take(30))
         badge.Idle();
+
+      UpdateStateInfo();
     }
 
     public void StartIdle(Badge badge)
@@ -125,7 +127,6 @@ namespace IdleMaster
       // Update label controls
       lblCurrentRemaining.Text = CurrentBadge.RemainingCard + " card drops remaining";
       lblCurrentStatus.Text = "Currently in-game";
-      UpdateStateInfo();
 
       // Set progress bar values and show the footer
       pbIdle.Maximum = CurrentBadge.RemainingCard;
