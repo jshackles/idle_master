@@ -6,7 +6,7 @@ using IdleMaster.Properties;
 
 namespace IdleMaster
 {
-  internal static class SteamProfile
+  internal class SteamProfile
   {
     internal static string GetSteamId()
     {
@@ -20,13 +20,13 @@ namespace IdleMaster
       return "http://steamcommunity.com/profiles/" + GetSteamId();
     }
 
-    public static string GetSignedAs()
+    internal static string GetSignedAs()
     {
-      var steamid = GetSteamUrl();
+      var steamUrl = GetSteamUrl();
       var userName = "User " + GetSteamId();
       try
       {
-        var xmlRaw = new WebClient() { Encoding = Encoding.UTF8 }.DownloadString(string.Format("{0}/?xml=1", steamid));
+        var xmlRaw = new WebClient() { Encoding = Encoding.UTF8 }.DownloadString(string.Format("{0}/?xml=1", steamUrl));
         var xml = new XmlDocument();
         xml.LoadXml(xmlRaw);
         var nameNode = xml.SelectSingleNode("//steamID");
@@ -36,7 +36,7 @@ namespace IdleMaster
       catch (Exception ex)
       {
         Console.WriteLine(ex.Message);
-        Logger.Exception(ex, "frmMain -> GetSignedAs, for steamid = " + steamid);
+        Logger.Exception(ex, "frmMain -> GetSignedAs, for steamUrl = " + steamUrl);
       }
       return "Signed in as " + userName;
     }
