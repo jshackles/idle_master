@@ -140,16 +140,17 @@ namespace IdleMaster
 
         public void UpdateInterface()
         {
+            UpdateStateInfo();
+            
             // Update label controls
             if (CurrentBadge != null)
                 lblCurrentRemaining.Text = CurrentBadge.RemainingCard + " card drops remaining";
-
+            
             if (CanIdleBadges.Any(x => x.RemainingCard > 0))
             {
                 lblCurrentStatus.Text = "Currently in-game";
 
-                UpdateStateInfo();
-
+                
                 // Set progress bar values and show the footer
                 if (CurrentBadge != null)
                     pbIdle.Maximum = CurrentBadge.RemainingCard;
@@ -237,8 +238,10 @@ namespace IdleMaster
             // Deactivate the timer control and inform the user that the program is finished
             tmrCardDropCheck.Enabled = false;
             lblCurrentStatus.Text = "Idling complete";
+            lblGameName.Text = String.Empty;
+            btnSkip.Visible = false;
+            btnPause.Visible = false;
         }
-
 
         public async Task LoadBadgesAsync()
         {
@@ -327,6 +330,7 @@ namespace IdleMaster
                 }
                 else
                 {
+                    UpdateInterface();
                     IdleComplete();
                 }
             }
@@ -523,8 +527,10 @@ namespace IdleMaster
 
             StopIdle();
             AllBadges.RemoveAll(b => Equals(b, CurrentBadge));
-            UpdateInterface();
+            if (!CanIdleBadges.Any())
+                CurrentBadge = null;
             UpdateIdle();
+            UpdateInterface();          
         }
 
         private void btnPause_Click(object sender, EventArgs e)
