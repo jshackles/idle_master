@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -42,31 +43,6 @@ namespace IdleMaster
       lblDrops.Visible = CardsRemaining != 0;
     }
 
-    public string GetUserName()
-    {
-      var steamid = WebUtility.UrlDecode(Settings.Default.steamLogin);
-      var index = steamid.IndexOfAny(new[] { '|' }, 0);
-      if (index != -1)
-        steamid = steamid.Remove(index);
-
-      var userName = "User " + steamid;
-      try
-      {
-        var xmlRaw = new WebClient().DownloadString(string.Format("http://steamcommunity.com/profiles/{0}/?xml=1", steamid));
-        var xml = new XmlDocument();
-        xml.LoadXml(xmlRaw);
-        var nameNode = xml.SelectSingleNode("//steamID");
-        if (nameNode != null)
-          userName = WebUtility.HtmlDecode(nameNode.InnerText);
-      }
-      catch (Exception ex)
-      {
-        Console.WriteLine(ex.Message);
-        Logger.Exception(ex, "frmMain -> GetUserName, for steamid = " + steamid);
-      }
-      return userName;
-    }
-
     private void CopyResource(string resourceName, string file)
     {
       using (var resource = GetType().Assembly.GetManifestResourceStream(resourceName))
@@ -96,7 +72,7 @@ namespace IdleMaster
         case "mostvalue":
           var query = string.Format("http://api.enhancedsteam.com/market_data/average_card_prices/im.php?appids={0}",
             string.Join(",", AllBadges.Select(b => b.AppId)));
-          var json = new WebClient().DownloadString(query);
+          var json = new WebClient() { Encoding = Encoding.UTF8 }.DownloadString(query);
           var convertedJson = JsonConvert.DeserializeObject<EnhancedsteamHelper>(json);
           foreach (var price in convertedJson.Avg_Values)
           {
@@ -118,6 +94,8 @@ namespace IdleMaster
 
       foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge) && b.HoursPlayed < 2).Take(30))
         badge.Idle();
+
+      UpdateStateInfo();
     }
 
     public void StartIdle(Badge badge)
@@ -149,7 +127,6 @@ namespace IdleMaster
       // Update label controls
       lblCurrentRemaining.Text = CurrentBadge.RemainingCard + " card drops remaining";
       lblCurrentStatus.Text = "Currently in-game";
-      UpdateStateInfo();
 
       // Set progress bar values and show the footer
       pbIdle.Maximum = CurrentBadge.RemainingCard;
@@ -451,7 +428,7 @@ namespace IdleMaster
       // Update the form elements
       if (Settings.Default.showUsername)
       {
-        lblSignedOnAs.Text = "Signed in as " + GetUserName();
+        lblSignedOnAs.Text = SteamProfile.GetSignedAs();
         lblSignedOnAs.Visible = true;
       }
 
@@ -558,7 +535,7 @@ namespace IdleMaster
       }
 
       if (Settings.Default.showUsername)
-        lblSignedOnAs.Text = "Signed in as " + GetUserName();
+        lblSignedOnAs.Text = SteamProfile.GetSignedAs();
 
       lblSignedOnAs.Visible = Settings.Default.showUsername;
     }

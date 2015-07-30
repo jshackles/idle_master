@@ -60,9 +60,7 @@ namespace IdleMaster
         var cardNode = hoursNode.ParentNode.SelectSingleNode(".//span[@class=\"progress_info_bold\"]");
         var cards = cardNode == null ? string.Empty : Regex.Match(cardNode.InnerText, @"[0-9]+").Value;
 
-        RemainingCard = string.IsNullOrWhiteSpace(cards) ? 0 : int.Parse(cards);
-        HoursPlayed = string.IsNullOrWhiteSpace(hours) ? 0 : double.Parse(hours, new NumberFormatInfo());
-
+        UpdateStats(cards, hours);
         return RemainingCard != 0;
       }
       catch (Exception ex)

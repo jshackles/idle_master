@@ -83,7 +83,7 @@ namespace IdleMaster
           else if (cookie.Name == "steamLogin")
           {
             Settings.Default.steamLogin = cookie.Value;
-            Settings.Default.myProfileURL = "http://steamcommunity.com/profiles/" + cookie.Value.Substring(0, 17);
+            Settings.Default.myProfileURL = SteamProfile.GetSteamUrl();
           }
 
           // Save the "steamparental" cookie"
