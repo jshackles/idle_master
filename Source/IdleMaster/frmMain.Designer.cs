@@ -32,7 +32,7 @@ namespace IdleMaster
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            var resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.lblCookieStatus = new System.Windows.Forms.Label();
             this.tmrCheckCookieData = new System.Windows.Forms.Timer(this.components);
             this.lblSteamStatus = new System.Windows.Forms.Label();
@@ -408,7 +408,7 @@ namespace IdleMaster
             // picIdleStatus
             // 
             this.picIdleStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picIdleStatus.Location = new System.Drawing.Point(286, 319);
+            this.picIdleStatus.Location = new System.Drawing.Point(287, 321);
             this.picIdleStatus.Name = "picIdleStatus";
             this.picIdleStatus.Size = new System.Drawing.Size(15, 16);
             this.picIdleStatus.TabIndex = 15;
