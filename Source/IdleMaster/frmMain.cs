@@ -186,7 +186,7 @@ namespace IdleMaster
             UpdateIdleProcesses();
 
             if (CanIdleBadges.Count(x => x.HoursPlayed < 2) <= 1 || CanIdleBadges.Count() == 1)
-                StartIdle(CanIdleBadges.First(x => x.HoursPlayed >= 2));
+                StartIdle(CanIdleBadges.First());
             else if (!CanIdleBadges.Any(x => x.RemainingCard > 0))
                 IdleComplete();
         }
