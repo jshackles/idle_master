@@ -35,6 +35,8 @@ namespace IdleMaster
         Settings.Default.sort = "mostvalue";
       }
 
+      Settings.Default.OnlyOneGameIdle = OneGameOnly.Checked && !ManyThenOne.Checked;
+
       Settings.Default.minToTray = chkMinToTray.Checked;
 
       Settings.Default.ignoreclient = chkIgnoreClientStatus.Checked;
@@ -61,6 +63,9 @@ namespace IdleMaster
         default:
           break;
       }
+
+      OneGameOnly.Checked = Settings.Default.OnlyOneGameIdle;
+      ManyThenOne.Checked = !Settings.Default.OnlyOneGameIdle;
 
       if (Settings.Default.minToTray)
       {
