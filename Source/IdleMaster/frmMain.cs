@@ -196,9 +196,12 @@ namespace IdleMaster
             foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge) && b.HoursPlayed >= 2 && b.InIdle))
                 badge.StopIdle();
 
-            foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge) && b.HoursPlayed < 2).Take(30))
-                badge.Idle();
-
+            if (CanIdleBadges.Count(x => x.HoursPlayed < 2) > 1)
+            {
+                foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge) && b.HoursPlayed < 2).Take(30))
+                    badge.Idle();    
+            }
+            
             UpdateInterface();
         }
 
