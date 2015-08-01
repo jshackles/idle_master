@@ -98,7 +98,20 @@ namespace IdleMaster
           badge.Idle();
       }
 
+      RefreshGamesStateListView();
+
       if (!CanIdleBadges.Any(b => b.InIdle))
+        NextIdle();
+
+      UpdateStateInfo();
+    }
+
+    private void NextIdle()
+    {
+      // Stop idling the current game
+      StopIdle();
+
+      if (CanIdleBadges.Any())
       {
         // Give the user notification that the next game will start soon
         lblCurrentStatus.Text = "Loading next game...";
@@ -111,8 +124,10 @@ namespace IdleMaster
         tmrStartNext.Interval = wait;
         tmrStartNext.Enabled = true;
       }
-
-      UpdateStateInfo();
+      else
+      {
+        IdleComplete();
+      }
     }
 
     private void StartIdle()
@@ -143,7 +158,7 @@ namespace IdleMaster
 
       // Place user "In game" for card drops
       CurrentBadge.Idle();
-      
+
       // Update game name
       lblGameName.Visible = true;
       lblGameName.Text = CurrentBadge.Name;
@@ -175,7 +190,7 @@ namespace IdleMaster
       tmrCardDropCheck.Enabled = true;
 
       // Reset the timer
-      TimeLeft = pbIdle.Maximum != 1 ? 900 : 300;
+      TimeLeft = CurrentBadge.RemainingCard == 1 ? 300 : 900;
 
       // Set the correct buttons on the form for pause / resume
       btnResume.Visible = false;
@@ -194,6 +209,7 @@ namespace IdleMaster
       UpdateIdleProcesses();
 
       // Update label controls
+      lblCurrentRemaining.Text = "Update games state";
       lblCurrentStatus.Text = "Currently in-game";
 
       lblGameName.Visible = false;
@@ -208,6 +224,10 @@ namespace IdleMaster
       // Reset the timer
       TimeLeft = 600;
 
+      // Show game
+      GamesState.Visible = true;
+      RefreshGamesStateListView();
+
       // Set the correct buttons on the form for pause / resume
       btnResume.Visible = false;
       btnPause.Visible = false;
@@ -216,8 +236,19 @@ namespace IdleMaster
       pauseIdlingToolStripMenuItem.Enabled = false;
       skipGameToolStripMenuItem.Enabled = false;
 
-      var scale = CreateGraphics().DpiY * 1.9583;
+      var scale = CreateGraphics().DpiY * 3.86;
       Height = Convert.ToInt32(scale);
+    }
+
+    private void RefreshGamesStateListView()
+    {
+      GamesState.Items.Clear();
+      foreach (var badge in CanIdleBadges.Where(b => b.InIdle))
+      {
+        var line = new ListViewItem(badge.Name);
+        line.SubItems.Add(badge.HoursPlayed.ToString());
+        GamesState.Items.Add(line);
+      }
     }
 
     public void StopIdle()
@@ -227,6 +258,7 @@ namespace IdleMaster
         lblGameName.Visible = false;
         picApp.Image = null;
         picApp.Visible = false;
+        GamesState.Visible = false;
         lblCurrentStatus.Text = "Not in game";
         picIdleStatus.Image = null;
 
@@ -329,28 +361,7 @@ namespace IdleMaster
     public async Task CheckCardDrops(Badge badge)
     {
       if (!await badge.CanCardDrops())
-      {
-        // Stop idling the current game
-        StopIdle();
-
-        if (CanIdleBadges.Any())
-        {
-          // Give the user notification that the next game will start soon
-          lblCurrentStatus.Text = "Loading next game...";
-
-          // Make a short but random amount of time pass
-          var rand = new Random();
-          var wait = rand.Next(3, 9);
-          wait = wait * 1000;
-
-          tmrStartNext.Interval = wait;
-          tmrStartNext.Enabled = true;
-        }
-        else
-        {
-          IdleComplete();
-        }
-      }
+        NextIdle();
       else
       {
         // Resets the clock based on the number of remaining drops
