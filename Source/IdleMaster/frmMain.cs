@@ -123,7 +123,7 @@ namespace IdleMaster
           StartSoloIdle(CanIdleBadges.First());
         else
         {
-          var farm = CanIdleBadges.FirstOrDefault(b => b.HoursPlayed > 2);
+          var farm = CanIdleBadges.FirstOrDefault(b => b.HoursPlayed >= 2);
           if (farm != null)
             StartSoloIdle(farm);
           else
@@ -180,6 +180,7 @@ namespace IdleMaster
       // Set the correct buttons on the form for pause / resume
       btnResume.Visible = false;
       btnPause.Visible = true;
+      btnSkip.Visible = true;
       resumeIdlingToolStripMenuItem.Enabled = false;
       pauseIdlingToolStripMenuItem.Enabled = false;
       skipGameToolStripMenuItem.Enabled = false;
@@ -672,8 +673,8 @@ namespace IdleMaster
 
     private void tmrStartNext_Tick(object sender, EventArgs e)
     {
-      StartIdle();
       tmrStartNext.Enabled = false;
+      StartIdle();
     }
 
     private void changelogToolStripMenuItem_Click(object sender, EventArgs e)
