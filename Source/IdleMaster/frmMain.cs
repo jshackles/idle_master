@@ -94,7 +94,7 @@ namespace IdleMaster
         if (badge.HoursPlayed >= 2 && badge.InIdle)
           badge.StopIdle();
 
-        if (badge.HoursPlayed < 2 && !CanIdleBadges.Any(b => b.HoursPlayed >= 2) && CanIdleBadges.Count(b => b.InIdle) < 30)
+        if (badge.HoursPlayed < 2 && CanIdleBadges.Count(b => b.InIdle) < 30)
           badge.Idle();
       }
 
@@ -138,11 +138,15 @@ namespace IdleMaster
           StartSoloIdle(CanIdleBadges.First());
         else
         {
-          var farm = CanIdleBadges.FirstOrDefault(b => b.HoursPlayed >= 2);
-          if (farm != null)
-            StartSoloIdle(farm);
-          else
-            StartMultipleIdle();
+            var multi = CanIdleBadges.Where(b => b.HoursPlayed < 2);
+            if (multi != null)
+            {
+                StartMultipleIdle();
+            }
+            else
+            {
+                StartSoloIdle(CanIdleBadges.First());
+            }
         }
       }
       else
@@ -200,7 +204,7 @@ namespace IdleMaster
       pauseIdlingToolStripMenuItem.Enabled = false;
       skipGameToolStripMenuItem.Enabled = false;
 
-      var scale = CreateGraphics().DpiY * 3.86;
+      var scale = CreateGraphics().DpiY * 3.9;
       Height = Convert.ToInt32(scale);
     }
 
@@ -209,7 +213,7 @@ namespace IdleMaster
       UpdateIdleProcesses();
 
       // Update label controls
-      lblCurrentRemaining.Text = "Update games state";
+      lblCurrentRemaining.Text = "Update games status";
       lblCurrentStatus.Text = "Currently in-game";
 
       lblGameName.Visible = false;
@@ -259,6 +263,8 @@ namespace IdleMaster
         picApp.Image = null;
         picApp.Visible = false;
         GamesState.Visible = false;
+        btnPause.Visible = false;
+        btnSkip.Visible = false;
         lblCurrentStatus.Text = "Not in game";
         picIdleStatus.Image = null;
 
@@ -597,11 +603,12 @@ namespace IdleMaster
     private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
     {
       // Show the form
-      var previous = Settings.Default.sort;
-      var frm = new frmSettings();
+      String previous = Settings.Default.sort;
+      Boolean previous_behavior = Settings.Default.OnlyOneGameIdle;
+      Form frm = new frmSettings();
       frm.ShowDialog();
 
-      if (previous != Settings.Default.sort)
+      if (previous != Settings.Default.sort || previous_behavior != Settings.Default.OnlyOneGameIdle)
       {
         StopIdle();
         AllBadges.Clear();
