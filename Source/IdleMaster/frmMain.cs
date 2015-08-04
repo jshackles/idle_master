@@ -139,7 +139,7 @@ namespace IdleMaster
         else
         {
             var multi = CanIdleBadges.Where(b => b.HoursPlayed < 2);
-            if (multi.Any())
+            if (multi.Count() >= 2)
             {
                 StartMultipleIdle();
             }
@@ -168,6 +168,7 @@ namespace IdleMaster
       lblGameName.Text = CurrentBadge.Name;
 
       GamesState.Visible = false;
+      gameToolStripMenuItem.Enabled = true;
 
       // Update game image
       try
@@ -223,6 +224,7 @@ namespace IdleMaster
       lblGameName.Visible = false;
       lblHoursPlayed.Visible = false;
       ssFooter.Visible = true;
+      gameToolStripMenuItem.Enabled = false;
 
       // Start the animated "working" gif
       picIdleStatus.Image = Resources.imgSpin;
