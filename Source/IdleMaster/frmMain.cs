@@ -139,7 +139,7 @@ namespace IdleMaster
         else
         {
             var multi = CanIdleBadges.Where(b => b.HoursPlayed < 2);
-            if (multi != null)
+            if (multi.Any())
             {
                 StartMultipleIdle();
             }
@@ -166,6 +166,8 @@ namespace IdleMaster
       // Update game name
       lblGameName.Visible = true;
       lblGameName.Text = CurrentBadge.Name;
+
+      GamesState.Visible = false;
 
       // Update game image
       try
@@ -226,10 +228,11 @@ namespace IdleMaster
       tmrCardDropCheck.Enabled = true;
 
       // Reset the timer
-      TimeLeft = 600;
+      TimeLeft = 360;
 
       // Show game
       GamesState.Visible = true;
+      picApp.Visible = false;
       RefreshGamesStateListView();
 
       // Set the correct buttons on the form for pause / resume
@@ -548,7 +551,7 @@ namespace IdleMaster
 
           isMultipleIdle = CanIdleBadges.Any(b => b.HoursPlayed < 2 && b.InIdle);
           if (isMultipleIdle)
-            TimeLeft = 600;
+            TimeLeft = 360;
         }
 
         tmrCardDropCheck.Enabled = CanIdleBadges.Any() && TimeLeft != 0;
