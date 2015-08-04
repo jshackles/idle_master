@@ -183,6 +183,8 @@ namespace IdleMaster
       // Update label controls
       lblCurrentRemaining.Text = CurrentBadge.RemainingCard + " card drops remaining";
       lblCurrentStatus.Text = "Currently in-game";
+      lblHoursPlayed.Visible = true;
+      lblHoursPlayed.Text = CurrentBadge.HoursPlayed + " hrs on record";
 
       // Set progress bar values and show the footer
       pbIdle.Maximum = CurrentBadge.RemainingCard;
@@ -219,6 +221,7 @@ namespace IdleMaster
       lblCurrentStatus.Text = "Currently in-game";
 
       lblGameName.Visible = false;
+      lblHoursPlayed.Visible = false;
       ssFooter.Visible = true;
 
       // Start the animated "working" gif
@@ -269,6 +272,7 @@ namespace IdleMaster
         btnPause.Visible = false;
         btnSkip.Visible = false;
         lblCurrentStatus.Text = "Not in game";
+        lblHoursPlayed.Visible = false;
         picIdleStatus.Image = null;
 
         // Stop the card drop check timer
@@ -379,6 +383,7 @@ namespace IdleMaster
 
       lblCurrentRemaining.Text = badge.RemainingCard + " card drops remaining";
       pbIdle.Value = pbIdle.Maximum - badge.RemainingCard;
+      lblHoursPlayed.Text = badge.HoursPlayed + " hrs on record";
       UpdateStateInfo();
     }
 
