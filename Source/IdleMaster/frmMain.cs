@@ -330,47 +330,52 @@ namespace IdleMaster
 
         public async Task LoadBadgesAsync()
         {
+            // Settings.Default.myProfileURL = http://steamcommunity.com/id/USER
             var profileLink = Settings.Default.myProfileURL + "/badges";
             var document = new HtmlDocument();
-            var pages = new List<string>() { "?p=1" };
+            int pagesCount = 1;
 
             try
             {
-                for (var i = 0; i < pages.Count; i++)
+                // Load Page 1 and check how many pages there are
+                var pageURL = string.Format("{0}/?p={1}", profileLink, 1);
+                var response = await CookieClient.GetHttpAsync(pageURL);
+                // Response should be empty. User should be unauthorised.
+                if (string.IsNullOrEmpty(response))
                 {
-                    var response = await CookieClient.GetHttpAsync(profileLink + pages[i]);
+                    ResetClientStatus();
+                    return;
+                }
+                document.LoadHtml(response);
+
+                // If user is authenticated, check page count. If user is not authenticated, pages are different.
+                var pageNodes = document.DocumentNode.SelectNodes("//a[@class=\"pagelink\"]");
+                if (pageNodes != null)
+                {
+                    pagesCount = pageNodes.Count;
+                }
+
+                // Get all badges from current page
+                ProcessBadgesOnPage(document);
+
+                // Load other pages
+                for (var i = 2; i <= pagesCount; i++)
+                {
+                    lblDrops.Text = string.Format("Reading badge page {0}/{1}, please wait...", i, pagesCount);
+
+                    // Load Page 2+
+                    pageURL = string.Format("{0}/?p={1}", profileLink, i);
+                    response = await CookieClient.GetHttpAsync(pageURL);
+                    // Response should be empty. User should be unauthorised.
+                    if (string.IsNullOrEmpty(response))
+                    {
+                        ResetClientStatus();
+                        return;
+                    }
                     document.LoadHtml(response);
 
-                    var pageNodes = document.DocumentNode.SelectNodes("//a[@class=\"pagelink\"]");
-                    if (pageNodes != null)
-                    {
-                        pages.AddRange(pageNodes.Select(p => p.Attributes["href"].Value).Distinct());
-                        pages = pages.Distinct().ToList();
-                    }
-
-                    foreach (var badge in document.DocumentNode.SelectNodes("//div[@class=\"badge_row is_link\"]"))
-                    {
-                        var appIdNode = badge.SelectSingleNode(".//a[@class=\"badge_row_overlay\"]").Attributes["href"].Value;
-                        var appid = Regex.Match(appIdNode, @"gamecards/(\d+)/").Groups[1].Value;
-
-                        if (string.IsNullOrWhiteSpace(appid) || Settings.Default.blacklist.Contains(appid) || appid == "368020" || appid == "335590")
-                            continue;
-
-                        var hoursNode = badge.SelectSingleNode(".//div[@class=\"badge_title_stats_playtime\"]");
-                        var hours = hoursNode == null ? string.Empty : Regex.Match(hoursNode.InnerText, @"[0-9\.,]+").Value;
-
-                        var nameNode = badge.SelectSingleNode(".//div[@class=\"badge_title\"]");
-                        var name = WebUtility.HtmlDecode(nameNode.FirstChild.InnerText).Trim();
-
-                        var cardNode = badge.SelectSingleNode(".//span[@class=\"progress_info_bold\"]");
-                        var cards = cardNode == null ? string.Empty : Regex.Match(cardNode.InnerText, @"[0-9]+").Value;
-
-                        var badgeInMemory = AllBadges.FirstOrDefault(b => b.StringId == appid);
-                        if (badgeInMemory != null)
-                            badgeInMemory.UpdateStats(cards, hours);
-                        else
-                            AllBadges.Add(new Badge(appid, name, cards, hours));
-                    }
+                    // Get all badges from current page
+                    ProcessBadgesOnPage(document);
                 }
             }
             catch (Exception ex)
@@ -392,6 +397,43 @@ namespace IdleMaster
             if (CardsRemaining == 0)
             {
                 IdleComplete();
+            }
+        }
+
+        /// <summary>
+        /// Processes all badges on page
+        /// </summary>
+        /// <param name="document">HTML document (1 page) from x</param>
+        private void ProcessBadgesOnPage(HtmlDocument document)
+        {
+            foreach (var badge in document.DocumentNode.SelectNodes("//div[@class=\"badge_row is_link\"]"))
+            {
+                var appIdNode = badge.SelectSingleNode(".//a[@class=\"badge_row_overlay\"]").Attributes["href"].Value;
+                var appid = Regex.Match(appIdNode, @"gamecards/(\d+)/").Groups[1].Value;
+
+                if (string.IsNullOrWhiteSpace(appid) || Settings.Default.blacklist.Contains(appid) || appid == "368020" || appid == "335590")
+                {
+                    continue;
+                }
+
+                var hoursNode = badge.SelectSingleNode(".//div[@class=\"badge_title_stats_playtime\"]");
+                var hours = hoursNode == null ? string.Empty : Regex.Match(hoursNode.InnerText, @"[0-9\.,]+").Value;
+
+                var nameNode = badge.SelectSingleNode(".//div[@class=\"badge_title\"]");
+                var name = WebUtility.HtmlDecode(nameNode.FirstChild.InnerText).Trim();
+
+                var cardNode = badge.SelectSingleNode(".//span[@class=\"progress_info_bold\"]");
+                var cards = cardNode == null ? string.Empty : Regex.Match(cardNode.InnerText, @"[0-9]+").Value;
+
+                var badgeInMemory = AllBadges.FirstOrDefault(b => b.StringId == appid);
+                if (badgeInMemory != null)
+                {
+                    badgeInMemory.UpdateStats(cards, hours);
+                }
+                else
+                {
+                    AllBadges.Add(new Badge(appid, name, cards, hours));
+                }
             }
         }
 
@@ -520,6 +562,16 @@ namespace IdleMaster
             // Set timer intervals
             tmrCheckSteam.Interval = 500;
             tmrCheckCookieData.Interval = 500;
+
+            // Hide signed user name
+            if (Settings.Default.showUsername)
+            {
+                lblSignedOnAs.Text = String.Empty;
+                lblSignedOnAs.Visible = false;
+            }
+
+            // Hide spinners
+            picReadingPage.Visible = false;
 
             // Hide lblDrops and lblIdle
             lblDrops.Visible = false;
