@@ -53,7 +53,7 @@ namespace IdleMaster
       var url = wbAuth.Url.AbsoluteUri;
 
       // If the page it just finished loading isn't the login page
-      if (url != "https://steamcommunity.com/login/home/?goto=my/profile" && url != "https://store.steampowered.com//login/transfer" && url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
+      if (url != "https://steamcommunity.com/login/home/?goto=my/profile" && url != "https://store.steampowered.com/login/transfer" && url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
       {
 
         dynamic parentalNotice = htmldoc.GetElementById("parental_notice");
@@ -157,7 +157,7 @@ namespace IdleMaster
       var url = e.Url.AbsoluteUri;
 
       // Check to see if the page it's navigating to isn't the Steam login page or related calls
-      if (url != "https://steamcommunity.com/login/home/?goto=my/profile" && url != "https://store.steampowered.com//login/transfer" && url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
+      if (url != "https://steamcommunity.com/login/home/?goto=my/profile" && url != "https://store.steampowered.com/login/transfer" && url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
       {
         // start the sanity check timer
         tmrCheck.Enabled = true;
