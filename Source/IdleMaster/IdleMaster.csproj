@@ -118,6 +118,12 @@
     <Compile Include="frmChangelog.Designer.cs">
       <DependentUpon>frmChangelog.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmChoiceGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChoiceGame.Designer.cs">
+      <DependentUpon>frmChoiceGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmChangelog.resx">
       <DependentUpon>frmChangelog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChoiceGame.resx">
+      <DependentUpon>frmChoiceGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
