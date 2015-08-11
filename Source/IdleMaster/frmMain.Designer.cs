@@ -84,6 +84,7 @@ namespace IdleMaster
 			this.Hours = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.lblHoursPlayed = new System.Windows.Forms.Label();
 			this.btnChoice = new System.Windows.Forms.Button();
+			this.choiceGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuTop.SuspendLayout();
 			this.ssFooter.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picReadingPage)).BeginInit();
@@ -259,6 +260,7 @@ namespace IdleMaster
             this.pauseIdlingToolStripMenuItem,
             this.resumeIdlingToolStripMenuItem,
             this.skipGameToolStripMenuItem,
+            this.choiceGameToolStripMenuItem,
             this.toolStripMenuItem2,
             this.blacklistCurrentGameToolStripMenuItem});
 			this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
@@ -524,13 +526,21 @@ namespace IdleMaster
 			// 
 			// btnChoice
 			// 
+			this.btnChoice.Image = global::IdleMaster.Properties.Resources.imgChoiceSmall;
 			this.btnChoice.Location = new System.Drawing.Point(273, 135);
 			this.btnChoice.Name = "btnChoice";
 			this.btnChoice.Size = new System.Drawing.Size(15, 16);
 			this.btnChoice.TabIndex = 30;
-			this.btnChoice.Text = "..";
 			this.btnChoice.UseVisualStyleBackColor = true;
 			this.btnChoice.Click += new System.EventHandler(this.btnChoice_Click);
+			// 
+			// choiceGameToolStripMenuItem
+			// 
+			this.choiceGameToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgChoice;
+			this.choiceGameToolStripMenuItem.Name = "choiceGameToolStripMenuItem";
+			this.choiceGameToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+			this.choiceGameToolStripMenuItem.Text = "&Choice Game";
+			this.choiceGameToolStripMenuItem.Click += new System.EventHandler(this.choiceGameToolStripMenuItem_Click);
 			// 
 			// frmMain
 			// 
@@ -637,6 +647,7 @@ namespace IdleMaster
     private ColumnHeader Hours;
     private Label lblHoursPlayed;
 	private Button btnChoice;
+	private ToolStripMenuItem choiceGameToolStripMenuItem;
   }
 }
 

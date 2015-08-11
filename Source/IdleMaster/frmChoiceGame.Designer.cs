@@ -30,11 +30,11 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChoiceGame));
 			this._GamesDataGridView = new System.Windows.Forms.DataGridView();
-			this._OkButton = new System.Windows.Forms.Button();
-			this._CancelButton = new System.Windows.Forms.Button();
 			this._NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._CardsCountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._AveragePriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this._OkButton = new System.Windows.Forms.Button();
+			this._CancelButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this._GamesDataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -60,8 +60,28 @@
 			this._GamesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this._GamesDataGridView.Size = new System.Drawing.Size(438, 175);
 			this._GamesDataGridView.TabIndex = 0;
+			this._GamesDataGridView.TabStop = false;
 			this._GamesDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._GamesDataGridView_CellDoubleClick);
 			this._GamesDataGridView.SelectionChanged += new System.EventHandler(this._GamesDataGridView_SelectionChanged);
+			// 
+			// _NameColumn
+			// 
+			this._NameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this._NameColumn.HeaderText = "Game name";
+			this._NameColumn.Name = "_NameColumn";
+			this._NameColumn.ReadOnly = true;
+			// 
+			// _CardsCountColumn
+			// 
+			this._CardsCountColumn.HeaderText = "Cards count";
+			this._CardsCountColumn.Name = "_CardsCountColumn";
+			this._CardsCountColumn.ReadOnly = true;
+			// 
+			// _AveragePriceColumn
+			// 
+			this._AveragePriceColumn.HeaderText = "Average price";
+			this._AveragePriceColumn.Name = "_AveragePriceColumn";
+			this._AveragePriceColumn.ReadOnly = true;
 			// 
 			// _OkButton
 			// 
@@ -84,25 +104,6 @@
 			this._CancelButton.TabIndex = 2;
 			this._CancelButton.Text = "Cancel";
 			this._CancelButton.UseVisualStyleBackColor = true;
-			// 
-			// _NameColumn
-			// 
-			this._NameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this._NameColumn.HeaderText = "Game name";
-			this._NameColumn.Name = "_NameColumn";
-			this._NameColumn.ReadOnly = true;
-			// 
-			// _CardsCountColumn
-			// 
-			this._CardsCountColumn.HeaderText = "Cards count";
-			this._CardsCountColumn.Name = "_CardsCountColumn";
-			this._CardsCountColumn.ReadOnly = true;
-			// 
-			// _AveragePriceColumn
-			// 
-			this._AveragePriceColumn.HeaderText = "Average price";
-			this._AveragePriceColumn.Name = "_AveragePriceColumn";
-			this._AveragePriceColumn.ReadOnly = true;
 			// 
 			// frmChoiceGame
 			// 

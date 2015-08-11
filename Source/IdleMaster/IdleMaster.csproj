@@ -242,6 +242,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo1.ico" />
+    <None Include="Resources\media-Choice.png" />
+    <None Include="Resources\media-choice-2x.png" />
     <None Include="Resources\globe-2x.png" />
     <None Include="Resources\document-2x.png" />
     <None Include="Resources\lock-locked-2x.png" />
