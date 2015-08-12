@@ -325,6 +325,16 @@ namespace IdleMaster
             // Deactivate the timer control and inform the user that the program is finished
             tmrCardDropCheck.Enabled = false;
             lblCurrentStatus.Text = "Idling complete";
+
+            lblGameName.Visible = false;
+            btnPause.Visible = false;
+            btnSkip.Visible = false;
+
+            // Resize the form
+            var graphics = CreateGraphics();
+            var scale = graphics.DpiY * 1.9583;
+            Height = Convert.ToInt32(scale);
+
         }
 
 
