@@ -35,7 +35,7 @@ namespace IdleMaster
       InternetSetCookie("http://steamcommunity.com", "steamRememberLogin", ";expires=Mon, 01 Jan 0001 00:00:00 GMT");
 
       // When the form is loaded, navigate to the Steam login page using the web browser control
-      wbAuth.Navigate("https://steamcommunity.com/login/home/?goto=my/profile");
+      wbAuth.Navigate("https://steamcommunity.com/login/home/?goto=my/profile", "_self", null, "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko");
     }
 
     // This code block executes each time a new document is loaded into the web browser control
@@ -53,17 +53,27 @@ namespace IdleMaster
       var url = wbAuth.Url.AbsoluteUri;
 
       // If the page it just finished loading isn't the login page
-      if (url != "https://steamcommunity.com/login/home/?goto=my/profile" && url != "https://store.steampowered.com/login/transfer" && url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
+      if (url != "https://steamcommunity.com/login/home/?goto=my/profile" && url != "https://store.steampowered.com/login/transfer" && url != "https://store.steampowered.com//login/transfer" && url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
       {
 
-        dynamic parentalNotice = htmldoc.GetElementById("parental_notice");
-        if (parentalNotice != null)
+        try
         {
-          // Steam family options enabled
-          wbAuth.Show();
-          Width = 1000;
-          Height = 350;
-          return;
+            dynamic parentalNotice = htmldoc.GetElementById("parental_notice");
+            if (parentalNotice != null)
+            {
+                if (parentalNotice.OuterHtml != "") 
+                {
+                    // Steam family options enabled
+                    wbAuth.Show();
+                    Width = 1000;
+                    Height = 350;
+                    return;
+                }
+            }
+        }
+        catch (Exception)
+        {
+        
         }
 
         // Get a list of cookies from the current page
@@ -157,7 +167,7 @@ namespace IdleMaster
       var url = e.Url.AbsoluteUri;
 
       // Check to see if the page it's navigating to isn't the Steam login page or related calls
-      if (url != "https://steamcommunity.com/login/home/?goto=my/profile" && url != "https://store.steampowered.com/login/transfer" && url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
+      if (url != "https://steamcommunity.com/login/home/?goto=my/profile" && url != "https://store.steampowered.com/login/transfer" && url != "https://store.steampowered.com//login/transfer" && url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
       {
         // start the sanity check timer
         tmrCheck.Enabled = true;
