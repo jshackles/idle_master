@@ -235,6 +235,7 @@ namespace IdleMaster
             btnResume.Visible = false;
             btnPause.Visible = true;
             btnSkip.Visible = true;
+			btnChoice.Visible = true;
             resumeIdlingToolStripMenuItem.Enabled = false;
             pauseIdlingToolStripMenuItem.Enabled = false;
             skipGameToolStripMenuItem.Enabled = false;
@@ -274,6 +275,7 @@ namespace IdleMaster
             btnResume.Visible = false;
             btnPause.Visible = false;
             btnSkip.Visible = false;
+			btnChoice.Visible = false;
             resumeIdlingToolStripMenuItem.Enabled = false;
             pauseIdlingToolStripMenuItem.Enabled = false;
             skipGameToolStripMenuItem.Enabled = false;
@@ -303,6 +305,7 @@ namespace IdleMaster
                 GamesState.Visible = false;
                 btnPause.Visible = false;
                 btnSkip.Visible = false;
+				btnChoice.Visible = false;
                 lblCurrentStatus.Text = "Not in game";
                 lblHoursPlayed.Visible = false;
                 picIdleStatus.Image = null;
