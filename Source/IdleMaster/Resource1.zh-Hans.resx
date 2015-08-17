@@ -127,10 +127,10 @@
     <value>游戏中</value>
   </data>
   <data name="games_left_to_idle" xml:space="preserve">
-    <value>游戏等待运行</value>
+    <value>游戏尚有卡牌</value>
   </data>
   <data name="hrs_on_record" xml:space="preserve">
-    <value>记录在案的</value>
+    <value>小时游戏时间</value>
   </data>
   <data name="Idle_Master_is_connected_to_Steam" xml:space="preserve">
     <value>Idle Master已登录到Steam</value>
