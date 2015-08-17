@@ -102,7 +102,7 @@ namespace IdleMaster
       }
 
       // Invalid cookie data, reset the form
-      btnUpdate.Text = "Update";
+      btnUpdate.Text = Resource1.Update;
       txtSessionID.Text = "";
       txtSteamLogin.Text = "";
       txtSteamParental.Text = "";
@@ -113,7 +113,7 @@ namespace IdleMaster
       txtSteamLogin.Enabled = true;
       txtSteamParental.Enabled = true;
       txtSessionID.Focus();
-      MessageBox.Show("The data you've entered isn't valid.  Please try again.");
+      MessageBox.Show(Resource1.The_data_youve_entered_isnt_valid_Please_try_again);
       btnUpdate.Enabled = true;
     }
 
@@ -123,7 +123,7 @@ namespace IdleMaster
       txtSessionID.Enabled = false;
       txtSteamLogin.Enabled = false;
       txtSteamParental.Enabled = false;
-      btnUpdate.Text = "Validating...";
+      btnUpdate.Text = Resource1.Validating;
       await CheckAndSave();
     }
   }

@@ -31,31 +31,23 @@ namespace IdleMaster
         /// </summary>
         private void InitializeComponent()
         {
-            var resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChangelog));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChangelog));
             this.rtbChangelog = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // rtbChangelog
             // 
+            resources.ApplyResources(this.rtbChangelog, "rtbChangelog");
             this.rtbChangelog.BackColor = System.Drawing.Color.White;
-            this.rtbChangelog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbChangelog.Location = new System.Drawing.Point(0, 0);
             this.rtbChangelog.Name = "rtbChangelog";
             this.rtbChangelog.ReadOnly = true;
-            this.rtbChangelog.Size = new System.Drawing.Size(564, 578);
-            this.rtbChangelog.TabIndex = 0;
-            this.rtbChangelog.Text = "";
             // 
             // frmChangelog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 578);
             this.Controls.Add(this.rtbChangelog);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmChangelog";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Idle Master Release Notes";
             this.Load += new System.EventHandler(this.frmChangelog_Load);
             this.ResumeLayout(false);
 

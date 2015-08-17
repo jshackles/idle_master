@@ -37,8 +37,8 @@ namespace IdleMaster
         internal void UpdateStateInfo()
         {
             // Update totals
-            lblIdle.Text = string.Format("{0} games left to idle, {1} idle now.", GamesRemaining, CanIdleBadges.Count(b => b.InIdle));
-            lblDrops.Text = CardsRemaining + " card drops remaining";
+            lblIdle.Text = string.Format("{0} " + Resource1.games_left_to_idle + ", {1} " + Resource1.idle_now, GamesRemaining, CanIdleBadges.Count(b => b.InIdle));
+            lblDrops.Text = CardsRemaining + " " + Resource1.card_drops_remaining;
             lblIdle.Visible = GamesRemaining != 0;
             lblDrops.Visible = CardsRemaining != 0;
         }
@@ -60,7 +60,7 @@ namespace IdleMaster
 
         public void SortBadges(string method)
         {
-            lblDrops.Text = "Sorting results based on your settings, please wait...";
+            lblDrops.Text = Resource1.Sorting_results_based_on_your_settings + ", " + Resource1.please_wait;
             switch (method)
             {
                 case "mostcards":
@@ -122,7 +122,7 @@ namespace IdleMaster
                 if (CanIdleBadges.Any())
                 {
                     // Give the user notification that the next game will start soon
-                    lblCurrentStatus.Text = "Loading next game...";
+                    lblCurrentStatus.Text = Resource1.Loading_next_game;
 
                     // Make a short but random amount of time pass
                     var rand = new Random();
@@ -204,10 +204,10 @@ namespace IdleMaster
             }
 
             // Update label controls
-            lblCurrentRemaining.Text = CurrentBadge.RemainingCard + " card drops remaining";
-            lblCurrentStatus.Text = "Currently in-game";
+            lblCurrentRemaining.Text = CurrentBadge.RemainingCard + " " + Resource1.card_drops_remaining;
+            lblCurrentStatus.Text = Resource1.Currently_in_game;
             lblHoursPlayed.Visible = true;
-            lblHoursPlayed.Text = CurrentBadge.HoursPlayed + " hrs on record";
+            lblHoursPlayed.Text = CurrentBadge.HoursPlayed + " " + Resource1.hrs_on_record;
 
             // Set progress bar values and show the footer
             pbIdle.Maximum = CurrentBadge.RemainingCard;
@@ -240,8 +240,8 @@ namespace IdleMaster
             UpdateIdleProcesses();
 
             // Update label controls
-            lblCurrentRemaining.Text = "Update games status";
-            lblCurrentStatus.Text = "Currently in-game";
+            lblCurrentRemaining.Text = Resource1.Update_games_status;
+            lblCurrentStatus.Text = Resource1.Currently_in_game;
 
             lblGameName.Visible = false;
             lblHoursPlayed.Visible = false;
@@ -295,7 +295,7 @@ namespace IdleMaster
                 GamesState.Visible = false;
                 btnPause.Visible = false;
                 btnSkip.Visible = false;
-                lblCurrentStatus.Text = "Not in game";
+                lblCurrentStatus.Text = Resource1.Not_in_game;
                 lblHoursPlayed.Visible = false;
                 picIdleStatus.Image = null;
 
@@ -324,7 +324,7 @@ namespace IdleMaster
         {
             // Deactivate the timer control and inform the user that the program is finished
             tmrCardDropCheck.Enabled = false;
-            lblCurrentStatus.Text = "Idling complete";
+            lblCurrentStatus.Text = Resource1.Idling_complete;
 
             lblGameName.Visible = false;
             btnPause.Visible = false;
@@ -371,7 +371,7 @@ namespace IdleMaster
                 // Load other pages
                 for (var i = 2; i <= pagesCount; i++)
                 {
-                    lblDrops.Text = string.Format("Reading badge page {0}/{1}, please wait...", i, pagesCount);
+                    lblDrops.Text = string.Format(Resource1.Reading_badge_page + " {0}/{1}, " + Resource1.please_wait, i, pagesCount);
 
                     // Load Page 2+
                     pageURL = string.Format("{0}/?p={1}", profileLink, i);
@@ -393,7 +393,7 @@ namespace IdleMaster
                 Logger.Exception(ex, "Badge -> LoadBadgesAsync, for profile = " + Settings.Default.myProfileURL);
                 // badge page didn't load
                 picReadingPage.Image = null;
-                lblDrops.Text = "Badge page didn't load, will retry in 10 seconds";
+                lblDrops.Text = Resource1.Badge_page_didnt_load_will_retry_in + " 10 " + Resource1.seconds;
                 ReloadCount = 10;
                 tmrBadgeReload.Enabled = true;
                 return;
@@ -457,9 +457,9 @@ namespace IdleMaster
                 TimeLeft = badge.RemainingCard == 1 ? 300 : 900;
             }
 
-            lblCurrentRemaining.Text = badge.RemainingCard + " card drops remaining";
+            lblCurrentRemaining.Text = badge.RemainingCard + " " + Resource1.card_drops_remaining;
             pbIdle.Value = pbIdle.Maximum - badge.RemainingCard;
-            lblHoursPlayed.Text = badge.HoursPlayed + " hrs on record";
+            lblHoursPlayed.Text = badge.HoursPlayed + " " + Resource1.hrs_on_record;
             UpdateStateInfo();
         }
 
@@ -516,7 +516,7 @@ namespace IdleMaster
         {
             var connected = !string.IsNullOrWhiteSpace(Settings.Default.sessionid) && !string.IsNullOrWhiteSpace(Settings.Default.steamLogin);
 
-            lblCookieStatus.Text = connected ? "Idle Master is connected to Steam" : "Idle Master is not connected to Steam";
+            lblCookieStatus.Text = connected ? Resource1.Idle_Master_is_connected_to_Steam : Resource1.Idle_Master_is_not_connected_to_Steam;
             lblCookieStatus.ForeColor = connected ? Color.Green : Color.Black;
             picCookieStatus.Image = connected ? Resources.imgTrue : Resources.imgFalse;
             lnkSignIn.Visible = !connected;
@@ -527,7 +527,7 @@ namespace IdleMaster
         private void tmrCheckSteam_Tick(object sender, EventArgs e)
         {
             var isSteamRunning = SteamAPI.IsSteamRunning() || Settings.Default.ignoreclient;
-            lblSteamStatus.Text = isSteamRunning ? (Settings.Default.ignoreclient ? "Steam client status ignored" : "Steam is running") : "Steam is not running";
+            lblSteamStatus.Text = isSteamRunning ? (Settings.Default.ignoreclient ? Resource1.Steam_client_status_ignored : Resource1.Steam_is_running) : Resource1.Steam_is_not_running;
             lblSteamStatus.ForeColor = isSteamRunning ? Color.Green : Color.Black;
             picSteamStatus.Image = isSteamRunning ? Resources.imgTrue : Resources.imgFalse;
             tmrCheckSteam.Interval = isSteamRunning ? 5000 : 500;
@@ -618,7 +618,7 @@ namespace IdleMaster
             }
 
             lblDrops.Visible = true;
-            lblDrops.Text = "Reading badge page, please wait...";
+            lblDrops.Text = Resource1.Reading_badge_page + ", " + Resource1.please_wait;
             lblIdle.Visible = false;
             picReadingPage.Visible = true;
 
@@ -683,7 +683,7 @@ namespace IdleMaster
             StopIdle();
 
             // Indicate to the user that idling has been paused
-            lblCurrentStatus.Text = "Idling paused";
+            lblCurrentStatus.Text = Resource1.Idling_paused;
 
             // Set the correct button visibility
             btnResume.Visible = true;
@@ -814,7 +814,7 @@ namespace IdleMaster
         private void tmrBadgeReload_Tick(object sender, EventArgs e)
         {
             ReloadCount = ReloadCount - 1;
-            lblDrops.Text = "Badge page didn't load, will retry in " + ReloadCount + " seconds";
+            lblDrops.Text = Resource1.Badge_page_didnt_load_will_retry_in + " " + ReloadCount + " " + Resource1.seconds;
 
             if (ReloadCount == 0)
             {
