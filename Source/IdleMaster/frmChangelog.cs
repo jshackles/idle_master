@@ -4,16 +4,17 @@ using IdleMaster.Properties;
 
 namespace IdleMaster
 {
-  public partial class frmChangelog : Form
-  {
-    public frmChangelog()
+    public partial class frmChangelog : Form
     {
-      InitializeComponent();
-    }
+        public frmChangelog()
+        {
+            InitializeComponent();
+        }
 
-    private void frmChangelog_Load(object sender, EventArgs e)
-    {
-      rtbChangelog.Rtf = Resources.Changelog;
+        private void frmChangelog_Load(object sender, EventArgs e)
+        {
+            this.Icon = Properties.Resources.icologo;
+            rtbChangelog.Rtf = Resources.Changelog;
+        }
     }
-  }
 }

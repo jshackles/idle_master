@@ -117,76 +117,76 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Badge_page_didnt_load_will_retry_in" xml:space="preserve">
-    <value>Badge page didn't load, will retry in</value>
+  <data name="Badge_page_didnt_load_will_retry_in_10_seconds" xml:space="preserve">
+    <value>徽章状态加载错误,</value>
   </data>
   <data name="card_drops_remaining" xml:space="preserve">
-    <value>card drops remaining</value>
+    <value>剩余卡牌掉落</value>
   </data>
   <data name="Currently_in_game" xml:space="preserve">
-    <value>Currently in-game</value>
+    <value>游戏中</value>
   </data>
   <data name="games_left_to_idle" xml:space="preserve">
-    <value>games left to idle</value>
+    <value>游戏尚有卡牌</value>
   </data>
   <data name="hrs_on_record" xml:space="preserve">
-    <value>hrs on record</value>
+    <value>小时游戏时间</value>
   </data>
   <data name="Idle_Master_is_connected_to_Steam" xml:space="preserve">
-    <value>Idle Master is connected to Steam</value>
+    <value>Idle Master已登录到Steam</value>
   </data>
   <data name="Idle_Master_is_not_connected_to_Steam" xml:space="preserve">
-    <value>Idle Master is not connected to Steam</value>
+    <value>Idle Master未登录到Steam</value>
   </data>
   <data name="idle_now" xml:space="preserve">
-    <value>idle now</value>
+    <value>正在运行</value>
   </data>
   <data name="Idling_complete" xml:space="preserve">
-    <value>Idling complete</value>
+    <value>全部完成</value>
   </data>
   <data name="Idling_paused" xml:space="preserve">
-    <value>Idling paused</value>
+    <value>游戏暂停</value>
   </data>
   <data name="Loading_next_game" xml:space="preserve">
-    <value>Loading next game...</value>
+    <value>加载下一个游戏...</value>
   </data>
   <data name="Not_in_game" xml:space="preserve">
-    <value>Not in game</value>
+    <value>无游戏运行</value>
   </data>
   <data name="please_wait" xml:space="preserve">
-    <value>please wait...</value>
+    <value>请稍候...</value>
   </data>
   <data name="Reading_badge_page" xml:space="preserve">
-    <value>Reading badge page</value>
+    <value>读取徽章状态中</value>
   </data>
   <data name="seconds" xml:space="preserve">
-    <value>seconds</value>
-  </data>
-  <data name="Sorting_results_based_on_your_settings" xml:space="preserve">
-    <value>Sorting results based on your settings</value>
-  </data>
-  <data name="Steam_client_status_ignored" xml:space="preserve">
-    <value>Steam client status ignored</value>
-  </data>
-  <data name="Steam_is_not_running" xml:space="preserve">
-    <value>Steam is not running</value>
-  </data>
-  <data name="Steam_is_running" xml:space="preserve">
-    <value>Steam is running</value>
-  </data>
-  <data name="The_data_youve_entered_isnt_valid_Please_try_again" xml:space="preserve">
-    <value>The data you've entered isn't valid.  Please try again.</value>
-  </data>
-  <data name="Update" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="Update_games_status" xml:space="preserve">
-    <value>Update games status</value>
-  </data>
-  <data name="Validating" xml:space="preserve">
-    <value>Validating...</value>
+    <value>秒后重试</value>
   </data>
   <data name="Signed_in_as" xml:space="preserve">
-    <value>Signed in as</value>
+    <value>当前账号为</value>
+  </data>
+  <data name="Sorting_results_based_on_your_settings" xml:space="preserve">
+    <value>排序加载中</value>
+  </data>
+  <data name="Steam_client_status_ignored" xml:space="preserve">
+    <value>Steam状态已被忽略</value>
+  </data>
+  <data name="Steam_is_not_running" xml:space="preserve">
+    <value>Steam没有启动</value>
+  </data>
+  <data name="Steam_is_running" xml:space="preserve">
+    <value>Steam正在运行</value>
+  </data>
+  <data name="The_data_youve_entered_isnt_valid_Please_try_again" xml:space="preserve">
+    <value>数据无效, 请重新输入</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="Update_games_status" xml:space="preserve">
+    <value>更新游戏状态</value>
+  </data>
+  <data name="Validating" xml:space="preserve">
+    <value>验证中...</value>
   </data>
 </root>

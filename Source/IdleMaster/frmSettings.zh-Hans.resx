@@ -117,21 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="chkShowUsername.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 16</value>
-  </data>
   <data name="chkShowUsername.Text" xml:space="preserve">
     <value>显示当前Steam用户</value>
   </data>
-  <data name="chkIgnoreClientStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 16</value>
-  </data>
   <data name="chkIgnoreClientStatus.Text" xml:space="preserve">
     <value>忽略Steam运行状态</value>
-  </data>
-  <data name="chkMinToTray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 16</value>
   </data>
   <data name="chkMinToTray.Text" xml:space="preserve">
     <value>最小化到系统托盘</value>
@@ -139,26 +129,14 @@
   <data name="groupBox1.Text" xml:space="preserve">
     <value>常规</value>
   </data>
-  <data name="radIdleMostValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 16</value>
-  </data>
   <data name="radIdleMostValue.Text" xml:space="preserve">
     <value>优先运行卡牌价值高的游戏</value>
-  </data>
-  <data name="radIdleLeastDrops.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 16</value>
   </data>
   <data name="radIdleLeastDrops.Text" xml:space="preserve">
     <value>优先运行卡牌数量少的游戏</value>
   </data>
-  <data name="radIdleMostDrops.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 16</value>
-  </data>
   <data name="radIdleMostDrops.Text" xml:space="preserve">
     <value>优先运行卡牌数量多的游戏</value>
-  </data>
-  <data name="radIdleDefault.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 16</value>
   </data>
   <data name="radIdleDefault.Text" xml:space="preserve">
     <value>默认 (按字母排序)</value>
@@ -175,14 +153,8 @@
   <data name="btnAdvanced.ToolTip" xml:space="preserve">
     <value>高级设置</value>
   </data>
-  <data name="ManyThenOne.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 16</value>
-  </data>
   <data name="ManyThenOne.Text" xml:space="preserve">
     <value>将所有游戏运行满2小时后再按顺序运行</value>
-  </data>
-  <data name="OneGameOnly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 16</value>
   </data>
   <data name="OneGameOnly.Text" xml:space="preserve">
     <value>按顺序运行</value>
