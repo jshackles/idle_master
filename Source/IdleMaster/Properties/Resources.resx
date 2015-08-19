@@ -117,39 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Badge_page_didnt_load_will_retry_in" xml:space="preserve">
-    <value>Badge page didn't load, will retry in</value>
-  </data>
-  <data name="card_drops_remaining" xml:space="preserve">
-    <value>card drops remaining</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Changelog" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Changelog.rtf;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Currently_in_game" xml:space="preserve">
-    <value>Currently in-game</value>
-  </data>
-  <data name="games_left_to_idle" xml:space="preserve">
-    <value>games left to idle</value>
-  </data>
-  <data name="hrs_on_record" xml:space="preserve">
-    <value>hrs on record</value>
-  </data>
-  <data name="Idle_Master_is_connected_to_Steam" xml:space="preserve">
-    <value>Idle Master is connected to Steam</value>
-  </data>
-  <data name="Idle_Master_is_not_connected_to_Steam" xml:space="preserve">
-    <value>Idle Master is not connected to Steam</value>
-  </data>
-  <data name="idle_now" xml:space="preserve">
-    <value>idle now</value>
-  </data>
-  <data name="Idling_complete" xml:space="preserve">
-    <value>Idling complete</value>
-  </data>
-  <data name="Idling_paused" xml:space="preserve">
-    <value>Idling paused</value>
   </data>
   <data name="imgBlacklist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ban-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,6 +175,36 @@
   <data name="imgView" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eye-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Badge_page_didnt_load_will_retry_in" xml:space="preserve">
+    <value>Badge page didn't load, will retry in</value>
+  </data>
+  <data name="card_drops_remaining" xml:space="preserve">
+    <value>card drops remaining</value>
+  </data>
+  <data name="Currently_in_game" xml:space="preserve">
+    <value>Currently in-game</value>
+  </data>
+  <data name="games_left_to_idle" xml:space="preserve">
+    <value>games left to idle</value>
+  </data>
+  <data name="hrs_on_record" xml:space="preserve">
+    <value>hrs on record</value>
+  </data>
+  <data name="Idle_Master_is_connected_to_Steam" xml:space="preserve">
+    <value>Idle Master is connected to Steam</value>
+  </data>
+  <data name="Idle_Master_is_not_connected_to_Steam" xml:space="preserve">
+    <value>Idle Master is not connected to Steam</value>
+  </data>
+  <data name="idle_now" xml:space="preserve">
+    <value>idle now</value>
+  </data>
+  <data name="Idling_complete" xml:space="preserve">
+    <value>Idling complete</value>
+  </data>
+  <data name="Idling_paused" xml:space="preserve">
+    <value>Idling paused</value>
+  </data>
   <data name="Loading_next_game" xml:space="preserve">
     <value>Loading next game...</value>
   </data>
@@ -246,11 +246,5 @@
   </data>
   <data name="Validating" xml:space="preserve">
     <value>Validating...</value>
-  </data>
-  <data name="icologo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\logo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="imgAbout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imgAbout.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -4,90 +4,89 @@ using IdleMaster.Properties;
 
 namespace IdleMaster
 {
-    public partial class frmSettings : Form
+  public partial class frmSettings : Form
+  {
+    public frmSettings()
     {
-        public frmSettings()
-        {
-            InitializeComponent();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-            if (radIdleDefault.Checked)
-            {
-                Settings.Default.sort = "default";
-            }
-            if (radIdleLeastDrops.Checked)
-            {
-                Settings.Default.sort = "leastcards";
-            }
-            if (radIdleMostDrops.Checked)
-            {
-                Settings.Default.sort = "mostcards";
-            }
-            if (radIdleMostValue.Checked)
-            {
-                Settings.Default.sort = "mostvalue";
-            }
-
-            Settings.Default.OnlyOneGameIdle = OneGameOnly.Checked && !ManyThenOne.Checked;
-
-            Settings.Default.minToTray = chkMinToTray.Checked;
-
-            Settings.Default.ignoreclient = chkIgnoreClientStatus.Checked;
-
-            Settings.Default.showUsername = chkShowUsername.Checked;
-
-            Settings.Default.Save();
-            Close();
-        }
-
-        private void frmSettings_Load(object sender, EventArgs e)
-        {
-            this.Icon = Properties.Resources.icologo;
-            switch (Settings.Default.sort)
-            {
-                case "leastcards":
-                    radIdleLeastDrops.Checked = true;
-                    break;
-                case "mostcards":
-                    radIdleMostDrops.Checked = true;
-                    break;
-                case "mostvalue":
-                    radIdleMostValue.Checked = true;
-                    break;
-                default:
-                    break;
-            }
-
-            OneGameOnly.Checked = Settings.Default.OnlyOneGameIdle;
-            ManyThenOne.Checked = !Settings.Default.OnlyOneGameIdle;
-
-            if (Settings.Default.minToTray)
-            {
-                chkMinToTray.Checked = true;
-            }
-
-            if (Settings.Default.ignoreclient)
-            {
-                chkIgnoreClientStatus.Checked = true;
-            }
-
-            if (Settings.Default.showUsername)
-            {
-                chkShowUsername.Checked = true;
-            }
-        }
-
-        private void btnAdvanced_Click(object sender, EventArgs e)
-        {
-            var frm = new frmSettingsAdvanced();
-            frm.ShowDialog();
-        }
+      InitializeComponent();
     }
+
+    private void btnCancel_Click(object sender, EventArgs e)
+    {
+      Close();
+    }
+
+    private void btnOK_Click(object sender, EventArgs e)
+    {
+      if (radIdleDefault.Checked)
+      {
+        Settings.Default.sort = "default";
+      }
+      if (radIdleLeastDrops.Checked)
+      {
+        Settings.Default.sort = "leastcards";
+      }
+      if (radIdleMostDrops.Checked)
+      {
+        Settings.Default.sort = "mostcards";
+      }
+      if (radIdleMostValue.Checked)
+      {
+        Settings.Default.sort = "mostvalue";
+      }
+
+      Settings.Default.OnlyOneGameIdle = OneGameOnly.Checked && !ManyThenOne.Checked;
+
+      Settings.Default.minToTray = chkMinToTray.Checked;
+
+      Settings.Default.ignoreclient = chkIgnoreClientStatus.Checked;
+
+      Settings.Default.showUsername = chkShowUsername.Checked;
+
+      Settings.Default.Save();
+      Close();
+    }
+
+    private void frmSettings_Load(object sender, EventArgs e)
+    {
+      switch (Settings.Default.sort)
+      {
+        case "leastcards":
+          radIdleLeastDrops.Checked = true;
+          break;
+        case "mostcards":
+          radIdleMostDrops.Checked = true;
+          break;
+        case "mostvalue":
+          radIdleMostValue.Checked = true;
+          break;
+        default:
+          break;
+      }
+
+      OneGameOnly.Checked = Settings.Default.OnlyOneGameIdle;
+      ManyThenOne.Checked = !Settings.Default.OnlyOneGameIdle;
+
+      if (Settings.Default.minToTray)
+      {
+        chkMinToTray.Checked = true;
+      }
+
+      if (Settings.Default.ignoreclient)
+      {
+        chkIgnoreClientStatus.Checked = true;
+      }
+
+      if (Settings.Default.showUsername)
+      {
+        chkShowUsername.Checked = true;
+      }
+    }
+
+    private void btnAdvanced_Click(object sender, EventArgs e)
+    {
+      var frm = new frmSettingsAdvanced();
+      frm.ShowDialog();
+    }
+  }
 }

@@ -56,135 +56,180 @@ namespace IdleMaster
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.chkShowUsername);
             this.groupBox1.Controls.Add(this.chkIgnoreClientStatus);
             this.groupBox1.Controls.Add(this.chkMinToTray);
+            this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(322, 81);
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.ttHints.SetToolTip(this.groupBox1, resources.GetString("groupBox1.ToolTip"));
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             // 
             // chkShowUsername
             // 
-            resources.ApplyResources(this.chkShowUsername, "chkShowUsername");
+            this.chkShowUsername.AutoSize = true;
+            this.chkShowUsername.Location = new System.Drawing.Point(8, 57);
             this.chkShowUsername.Name = "chkShowUsername";
-            this.ttHints.SetToolTip(this.chkShowUsername, resources.GetString("chkShowUsername.ToolTip"));
+            this.chkShowUsername.Size = new System.Drawing.Size(219, 17);
+            this.chkShowUsername.TabIndex = 2;
+            resources.ApplyResources(this.chkShowUsername, "chkShowUsername");
             this.chkShowUsername.UseVisualStyleBackColor = true;
             // 
             // chkIgnoreClientStatus
             // 
-            resources.ApplyResources(this.chkIgnoreClientStatus, "chkIgnoreClientStatus");
+            this.chkIgnoreClientStatus.AutoSize = true;
+            this.chkIgnoreClientStatus.Location = new System.Drawing.Point(8, 38);
             this.chkIgnoreClientStatus.Name = "chkIgnoreClientStatus";
-            this.ttHints.SetToolTip(this.chkIgnoreClientStatus, resources.GetString("chkIgnoreClientStatus.ToolTip"));
+            this.chkIgnoreClientStatus.Size = new System.Drawing.Size(148, 17);
+            this.chkIgnoreClientStatus.TabIndex = 1;
+            resources.ApplyResources(this.chkIgnoreClientStatus, "chkIgnoreClientStatus");
             this.chkIgnoreClientStatus.UseVisualStyleBackColor = true;
             // 
             // chkMinToTray
             // 
-            resources.ApplyResources(this.chkMinToTray, "chkMinToTray");
+            this.chkMinToTray.AutoSize = true;
+            this.chkMinToTray.Location = new System.Drawing.Point(8, 19);
             this.chkMinToTray.Name = "chkMinToTray";
-            this.ttHints.SetToolTip(this.chkMinToTray, resources.GetString("chkMinToTray.ToolTip"));
+            this.chkMinToTray.Size = new System.Drawing.Size(188, 17);
+            this.chkMinToTray.TabIndex = 0;
+            resources.ApplyResources(this.chkMinToTray, "chkMinToTray");
             this.chkMinToTray.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.radIdleMostValue);
             this.groupBox2.Controls.Add(this.radIdleLeastDrops);
             this.groupBox2.Controls.Add(this.radIdleMostDrops);
             this.groupBox2.Controls.Add(this.radIdleDefault);
+            this.groupBox2.Location = new System.Drawing.Point(13, 168);
             this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(322, 92);
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.ttHints.SetToolTip(this.groupBox2, resources.GetString("groupBox2.ToolTip"));
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             // 
             // radIdleMostValue
             // 
-            resources.ApplyResources(this.radIdleMostValue, "radIdleMostValue");
+            this.radIdleMostValue.AutoSize = true;
+            this.radIdleMostValue.Location = new System.Drawing.Point(7, 35);
             this.radIdleMostValue.Name = "radIdleMostValue";
+            this.radIdleMostValue.Size = new System.Drawing.Size(233, 17);
+            this.radIdleMostValue.TabIndex = 3;
             this.radIdleMostValue.TabStop = true;
-            this.ttHints.SetToolTip(this.radIdleMostValue, resources.GetString("radIdleMostValue.ToolTip"));
+            resources.ApplyResources(this.radIdleMostValue, "radIdleMostValue");
             this.radIdleMostValue.UseVisualStyleBackColor = true;
             // 
             // radIdleLeastDrops
             // 
-            resources.ApplyResources(this.radIdleLeastDrops, "radIdleLeastDrops");
+            this.radIdleLeastDrops.AutoSize = true;
+            this.radIdleLeastDrops.Location = new System.Drawing.Point(7, 69);
             this.radIdleLeastDrops.Name = "radIdleLeastDrops";
-            this.ttHints.SetToolTip(this.radIdleLeastDrops, resources.GetString("radIdleLeastDrops.ToolTip"));
+            this.radIdleLeastDrops.Size = new System.Drawing.Size(295, 17);
+            this.radIdleLeastDrops.TabIndex = 2;
+            resources.ApplyResources(this.radIdleLeastDrops, "radIdleLeastDrops");
             this.radIdleLeastDrops.UseVisualStyleBackColor = true;
             // 
             // radIdleMostDrops
             // 
-            resources.ApplyResources(this.radIdleMostDrops, "radIdleMostDrops");
+            this.radIdleMostDrops.AutoSize = true;
+            this.radIdleMostDrops.Location = new System.Drawing.Point(7, 52);
             this.radIdleMostDrops.Name = "radIdleMostDrops";
-            this.ttHints.SetToolTip(this.radIdleMostDrops, resources.GetString("radIdleMostDrops.ToolTip"));
+            this.radIdleMostDrops.Size = new System.Drawing.Size(299, 17);
+            this.radIdleMostDrops.TabIndex = 1;
+            resources.ApplyResources(this.radIdleMostDrops, "radIdleMostDrops");
             this.radIdleMostDrops.UseVisualStyleBackColor = true;
             // 
             // radIdleDefault
             // 
-            resources.ApplyResources(this.radIdleDefault, "radIdleDefault");
+            this.radIdleDefault.AutoSize = true;
             this.radIdleDefault.Checked = true;
+            this.radIdleDefault.Location = new System.Drawing.Point(7, 18);
             this.radIdleDefault.Name = "radIdleDefault";
+            this.radIdleDefault.Size = new System.Drawing.Size(155, 17);
+            this.radIdleDefault.TabIndex = 0;
             this.radIdleDefault.TabStop = true;
-            this.ttHints.SetToolTip(this.radIdleDefault, resources.GetString("radIdleDefault.ToolTip"));
+            resources.ApplyResources(this.radIdleDefault, "radIdleDefault");
             this.radIdleDefault.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
-            resources.ApplyResources(this.btnCancel, "btnCancel");
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(261, 267);
             this.btnCancel.Name = "btnCancel";
-            this.ttHints.SetToolTip(this.btnCancel, resources.GetString("btnCancel.ToolTip"));
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 2;
+            resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 
-            resources.ApplyResources(this.btnOK, "btnOK");
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOK.Location = new System.Drawing.Point(180, 267);
             this.btnOK.Name = "btnOK";
-            this.ttHints.SetToolTip(this.btnOK, resources.GetString("btnOK.ToolTip"));
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 3;
+            resources.ApplyResources(this.btnOK, "btnOK");
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnAdvanced
             // 
-            resources.ApplyResources(this.btnAdvanced, "btnAdvanced");
+            this.btnAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdvanced.Image = global::IdleMaster.Properties.Resources.imgLock;
+            this.btnAdvanced.Location = new System.Drawing.Point(12, 267);
             this.btnAdvanced.Name = "btnAdvanced";
+            this.btnAdvanced.Size = new System.Drawing.Size(25, 23);
+            this.btnAdvanced.TabIndex = 4;
             this.ttHints.SetToolTip(this.btnAdvanced, resources.GetString("btnAdvanced.ToolTip"));
             this.btnAdvanced.UseVisualStyleBackColor = true;
             this.btnAdvanced.Click += new System.EventHandler(this.btnAdvanced_Click);
             // 
             // IdlingQuantity
             // 
-            resources.ApplyResources(this.IdlingQuantity, "IdlingQuantity");
             this.IdlingQuantity.Controls.Add(this.ManyThenOne);
             this.IdlingQuantity.Controls.Add(this.OneGameOnly);
+            this.IdlingQuantity.Location = new System.Drawing.Point(13, 99);
+            this.IdlingQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.IdlingQuantity.Name = "IdlingQuantity";
+            this.IdlingQuantity.Padding = new System.Windows.Forms.Padding(2);
+            this.IdlingQuantity.Size = new System.Drawing.Size(322, 64);
+            this.IdlingQuantity.TabIndex = 5;
             this.IdlingQuantity.TabStop = false;
-            this.ttHints.SetToolTip(this.IdlingQuantity, resources.GetString("IdlingQuantity.ToolTip"));
+            resources.ApplyResources(this.IdlingQuantity, "IdlingQuantity");
             // 
             // ManyThenOne
             // 
-            resources.ApplyResources(this.ManyThenOne, "ManyThenOne");
+            this.ManyThenOne.AutoSize = true;
+            this.ManyThenOne.Location = new System.Drawing.Point(7, 35);
             this.ManyThenOne.Name = "ManyThenOne";
+            this.ManyThenOne.Size = new System.Drawing.Size(293, 17);
+            this.ManyThenOne.TabIndex = 5;
             this.ManyThenOne.TabStop = true;
-            this.ttHints.SetToolTip(this.ManyThenOne, resources.GetString("ManyThenOne.ToolTip"));
+            resources.ApplyResources(this.ManyThenOne, "ManyThenOne");
             this.ManyThenOne.UseVisualStyleBackColor = true;
             // 
             // OneGameOnly
             // 
-            resources.ApplyResources(this.OneGameOnly, "OneGameOnly");
+            this.OneGameOnly.AutoSize = true;
             this.OneGameOnly.Checked = true;
+            this.OneGameOnly.Location = new System.Drawing.Point(7, 18);
             this.OneGameOnly.Name = "OneGameOnly";
+            this.OneGameOnly.Size = new System.Drawing.Size(152, 17);
+            this.OneGameOnly.TabIndex = 4;
             this.OneGameOnly.TabStop = true;
-            this.ttHints.SetToolTip(this.OneGameOnly, resources.GetString("OneGameOnly.ToolTip"));
+            resources.ApplyResources(this.OneGameOnly, "OneGameOnly");
             this.OneGameOnly.UseVisualStyleBackColor = true;
             // 
             // frmSettings
             // 
             this.AcceptButton = this.btnOK;
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(348, 302);
             this.Controls.Add(this.IdlingQuantity);
             this.Controls.Add(this.btnAdvanced);
             this.Controls.Add(this.btnOK);
@@ -192,9 +237,11 @@ namespace IdleMaster
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmSettings";
-            this.ttHints.SetToolTip(this, resources.GetString("$this.ToolTip"));
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            resources.ApplyResources(this, "$this");
             this.Load += new System.EventHandler(this.frmSettings_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

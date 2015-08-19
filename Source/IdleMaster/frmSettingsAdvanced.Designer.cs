@@ -32,7 +32,7 @@ namespace IdleMaster
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettingsAdvanced));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettingsAdvanced));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,56 +46,76 @@ namespace IdleMaster
             // 
             // label1
             // 
-            resources.ApplyResources(this.label1, "label1");
+            this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
-            this.ttHelp.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
+            this.label1.Size = new System.Drawing.Size(85, 23);
+            this.label1.TabIndex = 0;
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label2
             // 
-            resources.ApplyResources(this.label2, "label2");
+            this.label2.Location = new System.Drawing.Point(13, 36);
             this.label2.Name = "label2";
-            this.ttHelp.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
+            this.label2.Size = new System.Drawing.Size(85, 23);
+            this.label2.TabIndex = 1;
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label3
             // 
-            resources.ApplyResources(this.label3, "label3");
+            this.label3.Location = new System.Drawing.Point(12, 60);
             this.label3.Name = "label3";
-            this.ttHelp.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
+            this.label3.Size = new System.Drawing.Size(86, 23);
+            this.label3.TabIndex = 2;
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // txtSessionID
             // 
-            resources.ApplyResources(this.txtSessionID, "txtSessionID");
+            this.txtSessionID.Location = new System.Drawing.Point(104, 10);
             this.txtSessionID.Name = "txtSessionID";
-            this.ttHelp.SetToolTip(this.txtSessionID, resources.GetString("txtSessionID.ToolTip"));
+            this.txtSessionID.PasswordChar = '*';
+            this.txtSessionID.Size = new System.Drawing.Size(299, 20);
+            this.txtSessionID.TabIndex = 3;
             this.txtSessionID.TextChanged += new System.EventHandler(this.txtSessionID_TextChanged);
             // 
             // txtSteamLogin
             // 
-            resources.ApplyResources(this.txtSteamLogin, "txtSteamLogin");
+            this.txtSteamLogin.Location = new System.Drawing.Point(104, 33);
             this.txtSteamLogin.Name = "txtSteamLogin";
-            this.ttHelp.SetToolTip(this.txtSteamLogin, resources.GetString("txtSteamLogin.ToolTip"));
+            this.txtSteamLogin.PasswordChar = '*';
+            this.txtSteamLogin.Size = new System.Drawing.Size(299, 20);
+            this.txtSteamLogin.TabIndex = 4;
             this.txtSteamLogin.TextChanged += new System.EventHandler(this.txtSteamLogin_TextChanged);
             // 
             // txtSteamParental
             // 
-            resources.ApplyResources(this.txtSteamParental, "txtSteamParental");
+            this.txtSteamParental.Location = new System.Drawing.Point(104, 57);
             this.txtSteamParental.Name = "txtSteamParental";
-            this.ttHelp.SetToolTip(this.txtSteamParental, resources.GetString("txtSteamParental.ToolTip"));
+            this.txtSteamParental.PasswordChar = '*';
+            this.txtSteamParental.Size = new System.Drawing.Size(299, 20);
+            this.txtSteamParental.TabIndex = 5;
             this.txtSteamParental.TextChanged += new System.EventHandler(this.txtSteamParental_TextChanged);
             // 
             // btnUpdate
             // 
-            resources.ApplyResources(this.btnUpdate, "btnUpdate");
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdate.Location = new System.Drawing.Point(327, 83);
             this.btnUpdate.Name = "btnUpdate";
-            this.ttHelp.SetToolTip(this.btnUpdate, resources.GetString("btnUpdate.ToolTip"));
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 7;
+            resources.ApplyResources(this.btnUpdate, "btnUpdate");
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnView
             // 
-            resources.ApplyResources(this.btnView, "btnView");
             this.btnView.Image = global::IdleMaster.Properties.Resources.imgView;
+            this.btnView.Location = new System.Drawing.Point(104, 83);
             this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(27, 23);
+            this.btnView.TabIndex = 6;
             this.ttHelp.SetToolTip(this.btnView, resources.GetString("btnView.ToolTip"));
             this.btnView.UseVisualStyleBackColor = true;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
@@ -109,8 +129,9 @@ namespace IdleMaster
             // frmSettingsAdvanced
             // 
             this.AcceptButton = this.btnUpdate;
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(415, 116);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.txtSteamParental);
@@ -120,9 +141,11 @@ namespace IdleMaster
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmSettingsAdvanced";
-            this.ttHelp.SetToolTip(this, resources.GetString("$this.ToolTip"));
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            resources.ApplyResources(this, "$this");
             this.Load += new System.EventHandler(this.frmSettingsAdvanced_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

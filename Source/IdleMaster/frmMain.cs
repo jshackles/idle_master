@@ -471,8 +471,6 @@ namespace IdleMaster
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            this.Icon = Properties.Resources.icologo;
-            notifyIcon1.Icon = Properties.Resources.icologo;
             // Copy external references to the output directory.  This allows ClickOnce install.
             if (File.Exists(Environment.CurrentDirectory + "\\steam_api.dll") == false)
             {
