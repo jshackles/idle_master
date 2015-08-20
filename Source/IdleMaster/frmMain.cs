@@ -421,10 +421,11 @@ namespace IdleMaster
                 var appIdNode = badge.SelectSingleNode(".//a[@class=\"badge_row_overlay\"]").Attributes["href"].Value;
                 var appid = Regex.Match(appIdNode, @"gamecards/(\d+)/").Groups[1].Value;
 
-                if (string.IsNullOrWhiteSpace(appid) || Settings.Default.blacklist.Contains(appid) || appid == "368020" || appid == "335590")
-                {
+                // 368020 -> Monster Summer Sale (2015).
+                // 335590 -> Holiday Sale (2014).
+                // border=1 -> to prevent foil badges from overriding the card drops remaining.
+                if (String.IsNullOrWhiteSpace(appid) || Settings.Default.blacklist.Contains(appid) || appid == "368020" || appid == "335590" || appIdNode.Contains("border=1")) 
                     continue;
-                }
 
                 var hoursNode = badge.SelectSingleNode(".//div[@class=\"badge_title_stats_playtime\"]");
                 var hours = hoursNode == null ? string.Empty : Regex.Match(hoursNode.InnerText, @"[0-9\.,]+").Value;
@@ -437,13 +438,9 @@ namespace IdleMaster
 
                 var badgeInMemory = AllBadges.FirstOrDefault(b => b.StringId == appid);
                 if (badgeInMemory != null)
-                {
                     badgeInMemory.UpdateStats(cards, hours);
-                }
                 else
-                {
                     AllBadges.Add(new Badge(appid, name, cards, hours));
-                }
             }
         }
 

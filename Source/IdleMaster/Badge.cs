@@ -3,8 +3,9 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
+using System.Windows.Forms;
 using IdleMaster.Properties;
+using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 
 namespace IdleMaster
 {
