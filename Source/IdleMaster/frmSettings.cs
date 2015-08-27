@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using IdleMaster.Properties;
+using Microsoft.Win32;          //For RegistryKey
 
 namespace IdleMaster
 {
@@ -43,6 +44,9 @@ namespace IdleMaster
 
       Settings.Default.showUsername = chkShowUsername.Checked;
 
+      Settings.Default.StartOnBoot = chkStartOnBoot.Checked;
+      setStartOnBoot();
+      
       Settings.Default.Save();
       Close();
     }
@@ -81,12 +85,29 @@ namespace IdleMaster
       {
         chkShowUsername.Checked = true;
       }
+      if (Settings.Default.StartOnBoot)
+      {
+        chkStartOnBoot.Checked = true;
+      }
     }
 
     private void btnAdvanced_Click(object sender, EventArgs e)
     {
       var frm = new frmSettingsAdvanced();
       frm.ShowDialog();
+    }
+
+    private void setStartOnBoot()
+    {
+       RegistryKey registryRunAtStartup = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+       if (Settings.Default.StartOnBoot)
+       {
+          registryRunAtStartup.SetValue("IdleMaster", Application.ExecutablePath.ToString());
+       }
+       else if(registryRunAtStartup.GetValue("IdleMaster")!=null)
+       {
+          registryRunAtStartup.DeleteValue("IdleMaster", false);
+       }
     }
   }
 }

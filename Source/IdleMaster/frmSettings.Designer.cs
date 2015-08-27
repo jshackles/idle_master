@@ -49,6 +49,7 @@ namespace IdleMaster
             this.IdlingQuantity = new System.Windows.Forms.GroupBox();
             this.ManyThenOne = new System.Windows.Forms.RadioButton();
             this.OneGameOnly = new System.Windows.Forms.RadioButton();
+            this.chkStartOnBoot = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.IdlingQuantity.SuspendLayout();
@@ -56,12 +57,13 @@ namespace IdleMaster
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkStartOnBoot);
             this.groupBox1.Controls.Add(this.chkShowUsername);
             this.groupBox1.Controls.Add(this.chkIgnoreClientStatus);
             this.groupBox1.Controls.Add(this.chkMinToTray);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(322, 81);
+            this.groupBox1.Size = new System.Drawing.Size(322, 98);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General";
@@ -102,7 +104,7 @@ namespace IdleMaster
             this.groupBox2.Controls.Add(this.radIdleLeastDrops);
             this.groupBox2.Controls.Add(this.radIdleMostDrops);
             this.groupBox2.Controls.Add(this.radIdleDefault);
-            this.groupBox2.Location = new System.Drawing.Point(13, 168);
+            this.groupBox2.Location = new System.Drawing.Point(13, 185);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(322, 92);
             this.groupBox2.TabIndex = 1;
@@ -156,7 +158,7 @@ namespace IdleMaster
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(261, 267);
+            this.btnCancel.Location = new System.Drawing.Point(261, 283);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -167,7 +169,7 @@ namespace IdleMaster
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(180, 267);
+            this.btnOK.Location = new System.Drawing.Point(180, 283);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 3;
@@ -179,7 +181,7 @@ namespace IdleMaster
             // 
             this.btnAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdvanced.Image = global::IdleMaster.Properties.Resources.imgLock;
-            this.btnAdvanced.Location = new System.Drawing.Point(12, 267);
+            this.btnAdvanced.Location = new System.Drawing.Point(12, 283);
             this.btnAdvanced.Name = "btnAdvanced";
             this.btnAdvanced.Size = new System.Drawing.Size(25, 23);
             this.btnAdvanced.TabIndex = 4;
@@ -191,7 +193,7 @@ namespace IdleMaster
             // 
             this.IdlingQuantity.Controls.Add(this.ManyThenOne);
             this.IdlingQuantity.Controls.Add(this.OneGameOnly);
-            this.IdlingQuantity.Location = new System.Drawing.Point(13, 99);
+            this.IdlingQuantity.Location = new System.Drawing.Point(13, 116);
             this.IdlingQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.IdlingQuantity.Name = "IdlingQuantity";
             this.IdlingQuantity.Padding = new System.Windows.Forms.Padding(2);
@@ -223,13 +225,23 @@ namespace IdleMaster
             this.OneGameOnly.Text = "Idle each game individually";
             this.OneGameOnly.UseVisualStyleBackColor = true;
             // 
+            // chkStartOnBoot
+            // 
+            this.chkStartOnBoot.AutoSize = true;
+            this.chkStartOnBoot.Location = new System.Drawing.Point(8, 75);
+            this.chkStartOnBoot.Name = "chkStartOnBoot";
+            this.chkStartOnBoot.Size = new System.Drawing.Size(87, 17);
+            this.chkStartOnBoot.TabIndex = 3;
+            this.chkStartOnBoot.Text = "Start on boot";
+            this.chkStartOnBoot.UseVisualStyleBackColor = true;
+            // 
             // frmSettings
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(348, 302);
+            this.ClientSize = new System.Drawing.Size(348, 318);
             this.Controls.Add(this.IdlingQuantity);
             this.Controls.Add(this.btnAdvanced);
             this.Controls.Add(this.btnOK);
@@ -271,5 +283,6 @@ namespace IdleMaster
     private GroupBox IdlingQuantity;
     private RadioButton ManyThenOne;
     private RadioButton OneGameOnly;
-  }
+        private CheckBox chkStartOnBoot;
+    }
 }
