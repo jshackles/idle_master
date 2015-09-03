@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using IdleMaster.Properties;
+using Microsoft.Win32;          //For RegistryKey
 
 namespace IdleMaster
 {
@@ -43,6 +44,8 @@ namespace IdleMaster
 
       Settings.Default.showUsername = chkShowUsername.Checked;
 
+      setStartOnBoot(chkStartOnBoot.Checked);
+      
       Settings.Default.Save();
       Close();
     }
@@ -81,6 +84,26 @@ namespace IdleMaster
       {
         chkShowUsername.Checked = true;
       }
+            if (getSteamStartOnBoot())
+            {
+                chkStartOnBoot.Enabled = true;
+                buttonHelpStartOnBoot.Enabled = false;
+                buttonHelpStartOnBoot.Visible = false;
+            }
+            else
+            {
+                //Check if user did not disable start steam on boot
+                if (getStartOnBoot()) setStartOnBoot(false);
+                chkStartOnBoot.Enabled = false;
+                buttonHelpStartOnBoot.Enabled = true;
+                buttonHelpStartOnBoot.Visible = true;
+                ttHints.SetToolTip(buttonHelpStartOnBoot, "IdleMaster needs Steam running, to start on boot you have to make steam start on boot first\n"+
+                                                          "(Steam-Settings-Interface-Run Steam when my computer starts)");
+            }
+      if (getStartOnBoot())
+      {
+        chkStartOnBoot.Checked = true;
+      }
     }
 
     private void btnAdvanced_Click(object sender, EventArgs e)
@@ -88,5 +111,47 @@ namespace IdleMaster
       var frm = new frmSettingsAdvanced();
       frm.ShowDialog();
     }
-  }
+
+    private void setStartOnBoot(bool value)
+    {
+       RegistryKey registryRunAtStartup = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+       if (chkStartOnBoot.Checked)
+       {
+          registryRunAtStartup.SetValue("IdleMaster", Application.ExecutablePath.ToString());
+       }
+       else if(registryRunAtStartup.GetValue("IdleMaster")!=null)
+       {
+          registryRunAtStartup.DeleteValue("IdleMaster", false);
+       }
+    }
+        private bool getStartOnBoot()
+        {
+            RegistryKey registryRunAtStartup = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            if (registryRunAtStartup.GetValue("IdleMaster") != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private bool getSteamStartOnBoot()
+        {
+            RegistryKey registryRunAtStartup = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            if (registryRunAtStartup.GetValue("Steam") != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void buttonHelpStartOnBoot_MouseEnter(object sender, EventArgs e)
+        {
+            
+        }
+    }
 }
