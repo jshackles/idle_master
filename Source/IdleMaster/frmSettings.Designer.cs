@@ -34,6 +34,8 @@ namespace IdleMaster
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonHelpStartOnBoot = new System.Windows.Forms.Button();
+            this.chkStartOnBoot = new System.Windows.Forms.CheckBox();
             this.chkShowUsername = new System.Windows.Forms.CheckBox();
             this.chkIgnoreClientStatus = new System.Windows.Forms.CheckBox();
             this.chkMinToTray = new System.Windows.Forms.CheckBox();
@@ -49,7 +51,6 @@ namespace IdleMaster
             this.IdlingQuantity = new System.Windows.Forms.GroupBox();
             this.ManyThenOne = new System.Windows.Forms.RadioButton();
             this.OneGameOnly = new System.Windows.Forms.RadioButton();
-            this.chkStartOnBoot = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.IdlingQuantity.SuspendLayout();
@@ -57,6 +58,7 @@ namespace IdleMaster
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonHelpStartOnBoot);
             this.groupBox1.Controls.Add(this.chkStartOnBoot);
             this.groupBox1.Controls.Add(this.chkShowUsername);
             this.groupBox1.Controls.Add(this.chkIgnoreClientStatus);
@@ -67,6 +69,30 @@ namespace IdleMaster
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General";
+            // 
+            // buttonHelpStartOnBoot
+            // 
+            this.buttonHelpStartOnBoot.Cursor = System.Windows.Forms.Cursors.Help;
+            this.buttonHelpStartOnBoot.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonHelpStartOnBoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonHelpStartOnBoot.Location = new System.Drawing.Point(101, 75);
+            this.buttonHelpStartOnBoot.Name = "buttonHelpStartOnBoot";
+            this.buttonHelpStartOnBoot.Size = new System.Drawing.Size(18, 20);
+            this.buttonHelpStartOnBoot.TabIndex = 4;
+            this.buttonHelpStartOnBoot.TabStop = false;
+            this.buttonHelpStartOnBoot.Text = "?";
+            this.buttonHelpStartOnBoot.UseVisualStyleBackColor = true;
+            this.buttonHelpStartOnBoot.MouseEnter += new System.EventHandler(this.buttonHelpStartOnBoot_MouseEnter);
+            // 
+            // chkStartOnBoot
+            // 
+            this.chkStartOnBoot.AutoSize = true;
+            this.chkStartOnBoot.Location = new System.Drawing.Point(8, 75);
+            this.chkStartOnBoot.Name = "chkStartOnBoot";
+            this.chkStartOnBoot.Size = new System.Drawing.Size(87, 17);
+            this.chkStartOnBoot.TabIndex = 3;
+            this.chkStartOnBoot.Text = "Start on boot";
+            this.chkStartOnBoot.UseVisualStyleBackColor = true;
             // 
             // chkShowUsername
             // 
@@ -177,6 +203,14 @@ namespace IdleMaster
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // ttHints
+            // 
+            this.ttHints.AutomaticDelay = 0;
+            this.ttHints.AutoPopDelay = 0;
+            this.ttHints.InitialDelay = 10;
+            this.ttHints.IsBalloon = true;
+            this.ttHints.ReshowDelay = 10;
+            // 
             // btnAdvanced
             // 
             this.btnAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -224,16 +258,6 @@ namespace IdleMaster
             this.OneGameOnly.TabStop = true;
             this.OneGameOnly.Text = "Idle each game individually";
             this.OneGameOnly.UseVisualStyleBackColor = true;
-            // 
-            // chkStartOnBoot
-            // 
-            this.chkStartOnBoot.AutoSize = true;
-            this.chkStartOnBoot.Location = new System.Drawing.Point(8, 75);
-            this.chkStartOnBoot.Name = "chkStartOnBoot";
-            this.chkStartOnBoot.Size = new System.Drawing.Size(87, 17);
-            this.chkStartOnBoot.TabIndex = 3;
-            this.chkStartOnBoot.Text = "Start on boot";
-            this.chkStartOnBoot.UseVisualStyleBackColor = true;
             // 
             // frmSettings
             // 
@@ -284,5 +308,6 @@ namespace IdleMaster
     private RadioButton ManyThenOne;
     private RadioButton OneGameOnly;
         private CheckBox chkStartOnBoot;
+        private Button buttonHelpStartOnBoot;
     }
 }
