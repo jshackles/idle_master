@@ -156,17 +156,5 @@ namespace IdleMaster.Properties {
                 this["OnlyOneGameIdle"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool StartOnBoot {
-            get {
-                return ((bool)(this["StartOnBoot"]));
-            }
-            set {
-                this["StartOnBoot"] = value;
-            }
-        }
     }
 }
