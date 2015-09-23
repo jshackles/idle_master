@@ -362,7 +362,6 @@ namespace IdleMaster
                 // Response should be empty. User should be unauthorised.
                 if (string.IsNullOrEmpty(response))
                 {
-                    ResetClientStatus();
                     return;
                 }
                 document.LoadHtml(response);
@@ -392,7 +391,6 @@ namespace IdleMaster
                     // Response should be empty. User should be unauthorised.
                     if (string.IsNullOrEmpty(response))
                     {
-                        ResetClientStatus();
                         return;
                     }
                     document.LoadHtml(response);
