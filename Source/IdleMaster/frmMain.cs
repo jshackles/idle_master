@@ -504,6 +504,11 @@ namespace IdleMaster
                 Settings.Default.Save();
             }
 
+            // Localize form elements
+            fileToolStripMenuItem.Text = localization.strings.File;
+            gameToolStripMenuItem.Text = localization.strings.Game;
+            helpToolStripMenuItem.Text = localization.strings.Help;
+
             // Set the form height
             var graphics = CreateGraphics();
             var scale = graphics.DpiY * 1.625;
