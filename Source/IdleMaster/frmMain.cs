@@ -426,7 +426,7 @@ namespace IdleMaster
                 var appIdNode = badge.SelectSingleNode(".//a[@class=\"badge_row_overlay\"]").Attributes["href"].Value;
                 var appid = Regex.Match(appIdNode, @"gamecards/(\d+)/").Groups[1].Value;
 
-                if (string.IsNullOrWhiteSpace(appid) || Settings.Default.blacklist.Contains(appid) || appid == "368020" || appid == "335590")
+                if (string.IsNullOrWhiteSpace(appid) || Settings.Default.blacklist.Contains(appid) || appid == "368020" || appid == "335590" || appIdNode.Contains("border=1"))
                 {
                     continue;
                 }
