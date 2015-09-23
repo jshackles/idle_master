@@ -156,5 +156,29 @@ namespace IdleMaster.Properties {
                 this["OnlyOneGameIdle"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string steamRememberLogin {
+            get {
+                return ((string)(this["steamRememberLogin"]));
+            }
+            set {
+                this["steamRememberLogin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string steamMachineAuth {
+            get {
+                return ((string)(this["steamMachineAuth"]));
+            }
+            set {
+                this["steamMachineAuth"] = value;
+            }
+        }
     }
 }
