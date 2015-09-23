@@ -23,12 +23,42 @@ namespace IdleMaster
         {
             TimeSpan sessionMinutesIdled = TimeSpan.FromMinutes(statistics.getSessionMinutesIdled());
             TimeSpan totalMinutesIdled = TimeSpan.FromMinutes(Properties.Settings.Default.totalMinutesIdled);
+
+            int sessionHoursIdled = (sessionMinutesIdled.Days * 24) + sessionMinutesIdled.Hours;
+            int totalHoursIdled = (totalMinutesIdled.Days * 24) + totalMinutesIdled.Hours;
+
             //Session
-            lblSessionTime.Text = sessionMinutesIdled.ToString("%m") + " minutes (" + sessionMinutesIdled.ToString("%h") +" hours) idled";
+            if (sessionHoursIdled > 0)
+            {
+                lblSessionTime.Text = String.Format("{0} hour{1}, {2} minute{3} idled",
+                        sessionHoursIdled,
+                        sessionHoursIdled == 1 ? "" : "s",
+                        sessionMinutesIdled.Minutes,
+                        sessionMinutesIdled.Minutes == 1 ? "" : "s");
+            }
+            else
+            {
+                lblSessionTime.Text = String.Format("{0} minute{1} idled",
+                        sessionMinutesIdled.Minutes,
+                        sessionMinutesIdled.Minutes == 1 ? "" : "s");
+            }
             lblSessionCards.Text = statistics.getSessionCardIdled().ToString() + " cards idled";
 
             //Total
-            lblTotalTime.Text = totalMinutesIdled.ToString("%m") + " minutes (" + totalMinutesIdled.ToString("%h") + " hours) idled";
+            if (totalHoursIdled > 0)
+            {
+                lblTotalTime.Text = String.Format("{0} hour{1}, {2} minute{3} idled",
+                    totalHoursIdled,
+                    totalHoursIdled == 1 ? "" : "s",
+                    totalMinutesIdled.Minutes,
+                    totalMinutesIdled.Minutes == 1 ? "" : "s");
+            }
+            else
+            {
+                lblTotalTime.Text = String.Format("{0} minute{1} idled",
+                    totalMinutesIdled.Minutes,
+                    totalMinutesIdled.Minutes == 1 ? "" : "s");
+            }
             lblTotalCards.Text = Properties.Settings.Default.totalCardIdled.ToString() + " cards idled";
         }
 

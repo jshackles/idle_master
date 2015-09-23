@@ -40,7 +40,8 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(192, 129);
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOK.Location = new System.Drawing.Point(121, 129);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
@@ -87,18 +88,20 @@
             // lblSessionHeader
             // 
             this.lblSessionHeader.AutoSize = true;
-            this.lblSessionHeader.Location = new System.Drawing.Point(12, 9);
+            this.lblSessionHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSessionHeader.Location = new System.Drawing.Point(10, 9);
             this.lblSessionHeader.Name = "lblSessionHeader";
-            this.lblSessionHeader.Size = new System.Drawing.Size(68, 13);
+            this.lblSessionHeader.Size = new System.Drawing.Size(81, 13);
             this.lblSessionHeader.TabIndex = 5;
             this.lblSessionHeader.Text = "This session:";
             // 
             // lblTotalHeader
             // 
             this.lblTotalHeader.AutoSize = true;
-            this.lblTotalHeader.Location = new System.Drawing.Point(12, 69);
+            this.lblTotalHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalHeader.Location = new System.Drawing.Point(10, 69);
             this.lblTotalHeader.Name = "lblTotalHeader";
-            this.lblTotalHeader.Size = new System.Drawing.Size(34, 13);
+            this.lblTotalHeader.Size = new System.Drawing.Size(40, 13);
             this.lblTotalHeader.TabIndex = 6;
             this.lblTotalHeader.Text = "Total:";
             // 
@@ -106,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(270, 157);
+            this.ClientSize = new System.Drawing.Size(199, 157);
             this.Controls.Add(this.lblTotalHeader);
             this.Controls.Add(this.lblSessionHeader);
             this.Controls.Add(this.lblTotalTime);
@@ -114,8 +117,11 @@
             this.Controls.Add(this.lblSessionCards);
             this.Controls.Add(this.lblSessionTime);
             this.Controls.Add(this.btnOK);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmStatistics";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Statistics";
             this.Load += new System.EventHandler(this.frmStatistics_Load);
             this.ResumeLayout(false);
