@@ -20,6 +20,7 @@ namespace IdleMaster
 {
     public partial class frmMain : Form
     {
+        private Statistics statistics = new Statistics();
         public List<Badge> AllBadges { get; set; }
 
         public IEnumerable<Badge> CanIdleBadges
@@ -151,6 +152,9 @@ namespace IdleMaster
             {
                 if (CanIdleBadges.Any())
                 {
+                    statistics.setRemainingCards((uint)CardsRemaining);
+                    tmrStatistics.Enabled = true;
+                    tmrStatistics.Start();
                     if (Settings.Default.OnlyOneGameIdle)
                     {
                         StartSoloIdle(CanIdleBadges.First());
@@ -301,6 +305,10 @@ namespace IdleMaster
 
                 // Stop the card drop check timer
                 tmrCardDropCheck.Enabled = false;
+
+                // Stop the statistics timer
+                tmrStatistics.Stop();
+                tmrStatistics.Enabled = false;
 
                 // Hide the status bar
                 ssFooter.Visible = false;
@@ -810,6 +818,12 @@ namespace IdleMaster
             frm.Show();
         }
 
+        private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new frmStatistics(statistics);
+            frm.ShowDialog();
+        }
+
         private void officialGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("http://steamcommunity.com/groups/idlemastery");
@@ -827,5 +841,13 @@ namespace IdleMaster
                 tmrReadyToGo.Enabled = true;
             }
         }
+
+        private void tmrStatistics_Tick(object sender, EventArgs e)
+        {
+            statistics.increaseMinutesIdled();
+            statistics.checkCardRemaining((uint)CardsRemaining);
+        }
+
+        
     }
 }
