@@ -342,6 +342,7 @@ namespace IdleMaster
         {
             // Settings.Default.myProfileURL = http://steamcommunity.com/id/USER
             var profileLink = Settings.Default.myProfileURL + "/badges";
+            var pages = new List<string>() { "?p=1" };
             var document = new HtmlDocument();
             int pagesCount = 1;
 
@@ -362,8 +363,12 @@ namespace IdleMaster
                 var pageNodes = document.DocumentNode.SelectNodes("//a[@class=\"pagelink\"]");
                 if (pageNodes != null)
                 {
-                    pagesCount = pageNodes.Count;
+                    pages.AddRange(pageNodes.Select(p => p.Attributes["href"].Value).Distinct());
+                    pages = pages.Distinct().ToList();
                 }
+
+                string lastpage = pages.Last().ToString().Replace("?p=", "");
+                pagesCount = Convert.ToInt32(lastpage);
 
                 // Get all badges from current page
                 ProcessBadgesOnPage(document);
