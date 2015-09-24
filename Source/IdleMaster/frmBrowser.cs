@@ -33,7 +33,6 @@ namespace IdleMaster
       InternetSetCookie("http://steamcommunity.com", "sessionid", ";expires=Mon, 01 Jan 0001 00:00:00 GMT");
       InternetSetCookie("http://steamcommunity.com", "steamLogin", ";expires=Mon, 01 Jan 0001 00:00:00 GMT");
       InternetSetCookie("http://steamcommunity.com", "steamRememberLogin", ";expires=Mon, 01 Jan 0001 00:00:00 GMT");
-      InternetSetCookie("http://steamcommunity.com", CookieClient.GetSteamMachineAuthCookieName(), ";expires=Mon, 01 Jan 0001 00:00:00 GMT");
 
       // When the form is loaded, navigate to the Steam login page using the web browser control
       wbAuth.Navigate("https://steamcommunity.com/login/home/?goto=my/profile", "_self", null, "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko");
@@ -115,6 +114,11 @@ namespace IdleMaster
           else if (cookie.Name == "steamparental")
           {
             Settings.Default.steamparental = cookie.Value;
+          }
+
+          else if (cookie.Name == "steamRememberLogin")
+          {
+              Settings.Default.steamRememberLogin = cookie.Value;
           }
         }
 
