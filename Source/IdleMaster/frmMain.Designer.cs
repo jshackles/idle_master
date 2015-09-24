@@ -57,6 +57,7 @@ namespace IdleMaster
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.blacklistCurrentGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changelogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.officialGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
@@ -83,6 +84,7 @@ namespace IdleMaster
             this.GameName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Hours = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblHoursPlayed = new System.Windows.Forms.Label();
+            this.tmrStatistics = new System.Windows.Forms.Timer(this.components);
             this.mnuTop.SuspendLayout();
             this.ssFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReadingPage)).BeginInit();
@@ -305,6 +307,7 @@ namespace IdleMaster
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statisticsToolStripMenuItem,
             this.changelogToolStripMenuItem,
             this.officialGroupToolStripMenuItem,
             this.toolStripMenuItem3,
@@ -312,6 +315,14 @@ namespace IdleMaster
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // statisticsToolStripMenuItem
+            // 
+            this.statisticsToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgStatistics;
+            this.statisticsToolStripMenuItem.Name = "statisticsToolStripMenuItem";
+            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.statisticsToolStripMenuItem.Text = "&Statistics";
+            this.statisticsToolStripMenuItem.Click += new System.EventHandler(this.statisticsToolStripMenuItem_Click);
             // 
             // changelogToolStripMenuItem
             // 
@@ -359,9 +370,9 @@ namespace IdleMaster
             this.pbIdle,
             this.toolStripStatusLabel1,
             this.lblTimer});
-            this.ssFooter.Location = new System.Drawing.Point(0, 316);
+            this.ssFooter.Location = new System.Drawing.Point(0, 317);
             this.ssFooter.Name = "ssFooter";
-            this.ssFooter.Size = new System.Drawing.Size(304, 21);
+            this.ssFooter.Size = new System.Drawing.Size(304, 22);
             this.ssFooter.SizingGrip = false;
             this.ssFooter.TabIndex = 20;
             this.ssFooter.Text = "statusStrip1";
@@ -370,18 +381,18 @@ namespace IdleMaster
             // pbIdle
             // 
             this.pbIdle.Name = "pbIdle";
-            this.pbIdle.Size = new System.Drawing.Size(188, 15);
+            this.pbIdle.Size = new System.Drawing.Size(188, 16);
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(65, 16);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(65, 17);
             this.toolStripStatusLabel1.Text = "Next check";
             // 
             // lblTimer
             // 
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(34, 16);
+            this.lblTimer.Size = new System.Drawing.Size(34, 17);
             this.lblTimer.Text = "15:00";
             // 
             // notifyIcon1
@@ -481,9 +492,9 @@ namespace IdleMaster
             this.lblSignedOnAs.AutoSize = true;
             this.lblSignedOnAs.Location = new System.Drawing.Point(30, 71);
             this.lblSignedOnAs.Name = "lblSignedOnAs";
-            this.lblSignedOnAs.Size = new System.Drawing.Size(69, 13);
+            this.lblSignedOnAs.Size = new System.Drawing.Size(65, 13);
             this.lblSignedOnAs.TabIndex = 27;
-            this.lblSignedOnAs.Text = "Signed on as";
+            this.lblSignedOnAs.Text = "Signed in as";
             this.lblSignedOnAs.Visible = false;
             // 
             // GamesState
@@ -520,6 +531,11 @@ namespace IdleMaster
             this.lblHoursPlayed.Size = new System.Drawing.Size(0, 13);
             this.lblHoursPlayed.TabIndex = 29;
             this.lblHoursPlayed.Visible = false;
+            // 
+            // tmrStatistics
+            // 
+            this.tmrStatistics.Interval = 60000;
+            this.tmrStatistics.Tick += new System.EventHandler(this.tmrStatistics_Tick);
             // 
             // frmMain
             // 
@@ -624,6 +640,8 @@ namespace IdleMaster
     private ColumnHeader GameName;
     private ColumnHeader Hours;
     private Label lblHoursPlayed;
-  }
+        private Timer tmrStatistics;
+        private ToolStripMenuItem statisticsToolStripMenuItem;
+    }
 }
 

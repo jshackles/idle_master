@@ -180,5 +180,29 @@ namespace IdleMaster.Properties {
                 this["steamMachineAuth"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public uint totalCardIdled {
+            get {
+                return ((uint)(this["totalCardIdled"]));
+            }
+            set {
+                this["totalCardIdled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public uint totalMinutesIdled {
+            get {
+                return ((uint)(this["totalMinutesIdled"]));
+            }
+            set {
+                this["totalMinutesIdled"] = value;
+            }
+        }
     }
 }

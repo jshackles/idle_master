@@ -46,7 +46,15 @@ namespace IdleMaster
       dynamic globalHeader = htmldoc.GetElementById("global_header");
       if (globalHeader != null)
       {
-        globalHeader.parentNode.removeChild(globalHeader);
+          try
+          {
+              globalHeader.parentNode.removeChild(globalHeader);
+          }
+          catch (Exception)
+          {
+
+          }
+          
       }
 
       // Get the URL of the page that just finished loading

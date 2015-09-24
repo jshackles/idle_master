@@ -117,65 +117,121 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Changelog" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Changelog.rtf;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="about" xml:space="preserve">
+    <value>&amp;About</value>
   </data>
-  <data name="imgBlacklist" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ban-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="badge_didnt_load" xml:space="preserve">
+    <value>Badge page didn't load, will retry in __num__ seconds</value>
   </data>
-  <data name="imgDocument" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\document-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="blacklist" xml:space="preserve">
+    <value>&amp;Blacklist</value>
   </data>
-  <data name="imgExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\power-standby-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="blacklist_current_game" xml:space="preserve">
+    <value>&amp;Blacklist Current Game</value>
   </data>
-  <data name="imgFalse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\x-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="card_drops_remaining" xml:space="preserve">
+    <value>card drops remaining</value>
   </data>
-  <data name="imgGlobe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\globe-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="currently_ingame" xml:space="preserve">
+    <value>Currently in-game</value>
   </data>
-  <data name="imgInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\info-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="exit" xml:space="preserve">
+    <value>E&amp;xit</value>
   </data>
-  <data name="imgLock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lock-locked-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="file" xml:space="preserve">
+    <value>&amp;File</value>
   </data>
-  <data name="imgPause" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\media-pause-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="game" xml:space="preserve">
+    <value>&amp;Game</value>
   </data>
-  <data name="imgPauseSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\media-pause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="games_left_to_idle" xml:space="preserve">
+    <value>games left to idle</value>
   </data>
-  <data name="imgPlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\media-play-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="help" xml:space="preserve">
+    <value>&amp;Help</value>
   </data>
-  <data name="imgPlaySmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\media-play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hours" xml:space="preserve">
+    <value>Hours</value>
   </data>
-  <data name="imgSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cog-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hrs_on_record" xml:space="preserve">
+    <value>hrs on record</value>
   </data>
-  <data name="imgSkip" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\media-step-forward-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="idle_master_connected" xml:space="preserve">
+    <value>Idle Master is connected to Steam</value>
   </data>
-  <data name="imgSkipSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\media-step-forward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="idle_master_notconnected" xml:space="preserve">
+    <value>Idle Master is not connected to Steam</value>
   </data>
-  <data name="imgSpin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\select2-spinner.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="idle_now" xml:space="preserve">
+    <value>idle now</value>
   </data>
-  <data name="imgStatistics" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bar-chart-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="idling_complete" xml:space="preserve">
+    <value>Idling complete</value>
   </data>
-  <data name="imgTrash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\trash-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="idling_paused" xml:space="preserve">
+    <value>Idling paused</value>
   </data>
-  <data name="imgTrue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="loading_next" xml:space="preserve">
+    <value>Loading next game...</value>
   </data>
-  <data name="imgView" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="next_check" xml:space="preserve">
+    <value>Next check</value>
+  </data>
+  <data name="not_ingame" xml:space="preserve">
+    <value>Not in game</value>
+  </data>
+  <data name="official_group" xml:space="preserve">
+    <value>&amp;Official Group</value>
+  </data>
+  <data name="pause_idling" xml:space="preserve">
+    <value>&amp;Pause Idling</value>
+  </data>
+  <data name="please_wait" xml:space="preserve">
+    <value>please wait...</value>
+  </data>
+  <data name="reading_badge_page" xml:space="preserve">
+    <value>Reading badge page</value>
+  </data>
+  <data name="release_notes" xml:space="preserve">
+    <value>&amp;Release Notes</value>
+  </data>
+  <data name="resume_idling" xml:space="preserve">
+    <value>&amp;Resume Idling</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>&amp;Settings</value>
+  </data>
+  <data name="signed_in_as" xml:space="preserve">
+    <value>Signed in as</value>
+  </data>
+  <data name="sign_in" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="sign_out" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="skip_current_game" xml:space="preserve">
+    <value>&amp;Skip Current Game</value>
+  </data>
+  <data name="sorting_results" xml:space="preserve">
+    <value>Sorting results based on your settings, please wait...</value>
+  </data>
+  <data name="statistics" xml:space="preserve">
+    <value>&amp;Statistics</value>
+  </data>
+  <data name="steam_ignored" xml:space="preserve">
+    <value>Steam client status ignored</value>
+  </data>
+  <data name="steam_notrunning" xml:space="preserve">
+    <value>Steam is not running</value>
+  </data>
+  <data name="steam_running" xml:space="preserve">
+    <value>Steam is running</value>
+  </data>
+  <data name="update_games_status" xml:space="preserve">
+    <value>Update games status</value>
   </data>
 </root>
