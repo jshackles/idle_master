@@ -117,13 +117,121 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="File" xml:space="preserve">
+  <data name="about" xml:space="preserve">
+    <value>&amp;About</value>
+  </data>
+  <data name="badge_didnt_load" xml:space="preserve">
+    <value>Badge page didn't load, will retry in __num__ seconds</value>
+  </data>
+  <data name="blacklist" xml:space="preserve">
+    <value>&amp;Blacklist</value>
+  </data>
+  <data name="blacklist_current_game" xml:space="preserve">
+    <value>&amp;Blacklist Current Game</value>
+  </data>
+  <data name="card_drops_remaining" xml:space="preserve">
+    <value>card drops remaining</value>
+  </data>
+  <data name="currently_ingame" xml:space="preserve">
+    <value>Currently in-game</value>
+  </data>
+  <data name="exit" xml:space="preserve">
+    <value>E&amp;xit</value>
+  </data>
+  <data name="file" xml:space="preserve">
     <value>&amp;File</value>
   </data>
-  <data name="Game" xml:space="preserve">
+  <data name="game" xml:space="preserve">
     <value>&amp;Game</value>
   </data>
-  <data name="Help" xml:space="preserve">
+  <data name="games_left_to_idle" xml:space="preserve">
+    <value>games left to idle</value>
+  </data>
+  <data name="help" xml:space="preserve">
     <value>&amp;Help</value>
+  </data>
+  <data name="hours" xml:space="preserve">
+    <value>Hours</value>
+  </data>
+  <data name="hrs_on_record" xml:space="preserve">
+    <value>hrs on record</value>
+  </data>
+  <data name="idle_master_connected" xml:space="preserve">
+    <value>Idle Master is connected to Steam</value>
+  </data>
+  <data name="idle_master_notconnected" xml:space="preserve">
+    <value>Idle Master is not connected to Steam</value>
+  </data>
+  <data name="idle_now" xml:space="preserve">
+    <value>idle now</value>
+  </data>
+  <data name="idling_complete" xml:space="preserve">
+    <value>Idling complete</value>
+  </data>
+  <data name="idling_paused" xml:space="preserve">
+    <value>Idling paused</value>
+  </data>
+  <data name="loading_next" xml:space="preserve">
+    <value>Loading next game...</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="next_check" xml:space="preserve">
+    <value>Next check</value>
+  </data>
+  <data name="not_ingame" xml:space="preserve">
+    <value>Not in game</value>
+  </data>
+  <data name="official_group" xml:space="preserve">
+    <value>&amp;Official Group</value>
+  </data>
+  <data name="pause_idling" xml:space="preserve">
+    <value>&amp;Pause Idling</value>
+  </data>
+  <data name="please_wait" xml:space="preserve">
+    <value>please wait...</value>
+  </data>
+  <data name="reading_badge_page" xml:space="preserve">
+    <value>Reading badge page</value>
+  </data>
+  <data name="release_notes" xml:space="preserve">
+    <value>&amp;Release Notes</value>
+  </data>
+  <data name="resume_idling" xml:space="preserve">
+    <value>&amp;Resume Idling</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>&amp;Settings</value>
+  </data>
+  <data name="signed_in_as" xml:space="preserve">
+    <value>Signed in as</value>
+  </data>
+  <data name="sign_in" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="sign_out" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="skip_current_game" xml:space="preserve">
+    <value>&amp;Skip Current Game</value>
+  </data>
+  <data name="sorting_results" xml:space="preserve">
+    <value>Sorting results based on your settings, please wait...</value>
+  </data>
+  <data name="statistics" xml:space="preserve">
+    <value>&amp;Statistics</value>
+  </data>
+  <data name="steam_ignored" xml:space="preserve">
+    <value>Steam client status ignored</value>
+  </data>
+  <data name="steam_notrunning" xml:space="preserve">
+    <value>Steam is not running</value>
+  </data>
+  <data name="steam_running" xml:space="preserve">
+    <value>Steam is running</value>
+  </data>
+  <data name="update_games_status" xml:space="preserve">
+    <value>Update games status</value>
   </data>
 </root>

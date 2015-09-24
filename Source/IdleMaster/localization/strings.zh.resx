@@ -117,13 +117,121 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="File" xml:space="preserve">
+  <data name="about" xml:space="preserve">
+    <value>关于(&amp;A)</value>
+  </data>
+  <data name="badge_didnt_load" xml:space="preserve">
+    <value>徽章状态加载错误, __num__ 秒后重试</value>
+  </data>
+  <data name="blacklist" xml:space="preserve">
+    <value>黑名单(&amp;B)</value>
+  </data>
+  <data name="blacklist_current_game" xml:space="preserve">
+    <value>将当前游戏加入黑名单(&amp;B)</value>
+  </data>
+  <data name="card_drops_remaining" xml:space="preserve">
+    <value>剩余卡牌掉落</value>
+  </data>
+  <data name="currently_ingame" xml:space="preserve">
+    <value>游戏中</value>
+  </data>
+  <data name="exit" xml:space="preserve">
+    <value>退出(&amp;X)</value>
+  </data>
+  <data name="file" xml:space="preserve">
     <value>文件(&amp;F)</value>
   </data>
-  <data name="Game" xml:space="preserve">
+  <data name="game" xml:space="preserve">
     <value>游戏(&amp;G)</value>
   </data>
-  <data name="Help" xml:space="preserve">
+  <data name="games_left_to_idle" xml:space="preserve">
+    <value>游戏尚有卡牌</value>
+  </data>
+  <data name="help" xml:space="preserve">
     <value>帮助(&amp;H)</value>
+  </data>
+  <data name="hours" xml:space="preserve">
+    <value>游戏时间</value>
+  </data>
+  <data name="hrs_on_record" xml:space="preserve">
+    <value>小时游戏时间</value>
+  </data>
+  <data name="idle_master_connected" xml:space="preserve">
+    <value>Idle Master已登录到Steam</value>
+  </data>
+  <data name="idle_master_notconnected" xml:space="preserve">
+    <value>Idle Master未登录到Steam</value>
+  </data>
+  <data name="idle_now" xml:space="preserve">
+    <value>正在运行</value>
+  </data>
+  <data name="idling_complete" xml:space="preserve">
+    <value>全部完成</value>
+  </data>
+  <data name="idling_paused" xml:space="preserve">
+    <value>游戏暂停</value>
+  </data>
+  <data name="loading_next" xml:space="preserve">
+    <value>加载下一个游戏...</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>游戏时间</value>
+  </data>
+  <data name="next_check" xml:space="preserve">
+    <value>下次刷新</value>
+  </data>
+  <data name="not_ingame" xml:space="preserve">
+    <value>无游戏运行</value>
+  </data>
+  <data name="official_group" xml:space="preserve">
+    <value>官方组(&amp;O)</value>
+  </data>
+  <data name="pause_idling" xml:space="preserve">
+    <value>暂停(&amp;P)</value>
+  </data>
+  <data name="please_wait" xml:space="preserve">
+    <value>请稍候...</value>
+  </data>
+  <data name="reading_badge_page" xml:space="preserve">
+    <value>读取徽章状态中</value>
+  </data>
+  <data name="release_notes" xml:space="preserve">
+    <value>更新记录(&amp;R)</value>
+  </data>
+  <data name="resume_idling" xml:space="preserve">
+    <value>继续(&amp;R)</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>设置(&amp;S)</value>
+  </data>
+  <data name="signed_in_as" xml:space="preserve">
+    <value>当前账号为</value>
+  </data>
+  <data name="sign_in" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="sign_out" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="skip_current_game" xml:space="preserve">
+    <value>下一个(&amp;S)</value>
+  </data>
+  <data name="sorting_results" xml:space="preserve">
+    <value>排序加载中请稍候...</value>
+  </data>
+  <data name="statistics" xml:space="preserve">
+    <value>统计 (&amp;S)</value>
+  </data>
+  <data name="steam_ignored" xml:space="preserve">
+    <value>Steam状态已被忽略</value>
+  </data>
+  <data name="steam_notrunning" xml:space="preserve">
+    <value>Steam没有启动</value>
+  </data>
+  <data name="steam_running" xml:space="preserve">
+    <value>Steam正在运行</value>
+  </data>
+  <data name="update_games_status" xml:space="preserve">
+    <value>更新游戏状态</value>
   </data>
 </root>
