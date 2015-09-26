@@ -234,4 +234,52 @@
   <data name="update_games_status" xml:space="preserve">
     <value>Update games status</value>
   </data>
+  <data name="accept" xml:space="preserve">
+    <value>&amp;Accept</value>
+  </data>
+  <data name="advanced_auth" xml:space="preserve">
+    <value>Display advanced authentication information</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="general" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="idle_individual" xml:space="preserve">
+    <value>Idle each game individually</value>
+  </data>
+  <data name="idle_master_settings" xml:space="preserve">
+    <value>Idle Master Settings</value>
+  </data>
+  <data name="idle_simultaneous" xml:space="preserve">
+    <value>Idle games simultaneously up to 2 hours, then individually</value>
+  </data>
+  <data name="idling_behavior" xml:space="preserve">
+    <value>Idling Behavior</value>
+  </data>
+  <data name="idling_order" xml:space="preserve">
+    <value>Idling Order</value>
+  </data>
+  <data name="ignore_client_status" xml:space="preserve">
+    <value>Ignore Steam client status</value>
+  </data>
+  <data name="minimize_to_tray" xml:space="preserve">
+    <value>Minimize Idle Master to system tray</value>
+  </data>
+  <data name="order_default" xml:space="preserve">
+    <value>Default (Alphabetical Order)</value>
+  </data>
+  <data name="order_least" xml:space="preserve">
+    <value>Prioritize games with the lowest number of available drops</value>
+  </data>
+  <data name="order_most" xml:space="preserve">
+    <value>Prioritize games with the highest number of available drops</value>
+  </data>
+  <data name="order_value" xml:space="preserve">
+    <value>Prioritize games with the highest card values</value>
+  </data>
+  <data name="show_username" xml:space="preserve">
+    <value>Show Steam username of signed on user</value>
+  </data>
 </root>

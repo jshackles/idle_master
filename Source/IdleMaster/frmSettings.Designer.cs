@@ -33,11 +33,11 @@ namespace IdleMaster
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpGeneral = new System.Windows.Forms.GroupBox();
             this.chkShowUsername = new System.Windows.Forms.CheckBox();
             this.chkIgnoreClientStatus = new System.Windows.Forms.CheckBox();
             this.chkMinToTray = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpPriority = new System.Windows.Forms.GroupBox();
             this.radIdleMostValue = new System.Windows.Forms.RadioButton();
             this.radIdleLeastDrops = new System.Windows.Forms.RadioButton();
             this.radIdleMostDrops = new System.Windows.Forms.RadioButton();
@@ -46,25 +46,25 @@ namespace IdleMaster
             this.btnOK = new System.Windows.Forms.Button();
             this.ttHints = new System.Windows.Forms.ToolTip(this.components);
             this.btnAdvanced = new System.Windows.Forms.Button();
-            this.IdlingQuantity = new System.Windows.Forms.GroupBox();
-            this.ManyThenOne = new System.Windows.Forms.RadioButton();
-            this.OneGameOnly = new System.Windows.Forms.RadioButton();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.IdlingQuantity.SuspendLayout();
+            this.grpIdlingQuantity = new System.Windows.Forms.GroupBox();
+            this.radManyThenOne = new System.Windows.Forms.RadioButton();
+            this.radOneGameOnly = new System.Windows.Forms.RadioButton();
+            this.grpGeneral.SuspendLayout();
+            this.grpPriority.SuspendLayout();
+            this.grpIdlingQuantity.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // grpGeneral
             // 
-            this.groupBox1.Controls.Add(this.chkShowUsername);
-            this.groupBox1.Controls.Add(this.chkIgnoreClientStatus);
-            this.groupBox1.Controls.Add(this.chkMinToTray);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(322, 81);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "General";
+            this.grpGeneral.Controls.Add(this.chkShowUsername);
+            this.grpGeneral.Controls.Add(this.chkIgnoreClientStatus);
+            this.grpGeneral.Controls.Add(this.chkMinToTray);
+            this.grpGeneral.Location = new System.Drawing.Point(13, 13);
+            this.grpGeneral.Name = "grpGeneral";
+            this.grpGeneral.Size = new System.Drawing.Size(322, 81);
+            this.grpGeneral.TabIndex = 0;
+            this.grpGeneral.TabStop = false;
+            this.grpGeneral.Text = "General";
             // 
             // chkShowUsername
             // 
@@ -96,18 +96,18 @@ namespace IdleMaster
             this.chkMinToTray.Text = "Minimize Idle Master to system tray";
             this.chkMinToTray.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // grpPriority
             // 
-            this.groupBox2.Controls.Add(this.radIdleMostValue);
-            this.groupBox2.Controls.Add(this.radIdleLeastDrops);
-            this.groupBox2.Controls.Add(this.radIdleMostDrops);
-            this.groupBox2.Controls.Add(this.radIdleDefault);
-            this.groupBox2.Location = new System.Drawing.Point(13, 168);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(322, 92);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Idling Order";
+            this.grpPriority.Controls.Add(this.radIdleMostValue);
+            this.grpPriority.Controls.Add(this.radIdleLeastDrops);
+            this.grpPriority.Controls.Add(this.radIdleMostDrops);
+            this.grpPriority.Controls.Add(this.radIdleDefault);
+            this.grpPriority.Location = new System.Drawing.Point(13, 168);
+            this.grpPriority.Name = "grpPriority";
+            this.grpPriority.Size = new System.Drawing.Size(322, 92);
+            this.grpPriority.TabIndex = 1;
+            this.grpPriority.TabStop = false;
+            this.grpPriority.Text = "Idling Order";
             // 
             // radIdleMostValue
             // 
@@ -187,41 +187,41 @@ namespace IdleMaster
             this.btnAdvanced.UseVisualStyleBackColor = true;
             this.btnAdvanced.Click += new System.EventHandler(this.btnAdvanced_Click);
             // 
-            // IdlingQuantity
+            // grpIdlingQuantity
             // 
-            this.IdlingQuantity.Controls.Add(this.ManyThenOne);
-            this.IdlingQuantity.Controls.Add(this.OneGameOnly);
-            this.IdlingQuantity.Location = new System.Drawing.Point(13, 99);
-            this.IdlingQuantity.Margin = new System.Windows.Forms.Padding(2);
-            this.IdlingQuantity.Name = "IdlingQuantity";
-            this.IdlingQuantity.Padding = new System.Windows.Forms.Padding(2);
-            this.IdlingQuantity.Size = new System.Drawing.Size(322, 64);
-            this.IdlingQuantity.TabIndex = 5;
-            this.IdlingQuantity.TabStop = false;
-            this.IdlingQuantity.Text = "Idling Behavior";
+            this.grpIdlingQuantity.Controls.Add(this.radManyThenOne);
+            this.grpIdlingQuantity.Controls.Add(this.radOneGameOnly);
+            this.grpIdlingQuantity.Location = new System.Drawing.Point(13, 99);
+            this.grpIdlingQuantity.Margin = new System.Windows.Forms.Padding(2);
+            this.grpIdlingQuantity.Name = "grpIdlingQuantity";
+            this.grpIdlingQuantity.Padding = new System.Windows.Forms.Padding(2);
+            this.grpIdlingQuantity.Size = new System.Drawing.Size(322, 64);
+            this.grpIdlingQuantity.TabIndex = 5;
+            this.grpIdlingQuantity.TabStop = false;
+            this.grpIdlingQuantity.Text = "Idling Behavior";
             // 
-            // ManyThenOne
+            // radManyThenOne
             // 
-            this.ManyThenOne.AutoSize = true;
-            this.ManyThenOne.Location = new System.Drawing.Point(7, 35);
-            this.ManyThenOne.Name = "ManyThenOne";
-            this.ManyThenOne.Size = new System.Drawing.Size(293, 17);
-            this.ManyThenOne.TabIndex = 5;
-            this.ManyThenOne.TabStop = true;
-            this.ManyThenOne.Text = "Idle games simultaneously up to 2 hours, then individually";
-            this.ManyThenOne.UseVisualStyleBackColor = true;
+            this.radManyThenOne.AutoSize = true;
+            this.radManyThenOne.Location = new System.Drawing.Point(7, 35);
+            this.radManyThenOne.Name = "radManyThenOne";
+            this.radManyThenOne.Size = new System.Drawing.Size(293, 17);
+            this.radManyThenOne.TabIndex = 5;
+            this.radManyThenOne.TabStop = true;
+            this.radManyThenOne.Text = "Idle games simultaneously up to 2 hours, then individually";
+            this.radManyThenOne.UseVisualStyleBackColor = true;
             // 
-            // OneGameOnly
+            // radOneGameOnly
             // 
-            this.OneGameOnly.AutoSize = true;
-            this.OneGameOnly.Checked = true;
-            this.OneGameOnly.Location = new System.Drawing.Point(7, 18);
-            this.OneGameOnly.Name = "OneGameOnly";
-            this.OneGameOnly.Size = new System.Drawing.Size(152, 17);
-            this.OneGameOnly.TabIndex = 4;
-            this.OneGameOnly.TabStop = true;
-            this.OneGameOnly.Text = "Idle each game individually";
-            this.OneGameOnly.UseVisualStyleBackColor = true;
+            this.radOneGameOnly.AutoSize = true;
+            this.radOneGameOnly.Checked = true;
+            this.radOneGameOnly.Location = new System.Drawing.Point(7, 18);
+            this.radOneGameOnly.Name = "radOneGameOnly";
+            this.radOneGameOnly.Size = new System.Drawing.Size(152, 17);
+            this.radOneGameOnly.TabIndex = 4;
+            this.radOneGameOnly.TabStop = true;
+            this.radOneGameOnly.Text = "Idle each game individually";
+            this.radOneGameOnly.UseVisualStyleBackColor = true;
             // 
             // frmSettings
             // 
@@ -230,12 +230,12 @@ namespace IdleMaster
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(348, 302);
-            this.Controls.Add(this.IdlingQuantity);
+            this.Controls.Add(this.grpIdlingQuantity);
             this.Controls.Add(this.btnAdvanced);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpPriority);
+            this.Controls.Add(this.grpGeneral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -243,21 +243,21 @@ namespace IdleMaster
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Idle Master Settings";
             this.Load += new System.EventHandler(this.frmSettings_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.IdlingQuantity.ResumeLayout(false);
-            this.IdlingQuantity.PerformLayout();
+            this.grpGeneral.ResumeLayout(false);
+            this.grpGeneral.PerformLayout();
+            this.grpPriority.ResumeLayout(false);
+            this.grpPriority.PerformLayout();
+            this.grpIdlingQuantity.ResumeLayout(false);
+            this.grpIdlingQuantity.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private GroupBox groupBox1;
+        private GroupBox grpGeneral;
         private CheckBox chkMinToTray;
-        private GroupBox groupBox2;
+        private GroupBox grpPriority;
         private RadioButton radIdleLeastDrops;
         private RadioButton radIdleMostDrops;
         private RadioButton radIdleDefault;
@@ -268,8 +268,8 @@ namespace IdleMaster
         private ToolTip ttHints;
         private CheckBox chkIgnoreClientStatus;
         private CheckBox chkShowUsername;
-    private GroupBox IdlingQuantity;
-    private RadioButton ManyThenOne;
-    private RadioButton OneGameOnly;
+    private GroupBox grpIdlingQuantity;
+    private RadioButton radManyThenOne;
+    private RadioButton radOneGameOnly;
   }
 }

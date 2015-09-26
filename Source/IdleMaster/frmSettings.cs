@@ -35,7 +35,7 @@ namespace IdleMaster
         Settings.Default.sort = "mostvalue";
       }
 
-      Settings.Default.OnlyOneGameIdle = OneGameOnly.Checked && !ManyThenOne.Checked;
+      Settings.Default.OnlyOneGameIdle = radOneGameOnly.Checked && !radManyThenOne.Checked;
 
       Settings.Default.minToTray = chkMinToTray.Checked;
 
@@ -64,8 +64,26 @@ namespace IdleMaster
           break;
       }
 
-      OneGameOnly.Checked = Settings.Default.OnlyOneGameIdle;
-      ManyThenOne.Checked = !Settings.Default.OnlyOneGameIdle;
+      // Load translation
+      this.Text = localization.strings.idle_master_settings;
+      grpGeneral.Text = localization.strings.general;
+      grpIdlingQuantity.Text = localization.strings.idling_behavior;
+      grpPriority.Text = localization.strings.idling_order;
+      btnOK.Text = localization.strings.accept;
+      btnCancel.Text = localization.strings.cancel;
+      ttHints.SetToolTip(btnAdvanced, localization.strings.advanced_auth);
+      chkMinToTray.Text = localization.strings.minimize_to_tray;
+      chkIgnoreClientStatus.Text = localization.strings.ignore_client_status;
+      chkShowUsername.Text = localization.strings.show_username;
+      radOneGameOnly.Text = localization.strings.idle_individual;
+      radManyThenOne.Text = localization.strings.idle_simultaneous;
+      radIdleDefault.Text = localization.strings.order_default;
+      radIdleMostValue.Text = localization.strings.order_value;
+      radIdleMostDrops.Text = localization.strings.order_most;
+      radIdleLeastDrops.Text = localization.strings.order_least;
+
+      radOneGameOnly.Checked = Settings.Default.OnlyOneGameIdle;
+      radManyThenOne.Checked = !Settings.Default.OnlyOneGameIdle;
 
       if (Settings.Default.minToTray)
       {

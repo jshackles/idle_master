@@ -234,4 +234,52 @@
   <data name="update_games_status" xml:space="preserve">
     <value>更新游戏状态</value>
   </data>
+  <data name="accept" xml:space="preserve">
+    <value>确定(&amp;A)</value>
+  </data>
+  <data name="advanced_auth" xml:space="preserve">
+    <value>高级设置</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>取消(&amp;C)</value>
+  </data>
+  <data name="general" xml:space="preserve">
+    <value>常规</value>
+  </data>
+  <data name="idle_individual" xml:space="preserve">
+    <value>按顺序运行</value>
+  </data>
+  <data name="idle_master_settings" xml:space="preserve">
+    <value>Idle Master 设置</value>
+  </data>
+  <data name="idle_simultaneous" xml:space="preserve">
+    <value>将所有游戏运行满2小时后再按顺序运行</value>
+  </data>
+  <data name="idling_behavior" xml:space="preserve">
+    <value>规则</value>
+  </data>
+  <data name="idling_order" xml:space="preserve">
+    <value>顺序</value>
+  </data>
+  <data name="ignore_client_status" xml:space="preserve">
+    <value>忽略Steam运行状态</value>
+  </data>
+  <data name="minimize_to_tray" xml:space="preserve">
+    <value>最小化到系统托盘</value>
+  </data>
+  <data name="order_default" xml:space="preserve">
+    <value>默认 (按字母排序)</value>
+  </data>
+  <data name="order_least" xml:space="preserve">
+    <value>优先运行卡牌数量少的游戏</value>
+  </data>
+  <data name="order_most" xml:space="preserve">
+    <value>优先运行卡牌数量多的游戏</value>
+  </data>
+  <data name="order_value" xml:space="preserve">
+    <value>优先运行卡牌价值高的游戏</value>
+  </data>
+  <data name="show_username" xml:space="preserve">
+    <value>显示当前Steam用户</value>
+  </data>
 </root>

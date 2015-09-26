@@ -70,6 +70,24 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;Accept.
+        /// </summary>
+        internal static string accept {
+            get {
+                return ResourceManager.GetString("accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display advanced authentication information.
+        /// </summary>
+        internal static string advanced_auth {
+            get {
+                return ResourceManager.GetString("advanced_auth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Badge page didn&apos;t load, will retry in __num__ seconds.
         /// </summary>
         internal static string badge_didnt_load {
@@ -93,6 +111,15 @@ namespace IdleMaster.localization {
         internal static string blacklist_current_game {
             get {
                 return ResourceManager.GetString("blacklist_current_game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Cancel.
+        /// </summary>
+        internal static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
             }
         }
         
@@ -151,6 +178,15 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        internal static string general {
+            get {
+                return ResourceManager.GetString("general", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Help.
         /// </summary>
         internal static string help {
@@ -178,6 +214,15 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Idle each game individually.
+        /// </summary>
+        internal static string idle_individual {
+            get {
+                return ResourceManager.GetString("idle_individual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Idle Master is connected to Steam.
         /// </summary>
         internal static string idle_master_connected {
@@ -196,11 +241,38 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Idle Master Settings.
+        /// </summary>
+        internal static string idle_master_settings {
+            get {
+                return ResourceManager.GetString("idle_master_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to idle now.
         /// </summary>
         internal static string idle_now {
             get {
                 return ResourceManager.GetString("idle_now", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Idle games simultaneously up to 2 hours, then individually.
+        /// </summary>
+        internal static string idle_simultaneous {
+            get {
+                return ResourceManager.GetString("idle_simultaneous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Idling Behavior.
+        /// </summary>
+        internal static string idling_behavior {
+            get {
+                return ResourceManager.GetString("idling_behavior", resourceCulture);
             }
         }
         
@@ -214,6 +286,15 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Idling Order.
+        /// </summary>
+        internal static string idling_order {
+            get {
+                return ResourceManager.GetString("idling_order", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Idling paused.
         /// </summary>
         internal static string idling_paused {
@@ -223,11 +304,29 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ignore Steam client status.
+        /// </summary>
+        internal static string ignore_client_status {
+            get {
+                return ResourceManager.GetString("ignore_client_status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Loading next game....
         /// </summary>
         internal static string loading_next {
             get {
                 return ResourceManager.GetString("loading_next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimize Idle Master to system tray.
+        /// </summary>
+        internal static string minimize_to_tray {
+            get {
+                return ResourceManager.GetString("minimize_to_tray", resourceCulture);
             }
         }
         
@@ -264,6 +363,42 @@ namespace IdleMaster.localization {
         internal static string official_group {
             get {
                 return ResourceManager.GetString("official_group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default (Alphabetical Order).
+        /// </summary>
+        internal static string order_default {
+            get {
+                return ResourceManager.GetString("order_default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prioritize games with the lowest number of available drops.
+        /// </summary>
+        internal static string order_least {
+            get {
+                return ResourceManager.GetString("order_least", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prioritize games with the highest number of available drops.
+        /// </summary>
+        internal static string order_most {
+            get {
+                return ResourceManager.GetString("order_most", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prioritize games with the highest card values.
+        /// </summary>
+        internal static string order_value {
+            get {
+                return ResourceManager.GetString("order_value", resourceCulture);
             }
         }
         
@@ -318,6 +453,15 @@ namespace IdleMaster.localization {
         internal static string settings {
             get {
                 return ResourceManager.GetString("settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Steam username of signed on user.
+        /// </summary>
+        internal static string show_username {
+            get {
+                return ResourceManager.GetString("show_username", resourceCulture);
             }
         }
         
