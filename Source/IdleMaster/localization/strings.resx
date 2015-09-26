@@ -279,6 +279,12 @@
   <data name="order_value" xml:space="preserve">
     <value>Prioritize games with the highest card values</value>
   </data>
+  <data name="please_login" xml:space="preserve">
+    <value>Please Login to Steam</value>
+  </data>
+  <data name="saving_info" xml:space="preserve">
+    <value>Idle Master is saving your information</value>
+  </data>
   <data name="show_username" xml:space="preserve">
     <value>Show Steam username of signed on user</value>
   </data>

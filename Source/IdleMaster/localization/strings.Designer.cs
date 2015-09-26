@@ -412,6 +412,15 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please Login to Steam.
+        /// </summary>
+        internal static string please_login {
+            get {
+                return ResourceManager.GetString("please_login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to please wait....
         /// </summary>
         internal static string please_wait {
@@ -444,6 +453,15 @@ namespace IdleMaster.localization {
         internal static string resume_idling {
             get {
                 return ResourceManager.GetString("resume_idling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Idle Master is saving your information.
+        /// </summary>
+        internal static string saving_info {
+            get {
+                return ResourceManager.GetString("saving_info", resourceCulture);
             }
         }
         

@@ -279,6 +279,12 @@
   <data name="order_value" xml:space="preserve">
     <value>优先运行卡牌价值高的游戏</value>
   </data>
+  <data name="please_login" xml:space="preserve">
+    <value>请登录 Steam</value>
+  </data>
+  <data name="saving_info" xml:space="preserve">
+    <value>Idle Master正在提取用户数据</value>
+  </data>
   <data name="show_username" xml:space="preserve">
     <value>显示当前Steam用户</value>
   </data>
