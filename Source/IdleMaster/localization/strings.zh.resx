@@ -237,11 +237,26 @@
   <data name="accept" xml:space="preserve">
     <value>确定(&amp;A)</value>
   </data>
+  <data name="add" xml:space="preserve">
+    <value>添加(&amp;A)</value>
+  </data>
+  <data name="add_game_blacklist" xml:space="preserve">
+    <value>添加游戏到黑名单</value>
+  </data>
   <data name="advanced_auth" xml:space="preserve">
     <value>高级设置</value>
   </data>
+  <data name="auth_data" xml:space="preserve">
+    <value>Idle Master 用户数据(Cookie)</value>
+  </data>
   <data name="cancel" xml:space="preserve">
     <value>取消(&amp;C)</value>
+  </data>
+  <data name="cookie_warning" xml:space="preserve">
+    <value>显示数据
+ 
+ [警告] 
+ 不要泄露任何数据，这和你把密码泄露出去没什么区别</value>
   </data>
   <data name="general" xml:space="preserve">
     <value>常规</value>
@@ -264,6 +279,9 @@
   <data name="ignore_client_status" xml:space="preserve">
     <value>忽略Steam运行状态</value>
   </data>
+  <data name="manage_blacklist" xml:space="preserve">
+    <value>管理 Idle Master 黑名单</value>
+  </data>
   <data name="minimize_to_tray" xml:space="preserve">
     <value>最小化到系统托盘</value>
   </data>
@@ -282,10 +300,19 @@
   <data name="please_login" xml:space="preserve">
     <value>请登录 Steam</value>
   </data>
+  <data name="release_notes_title" xml:space="preserve">
+    <value>Idle Master更新记录</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>保存(&amp;S)</value>
+  </data>
   <data name="saving_info" xml:space="preserve">
     <value>Idle Master正在提取用户数据</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>显示当前Steam用户</value>
+  </data>
+  <data name="update" xml:space="preserve">
+    <value>更新(&amp;U)</value>
   </data>
 </root>

@@ -29,6 +29,10 @@ namespace IdleMaster
       // Remove any existing session state data
       InternetSetOption(0, 42, null, 0);
 
+      // Localize form
+      this.Text = localization.strings.please_login;
+      lblSaving.Text = localization.strings.saving_info;
+
       // Delete Steam cookie data from the browser control
       InternetSetCookie("http://steamcommunity.com", "sessionid", ";expires=Mon, 01 Jan 0001 00:00:00 GMT");
       InternetSetCookie("http://steamcommunity.com", "steamLogin", ";expires=Mon, 01 Jan 0001 00:00:00 GMT");

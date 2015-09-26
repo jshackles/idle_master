@@ -237,11 +237,28 @@
   <data name="accept" xml:space="preserve">
     <value>&amp;Accept</value>
   </data>
+  <data name="add" xml:space="preserve">
+    <value>&amp;Add</value>
+  </data>
+  <data name="add_game_blacklist" xml:space="preserve">
+    <value>Add Game to Blacklist</value>
+  </data>
   <data name="advanced_auth" xml:space="preserve">
     <value>Display advanced authentication information</value>
   </data>
+  <data name="auth_data" xml:space="preserve">
+    <value>Idle Master Authentication Data</value>
+  </data>
   <data name="cancel" xml:space="preserve">
     <value>&amp;Cancel</value>
+  </data>
+  <data name="cookie_warning" xml:space="preserve">
+    <value>Display information above
+
+[WARNING]
+Do not share this information with anyone,
+as it could potentially be used by an attacker to log into
+your Steam account.</value>
   </data>
   <data name="general" xml:space="preserve">
     <value>General</value>
@@ -264,8 +281,14 @@
   <data name="ignore_client_status" xml:space="preserve">
     <value>Ignore Steam client status</value>
   </data>
+  <data name="manage_blacklist" xml:space="preserve">
+    <value>Manage Idle Master Blacklist</value>
+  </data>
   <data name="minimize_to_tray" xml:space="preserve">
     <value>Minimize Idle Master to system tray</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>&amp;OK</value>
   </data>
   <data name="order_default" xml:space="preserve">
     <value>Default (Alphabetical Order)</value>
@@ -282,10 +305,31 @@
   <data name="please_login" xml:space="preserve">
     <value>Please Login to Steam</value>
   </data>
+  <data name="release_notes_title" xml:space="preserve">
+    <value>Idle Master Release Notes</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>&amp;Save</value>
+  </data>
   <data name="saving_info" xml:space="preserve">
     <value>Idle Master is saving your information</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>Show Steam username of signed on user</value>
+  </data>
+  <data name="this_session" xml:space="preserve">
+    <value>This Session</value>
+  </data>
+  <data name="total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="update" xml:space="preserve">
+    <value>&amp;Update</value>
+  </data>
+  <data name="validate_failed" xml:space="preserve">
+    <value>The data you've entered isn't valid.  Please try again.</value>
+  </data>
+  <data name="validating" xml:space="preserve">
+    <value>Validating...</value>
   </data>
 </root>

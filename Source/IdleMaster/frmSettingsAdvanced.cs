@@ -27,6 +27,12 @@ namespace IdleMaster
 
     private void frmSettingsAdvanced_Load(object sender, EventArgs e)
     {
+      // Localize Form
+      btnUpdate.Text = localization.strings.update;
+      this.Text = localization.strings.auth_data;
+      ttHelp.SetToolTip(btnView, localization.strings.cookie_warning);
+
+        
       if (!string.IsNullOrWhiteSpace(Settings.Default.sessionid))
       {
         txtSessionID.Text = Settings.Default.sessionid;
@@ -102,7 +108,7 @@ namespace IdleMaster
       }
 
       // Invalid cookie data, reset the form
-      btnUpdate.Text = "Update";
+      btnUpdate.Text = localization.strings.update;
       txtSessionID.Text = "";
       txtSteamLogin.Text = "";
       txtSteamParental.Text = "";
@@ -113,7 +119,7 @@ namespace IdleMaster
       txtSteamLogin.Enabled = true;
       txtSteamParental.Enabled = true;
       txtSessionID.Focus();
-      MessageBox.Show("The data you've entered isn't valid.  Please try again.");
+      MessageBox.Show(localization.strings.validate_failed);
       btnUpdate.Enabled = true;
     }
 
@@ -123,7 +129,7 @@ namespace IdleMaster
       txtSessionID.Enabled = false;
       txtSteamLogin.Enabled = false;
       txtSteamParental.Enabled = false;
-      btnUpdate.Text = "Validating...";
+      btnUpdate.Text = localization.strings.validating;
       await CheckAndSave();
     }
   }

@@ -21,6 +21,12 @@ namespace IdleMaster
 
     private void frmBlacklist_Load(object sender, EventArgs e)
     {
+      // Localize form
+      btnAdd.Text = localization.strings.add;
+      btnSave.Text = localization.strings.save;
+      this.Text = localization.strings.manage_blacklist;
+      grpAdd.Text = localization.strings.add_game_blacklist;
+        
       lstBlacklist.Items.AddRange(Settings.Default.blacklist.Cast<string>().ToArray());
     }
 

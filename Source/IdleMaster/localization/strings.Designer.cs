@@ -79,11 +79,38 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;Add.
+        /// </summary>
+        internal static string add {
+            get {
+                return ResourceManager.GetString("add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Game to Blacklist.
+        /// </summary>
+        internal static string add_game_blacklist {
+            get {
+                return ResourceManager.GetString("add_game_blacklist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Display advanced authentication information.
         /// </summary>
         internal static string advanced_auth {
             get {
                 return ResourceManager.GetString("advanced_auth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Idle Master Authentication Data.
+        /// </summary>
+        internal static string auth_data {
+            get {
+                return ResourceManager.GetString("auth_data", resourceCulture);
             }
         }
         
@@ -129,6 +156,20 @@ namespace IdleMaster.localization {
         internal static string card_drops_remaining {
             get {
                 return ResourceManager.GetString("card_drops_remaining", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display information above
+        ///
+        ///[WARNING]
+        ///Do not share this information with anyone,
+        ///as it could potentially be used by an attacker to log into
+        ///your Steam account..
+        /// </summary>
+        internal static string cookie_warning {
+            get {
+                return ResourceManager.GetString("cookie_warning", resourceCulture);
             }
         }
         
@@ -322,6 +363,15 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manage Idle Master Blacklist.
+        /// </summary>
+        internal static string manage_blacklist {
+            get {
+                return ResourceManager.GetString("manage_blacklist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Minimize Idle Master to system tray.
         /// </summary>
         internal static string minimize_to_tray {
@@ -363,6 +413,15 @@ namespace IdleMaster.localization {
         internal static string official_group {
             get {
                 return ResourceManager.GetString("official_group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;OK.
+        /// </summary>
+        internal static string ok {
+            get {
+                return ResourceManager.GetString("ok", resourceCulture);
             }
         }
         
@@ -448,11 +507,29 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Idle Master Release Notes.
+        /// </summary>
+        internal static string release_notes_title {
+            get {
+                return ResourceManager.GetString("release_notes_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Resume Idling.
         /// </summary>
         internal static string resume_idling {
             get {
                 return ResourceManager.GetString("resume_idling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Save.
+        /// </summary>
+        internal static string save {
+            get {
+                return ResourceManager.GetString("save", resourceCulture);
             }
         }
         
@@ -565,11 +642,56 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This Session.
+        /// </summary>
+        internal static string this_session {
+            get {
+                return ResourceManager.GetString("this_session", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        internal static string total {
+            get {
+                return ResourceManager.GetString("total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Update.
+        /// </summary>
+        internal static string update {
+            get {
+                return ResourceManager.GetString("update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update games status.
         /// </summary>
         internal static string update_games_status {
             get {
                 return ResourceManager.GetString("update_games_status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The data you&apos;ve entered isn&apos;t valid.  Please try again..
+        /// </summary>
+        internal static string validate_failed {
+            get {
+                return ResourceManager.GetString("validate_failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validating....
+        /// </summary>
+        internal static string validating {
+            get {
+                return ResourceManager.GetString("validating", resourceCulture);
             }
         }
     }
