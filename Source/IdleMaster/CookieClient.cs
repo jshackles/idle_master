@@ -36,6 +36,8 @@ namespace IdleMaster
                     Settings.Default.sessionid = string.Empty;
                     Settings.Default.steamLogin = string.Empty;
                     Settings.Default.steamparental = string.Empty;
+                    Settings.Default.steamMachineAuth = string.Empty;
+                    Settings.Default.steamRememberLogin = string.Empty;
                     Settings.Default.Save();
                 }
             }
@@ -51,7 +53,16 @@ namespace IdleMaster
             cookies.Add(new Cookie("sessionid", Settings.Default.sessionid) { Domain = target.Host });
             cookies.Add(new Cookie("steamLogin", Settings.Default.steamLogin) { Domain = target.Host });
             cookies.Add(new Cookie("steamparental", Settings.Default.steamparental) { Domain = target.Host });
+            cookies.Add(new Cookie("steamRememberLogin", Settings.Default.steamRememberLogin) { Domain = target.Host });
+            cookies.Add(new Cookie(GetSteamMachineAuthCookieName(), Settings.Default.steamMachineAuth) { Domain = target.Host });
             return cookies;
+        }
+
+        public static string GetSteamMachineAuthCookieName()
+        {
+            if (Settings.Default.steamLogin != null && Settings.Default.steamLogin.Length > 17)
+                return string.Format("steamMachineAuth{0}", Settings.Default.steamLogin.Substring(0, 17));
+            return "steamMachineAuth";
         }
 
         public static async Task<string> GetHttpAsync(string url, int count = 3)
