@@ -34,6 +34,8 @@ namespace IdleMaster
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.grpGeneral = new System.Windows.Forms.GroupBox();
+            this.cboLanguage = new System.Windows.Forms.ComboBox();
+            this.lblLanguage = new System.Windows.Forms.Label();
             this.chkShowUsername = new System.Windows.Forms.CheckBox();
             this.chkIgnoreClientStatus = new System.Windows.Forms.CheckBox();
             this.chkMinToTray = new System.Windows.Forms.CheckBox();
@@ -56,15 +58,62 @@ namespace IdleMaster
             // 
             // grpGeneral
             // 
+            this.grpGeneral.Controls.Add(this.cboLanguage);
+            this.grpGeneral.Controls.Add(this.lblLanguage);
             this.grpGeneral.Controls.Add(this.chkShowUsername);
             this.grpGeneral.Controls.Add(this.chkIgnoreClientStatus);
             this.grpGeneral.Controls.Add(this.chkMinToTray);
             this.grpGeneral.Location = new System.Drawing.Point(13, 13);
             this.grpGeneral.Name = "grpGeneral";
-            this.grpGeneral.Size = new System.Drawing.Size(322, 81);
+            this.grpGeneral.Size = new System.Drawing.Size(322, 106);
             this.grpGeneral.TabIndex = 0;
             this.grpGeneral.TabStop = false;
             this.grpGeneral.Text = "General";
+            // 
+            // cboLanguage
+            // 
+            this.cboLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLanguage.FormattingEnabled = true;
+            this.cboLanguage.Items.AddRange(new object[] {
+            "English",
+            "Bulgarian",
+            "Chinese (Simplified, China)",
+            "Chinese (Traditional, China)",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "Finnish",
+            "French",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Italian",
+            "Japanese",
+            "Korean",
+            "Norwegian",
+            "Polish",
+            "Portuguese",
+            "Portuguese (Brazil)",
+            "Romanian",
+            "Russian",
+            "Spanish",
+            "Swedish",
+            "Thai",
+            "Turkish",
+            "Ukrainian"});
+            this.cboLanguage.Location = new System.Drawing.Point(133, 77);
+            this.cboLanguage.Name = "cboLanguage";
+            this.cboLanguage.Size = new System.Drawing.Size(180, 21);
+            this.cboLanguage.TabIndex = 4;
+            // 
+            // lblLanguage
+            // 
+            this.lblLanguage.AutoSize = true;
+            this.lblLanguage.Location = new System.Drawing.Point(26, 79);
+            this.lblLanguage.Name = "lblLanguage";
+            this.lblLanguage.Size = new System.Drawing.Size(103, 13);
+            this.lblLanguage.TabIndex = 3;
+            this.lblLanguage.Text = "Interface Language:";
             // 
             // chkShowUsername
             // 
@@ -102,7 +151,7 @@ namespace IdleMaster
             this.grpPriority.Controls.Add(this.radIdleLeastDrops);
             this.grpPriority.Controls.Add(this.radIdleMostDrops);
             this.grpPriority.Controls.Add(this.radIdleDefault);
-            this.grpPriority.Location = new System.Drawing.Point(13, 168);
+            this.grpPriority.Location = new System.Drawing.Point(13, 193);
             this.grpPriority.Name = "grpPriority";
             this.grpPriority.Size = new System.Drawing.Size(322, 92);
             this.grpPriority.TabIndex = 1;
@@ -156,7 +205,7 @@ namespace IdleMaster
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(261, 267);
+            this.btnCancel.Location = new System.Drawing.Point(261, 295);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -167,7 +216,7 @@ namespace IdleMaster
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(180, 267);
+            this.btnOK.Location = new System.Drawing.Point(180, 295);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 3;
@@ -179,7 +228,7 @@ namespace IdleMaster
             // 
             this.btnAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdvanced.Image = global::IdleMaster.Properties.Resources.imgLock;
-            this.btnAdvanced.Location = new System.Drawing.Point(12, 267);
+            this.btnAdvanced.Location = new System.Drawing.Point(12, 295);
             this.btnAdvanced.Name = "btnAdvanced";
             this.btnAdvanced.Size = new System.Drawing.Size(25, 23);
             this.btnAdvanced.TabIndex = 4;
@@ -191,7 +240,7 @@ namespace IdleMaster
             // 
             this.grpIdlingQuantity.Controls.Add(this.radManyThenOne);
             this.grpIdlingQuantity.Controls.Add(this.radOneGameOnly);
-            this.grpIdlingQuantity.Location = new System.Drawing.Point(13, 99);
+            this.grpIdlingQuantity.Location = new System.Drawing.Point(13, 124);
             this.grpIdlingQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.grpIdlingQuantity.Name = "grpIdlingQuantity";
             this.grpIdlingQuantity.Padding = new System.Windows.Forms.Padding(2);
@@ -229,7 +278,7 @@ namespace IdleMaster
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(348, 302);
+            this.ClientSize = new System.Drawing.Size(348, 330);
             this.Controls.Add(this.grpIdlingQuantity);
             this.Controls.Add(this.btnAdvanced);
             this.Controls.Add(this.btnOK);
@@ -271,5 +320,7 @@ namespace IdleMaster
     private GroupBox grpIdlingQuantity;
     private RadioButton radManyThenOne;
     private RadioButton radOneGameOnly;
+    private ComboBox cboLanguage;
+    private Label lblLanguage;
   }
 }

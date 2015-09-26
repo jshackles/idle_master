@@ -15,6 +15,7 @@ using IdleMaster.Properties;
 using Newtonsoft.Json;
 using Steamworks;
 using HtmlDocument = HtmlAgilityPack.HtmlDocument;
+using System.Globalization;
 
 namespace IdleMaster
 {
@@ -504,6 +505,97 @@ namespace IdleMaster
                 Settings.Default.Save();
             }
 
+            // Set the interface language from the settings
+            if (Settings.Default.language != "")
+            {
+                string language_string = "";
+                switch (Settings.Default.language)
+                {
+                    case "Bulgarian":
+                        language_string = "bg";
+                        break;
+                    case "Chinese (Simplified, China)":
+                        language_string = "zh-CN";
+                        break;
+                    case "Chinese (Traditional, China)":
+                        language_string = "zh-TW";
+                        break;
+                    case "Czech":
+                        language_string = "cs";
+                        break;
+                    case "Danish":
+                        language_string = "da";
+                        break;
+                    case "Dutch":
+                        language_string = "nl";
+                        break;
+                    case "English":
+                        language_string = "en";
+                        break;
+                    case "Finnish":
+                        language_string = "fi";
+                        break;
+                    case "French":
+                        language_string = "fr";
+                        break;
+                    case "German":
+                        language_string = "de";
+                        break;
+                    case "Greek":
+                        language_string = "el";
+                        break;
+                    case "Hungarian":
+                        language_string = "hu";
+                        break;
+                    case "Italian":
+                        language_string = "it";
+                        break;
+                    case "Japanese":
+                        language_string = "ja";
+                        break;
+                    case "Korean":
+                        language_string = "ko";
+                        break;
+                    case "Norwegian":
+                        language_string = "no";
+                        break;
+                    case "Polish":
+                        language_string = "pl";
+                        break;
+                    case "Portuguese":
+                        language_string = "pt-PT";
+                        break;
+                    case "Portuguese (Brazil)":
+                        language_string = "pt-BR";
+                        break;
+                    case "Romanian":
+                        language_string = "ro";
+                        break;
+                    case "Russian":
+                        language_string = "ru";
+                        break;
+                    case "Spanish":
+                        language_string = "es";
+                        break;
+                    case "Swedish":
+                        language_string = "sv";
+                        break;
+                    case "Thai":
+                        language_string = "th";
+                        break;
+                    case "Turkish":
+                        language_string = "tr";
+                        break;
+                    case "Ukrainian":
+                        language_string = "uk";
+                        break;
+                    default:
+                        language_string = "en";
+                        break;
+                }
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(language_string);                
+            }            
+
             // Localize form elements
             fileToolStripMenuItem.Text = localization.strings.file;
             gameToolStripMenuItem.Text = localization.strings.game;
@@ -752,10 +844,11 @@ namespace IdleMaster
                 tmrReadyToGo.Enabled = true;
             }
 
-            if (Settings.Default.showUsername)
+            if (Settings.Default.showUsername && IsCookieReady)
+            {
                 lblSignedOnAs.Text = SteamProfile.GetSignedAs();
-
-            lblSignedOnAs.Visible = Settings.Default.showUsername;
+                lblSignedOnAs.Visible = Settings.Default.showUsername;
+            }            
         }
 
         private void pauseIdlingToolStripMenuItem_Click(object sender, EventArgs e)

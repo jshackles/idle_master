@@ -354,6 +354,15 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Interface Language.
+        /// </summary>
+        internal static string interface_language {
+            get {
+                return ResourceManager.GetString("interface_language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Loading next game....
         /// </summary>
         internal static string loading_next {
@@ -476,6 +485,15 @@ namespace IdleMaster.localization {
         internal static string please_login {
             get {
                 return ResourceManager.GetString("please_login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please restart the application for language changes to take effect..
+        /// </summary>
+        internal static string please_restart {
+            get {
+                return ResourceManager.GetString("please_restart", resourceCulture);
             }
         }
         

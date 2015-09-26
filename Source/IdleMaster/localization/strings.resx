@@ -281,6 +281,9 @@ your Steam account.</value>
   <data name="ignore_client_status" xml:space="preserve">
     <value>Ignore Steam client status</value>
   </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>Interface Language</value>
+  </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>Manage Idle Master Blacklist</value>
   </data>
@@ -304,6 +307,9 @@ your Steam account.</value>
   </data>
   <data name="please_login" xml:space="preserve">
     <value>Please Login to Steam</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>Please restart the application for language changes to take effect.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>Idle Master Release Notes</value>
