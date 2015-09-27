@@ -150,10 +150,17 @@ namespace IdleMaster
         {
             // Kill all existing processes before starting any new ones
             // This prevents rogue processes from interfering with idling time and slowing card drops
-            foreach (var process in Process.GetProcessesByName("steam-idle"))
+            try 
             {
-                process.Kill();
+                foreach (var process in Process.GetProcessesByName("steam-idle"))
+                {
+                    process.Kill();
+                }
             }
+            catch (Exception)
+            {
+
+            }            
             
             // Check if user is authenticated and if any badge left to idle
             // There should be check for IsCookieReady, but property is set in timer tick, so it could take some time to be set.
