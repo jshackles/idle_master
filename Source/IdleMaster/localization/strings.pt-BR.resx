@@ -118,216 +118,216 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="about" xml:space="preserve">
-    <value>关于(&amp;A)</value>
+    <value>&amp;Sobre</value>
   </data>
   <data name="badge_didnt_load" xml:space="preserve">
-    <value>徽章状态加载错误, __num__ 秒后重试</value>
+    <value>A página de medalhas não carregou, tentando novamente em __num__ segundos</value>
   </data>
   <data name="blacklist" xml:space="preserve">
-    <value>黑名单(&amp;B)</value>
+    <value>&amp;Lista Negra</value>
   </data>
   <data name="blacklist_current_game" xml:space="preserve">
-    <value>将当前游戏加入黑名单(&amp;B)</value>
+    <value>&amp;Adicionar Jogo Atual a Lista Negra</value>
   </data>
   <data name="card_drops_remaining" xml:space="preserve">
-    <value>剩余卡牌掉落</value>
+    <value>cartas restantes</value>
   </data>
   <data name="currently_ingame" xml:space="preserve">
-    <value>游戏中</value>
+    <value>Atualmente em jogo</value>
   </data>
   <data name="exit" xml:space="preserve">
-    <value>退出(&amp;X)</value>
+    <value>S&amp;air</value>
   </data>
   <data name="file" xml:space="preserve">
-    <value>文件(&amp;F)</value>
+    <value>&amp;Arquivo</value>
   </data>
   <data name="game" xml:space="preserve">
-    <value>游戏(&amp;G)</value>
+    <value>&amp;Jogo</value>
   </data>
   <data name="games_left_to_idle" xml:space="preserve">
-    <value>游戏尚有卡牌</value>
+    <value>jogos restantes para "idlear"</value>
   </data>
   <data name="help" xml:space="preserve">
-    <value>帮助(&amp;H)</value>
+    <value>&amp;Ajuda</value>
   </data>
   <data name="hours" xml:space="preserve">
-    <value>游戏时间</value>
+    <value>Horas</value>
   </data>
   <data name="hrs_on_record" xml:space="preserve">
-    <value>小时游戏时间</value>
+    <value>horas registradas</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle Master已登录到Steam</value>
+    <value>Idle Master está conectado ao Steam</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master未登录到Steam</value>
+    <value>Idle Master não está conectado ao Steam</value>
   </data>
   <data name="idle_now" xml:space="preserve">
-    <value>正在运行</value>
+    <value>"Idle" agora</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>全部完成</value>
+    <value>"Idling" completo</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
-    <value>游戏暂停</value>
+    <value>"Idling" em pausa</value>
   </data>
   <data name="loading_next" xml:space="preserve">
-    <value>加载下一个游戏...</value>
+    <value>Carregando o próximo jogo...</value>
   </data>
   <data name="name" xml:space="preserve">
-    <value>游戏时间</value>
+    <value>Nome</value>
   </data>
   <data name="next_check" xml:space="preserve">
-    <value>下次刷新</value>
+    <value>Próxima verificação</value>
   </data>
   <data name="not_ingame" xml:space="preserve">
-    <value>无游戏运行</value>
+    <value>Não está em jogo</value>
   </data>
   <data name="official_group" xml:space="preserve">
-    <value>官方组(&amp;O)</value>
+    <value>Grupo oficial</value>
   </data>
   <data name="pause_idling" xml:space="preserve">
-    <value>暂停(&amp;P)</value>
+    <value>&amp;Pausar "Idling"</value>
   </data>
   <data name="please_wait" xml:space="preserve">
-    <value>请稍候...</value>
+    <value>por favor, aguarde...</value>
   </data>
   <data name="reading_badge_page" xml:space="preserve">
-    <value>读取徽章状态中</value>
+    <value>Lendo página das medalhas</value>
   </data>
   <data name="release_notes" xml:space="preserve">
-    <value>更新记录(&amp;R)</value>
+    <value>&amp;Notas de lançamento</value>
   </data>
   <data name="resume_idling" xml:space="preserve">
-    <value>继续(&amp;R)</value>
+    <value>&amp;Resumir "Idling"</value>
   </data>
   <data name="settings" xml:space="preserve">
-    <value>设置(&amp;S)</value>
+    <value>&amp;Configurações</value>
   </data>
   <data name="signed_in_as" xml:space="preserve">
-    <value>当前账号为</value>
+    <value>Sessão iniciada como</value>
   </data>
   <data name="sign_in" xml:space="preserve">
-    <value>登录</value>
+    <value>Iniciar sessão</value>
   </data>
   <data name="sign_out" xml:space="preserve">
-    <value>退出</value>
+    <value>Terminar sessão</value>
   </data>
   <data name="skip_current_game" xml:space="preserve">
-    <value>下一个(&amp;S)</value>
+    <value>&amp;Pular Jogo Atual</value>
   </data>
   <data name="sorting_results" xml:space="preserve">
-    <value>排序加载中请稍候...</value>
+    <value>Organizando resultados baseados nas suas configurações, por favor aguarde...</value>
   </data>
   <data name="statistics" xml:space="preserve">
-    <value>统计 (&amp;S)</value>
+    <value>&amp;Estatísticas</value>
   </data>
   <data name="steam_ignored" xml:space="preserve">
-    <value>Steam状态已被忽略</value>
+    <value>Estado do cliente Steam ignorado</value>
   </data>
   <data name="steam_notrunning" xml:space="preserve">
-    <value>Steam没有启动</value>
+    <value>O steam não está sendo executado</value>
   </data>
   <data name="steam_running" xml:space="preserve">
-    <value>Steam正在运行</value>
+    <value>O steam está sendo executado</value>
   </data>
   <data name="update_games_status" xml:space="preserve">
-    <value>更新游戏状态</value>
+    <value>Atualizar status dos jogos</value>
   </data>
   <data name="accept" xml:space="preserve">
-    <value>确定(&amp;A)</value>
+    <value>&amp;Aceitar</value>
   </data>
   <data name="add" xml:space="preserve">
-    <value>添加(&amp;A)</value>
+    <value>&amp;Adicionar</value>
   </data>
   <data name="add_game_blacklist" xml:space="preserve">
-    <value>添加游戏到黑名单</value>
+    <value>Adicionar Jogo a Lista Negra</value>
   </data>
   <data name="advanced_auth" xml:space="preserve">
-    <value>高级设置</value>
+    <value>Exibir informações de autenticação avançadas</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Idle Master 用户数据(Cookie)</value>
+    <value>Dados de Autenticação do Idle Master</value>
   </data>
   <data name="cancel" xml:space="preserve">
-    <value>取消(&amp;C)</value>
+    <value>&amp;Cancelar</value>
   </data>
   <data name="cookie_warning" xml:space="preserve">
-    <value>显示数据
- 
- [警告] 
- 不要泄露任何数据，这和你把密码泄露出去没什么区别</value>
+    <value>Exibir informações acima
+
+[WARNING]
+não compartilhe esta informação com ninguém, pois pode potencialmente ser usado por um invasor para entrar em sua conta Steam.</value>
   </data>
   <data name="general" xml:space="preserve">
-    <value>常规</value>
+    <value>Geral</value>
   </data>
   <data name="idle_individual" xml:space="preserve">
-    <value>按顺序运行</value>
+    <value>"Idlear" cada jogo individualmente</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Idle Master 设置</value>
+    <value>Configurações do Idle Master</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
-    <value>将所有游戏运行满2小时后再按顺序运行</value>
+    <value>"Idlear" jogos simultaneamente por até duas horas, e então individualmente</value>
   </data>
   <data name="idling_behavior" xml:space="preserve">
-    <value>规则</value>
+    <value>Comportamento de "Idling"</value>
   </data>
   <data name="idling_order" xml:space="preserve">
-    <value>顺序</value>
+    <value>Ordem de "Idling"</value>
   </data>
   <data name="ignore_client_status" xml:space="preserve">
-    <value>忽略Steam运行状态</value>
+    <value>Ignorar o status do cliente do Steam</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>管理 Idle Master 黑名单</value>
+    <value>Gerenciar a lista negra do Idle Master</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>最小化到系统托盘</value>
+    <value>Minimizar o Idle Master à Barra de tarefas do sistema</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
   </data>
   <data name="order_default" xml:space="preserve">
-    <value>默认 (按字母排序)</value>
+    <value>Padrão (ordem alfabética)</value>
   </data>
   <data name="order_least" xml:space="preserve">
-    <value>优先运行卡牌数量少的游戏</value>
+    <value>Priorizar os jogos com o menor número de cartas disponíveis</value>
   </data>
   <data name="order_most" xml:space="preserve">
-    <value>优先运行卡牌数量多的游戏</value>
+    <value>Priorizar os jogos com o maior número de cartas disponíveis</value>
   </data>
   <data name="order_value" xml:space="preserve">
-    <value>优先运行卡牌价值高的游戏</value>
+    <value>Priorizar os jogos com as cartas de maior valor</value>
   </data>
   <data name="please_login" xml:space="preserve">
-    <value>请登录 Steam</value>
+    <value>Por favor conecte-se no Steam</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Idle Master更新记录</value>
+    <value>Notas de Lançamento do Idle Master</value>
   </data>
   <data name="save" xml:space="preserve">
-    <value>保存(&amp;S)</value>
+    <value>&amp;Salvar</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Idle Master正在提取用户数据</value>
+    <value>O Idle Master está salvando suas informações</value>
   </data>
   <data name="show_username" xml:space="preserve">
-    <value>显示当前Steam用户</value>
+    <value>Mostrar o nome de usuario do Steam do usuario conectado</value>
   </data>
   <data name="this_session" xml:space="preserve">
-    <value>This Session</value>
+    <value>Esta sessão</value>
   </data>
   <data name="total" xml:space="preserve">
     <value>Total</value>
   </data>
   <data name="update" xml:space="preserve">
-    <value>更新(&amp;U)</value>
+    <value>&amp;Atualizar</value>
   </data>
   <data name="validate_failed" xml:space="preserve">
-    <value>The data you've entered isn't valid.  Please try again.</value>
+    <value>Os dados que você digitou não não válidos.  Por favor, tente novamente.</value>
   </data>
   <data name="validating" xml:space="preserve">
-    <value>Validating...</value>
+    <value>Validando...</value>
   </data>
 </root>

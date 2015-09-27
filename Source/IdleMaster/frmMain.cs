@@ -652,6 +652,8 @@ namespace IdleMaster
             lnkSignIn.Text = "(" + localization.strings.sign_in + ")";
             lnkResetCookies.Text = "(" + localization.strings.sign_out + ")";
             toolStripStatusLabel1.Text = localization.strings.next_check;
+            toolStripStatusLabel1.ToolTipText = localization.strings.next_check;
+            
             lblSignedOnAs.Text = localization.strings.signed_in_as;
             GamesState.Columns[0].Text = localization.strings.name;
             GamesState.Columns[1].Text = localization.strings.hours;
@@ -998,7 +1000,5 @@ namespace IdleMaster
             statistics.increaseMinutesIdled();
             statistics.checkCardRemaining((uint)CardsRemaining);
         }
-
-        
     }
 }

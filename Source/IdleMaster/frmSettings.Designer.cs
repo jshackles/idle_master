@@ -76,29 +76,17 @@ namespace IdleMaster
             this.cboLanguage.FormattingEnabled = true;
             this.cboLanguage.Items.AddRange(new object[] {
             "English",
-            "Bulgarian",
             "Chinese (Simplified, China)",
             "Chinese (Traditional, China)",
-            "Czech",
-            "Danish",
-            "Dutch",
             "Finnish",
             "French",
             "German",
-            "Greek",
-            "Hungarian",
             "Italian",
-            "Japanese",
-            "Korean",
-            "Norwegian",
             "Polish",
             "Portuguese",
             "Portuguese (Brazil)",
-            "Romanian",
-            "Russian",
             "Spanish",
             "Swedish",
-            "Thai",
             "Turkish",
             "Ukrainian"});
             this.cboLanguage.Location = new System.Drawing.Point(133, 77);
@@ -117,30 +105,27 @@ namespace IdleMaster
             // 
             // chkShowUsername
             // 
-            this.chkShowUsername.AutoSize = true;
             this.chkShowUsername.Location = new System.Drawing.Point(8, 57);
             this.chkShowUsername.Name = "chkShowUsername";
-            this.chkShowUsername.Size = new System.Drawing.Size(219, 17);
+            this.chkShowUsername.Size = new System.Drawing.Size(305, 17);
             this.chkShowUsername.TabIndex = 2;
             this.chkShowUsername.Text = "Show Steam username of signed on user";
             this.chkShowUsername.UseVisualStyleBackColor = true;
             // 
             // chkIgnoreClientStatus
             // 
-            this.chkIgnoreClientStatus.AutoSize = true;
             this.chkIgnoreClientStatus.Location = new System.Drawing.Point(8, 38);
             this.chkIgnoreClientStatus.Name = "chkIgnoreClientStatus";
-            this.chkIgnoreClientStatus.Size = new System.Drawing.Size(148, 17);
+            this.chkIgnoreClientStatus.Size = new System.Drawing.Size(305, 17);
             this.chkIgnoreClientStatus.TabIndex = 1;
             this.chkIgnoreClientStatus.Text = "Ignore Steam client status";
             this.chkIgnoreClientStatus.UseVisualStyleBackColor = true;
             // 
             // chkMinToTray
             // 
-            this.chkMinToTray.AutoSize = true;
             this.chkMinToTray.Location = new System.Drawing.Point(8, 19);
             this.chkMinToTray.Name = "chkMinToTray";
-            this.chkMinToTray.Size = new System.Drawing.Size(188, 17);
+            this.chkMinToTray.Size = new System.Drawing.Size(305, 17);
             this.chkMinToTray.TabIndex = 0;
             this.chkMinToTray.Text = "Minimize Idle Master to system tray";
             this.chkMinToTray.UseVisualStyleBackColor = true;
@@ -160,10 +145,9 @@ namespace IdleMaster
             // 
             // radIdleMostValue
             // 
-            this.radIdleMostValue.AutoSize = true;
             this.radIdleMostValue.Location = new System.Drawing.Point(7, 35);
             this.radIdleMostValue.Name = "radIdleMostValue";
-            this.radIdleMostValue.Size = new System.Drawing.Size(233, 17);
+            this.radIdleMostValue.Size = new System.Drawing.Size(306, 17);
             this.radIdleMostValue.TabIndex = 3;
             this.radIdleMostValue.TabStop = true;
             this.radIdleMostValue.Text = "Prioritize games with the highest card values";
@@ -171,31 +155,28 @@ namespace IdleMaster
             // 
             // radIdleLeastDrops
             // 
-            this.radIdleLeastDrops.AutoSize = true;
             this.radIdleLeastDrops.Location = new System.Drawing.Point(7, 69);
             this.radIdleLeastDrops.Name = "radIdleLeastDrops";
-            this.radIdleLeastDrops.Size = new System.Drawing.Size(295, 17);
+            this.radIdleLeastDrops.Size = new System.Drawing.Size(306, 17);
             this.radIdleLeastDrops.TabIndex = 2;
             this.radIdleLeastDrops.Text = "Prioritize games with the lowest number of available drops";
             this.radIdleLeastDrops.UseVisualStyleBackColor = true;
             // 
             // radIdleMostDrops
             // 
-            this.radIdleMostDrops.AutoSize = true;
             this.radIdleMostDrops.Location = new System.Drawing.Point(7, 52);
             this.radIdleMostDrops.Name = "radIdleMostDrops";
-            this.radIdleMostDrops.Size = new System.Drawing.Size(299, 17);
+            this.radIdleMostDrops.Size = new System.Drawing.Size(306, 17);
             this.radIdleMostDrops.TabIndex = 1;
             this.radIdleMostDrops.Text = "Prioritize games with the highest number of available drops";
             this.radIdleMostDrops.UseVisualStyleBackColor = true;
             // 
             // radIdleDefault
             // 
-            this.radIdleDefault.AutoSize = true;
             this.radIdleDefault.Checked = true;
             this.radIdleDefault.Location = new System.Drawing.Point(7, 18);
             this.radIdleDefault.Name = "radIdleDefault";
-            this.radIdleDefault.Size = new System.Drawing.Size(155, 17);
+            this.radIdleDefault.Size = new System.Drawing.Size(306, 17);
             this.radIdleDefault.TabIndex = 0;
             this.radIdleDefault.TabStop = true;
             this.radIdleDefault.Text = "Default (Alphabetical Order)";
@@ -251,10 +232,9 @@ namespace IdleMaster
             // 
             // radManyThenOne
             // 
-            this.radManyThenOne.AutoSize = true;
             this.radManyThenOne.Location = new System.Drawing.Point(7, 35);
             this.radManyThenOne.Name = "radManyThenOne";
-            this.radManyThenOne.Size = new System.Drawing.Size(293, 17);
+            this.radManyThenOne.Size = new System.Drawing.Size(306, 17);
             this.radManyThenOne.TabIndex = 5;
             this.radManyThenOne.TabStop = true;
             this.radManyThenOne.Text = "Idle games simultaneously up to 2 hours, then individually";
@@ -262,11 +242,10 @@ namespace IdleMaster
             // 
             // radOneGameOnly
             // 
-            this.radOneGameOnly.AutoSize = true;
             this.radOneGameOnly.Checked = true;
             this.radOneGameOnly.Location = new System.Drawing.Point(7, 18);
             this.radOneGameOnly.Name = "radOneGameOnly";
-            this.radOneGameOnly.Size = new System.Drawing.Size(152, 17);
+            this.radOneGameOnly.Size = new System.Drawing.Size(306, 17);
             this.radOneGameOnly.TabIndex = 4;
             this.radOneGameOnly.TabStop = true;
             this.radOneGameOnly.Text = "Idle each game individually";
@@ -295,9 +274,7 @@ namespace IdleMaster
             this.grpGeneral.ResumeLayout(false);
             this.grpGeneral.PerformLayout();
             this.grpPriority.ResumeLayout(false);
-            this.grpPriority.PerformLayout();
             this.grpIdlingQuantity.ResumeLayout(false);
-            this.grpIdlingQuantity.PerformLayout();
             this.ResumeLayout(false);
 
         }

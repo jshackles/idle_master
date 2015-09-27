@@ -100,14 +100,23 @@ namespace IdleMaster
         btnCancel.Text = localization.strings.cancel;
         ttHints.SetToolTip(btnAdvanced, localization.strings.advanced_auth);
         chkMinToTray.Text = localization.strings.minimize_to_tray;
+        ttHints.SetToolTip(chkMinToTray, localization.strings.minimize_to_tray);
         chkIgnoreClientStatus.Text = localization.strings.ignore_client_status;
+        ttHints.SetToolTip(chkIgnoreClientStatus, localization.strings.ignore_client_status);
         chkShowUsername.Text = localization.strings.show_username;
+        ttHints.SetToolTip(chkShowUsername, localization.strings.show_username);
         radOneGameOnly.Text = localization.strings.idle_individual;
+        ttHints.SetToolTip(radOneGameOnly, localization.strings.idle_individual);
         radManyThenOne.Text = localization.strings.idle_simultaneous;
+        ttHints.SetToolTip(radManyThenOne, localization.strings.idle_simultaneous);
         radIdleDefault.Text = localization.strings.order_default;
+        ttHints.SetToolTip(radIdleDefault, localization.strings.order_default);
         radIdleMostValue.Text = localization.strings.order_value;
+        ttHints.SetToolTip(radIdleMostValue, localization.strings.order_value);
         radIdleMostDrops.Text = localization.strings.order_most;
+        ttHints.SetToolTip(radIdleMostDrops, localization.strings.order_most);
         radIdleLeastDrops.Text = localization.strings.order_least;
+        ttHints.SetToolTip(radIdleLeastDrops, localization.strings.order_least);
         lblLanguage.Text = localization.strings.interface_language;
 
         radOneGameOnly.Checked = Settings.Default.OnlyOneGameIdle;
