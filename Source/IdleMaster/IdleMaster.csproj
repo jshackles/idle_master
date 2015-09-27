@@ -187,6 +187,10 @@
     <EmbeddedResource Include="frmStatistics.resx">
       <DependentUpon>frmStatistics.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="localization\strings.cs.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>strings.cs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="localization\strings.de.resx" />
     <EmbeddedResource Include="localization\strings.es.resx" />
     <EmbeddedResource Include="localization\strings.fi.resx" />

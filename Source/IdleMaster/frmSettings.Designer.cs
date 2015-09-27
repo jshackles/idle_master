@@ -78,6 +78,7 @@ namespace IdleMaster
             "English",
             "Chinese (Simplified, China)",
             "Chinese (Traditional, China)",
+            "Czech",
             "Finnish",
             "French",
             "German",
