@@ -23,27 +23,35 @@ namespace IdleMaster
 
         protected override WebResponse GetWebResponse(WebRequest request, System.IAsyncResult result)
         {
-            var baseResponse = base.GetWebResponse(request);
-
-            var cookies = (baseResponse as HttpWebResponse).Cookies;
-
-            // Check, if cookie should be deleted. This means that sessionID is now invalid and user has to log in again.
-            // Maybe this shoud be done other way (authenticate exception), but because of shared settings and timers in frmMain...
-            if (cookies.Count > 0)
+            try
             {
-                if (cookies["steamLogin"].Value == "deleted")
-                {
-                    Settings.Default.sessionid = string.Empty;
-                    Settings.Default.steamLogin = string.Empty;
-                    Settings.Default.steamparental = string.Empty;
-                    Settings.Default.steamMachineAuth = string.Empty;
-                    Settings.Default.steamRememberLogin = string.Empty;
-                    Settings.Default.Save();
-                }
-            }
+                var baseResponse = base.GetWebResponse(request);
 
-            this.ResponseUri = baseResponse.ResponseUri;
-            return baseResponse;
+                var cookies = (baseResponse as HttpWebResponse).Cookies;
+
+                // Check, if cookie should be deleted. This means that sessionID is now invalid and user has to log in again.
+                // Maybe this shoud be done other way (authenticate exception), but because of shared settings and timers in frmMain...
+                if (cookies.Count > 0)
+                {
+                    if (cookies["steamLogin"].Value == "deleted")
+                    {
+                        Settings.Default.sessionid = string.Empty;
+                        Settings.Default.steamLogin = string.Empty;
+                        Settings.Default.steamparental = string.Empty;
+                        Settings.Default.steamMachineAuth = string.Empty;
+                        Settings.Default.steamRememberLogin = string.Empty;
+                        Settings.Default.Save();
+                    }
+                }
+
+                this.ResponseUri = baseResponse.ResponseUri;
+                return baseResponse;                
+            }
+            catch (Exception)
+            {
+
+            }
+            return null;
         }
 
         public static CookieContainer GenerateCookies()

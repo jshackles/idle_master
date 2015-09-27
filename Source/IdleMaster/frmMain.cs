@@ -32,6 +32,8 @@ namespace IdleMaster
         public bool IsCookieReady;
         public bool IsSteamReady;
         public int TimeLeft = 900;
+        public int RetryCount = 0;
+        public int ReloadCount = 0;
         public int CardsRemaining { get { return CanIdleBadges.Sum(b => b.RemainingCard); } }
         public int GamesRemaining { get { return CanIdleBadges.Count(); } }
         public Badge CurrentBadge;
@@ -39,10 +41,13 @@ namespace IdleMaster
         internal void UpdateStateInfo()
         {
             // Update totals
-            lblIdle.Text = string.Format("{0} " + localization.strings.games_left_to_idle + ", {1} " + localization.strings.idle_now + ".", GamesRemaining, CanIdleBadges.Count(b => b.InIdle));
-            lblDrops.Text = CardsRemaining + " " + localization.strings.card_drops_remaining;
-            lblIdle.Visible = GamesRemaining != 0;
-            lblDrops.Visible = CardsRemaining != 0;
+            if (ReloadCount == 0)
+            {
+                lblIdle.Text = string.Format("{0} " + localization.strings.games_left_to_idle + ", {1} " + localization.strings.idle_now + ".", GamesRemaining, CanIdleBadges.Count(b => b.InIdle));
+                lblDrops.Text = CardsRemaining + " " + localization.strings.card_drops_remaining;
+                lblIdle.Visible = GamesRemaining != 0;
+                lblDrops.Visible = CardsRemaining != 0;
+            }
         }
 
         private void CopyResource(string resourceName, string file)
@@ -143,6 +148,13 @@ namespace IdleMaster
 
         private void StartIdle()
         {
+            // Kill all existing processes before starting any new ones
+            // This prevents rogue processes from interfering with idling time and slowing card drops
+            foreach (var process in Process.GetProcessesByName("steam-idle"))
+            {
+                process.Kill();
+            }
+            
             // Check if user is authenticated and if any badge left to idle
             // There should be check for IsCookieReady, but property is set in timer tick, so it could take some time to be set.
             if (string.IsNullOrWhiteSpace(Settings.Default.sessionid) || !IsSteamReady)
@@ -151,6 +163,10 @@ namespace IdleMaster
             }
             else
             {
+                if (ReloadCount != 0)
+                {
+                    return;
+                }
                 if (CanIdleBadges.Any())
                 {
                     statistics.setRemainingCards((uint)CardsRemaining);
@@ -363,7 +379,13 @@ namespace IdleMaster
                 // Response should be empty. User should be unauthorised.
                 if (string.IsNullOrEmpty(response))
                 {
-                    return;
+                    RetryCount++;
+                    if (RetryCount == 18)
+                    {
+                        ResetClientStatus();
+                        return;
+                    }
+                    throw new Exception("");
                 }
                 document.LoadHtml(response);
 
@@ -392,7 +414,13 @@ namespace IdleMaster
                     // Response should be empty. User should be unauthorised.
                     if (string.IsNullOrEmpty(response))
                     {
-                        return;
+                        RetryCount++;
+                        if (RetryCount == 18)
+                        {
+                            ResetClientStatus();
+                            return;
+                        }
+                        throw new Exception("");
                     }
                     document.LoadHtml(response);
 
@@ -405,12 +433,22 @@ namespace IdleMaster
                 Logger.Exception(ex, "Badge -> LoadBadgesAsync, for profile = " + Settings.Default.myProfileURL);
                 // badge page didn't load
                 picReadingPage.Image = null;
+                picIdleStatus.Image = null;
                 lblDrops.Text = localization.strings.badge_didnt_load.Replace("__num__", "10");
-                ReloadCount = 10;
+                lblIdle.Text = "";
+
+                // Set the form height
+                var graphics = CreateGraphics();
+                var scale = graphics.DpiY * 1.625;
+                Height = Convert.ToInt32(scale);
+                ssFooter.Visible = false;
+
+                ReloadCount = 1;
                 tmrBadgeReload.Enabled = true;
                 return;
             }
 
+            RetryCount = 0;
             SortBadges(Settings.Default.sort);
 
             picReadingPage.Visible = false;
@@ -942,16 +980,16 @@ namespace IdleMaster
             Process.Start("http://steamcommunity.com/groups/idlemastery");
         }
 
-        int ReloadCount = 10;
         private void tmrBadgeReload_Tick(object sender, EventArgs e)
         {
-            ReloadCount = ReloadCount - 1;
-            lblDrops.Text = localization.strings.badge_didnt_load.Replace("__num__", ReloadCount.ToString());
-
-            if (ReloadCount == 0)
+            ReloadCount = ReloadCount + 1;
+            lblDrops.Text = localization.strings.badge_didnt_load.Replace("__num__", (10 - ReloadCount).ToString());
+            
+            if (ReloadCount == 10)
             {
                 tmrBadgeReload.Enabled = false;
                 tmrReadyToGo.Enabled = true;
+                ReloadCount = 0;
             }
         }
 
