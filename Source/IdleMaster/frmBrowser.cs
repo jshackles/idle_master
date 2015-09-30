@@ -29,6 +29,10 @@ namespace IdleMaster
       // Remove any existing session state data
       InternetSetOption(0, 42, null, 0);
 
+      // Localize form
+      this.Text = localization.strings.please_login;
+      lblSaving.Text = localization.strings.saving_info;
+
       // Delete Steam cookie data from the browser control
       InternetSetCookie("http://steamcommunity.com", "sessionid", ";expires=Mon, 01 Jan 0001 00:00:00 GMT");
       InternetSetCookie("http://steamcommunity.com", "steamLogin", ";expires=Mon, 01 Jan 0001 00:00:00 GMT");
@@ -46,14 +50,36 @@ namespace IdleMaster
       dynamic globalHeader = htmldoc.GetElementById("global_header");
       if (globalHeader != null)
       {
-        globalHeader.parentNode.removeChild(globalHeader);
+          try
+          {
+              globalHeader.parentNode.removeChild(globalHeader);
+          }
+          catch (Exception)
+          {
+
+          }
+          
       }
 
       // Get the URL of the page that just finished loading
       var url = wbAuth.Url.AbsoluteUri;
 
+      // If the page it just finished loading is the login page
+      if (url == "https://steamcommunity.com/login/home/?goto=my/profile" ||
+          url == "https://store.steampowered.com/login/transfer" ||
+          url == "https://store.steampowered.com//login/transfer")
+      {
+          // Get a list of cookies from the current page
+          CookieContainer container = GetUriCookieContainer(wbAuth.Url);
+          var cookies = container.GetCookies(wbAuth.Url);
+          foreach (Cookie cookie in cookies)
+          {
+              if (cookie.Name.StartsWith("steamMachineAuth"))
+                  Settings.Default.steamMachineAuth = cookie.Value;
+          }
+      }
       // If the page it just finished loading isn't the login page
-      if (url != "https://steamcommunity.com/login/home/?goto=my/profile" && url != "https://store.steampowered.com/login/transfer" && url != "https://store.steampowered.com//login/transfer" && url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
+      else if (url.StartsWith("javascript:") == false && url.StartsWith("about:") == false)
       {
 
         try
@@ -100,6 +126,11 @@ namespace IdleMaster
           else if (cookie.Name == "steamparental")
           {
             Settings.Default.steamparental = cookie.Value;
+          }
+
+          else if (cookie.Name == "steamRememberLogin")
+          {
+              Settings.Default.steamRememberLogin = cookie.Value;
           }
         }
 

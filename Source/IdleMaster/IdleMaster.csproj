@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>ftp://steamidlemaster.com/idlemaster/install/</PublishUrl>
+    <PublishUrl>ftp://ftp.steamidlemaster.com/idlemaster/install/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -24,8 +24,8 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <InstallUrl>http://www.steamidlemaster.com/install/</InstallUrl>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -142,67 +142,73 @@
     <Compile Include="frmSettingsAdvanced.Designer.cs">
       <DependentUpon>frmSettingsAdvanced.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStatistics.Designer.cs">
+      <DependentUpon>frmStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="localization\strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Statistics.cs" />
     <Compile Include="SteamProfile.cs" />
     <EmbeddedResource Include="frmAbout.resx">
-      <DependentUpon>frmAbout.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAbout.zh-Hans.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBlacklist.resx">
       <DependentUpon>frmBlacklist.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBlacklist.zh-Hans.resx">
-      <DependentUpon>frmBlacklist.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmBrowser.resx">
-      <DependentUpon>frmBrowser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmBrowser.zh-Hans.resx">
       <DependentUpon>frmBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChangelog.resx">
       <DependentUpon>frmChangelog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChangelog.zh-Hans.resx">
-      <DependentUpon>frmChangelog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.zh-Hans.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSettings.zh-Hans.resx">
-      <DependentUpon>frmSettings.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmSettingsAdvanced.resx">
       <DependentUpon>frmSettingsAdvanced.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSettingsAdvanced.zh-Hans.resx">
-      <DependentUpon>frmSettingsAdvanced.cs</DependentUpon>
+    <EmbeddedResource Include="frmStatistics.resx">
+      <DependentUpon>frmStatistics.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="localization\strings.de.resx" />
+    <EmbeddedResource Include="localization\strings.es.resx" />
+    <EmbeddedResource Include="localization\strings.fi.resx" />
+    <EmbeddedResource Include="localization\strings.fr.resx" />
+    <EmbeddedResource Include="localization\strings.it.resx" />
+    <EmbeddedResource Include="localization\strings.pl.resx" />
+    <EmbeddedResource Include="localization\strings.pt-BR.resx" />
+    <EmbeddedResource Include="localization\strings.pt.resx" />
+    <EmbeddedResource Include="localization\strings.sv.resx" />
+    <EmbeddedResource Include="localization\strings.tr.resx" />
+    <EmbeddedResource Include="localization\strings.uk.resx" />
+    <EmbeddedResource Include="localization\strings.zh-TW.resx" />
+    <EmbeddedResource Include="localization\strings.zh.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.zh-Hans.resx">
+    <EmbeddedResource Include="localization\strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.zh-Hans.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+      <LastGenOutput>strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="app.config" />
     <None Include="code signing.pfx" />
     <None Include="packages.config" />
@@ -259,12 +265,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo1.ico" />
+    <None Include="Resources\bar-chart-2x.png" />
     <None Include="Resources\globe-2x.png" />
     <None Include="Resources\document-2x.png" />
     <None Include="Resources\lock-locked-2x.png" />
     <None Include="Resources\eye-2x.png" />
     <None Include="Resources\trash-2x.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -44,7 +44,7 @@ namespace IdleMaster
             this.rtbChangelog.ReadOnly = true;
             this.rtbChangelog.Size = new System.Drawing.Size(564, 578);
             this.rtbChangelog.TabIndex = 0;
-            resources.ApplyResources(this.rtbChangelog, "rtbChangelog");
+            this.rtbChangelog.Text = "";
             // 
             // frmChangelog
             // 
@@ -55,7 +55,7 @@ namespace IdleMaster
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmChangelog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            resources.ApplyResources(this, "$this");
+            this.Text = "Idle Master Release Notes";
             this.Load += new System.EventHandler(this.frmChangelog_Load);
             this.ResumeLayout(false);
 

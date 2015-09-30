@@ -50,7 +50,7 @@ namespace IdleMaster
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 23);
             this.label1.TabIndex = 0;
-            resources.ApplyResources(this.label1, "label1");
+            this.label1.Text = "sessionid:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label2
@@ -59,7 +59,7 @@ namespace IdleMaster
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 23);
             this.label2.TabIndex = 1;
-            resources.ApplyResources(this.label2, "label2");
+            this.label2.Text = "steamLogin:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label3
@@ -68,7 +68,7 @@ namespace IdleMaster
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 23);
             this.label3.TabIndex = 2;
-            resources.ApplyResources(this.label3, "label3");
+            this.label3.Text = "steamparental:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // txtSessionID
@@ -105,7 +105,7 @@ namespace IdleMaster
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 7;
-            resources.ApplyResources(this.btnUpdate, "btnUpdate");
+            this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -116,7 +116,9 @@ namespace IdleMaster
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(27, 23);
             this.btnView.TabIndex = 6;
-            this.ttHelp.SetToolTip(this.btnView, resources.GetString("btnView.ToolTip"));
+            this.ttHelp.SetToolTip(this.btnView, "Display information above\r\n\r\n[WARNING] \r\nDo not share this information with anyon" +
+        "e, \r\nas it could potentially be used by an attacker to log into \r\nyour Steam acc" +
+        "ount.");
             this.btnView.UseVisualStyleBackColor = true;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
@@ -145,7 +147,7 @@ namespace IdleMaster
             this.MaximizeBox = false;
             this.Name = "frmSettingsAdvanced";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            resources.ApplyResources(this, "$this");
+            this.Text = "Idle Master Authentication Data";
             this.Load += new System.EventHandler(this.frmSettingsAdvanced_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

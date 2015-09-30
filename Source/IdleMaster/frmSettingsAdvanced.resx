@@ -1253,30 +1253,4 @@
         4AAAB/////////////////4AAH////////8=
 </value>
   </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>sessionid:</value>
-  </data>
-  <data name="btnView.ToolTip" xml:space="preserve">
-    <value>Display information above
-
-[WARNING] 
-Do not share this information with anyone, 
-as it could potentially be used by an attacker to log into 
-your Steam account.</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>steamparental:</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Idle Master Authentication Data</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>steamLogin:</value>
-  </data>
-  <data name="btnUpdate.Text" xml:space="preserve">
-    <value>&amp;Update</value>
-  </data>
 </root>

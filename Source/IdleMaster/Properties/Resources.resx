@@ -166,6 +166,9 @@
   <data name="imgSpin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\select2-spinner.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="imgStatistics" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bar-chart-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="imgTrash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\trash-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -174,77 +177,5 @@
   </data>
   <data name="imgView" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eye-2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Badge_page_didnt_load_will_retry_in" xml:space="preserve">
-    <value>Badge page didn't load, will retry in</value>
-  </data>
-  <data name="card_drops_remaining" xml:space="preserve">
-    <value>card drops remaining</value>
-  </data>
-  <data name="Currently_in_game" xml:space="preserve">
-    <value>Currently in-game</value>
-  </data>
-  <data name="games_left_to_idle" xml:space="preserve">
-    <value>games left to idle</value>
-  </data>
-  <data name="hrs_on_record" xml:space="preserve">
-    <value>hrs on record</value>
-  </data>
-  <data name="Idle_Master_is_connected_to_Steam" xml:space="preserve">
-    <value>Idle Master is connected to Steam</value>
-  </data>
-  <data name="Idle_Master_is_not_connected_to_Steam" xml:space="preserve">
-    <value>Idle Master is not connected to Steam</value>
-  </data>
-  <data name="idle_now" xml:space="preserve">
-    <value>idle now</value>
-  </data>
-  <data name="Idling_complete" xml:space="preserve">
-    <value>Idling complete</value>
-  </data>
-  <data name="Idling_paused" xml:space="preserve">
-    <value>Idling paused</value>
-  </data>
-  <data name="Loading_next_game" xml:space="preserve">
-    <value>Loading next game...</value>
-  </data>
-  <data name="Not_in_game" xml:space="preserve">
-    <value>Not in game</value>
-  </data>
-  <data name="please_wait" xml:space="preserve">
-    <value>please wait...</value>
-  </data>
-  <data name="Reading_badge_page" xml:space="preserve">
-    <value>Reading badge page</value>
-  </data>
-  <data name="seconds" xml:space="preserve">
-    <value>seconds</value>
-  </data>
-  <data name="Signed_in_as" xml:space="preserve">
-    <value>Signed in as</value>
-  </data>
-  <data name="Sorting_results_based_on_your_settings" xml:space="preserve">
-    <value>Sorting results based on your settings</value>
-  </data>
-  <data name="Steam_client_status_ignored" xml:space="preserve">
-    <value>Steam client status ignored</value>
-  </data>
-  <data name="Steam_is_not_running" xml:space="preserve">
-    <value>Steam is not running</value>
-  </data>
-  <data name="Steam_is_running" xml:space="preserve">
-    <value>Steam is running</value>
-  </data>
-  <data name="The_data_youve_entered_isnt_valid_Please_try_again" xml:space="preserve">
-    <value>The data you've entered isn't valid.  Please try again.</value>
-  </data>
-  <data name="Update" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="Update_games_status" xml:space="preserve">
-    <value>Update games status</value>
-  </data>
-  <data name="Validating" xml:space="preserve">
-    <value>Validating...</value>
   </data>
 </root>

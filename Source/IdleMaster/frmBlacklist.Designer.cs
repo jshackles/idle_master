@@ -31,15 +31,15 @@ namespace IdleMaster
         /// </summary>
         private void InitializeComponent()
         {
-            var resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBlacklist));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBlacklist));
             this.lstBlacklist = new System.Windows.Forms.ListBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpAdd = new System.Windows.Forms.GroupBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtAppid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.grpAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstBlacklist
@@ -51,17 +51,17 @@ namespace IdleMaster
             this.lstBlacklist.Sorted = true;
             this.lstBlacklist.TabIndex = 0;
             // 
-            // groupBox1
+            // grpAdd
             // 
-            this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.txtAppid);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 336);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(181, 76);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.grpAdd.Controls.Add(this.btnAdd);
+            this.grpAdd.Controls.Add(this.txtAppid);
+            this.grpAdd.Controls.Add(this.label1);
+            this.grpAdd.Location = new System.Drawing.Point(13, 336);
+            this.grpAdd.Name = "grpAdd";
+            this.grpAdd.Size = new System.Drawing.Size(181, 76);
+            this.grpAdd.TabIndex = 1;
+            this.grpAdd.TabStop = false;
+            this.grpAdd.Text = "Add Game to Blacklist";
             // 
             // btnAdd
             // 
@@ -69,7 +69,7 @@ namespace IdleMaster
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 3;
-            resources.ApplyResources(this.btnAdd, "btnAdd");
+            this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -87,7 +87,7 @@ namespace IdleMaster
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
-            resources.ApplyResources(this.label1, "label1");
+            this.label1.Text = "App ID:";
             // 
             // btnSave
             // 
@@ -96,7 +96,7 @@ namespace IdleMaster
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 3;
-            resources.ApplyResources(this.btnSave, "btnSave");
+            this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -118,7 +118,7 @@ namespace IdleMaster
             this.ClientSize = new System.Drawing.Size(324, 418);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpAdd);
             this.Controls.Add(this.lstBlacklist);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -126,10 +126,10 @@ namespace IdleMaster
             this.MinimizeBox = false;
             this.Name = "frmBlacklist";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            resources.ApplyResources(this, "$this");
+            this.Text = "Manage Idle Master Blacklist";
             this.Load += new System.EventHandler(this.frmBlacklist_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpAdd.ResumeLayout(false);
+            this.grpAdd.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -137,7 +137,7 @@ namespace IdleMaster
         #endregion
 
         private ListBox lstBlacklist;
-        private GroupBox groupBox1;
+        private GroupBox grpAdd;
         private Button btnRemove;
         private Button btnSave;
         private Button btnAdd;

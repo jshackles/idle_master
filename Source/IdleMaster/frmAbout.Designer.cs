@@ -41,12 +41,12 @@ namespace IdleMaster
             // 
             // btnOK
             // 
-			resources.ApplyResources(this.btnOK, "btnOK");
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.Location = new System.Drawing.Point(192, 129);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
+            this.btnOK.Text = "&OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -68,7 +68,7 @@ namespace IdleMaster
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(59, 13);
             this.lblVersion.TabIndex = 2;
-            resources.ApplyResources(this.lblVersion, "lblVersion");
+            this.lblVersion.Text = "Idle Master";
             // 
             // label2
             // 
@@ -82,7 +82,6 @@ namespace IdleMaster
             // frmAbout
             // 
             this.AcceptButton = this.btnOK;
-            resources.ApplyResources(this, "$this");
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(272, 159);
@@ -95,6 +94,7 @@ namespace IdleMaster
             this.MaximizeBox = false;
             this.Name = "frmAbout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "About Idle Master";
             this.Load += new System.EventHandler(this.frmAbout_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

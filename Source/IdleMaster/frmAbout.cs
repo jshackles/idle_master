@@ -19,6 +19,9 @@ namespace IdleMaster
 
     private void frmAbout_Load(object sender, EventArgs e)
     {
+      // Localize the form
+      btnOK.Text = localization.strings.ok;
+        
       if (ApplicationDeployment.IsNetworkDeployed)
       {
         var version = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();

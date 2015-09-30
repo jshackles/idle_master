@@ -1250,13 +1250,4 @@
         4AAAB/////////////////4AAH////////8=
 </value>
   </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rtbChangelog.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Idle Master Release Notes</value>
-  </data>
 </root>

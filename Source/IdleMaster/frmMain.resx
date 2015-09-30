@@ -121,10 +121,10 @@
     <value>17, 17</value>
   </metadata>
   <metadata name="tmrCheckSteam.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>197, 17</value>
+    <value>285, 17</value>
   </metadata>
   <metadata name="mnuTop.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>335, 17</value>
+    <value>415, 17</value>
   </metadata>
   <metadata name="mnuTop.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -153,16 +153,16 @@
 </value>
   </data>
   <metadata name="tmrReadyToGo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>432, 17</value>
+    <value>17, 54</value>
   </metadata>
   <metadata name="tmrCardDropCheck.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>565, 17</value>
+    <value>143, 54</value>
   </metadata>
   <metadata name="ssFooter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>722, 17</value>
+    <value>289, 54</value>
   </metadata>
   <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>819, 17</value>
+    <value>382, 54</value>
   </metadata>
   <data name="notifyIcon1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1297,10 +1297,16 @@
 </value>
   </data>
   <metadata name="tmrStartNext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>932, 17</value>
+    <value>489, 54</value>
   </metadata>
   <metadata name="tmrBadgeReload.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1054, 17</value>
+    <value>17, 91</value>
+  </metadata>
+  <metadata name="tmrStatistics.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>172, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>138</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2433,101 +2439,5 @@
         AD////////////8AAAAAAAD/////////////4AAAAAAH//////////////4AAAAAf///////////////
         4AAAB/////////////////4AAH////////8=
 </value>
-  </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblCookieStatus.Text" xml:space="preserve">
-    <value>Idle Master is not connected to Steam</value>
-  </data>
-  <data name="lblSteamStatus.Text" xml:space="preserve">
-    <value>Steam is not running</value>
-  </data>
-  <data name="lnkResetCookies.Text" xml:space="preserve">
-    <value>(Sign out)</value>
-  </data>
-  <data name="lnkSignIn.Text" xml:space="preserve">
-    <value>(Sign in)</value>
-  </data>
-  <data name="lblDrops.Text" xml:space="preserve">
-    <value>card drops remaining</value>
-  </data>
-  <data name="lblIdle.Text" xml:space="preserve">
-    <value>games left to idle</value>
-  </data>
-  <data name="lblCurrentStatus.Text" xml:space="preserve">
-    <value>Currently in-game</value>
-  </data>
-  <data name="lblCurrentRemaining.Text" xml:space="preserve">
-    <value>3 card drops remaining</value>
-  </data>
-  <data name="lblGameName.Text" xml:space="preserve">
-    <value>Game Name</value>
-  </data>
-  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Settings</value>
-  </data>
-  <data name="blacklistToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Blacklist</value>
-  </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
-    <value>E&amp;xit</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;File</value>
-  </data>
-  <data name="pauseIdlingToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Pause Idling</value>
-  </data>
-  <data name="resumeIdlingToolStripMenuItem.Text" xml:space="preserve">
-    <value>Resume Idling</value>
-  </data>
-  <data name="skipGameToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Skip Current Game</value>
-  </data>
-  <data name="blacklistCurrentGameToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Blacklist Current Game</value>
-  </data>
-  <data name="gameToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Game</value>
-  </data>
-  <data name="changelogToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Release Notes</value>
-  </data>
-  <data name="officialGroupToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Official Group</value>
-  </data>
-  <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;About</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Help</value>
-  </data>
-  <data name="mnuTop.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="toolStripStatusLabel1.Text" xml:space="preserve">
-    <value>Next check</value>
-  </data>
-  <data name="lblTimer.Text" xml:space="preserve">
-    <value>15:00</value>
-  </data>
-  <data name="ssFooter.Text" xml:space="preserve">
-    <value>statusStrip1</value>
-  </data>
-  <data name="notifyIcon1.Text" xml:space="preserve">
-    <value>Idle Master</value>
-  </data>
-  <data name="lblSignedOnAs.Text" xml:space="preserve">
-    <value>Signed on as</value>
-  </data>
-  <data name="GameName.Text" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="Hours.Text" xml:space="preserve">
-    <value>Hours</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Idle Master</value>
   </data>
 </root>

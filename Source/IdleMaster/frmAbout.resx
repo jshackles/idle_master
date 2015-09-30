@@ -4792,13 +4792,4 @@
         4AAAB/////////////////4AAH////////8=
 </value>
   </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnOK.Text" xml:space="preserve">
-    <value>&amp;OK</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>About Idle Master</value>
-  </data>
 </root>

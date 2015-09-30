@@ -1253,13 +1253,4 @@
         4AAAB/////////////////4AAH////////8=
 </value>
   </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Please Login to Steam</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Idle Master is saving your information</value>
-  </data>
 </root>
