@@ -190,7 +190,7 @@
     <value>&amp;Приостановить добычу</value>
   </data>
   <data name="please_wait" xml:space="preserve">
-    <value>пожалуйста ждите...</value>
+    <value>пожалуйста, ждите...</value>
   </data>
   <data name="reading_badge_page" xml:space="preserve">
     <value>Чтение страницы значков</value>
@@ -205,7 +205,7 @@
     <value>&amp;Настройки</value>
   </data>
   <data name="signed_in_as" xml:space="preserve">
-    <value>Зашёл как</value>
+    <value>Вошёл как</value>
   </data>
   <data name="sign_in" xml:space="preserve">
     <value>Войти</value>
@@ -217,7 +217,7 @@
     <value>&amp;Пропустить текущую игру</value>
   </data>
   <data name="sorting_results" xml:space="preserve">
-    <value>Сортировка результатов на основе заданных настроек. Пожалуйста ожидайте...</value>
+    <value>Сортировка результатов на основе заданных настроек. Пожалуйста, ждите...</value>
   </data>
   <data name="statistics" xml:space="preserve">
     <value>&amp;Статистика</value>
@@ -247,7 +247,7 @@
     <value>Показать расширенную информацию авторизации</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Idle Master данные доступа</value>
+    <value>Данные авторизации Idle Master</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>&amp;Отмена</value>
@@ -297,22 +297,22 @@
     <value>По умолчанию (В алфавитном порядке)</value>
   </data>
   <data name="order_least" xml:space="preserve">
-    <value>Приоритет меньшее количество карт доступных для выпадения</value>
+    <value>Приоритетнее игры с меньшим количеством доступных для выпадения карт</value>
   </data>
   <data name="order_most" xml:space="preserve">
-    <value>Приоритет большее количество карт доступных для выпадения</value>
+    <value>Приоритетнее игры с большим количеством доступных для выпадения карт</value>
   </data>
   <data name="order_value" xml:space="preserve">
-    <value>Приоритет игр с картами по более высокой цене</value>
+    <value>Приоритетнее игры с картами по более высокой цене</value>
   </data>
   <data name="please_login" xml:space="preserve">
-    <value>Пожалуйста войдите в Steam</value>
+    <value>Необходима авторизация в Steam</value>
   </data>
   <data name="please_restart" xml:space="preserve">
-    <value>Пожалуйста перезапустите приложение, чтобы настройки языка вступили в силу.</value>
+    <value>Пожалуйста, перезапустите приложение, чтобы настройки языка вступили в силу.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Idle Master информация о выпущенных версиях</value>
+    <value>Информация о выпущенных версиях Idle Master</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>&amp;Сохранить</value>
