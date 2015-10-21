@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Management;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -16,6 +17,7 @@ using Newtonsoft.Json;
 using Steamworks;
 using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 using System.Globalization;
+using System.Security.Principal;
 
 namespace IdleMaster
 {
@@ -152,15 +154,31 @@ namespace IdleMaster
             // This prevents rogue processes from interfering with idling time and slowing card drops
             try 
             {
+                String username = WindowsIdentity.GetCurrent().Name;
                 foreach (var process in Process.GetProcessesByName("steam-idle"))
                 {
-                    process.Kill();
+                    ManagementObjectSearcher searcher = new ManagementObjectSearcher("Select * From Win32_Process Where ProcessID = " + process.Id);
+                    ManagementObjectCollection processList = searcher.Get();
+
+                    foreach (ManagementObject obj in processList)
+                    {
+                        string[] argList = new string[] { string.Empty, string.Empty };
+                        int returnVal = Convert.ToInt32(obj.InvokeMethod("GetOwner", argList));
+                        if (returnVal == 0)
+                        {
+                            if (argList[1] + "\\" + argList[0] == username)
+                            {
+                                process.Kill();
+                            }
+                        }
+                    }
+                    
                 }
             }
             catch (Exception)
             {
 
-            }            
+            }
             
             // Check if user is authenticated and if any badge left to idle
             // There should be check for IsCookieReady, but property is set in timer tick, so it could take some time to be set.
