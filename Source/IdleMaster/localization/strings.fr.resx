@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="about" xml:space="preserve">
-    <value>&amp;A propos</value>
+    <value>&amp;À propos</value>
   </data>
   <data name="badge_didnt_load" xml:space="preserve">
     <value>La page des badges n'a pas pû être chargée, nouvel essai dans __num__ secondes</value>
@@ -145,7 +145,7 @@
     <value>&amp;Jeu</value>
   </data>
   <data name="games_left_to_idle" xml:space="preserve">
-    <value>jeux restant à traiter</value>
+    <value>jeux restants à traiter</value>
   </data>
   <data name="help" xml:space="preserve">
     <value>&amp;Aide</value>
@@ -190,7 +190,7 @@
     <value>&amp;Mettre en pause le traitement</value>
   </data>
   <data name="please_wait" xml:space="preserve">
-    <value>veuillez patientez...</value>
+    <value>veuillez patienter...</value>
   </data>
   <data name="reading_badge_page" xml:space="preserve">
     <value>Lecture de la page de badge</value>
@@ -280,6 +280,9 @@ celle-ci peut être utilisée par un attaquant pour se connecter à votre compte
   <data name="ignore_client_status" xml:space="preserve">
     <value>Ignorer l'état du client Steam</value>
   </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>Langue de l'interface</value>
+  </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>Gérer la liste noire de Idle Master</value>
   </data>
@@ -303,6 +306,9 @@ celle-ci peut être utilisée par un attaquant pour se connecter à votre compte
   </data>
   <data name="please_login" xml:space="preserve">
     <value>Veuillez vous connecter à Steam</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>Veuillez redémarrer l'application pour que le changement de langue prenne effet.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>Notes de versions de Idle Master</value>

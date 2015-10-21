@@ -281,6 +281,9 @@ tu cuenta de Steam.</value>
   <data name="ignore_client_status" xml:space="preserve">
     <value>Ignorar el estado del cliente de Steam</value>
   </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>Idioma de la interfaz</value>
+  </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>Administrar la lista negra de Idle Master</value>
   </data>
@@ -304,6 +307,9 @@ tu cuenta de Steam.</value>
   </data>
   <data name="please_login" xml:space="preserve">
     <value>Por favor ingrese a Steam</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>Por favor, reinicie la aplicación para que el cambio de idioma tenga efecto.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>Notas de versión de Idle Master</value>

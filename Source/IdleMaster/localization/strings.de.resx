@@ -163,7 +163,7 @@
     <value>Idle Master ist nicht mit Steam verbunden</value>
   </data>
   <data name="idle_now" xml:space="preserve">
-    <value>Jetzt Idlen</value>
+    <value>jetzt aktiv</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
     <value>Idlen abgeschlossen</value>
@@ -178,7 +178,7 @@
     <value>Name</value>
   </data>
   <data name="next_check" xml:space="preserve">
-    <value>Nächste Prüfung</value>
+    <value>Nächste Prüfung in</value>
   </data>
   <data name="not_ingame" xml:space="preserve">
     <value>Aktuell in keinem Spiel</value>
@@ -281,6 +281,9 @@ um sich bei deinem Steam Account anzumelden!</value>
   <data name="ignore_client_status" xml:space="preserve">
     <value>Steam Status ignorieren</value>
   </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>Interface Sprache</value>
+  </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>Idle Master Blacklist verwalten</value>
   </data>
@@ -304,6 +307,9 @@ um sich bei deinem Steam Account anzumelden!</value>
   </data>
   <data name="please_login" xml:space="preserve">
     <value>Bitte melde dich bei Steam an</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>Bitte starten Sie die Anwendung neu, damit die Sprachänderungen wirksam werden.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>Idle Master Versionshinweise</value>

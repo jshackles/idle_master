@@ -279,6 +279,9 @@ Non condividere questa informazione con nessuno, in quanto potrebbe essere utili
   <data name="ignore_client_status" xml:space="preserve">
     <value>Ignora lo stato del client Steam</value>
   </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>Lingua dell'Interfaccia</value>
+  </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>Gestisci la Blacklist di Idle Master</value>
   </data>
@@ -302,6 +305,9 @@ Non condividere questa informazione con nessuno, in quanto potrebbe essere utili
   </data>
   <data name="please_login" xml:space="preserve">
     <value>Si prega di connettersi a Steam</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>Si prega di riavviare l'applicazione per rendere effettiva la modifica della lingua.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>Note di rilascio di Idle Master</value>

@@ -280,6 +280,9 @@ aksi halde hırsız tarafından Steam hesabınıza giriş yapılma tehdidi oluş
   <data name="ignore_client_status" xml:space="preserve">
     <value>Steam işletici durumunu yoksay</value>
   </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>Arabirim Dili</value>
+  </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>İdle Master kara listeyi yönet</value>
   </data>
@@ -303,6 +306,9 @@ aksi halde hırsız tarafından Steam hesabınıza giriş yapılma tehdidi oluş
   </data>
   <data name="please_login" xml:space="preserve">
     <value>Lütfen Steam'e giriş yapın</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>Lütfen dil değişikliklerin etkili olabilmesi için uygulamayı yeniden başlatın.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>İdle Master sürüm notları</value>

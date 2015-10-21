@@ -118,223 +118,223 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="about" xml:space="preserve">
-    <value>關於(&amp;A)</value>
+    <value>Idle Master 정보(A)</value>
   </data>
   <data name="badge_didnt_load" xml:space="preserve">
-    <value>徽章頁沒有載入，將在 __num__ 秒後重試</value>
+    <value>배지 페이지를 불러오지 못했습니다. __num__초 후 다시 시도합니다.</value>
   </data>
   <data name="blacklist" xml:space="preserve">
-    <value>黑名單(&amp;B)</value>
+    <value>블랙리스트(B)</value>
   </data>
   <data name="blacklist_current_game" xml:space="preserve">
-    <value>將目前遊戲加入黑名單(&amp;B)</value>
+    <value>현재 게임을 블랙리스트에 추가(B)</value>
   </data>
   <data name="card_drops_remaining" xml:space="preserve">
-    <value>卡片剩餘</value>
+    <value>획득 가능한 카드 장수</value>
   </data>
   <data name="currently_ingame" xml:space="preserve">
-    <value>目前正在遊戲內</value>
+    <value>현재 플레이중인 게임</value>
   </data>
   <data name="exit" xml:space="preserve">
-    <value>離開(&amp;X)</value>
+    <value>종료(X)</value>
   </data>
   <data name="file" xml:space="preserve">
-    <value>檔案(&amp;F)</value>
+    <value>파일(F)</value>
   </data>
   <data name="game" xml:space="preserve">
-    <value>遊戲(&amp;G)</value>
+    <value>게임(G)</value>
   </data>
   <data name="games_left_to_idle" xml:space="preserve">
-    <value>遊戲尚有未掉落卡片</value>
+    <value>남은 게임 수</value>
   </data>
   <data name="help" xml:space="preserve">
-    <value>說明(&amp;H)</value>
+    <value>도움말(H)</value>
   </data>
   <data name="hours" xml:space="preserve">
-    <value>時數</value>
+    <value>시간</value>
   </data>
   <data name="hrs_on_record" xml:space="preserve">
-    <value>小時</value>
+    <value>시간째 플레이</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle Master已經連結至Steam</value>
+    <value>Idle master가 Steam에 연결되었습니다.</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master尚未連結至Steam</value>
+    <value>Idle Master가 Steam과 연결되어 있지 않습니다</value>
   </data>
   <data name="idle_now" xml:space="preserve">
-    <value>現在開始掉落</value>
+    <value>현재 농사중</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>掉落完畢</value>
+    <value>농사 완료</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
-    <value>掉落已暫停</value>
+    <value>농사가 잠시 중단되었습니다</value>
   </data>
   <data name="loading_next" xml:space="preserve">
-    <value>正在載入下一個遊戲...</value>
+    <value>다음 게임을 불러옵니다</value>
   </data>
   <data name="name" xml:space="preserve">
-    <value>名稱</value>
+    <value>제목</value>
   </data>
   <data name="next_check" xml:space="preserve">
-    <value>下一次檢查</value>
+    <value>다음번 확인까지</value>
   </data>
   <data name="not_ingame" xml:space="preserve">
-    <value>不在遊戲中</value>
+    <value>게임중이 아닙니다</value>
   </data>
   <data name="official_group" xml:space="preserve">
-    <value>官方群組(&amp;O)</value>
+    <value>공식 Steam 그룹(O)</value>
   </data>
   <data name="pause_idling" xml:space="preserve">
-    <value>暫停掉落(&amp;P)</value>
+    <value>농사 일시 중지(P)</value>
   </data>
   <data name="please_wait" xml:space="preserve">
-    <value>請稍候...</value>
+    <value>잠시 기다려 주십시오</value>
   </data>
   <data name="reading_badge_page" xml:space="preserve">
-    <value>讀取徽章頁</value>
+    <value>배지 페이지를 읽고 있습니다</value>
   </data>
   <data name="release_notes" xml:space="preserve">
-    <value>版本發佈說明(&amp;R)</value>
+    <value>릴리스 노트(R)</value>
   </data>
   <data name="resume_idling" xml:space="preserve">
-    <value>繼續(&amp;R)</value>
+    <value>농사 재개(R)</value>
   </data>
   <data name="settings" xml:space="preserve">
-    <value>設定(&amp;S)</value>
+    <value>설정(S)</value>
   </data>
   <data name="signed_in_as" xml:space="preserve">
-    <value>登入身分：</value>
+    <value>다음 이름으로 로그인 했습니다</value>
   </data>
   <data name="sign_in" xml:space="preserve">
-    <value>登入</value>
+    <value>로그인</value>
   </data>
   <data name="sign_out" xml:space="preserve">
-    <value>登出</value>
+    <value>로그아웃</value>
   </data>
   <data name="skip_current_game" xml:space="preserve">
-    <value>跳過目前遊戲(&amp;S)</value>
+    <value>현재 게임 건너뛰기(S)</value>
   </data>
   <data name="sorting_results" xml:space="preserve">
-    <value>正在依您的設定進行排序，請稍候...</value>
+    <value>설정에 따라 결과를 정렬중입니다. 잠시만 기다려 주십시오.</value>
   </data>
   <data name="statistics" xml:space="preserve">
-    <value>統計數據(&amp;S)</value>
+    <value>통계(S)</value>
   </data>
   <data name="steam_ignored" xml:space="preserve">
-    <value>Steam客戶端狀態已忽略</value>
+    <value>Steam 클라이언트 상태 무시</value>
   </data>
   <data name="steam_notrunning" xml:space="preserve">
-    <value>Steam 已停止運行</value>
+    <value>Steam 클라이언트가 꺼져있습니다</value>
   </data>
   <data name="steam_running" xml:space="preserve">
-    <value>Steam 正在運行</value>
+    <value>Steam 클라이언트가 실행중입니다</value>
   </data>
   <data name="update_games_status" xml:space="preserve">
-    <value>更新遊戲狀態</value>
+    <value>게임 상태 업데이트</value>
   </data>
   <data name="accept" xml:space="preserve">
-    <value>接受(&amp;A)</value>
+    <value>확인(A)</value>
   </data>
   <data name="add" xml:space="preserve">
-    <value>添加(&amp;A)</value>
+    <value>추가(A)</value>
   </data>
   <data name="add_game_blacklist" xml:space="preserve">
-    <value>將遊戲加到黑名單</value>
+    <value>게임을 블랙리스트에 추가합니다</value>
   </data>
   <data name="advanced_auth" xml:space="preserve">
-    <value>顯示進階身份驗證資訊</value>
+    <value>고급 인증 정보를 표시합니다</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Idle Master認證資料</value>
+    <value>Idle Master 인증 정보</value>
   </data>
   <data name="cancel" xml:space="preserve">
-    <value>取消(&amp;C)</value>
+    <value>취소(C)</value>
   </data>
   <data name="cookie_warning" xml:space="preserve">
-    <value>顯示資訊
+    <value>위의 정보를 표시합니다
 
-[WARNING] 
-以上資訊請勿與人分享，
-潛在攻擊者可能會用它登入至您的Steam帳戶。</value>
+[WARNING]
+이 정보는 귀하의 계정으로 로그인하려는 해커들에게 사용될 수 
+있기 때문에, 다른 사람들과 이 정보를 공유하지 않도록 하십시오.</value>
   </data>
   <data name="general" xml:space="preserve">
-    <value>一般</value>
+    <value>일반</value>
   </data>
   <data name="idle_individual" xml:space="preserve">
-    <value>各遊戲卡片分開掉落</value>
+    <value>개별 게임을 각각 농사짓습니다</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Idle Master設定</value>
+    <value>Idle Master 설정</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
-    <value>所有遊戲同時等待掉落2小時，然後再分開進行</value>
+    <value>2시간까지는 동시에 게임들을 돌리고, 이후에는 각각 돌립니다.</value>
   </data>
   <data name="idling_behavior" xml:space="preserve">
-    <value>卡片掉落行為</value>
+    <value>농사 동작</value>
   </data>
   <data name="idling_order" xml:space="preserve">
-    <value>掉落順序</value>
+    <value>농사 순서</value>
   </data>
   <data name="ignore_client_status" xml:space="preserve">
-    <value>忽略Steam用戶端狀態</value>
+    <value>Steam 클라이언트 상태를 무시합니다</value>
   </data>
   <data name="interface_language" xml:space="preserve">
-    <value>介面語言</value>
+    <value>인터페이스 언어</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>管理Idle Master黑名單</value>
+    <value>Idle Master 블랙 리스트를 관리합니다</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>將Idle Master縮小至系統工具列</value>
+    <value>Idle Master를 시스템 트레이로 최소화합니다</value>
   </data>
   <data name="ok" xml:space="preserve">
-    <value>確認(&amp;O)</value>
+    <value>확인(O)</value>
   </data>
   <data name="order_default" xml:space="preserve">
-    <value>預設(字母順序)</value>
+    <value>기본 (알파벳 순서)</value>
   </data>
   <data name="order_least" xml:space="preserve">
-    <value>優先掉落遊戲卡片數量最少的</value>
+    <value>남아있는 카드 수가 적은 게임을 최우선 순위로 합니다</value>
   </data>
   <data name="order_most" xml:space="preserve">
-    <value>優先掉落遊戲卡片數量最多的</value>
+    <value>남아있는 카드 수가 가장 많은 게임을 최우선 순위로 합니다</value>
   </data>
   <data name="order_value" xml:space="preserve">
-    <value>優先掉落價值最高的卡片</value>
+    <value>카드 값이 가장 비싼 게임을 최우선순위로 합니다</value>
   </data>
   <data name="please_login" xml:space="preserve">
-    <value>請登入至Steam帳戶</value>
+    <value>Steam에 로그인해 주십시오</value>
   </data>
   <data name="please_restart" xml:space="preserve">
-    <value>請重新啟動程式，使語言更改生效</value>
+    <value>언어 변경 내역을 적용하려면 응용 프로그램을 다시 실행해 주십시오.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Idle Master版本發佈說明</value>
+    <value>Idle Master 릴리스 노트</value>
   </data>
   <data name="save" xml:space="preserve">
-    <value>儲存(&amp;S)</value>
+    <value>저장(S)</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Idle Master正在儲存您的資訊</value>
+    <value>Idle Master가 귀하의 정보를 저장중입니다</value>
   </data>
   <data name="show_username" xml:space="preserve">
-    <value>顯示已登入Steam帳戶的使用者名字</value>
+    <value>Steam에 로그인한 사용자의 이름을 보여줍니다</value>
   </data>
   <data name="this_session" xml:space="preserve">
-    <value>這次使用期間</value>
+    <value>현재 세션</value>
   </data>
   <data name="total" xml:space="preserve">
-    <value>總計</value>
+    <value>총합</value>
   </data>
   <data name="update" xml:space="preserve">
-    <value>更新(&amp;U)</value>
+    <value>업데이트U)</value>
   </data>
   <data name="validate_failed" xml:space="preserve">
-    <value>您輸入的資料不是有效的。 請再試一次。</value>
+    <value>입력하신 정보를 사용할 수 없습니다. 다시 시도해 주십시오.</value>
   </data>
   <data name="validating" xml:space="preserve">
-    <value>驗證中...</value>
+    <value>확인 중...</value>
   </data>
 </root>

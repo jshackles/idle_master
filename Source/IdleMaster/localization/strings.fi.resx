@@ -253,12 +253,12 @@
     <value>&amp;Peruuta</value>
   </data>
   <data name="cookie_warning" xml:space="preserve">
-    <value>Display information above
+    <value>Näyttää ylläolevat tiedot
 
-[WARNING]
-Do not share this information with anyone,
-as it could potentially be used by an attacker to log into
-your Steam account.</value>
+[VAROITUS]
+Älä jaa näitä tietoja kenenkään kanssa.
+Niitä käyttäjen hyökkääjä voisi mahdollisesti
+kirjautua sinun Steam tilillesi.</value>
   </data>
   <data name="general" xml:space="preserve">
     <value>Yleiset</value>
@@ -280,6 +280,9 @@ your Steam account.</value>
   </data>
   <data name="ignore_client_status" xml:space="preserve">
     <value>Sivuuta Steam ohjelmiston tila</value>
+  </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>Käyttöliittymän kieli</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>Hallitse Idle Masterin mustaa listaa</value>
@@ -304,6 +307,9 @@ your Steam account.</value>
   </data>
   <data name="please_login" xml:space="preserve">
     <value>Kirjaudu Steamiin</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>Käynnistä sovellus uudelleen jotta kielimuutokset tulevat voimaan.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>Idle Master julkaisutiedot</value>
