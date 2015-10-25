@@ -79,17 +79,24 @@ namespace IdleMaster
                     AllBadges = AllBadges.OrderBy(b => b.RemainingCard).ToList();
                     break;
                 case "mostvalue":
-                    var query = string.Format("http://api.enhancedsteam.com/market_data/average_card_prices/im.php?appids={0}",
-                      string.Join(",", AllBadges.Select(b => b.AppId)));
-                    var json = new WebClient() { Encoding = Encoding.UTF8 }.DownloadString(query);
-                    var convertedJson = JsonConvert.DeserializeObject<EnhancedsteamHelper>(json);
-                    foreach (var price in convertedJson.Avg_Values)
+                    try
                     {
-                        var badge = AllBadges.SingleOrDefault(b => b.AppId == price.AppId);
-                        if (badge != null)
-                            badge.AveragePrice = price.Avg_Price;
+                        var query = string.Format("http://api.enhancedsteam.com/market_data/average_card_prices/im.php?appids={0}",
+                        string.Join(",", AllBadges.Select(b => b.AppId)));
+                        var json = new WebClient() { Encoding = Encoding.UTF8 }.DownloadString(query);
+                        var convertedJson = JsonConvert.DeserializeObject<EnhancedsteamHelper>(json);
+                        foreach (var price in convertedJson.Avg_Values)
+                        {
+                            var badge = AllBadges.SingleOrDefault(b => b.AppId == price.AppId);
+                            if (badge != null)
+                                badge.AveragePrice = price.Avg_Price;
+                        }
+                        AllBadges = AllBadges.OrderByDescending(b => b.AveragePrice).ToList();
                     }
-                    AllBadges = AllBadges.OrderByDescending(b => b.AveragePrice).ToList();
+                    catch  
+                    {
+
+                    }                    
                     break;
                 default:
                     return;
