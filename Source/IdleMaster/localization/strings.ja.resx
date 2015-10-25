@@ -166,7 +166,7 @@
     <value>ゲームアイドル中</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>アイドリング終了</value>
+    <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>アイドリング一時停止中</value>
@@ -335,5 +335,8 @@
   </data>
   <data name="validating" xml:space="preserve">
     <value>確認中です...</value>
+  </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>Idle games with more than 2 hours individually, then simultaneously</value>
   </data>
 </root>

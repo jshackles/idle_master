@@ -166,7 +166,7 @@
     <value>in idle ora</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idle completato</value>
+    <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Idle in pausa</value>
@@ -335,5 +335,8 @@ Non condividere questa informazione con nessuno, in quanto potrebbe essere utili
   </data>
   <data name="validating" xml:space="preserve">
     <value>Sto convalidando...</value>
+  </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>Idle games with more than 2 hours individually, then simultaneously</value>
   </data>
 </root>

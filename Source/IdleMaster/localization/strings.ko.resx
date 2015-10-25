@@ -166,7 +166,7 @@
     <value>현재 농사중</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>농사 완료</value>
+    <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>농사가 잠시 중단되었습니다</value>
@@ -336,5 +336,8 @@
   </data>
   <data name="validating" xml:space="preserve">
     <value>확인 중...</value>
+  </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>Idle games with more than 2 hours individually, then simultaneously</value>
   </data>
 </root>

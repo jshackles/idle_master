@@ -166,7 +166,7 @@
     <value>rölantiyi başlat</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Rölanti tamamlanmıştır</value>
+    <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Rölanti duraklatıldı</value>
@@ -336,5 +336,8 @@ aksi halde hırsız tarafından Steam hesabınıza giriş yapılma tehdidi oluş
   </data>
   <data name="validating" xml:space="preserve">
     <value>Onaylanıyor...</value>
+  </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>Idle games with more than 2 hours individually, then simultaneously</value>
   </data>
 </root>
