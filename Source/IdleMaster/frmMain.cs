@@ -210,15 +210,32 @@ namespace IdleMaster
                     }
                     else
                     {
-                        var multi = CanIdleBadges.Where(b => b.HoursPlayed < 2);
-                        if (multi.Count() >= 2)
+                        if (Settings.Default.OneThenMany)
                         {
-                            StartMultipleIdle();
+                            var multi = CanIdleBadges.Where(b => b.HoursPlayed >= 2);
+                            if (multi.Count() >= 1)
+                            {
+                                StartSoloIdle(multi.First());
+                            }
+                            else
+                            {
+                                StartMultipleIdle();
+                            }
                         }
                         else
                         {
-                            StartSoloIdle(CanIdleBadges.First());
+                            var multi = CanIdleBadges.Where(b => b.HoursPlayed < 2);
+                            if (multi.Count() >= 2)
+                            {
+                                StartMultipleIdle();
+                            }
+                            else
+                            {
+                                StartSoloIdle(CanIdleBadges.First());
+                            }
                         }
+                        
+                        
                     }
                 }
                 else
@@ -906,10 +923,11 @@ namespace IdleMaster
             // Show the form
             String previous = Settings.Default.sort;
             Boolean previous_behavior = Settings.Default.OnlyOneGameIdle;
+            Boolean previous_behavior2 = Settings.Default.OneThenMany;
             Form frm = new frmSettings();
             frm.ShowDialog();
 
-            if (previous != Settings.Default.sort || previous_behavior != Settings.Default.OnlyOneGameIdle)
+            if (previous != Settings.Default.sort || previous_behavior != Settings.Default.OnlyOneGameIdle || previous_behavior2 != Settings.Default.OneThenMany)
             {
                 StopIdle();
                 AllBadges.Clear();

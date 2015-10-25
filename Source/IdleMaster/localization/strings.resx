@@ -338,4 +338,7 @@ your Steam account.</value>
   <data name="validating" xml:space="preserve">
     <value>Validating...</value>
   </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+  </data>
 </root>

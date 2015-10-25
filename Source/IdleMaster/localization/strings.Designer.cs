@@ -300,6 +300,15 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Idle games with more than 2 hours individually, then simultaneously.
+        /// </summary>
+        internal static string idle_onethenmany {
+            get {
+                return ResourceManager.GetString("idle_onethenmany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Idle games simultaneously up to 2 hours, then individually.
         /// </summary>
         internal static string idle_simultaneous {
