@@ -166,7 +166,7 @@
     <value>idle now</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete</value>
+    <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Idling paused</value>

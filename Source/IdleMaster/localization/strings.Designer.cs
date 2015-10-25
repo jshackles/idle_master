@@ -327,7 +327,7 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Idling complete.
+        ///   Looks up a localized string similar to Idling complete, no more card drops available.
         /// </summary>
         internal static string idling_complete {
             get {
