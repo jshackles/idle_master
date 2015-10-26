@@ -166,7 +166,7 @@
     <value>rölantiyi başlat</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Rölanti tamamlanmıştır</value>
+    <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Rölanti duraklatıldı</value>
@@ -280,6 +280,9 @@ aksi halde hırsız tarafından Steam hesabınıza giriş yapılma tehdidi oluş
   <data name="ignore_client_status" xml:space="preserve">
     <value>Steam işletici durumunu yoksay</value>
   </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>Arabirim Dili</value>
+  </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>İdle Master kara listeyi yönet</value>
   </data>
@@ -303,6 +306,9 @@ aksi halde hırsız tarafından Steam hesabınıza giriş yapılma tehdidi oluş
   </data>
   <data name="please_login" xml:space="preserve">
     <value>Lütfen Steam'e giriş yapın</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>Lütfen dil değişikliklerin etkili olabilmesi için uygulamayı yeniden başlatın.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>İdle Master sürüm notları</value>
@@ -330,5 +336,8 @@ aksi halde hırsız tarafından Steam hesabınıza giriş yapılma tehdidi oluş
   </data>
   <data name="validating" xml:space="preserve">
     <value>Onaylanıyor...</value>
+  </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>Idle games with more than 2 hours individually, then simultaneously</value>
   </data>
 </root>

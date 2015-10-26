@@ -47,7 +47,16 @@ namespace IdleMaster
             Settings.Default.language = cboLanguage.Text;
         }
 
-        Settings.Default.OnlyOneGameIdle = radOneGameOnly.Checked && !radManyThenOne.Checked;
+        if (radOneThenMany.Checked)
+        {
+            Settings.Default.OnlyOneGameIdle = false;
+            Settings.Default.OneThenMany = true;
+        }
+        else
+        {
+            Settings.Default.OnlyOneGameIdle = radOneGameOnly.Checked && !radManyThenOne.Checked;
+            Settings.Default.OneThenMany = false;
+        }        
         Settings.Default.minToTray = chkMinToTray.Checked;
         Settings.Default.ignoreclient = chkIgnoreClientStatus.Checked;
         Settings.Default.showUsername = chkShowUsername.Checked;
@@ -109,6 +118,8 @@ namespace IdleMaster
         ttHints.SetToolTip(radOneGameOnly, localization.strings.idle_individual);
         radManyThenOne.Text = localization.strings.idle_simultaneous;
         ttHints.SetToolTip(radManyThenOne, localization.strings.idle_simultaneous);
+        radOneThenMany.Text = localization.strings.idle_onethenmany;
+        ttHints.SetToolTip(radOneThenMany, localization.strings.idle_onethenmany);
         radIdleDefault.Text = localization.strings.order_default;
         ttHints.SetToolTip(radIdleDefault, localization.strings.order_default);
         radIdleMostValue.Text = localization.strings.order_value;
@@ -119,8 +130,15 @@ namespace IdleMaster
         ttHints.SetToolTip(radIdleLeastDrops, localization.strings.order_least);
         lblLanguage.Text = localization.strings.interface_language;
 
-        radOneGameOnly.Checked = Settings.Default.OnlyOneGameIdle;
-        radManyThenOne.Checked = !Settings.Default.OnlyOneGameIdle;
+        if (Settings.Default.OneThenMany)
+        {
+            radOneThenMany.Checked = true;
+        }
+        else
+        {
+            radOneGameOnly.Checked = Settings.Default.OnlyOneGameIdle;
+            radManyThenOne.Checked = !Settings.Default.OnlyOneGameIdle;
+        }        
 
         if (Settings.Default.minToTray)
         {

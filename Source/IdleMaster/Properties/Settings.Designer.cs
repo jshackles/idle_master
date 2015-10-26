@@ -216,5 +216,17 @@ namespace IdleMaster.Properties {
                 this["language"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool OneThenMany {
+            get {
+                return ((bool)(this["OneThenMany"]));
+            }
+            set {
+                this["OneThenMany"] = value;
+            }
+        }
     }
 }

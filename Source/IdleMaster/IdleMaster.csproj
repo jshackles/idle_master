@@ -24,8 +24,8 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <InstallUrl>http://www.steamidlemaster.com/install/</InstallUrl>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.3.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.4.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -85,6 +85,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -187,15 +188,25 @@
     <EmbeddedResource Include="frmStatistics.resx">
       <DependentUpon>frmStatistics.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="localization\strings.cs.resx" />
     <EmbeddedResource Include="localization\strings.de.resx" />
+    <EmbeddedResource Include="localization\strings.el.resx" />
     <EmbeddedResource Include="localization\strings.es.resx" />
     <EmbeddedResource Include="localization\strings.fi.resx" />
     <EmbeddedResource Include="localization\strings.fr.resx" />
+    <EmbeddedResource Include="localization\strings.hu.resx" />
     <EmbeddedResource Include="localization\strings.it.resx" />
+    <EmbeddedResource Include="localization\strings.ja.resx" />
+    <EmbeddedResource Include="localization\strings.ko.resx" />
+    <EmbeddedResource Include="localization\strings.nl.resx" />
+    <EmbeddedResource Include="localization\strings.no.resx" />
     <EmbeddedResource Include="localization\strings.pl.resx" />
     <EmbeddedResource Include="localization\strings.pt-BR.resx" />
     <EmbeddedResource Include="localization\strings.pt.resx" />
+    <EmbeddedResource Include="localization\strings.ro.resx" />
+    <EmbeddedResource Include="localization\strings.ru.resx" />
     <EmbeddedResource Include="localization\strings.sv.resx" />
+    <EmbeddedResource Include="localization\strings.th.resx" />
     <EmbeddedResource Include="localization\strings.tr.resx" />
     <EmbeddedResource Include="localization\strings.uk.resx" />
     <EmbeddedResource Include="localization\strings.zh-TW.resx" />

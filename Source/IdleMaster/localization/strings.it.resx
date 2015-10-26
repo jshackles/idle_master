@@ -166,7 +166,7 @@
     <value>in idle ora</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idle completato</value>
+    <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Idle in pausa</value>
@@ -279,6 +279,9 @@ Non condividere questa informazione con nessuno, in quanto potrebbe essere utili
   <data name="ignore_client_status" xml:space="preserve">
     <value>Ignora lo stato del client Steam</value>
   </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>Lingua dell'Interfaccia</value>
+  </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>Gestisci la Blacklist di Idle Master</value>
   </data>
@@ -302,6 +305,9 @@ Non condividere questa informazione con nessuno, in quanto potrebbe essere utili
   </data>
   <data name="please_login" xml:space="preserve">
     <value>Si prega di connettersi a Steam</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>Si prega di riavviare l'applicazione per rendere effettiva la modifica della lingua.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>Note di rilascio di Idle Master</value>
@@ -329,5 +335,8 @@ Non condividere questa informazione con nessuno, in quanto potrebbe essere utili
   </data>
   <data name="validating" xml:space="preserve">
     <value>Sto convalidando...</value>
+  </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>Idle games with more than 2 hours individually, then simultaneously</value>
   </data>
 </root>

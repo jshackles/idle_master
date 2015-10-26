@@ -121,7 +121,7 @@
     <value>&amp;Про програму</value>
   </data>
   <data name="badge_didnt_load" xml:space="preserve">
-    <value>Badge page didn't load, will retry in __num__ seconds</value>
+    <value>Сторінка зі значками не завантажилась, наступна спроба через __num__ секунд</value>
   </data>
   <data name="blacklist" xml:space="preserve">
     <value>&amp;Чорний список</value>
@@ -130,7 +130,7 @@
     <value>&amp;Додати поточну гру в чорний список</value>
   </data>
   <data name="card_drops_remaining" xml:space="preserve">
-    <value>залишилось карток</value>
+    <value>картка(и) залишилось</value>
   </data>
   <data name="currently_ingame" xml:space="preserve">
     <value>Зараз у грі</value>
@@ -145,7 +145,7 @@
     <value>&amp;Гра</value>
   </data>
   <data name="games_left_to_idle" xml:space="preserve">
-    <value>залишилось ігор для очікування</value>
+    <value>гра(и) залишилось для очікування</value>
   </data>
   <data name="help" xml:space="preserve">
     <value>&amp;Довідка</value>
@@ -166,7 +166,7 @@
     <value>починаємо</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Очікування завершено</value>
+    <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Очікування призупинено</value>
@@ -217,13 +217,13 @@
     <value>&amp;Пропустити поточну гру</value>
   </data>
   <data name="sorting_results" xml:space="preserve">
-    <value>Sorting results based on your settings, please wait...</value>
+    <value>Сортування результатів на основі налаштувань, будь-ласка, зачекайте...</value>
   </data>
   <data name="statistics" xml:space="preserve">
     <value>&amp;Статистика</value>
   </data>
   <data name="steam_ignored" xml:space="preserve">
-    <value>Steam client status ignored</value>
+    <value>Статус клієнта Steam ігнорується</value>
   </data>
   <data name="steam_notrunning" xml:space="preserve">
     <value>Steam не запущений</value>
@@ -244,7 +244,7 @@
     <value>Додати гру в чорний список</value>
   </data>
   <data name="advanced_auth" xml:space="preserve">
-    <value>Display advanced authentication information</value>
+    <value>Показати додаткову інформацію про автентифікацію</value>
   </data>
   <data name="auth_data" xml:space="preserve">
     <value>Дані автентифікації Idle Master</value>
@@ -253,24 +253,21 @@
     <value>&amp;Скасувати</value>
   </data>
   <data name="cookie_warning" xml:space="preserve">
-    <value>Display information above
-
-[WARNING]
-Do not share this information with anyone,
-as it could potentially be used by an attacker to log into
-your Steam account.</value>
+    <value>[УВАГА] Не діліться цією інформацією ні з ким,
+бо вона, потенційно, може бути використана 
+зловмисником для входу до вашого аккаунту Steam.</value>
   </data>
   <data name="general" xml:space="preserve">
     <value>Загальне</value>
   </data>
   <data name="idle_individual" xml:space="preserve">
-    <value>Idle each game individually</value>
+    <value>Запускати кожну гру індивідуально</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
     <value>Налаштування Idle Master</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
-    <value>Idle games simultaneously up to 2 hours, then individually</value>
+    <value>Запускати ігри одночасно до 2 годин, потім індивідуально</value>
   </data>
   <data name="idling_behavior" xml:space="preserve">
     <value>Поведінка очікування</value>
@@ -281,11 +278,14 @@ your Steam account.</value>
   <data name="ignore_client_status" xml:space="preserve">
     <value>Ігнорувати статус клієнта Steam</value>
   </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>Мова інтерфейсу</value>
+  </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>Manage Idle Master Blacklist</value>
+    <value>Управління чорним списком Idle Master</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Minimize Idle Master to system tray</value>
+    <value>Згорнути Idle Master до системного трею</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
@@ -294,16 +294,19 @@ your Steam account.</value>
     <value>За умовчанням (алфавітний порядок)</value>
   </data>
   <data name="order_least" xml:space="preserve">
-    <value>Prioritize games with the lowest number of available drops</value>
+    <value>Пріоритет ігор з меншою кількістю доступних випадань</value>
   </data>
   <data name="order_most" xml:space="preserve">
-    <value>Prioritize games with the highest number of available drops</value>
+    <value>Пріоритет ігор з більшою кількістю доступних випадань</value>
   </data>
   <data name="order_value" xml:space="preserve">
-    <value>Prioritize games with the highest card values</value>
+    <value>Пріоритет ігор з вищою ціною карток</value>
   </data>
   <data name="please_login" xml:space="preserve">
-    <value>Please Login to Steam</value>
+    <value>Будь-ласка, ввійдіть в Steam</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>Будь-ласка, перезапустіть програму для збереження налаштувань мови.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>Історія змін Idle Master</value>
@@ -315,7 +318,7 @@ your Steam account.</value>
     <value>Idle Master зберігає вашу інформацію</value>
   </data>
   <data name="show_username" xml:space="preserve">
-    <value>Show Steam username of signed on user</value>
+    <value>Показувати ім'я користувача Steam підключеного користувача</value>
   </data>
   <data name="this_session" xml:space="preserve">
     <value>Ця сесія</value>
@@ -331,5 +334,8 @@ your Steam account.</value>
   </data>
   <data name="validating" xml:space="preserve">
     <value>Перевірка...</value>
+  </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>Idle games with more than 2 hours individually, then simultaneously</value>
   </data>
 </root>

@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Management;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -16,6 +17,7 @@ using Newtonsoft.Json;
 using Steamworks;
 using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 using System.Globalization;
+using System.Security.Principal;
 
 namespace IdleMaster
 {
@@ -77,17 +79,24 @@ namespace IdleMaster
                     AllBadges = AllBadges.OrderBy(b => b.RemainingCard).ToList();
                     break;
                 case "mostvalue":
-                    var query = string.Format("http://api.enhancedsteam.com/market_data/average_card_prices/im.php?appids={0}",
-                      string.Join(",", AllBadges.Select(b => b.AppId)));
-                    var json = new WebClient() { Encoding = Encoding.UTF8 }.DownloadString(query);
-                    var convertedJson = JsonConvert.DeserializeObject<EnhancedsteamHelper>(json);
-                    foreach (var price in convertedJson.Avg_Values)
+                    try
                     {
-                        var badge = AllBadges.SingleOrDefault(b => b.AppId == price.AppId);
-                        if (badge != null)
-                            badge.AveragePrice = price.Avg_Price;
+                        var query = string.Format("http://api.enhancedsteam.com/market_data/average_card_prices/im.php?appids={0}",
+                        string.Join(",", AllBadges.Select(b => b.AppId)));
+                        var json = new WebClient() { Encoding = Encoding.UTF8 }.DownloadString(query);
+                        var convertedJson = JsonConvert.DeserializeObject<EnhancedsteamHelper>(json);
+                        foreach (var price in convertedJson.Avg_Values)
+                        {
+                            var badge = AllBadges.SingleOrDefault(b => b.AppId == price.AppId);
+                            if (badge != null)
+                                badge.AveragePrice = price.Avg_Price;
+                        }
+                        AllBadges = AllBadges.OrderByDescending(b => b.AveragePrice).ToList();
                     }
-                    AllBadges = AllBadges.OrderByDescending(b => b.AveragePrice).ToList();
+                    catch  
+                    {
+
+                    }                    
                     break;
                 default:
                     return;
@@ -152,15 +161,31 @@ namespace IdleMaster
             // This prevents rogue processes from interfering with idling time and slowing card drops
             try 
             {
+                String username = WindowsIdentity.GetCurrent().Name;
                 foreach (var process in Process.GetProcessesByName("steam-idle"))
                 {
-                    process.Kill();
+                    ManagementObjectSearcher searcher = new ManagementObjectSearcher("Select * From Win32_Process Where ProcessID = " + process.Id);
+                    ManagementObjectCollection processList = searcher.Get();
+
+                    foreach (ManagementObject obj in processList)
+                    {
+                        string[] argList = new string[] { string.Empty, string.Empty };
+                        int returnVal = Convert.ToInt32(obj.InvokeMethod("GetOwner", argList));
+                        if (returnVal == 0)
+                        {
+                            if (argList[1] + "\\" + argList[0] == username)
+                            {
+                                process.Kill();
+                            }
+                        }
+                    }
+                    
                 }
             }
             catch (Exception)
             {
 
-            }            
+            }
             
             // Check if user is authenticated and if any badge left to idle
             // There should be check for IsCookieReady, but property is set in timer tick, so it could take some time to be set.
@@ -185,15 +210,32 @@ namespace IdleMaster
                     }
                     else
                     {
-                        var multi = CanIdleBadges.Where(b => b.HoursPlayed < 2);
-                        if (multi.Count() >= 2)
+                        if (Settings.Default.OneThenMany)
                         {
-                            StartMultipleIdle();
+                            var multi = CanIdleBadges.Where(b => b.HoursPlayed >= 2);
+                            if (multi.Count() >= 1)
+                            {
+                                StartSoloIdle(multi.First());
+                            }
+                            else
+                            {
+                                StartMultipleIdle();
+                            }
                         }
                         else
                         {
-                            StartSoloIdle(CanIdleBadges.First());
+                            var multi = CanIdleBadges.Where(b => b.HoursPlayed < 2);
+                            if (multi.Count() >= 2)
+                            {
+                                StartMultipleIdle();
+                            }
+                            else
+                            {
+                                StartSoloIdle(CanIdleBadges.First());
+                            }
                         }
+                        
+                        
                     }
                 }
                 else
@@ -881,10 +923,11 @@ namespace IdleMaster
             // Show the form
             String previous = Settings.Default.sort;
             Boolean previous_behavior = Settings.Default.OnlyOneGameIdle;
+            Boolean previous_behavior2 = Settings.Default.OneThenMany;
             Form frm = new frmSettings();
             frm.ShowDialog();
 
-            if (previous != Settings.Default.sort || previous_behavior != Settings.Default.OnlyOneGameIdle)
+            if (previous != Settings.Default.sort || previous_behavior != Settings.Default.OnlyOneGameIdle || previous_behavior2 != Settings.Default.OneThenMany)
             {
                 StopIdle();
                 AllBadges.Clear();
