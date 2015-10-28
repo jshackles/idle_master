@@ -118,227 +118,227 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="about" xml:space="preserve">
-    <value>&amp;À propos</value>
+    <value>&amp;O programu</value>
   </data>
   <data name="badge_didnt_load" xml:space="preserve">
-    <value>La page des badges n'a pas pû être chargée, nouvel essai dans __num__ secondes</value>
+    <value>Stránku s odznaky se nepovedlo načíst, další pokus proběhne za __num__ sekund</value>
   </data>
   <data name="blacklist" xml:space="preserve">
-    <value>&amp;Liste noire</value>
+    <value>&amp;Ignorované hry</value>
   </data>
   <data name="blacklist_current_game" xml:space="preserve">
-    <value>&amp;Mettre en liste noire le jeu en cours</value>
+    <value>&amp;Ignorovat aktuální hru</value>
   </data>
   <data name="card_drops_remaining" xml:space="preserve">
-    <value>cartes à récupérer restantes</value>
+    <value>zbývá karet</value>
   </data>
   <data name="currently_ingame" xml:space="preserve">
-    <value>Actuellement en jeu</value>
+    <value>Právě ve hře</value>
   </data>
   <data name="exit" xml:space="preserve">
-    <value>S&amp;ortir</value>
+    <value>&amp;Ukončit</value>
   </data>
   <data name="file" xml:space="preserve">
-    <value>&amp;Fichier</value>
+    <value>&amp;Soubor</value>
   </data>
   <data name="game" xml:space="preserve">
-    <value>&amp;Jeu</value>
+    <value>&amp;Hra</value>
   </data>
   <data name="games_left_to_idle" xml:space="preserve">
-    <value>jeux restants à traiter</value>
+    <value>počet zbývajících her</value>
   </data>
   <data name="help" xml:space="preserve">
-    <value>&amp;Aide</value>
+    <value>&amp;Nápověda</value>
   </data>
   <data name="hours" xml:space="preserve">
-    <value>Heures</value>
+    <value>hodin</value>
   </data>
   <data name="hrs_on_record" xml:space="preserve">
-    <value>hrs enregistrées</value>
+    <value>zaznamenaných hodin</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle Master est connecté à Steam</value>
+    <value>Idle Master je připojen ke Steamu</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master n'est pas connecté à Steam</value>
+    <value>Idle Master není připojen ke Steamu</value>
   </data>
   <data name="idle_now" xml:space="preserve">
-    <value>traitement en cours</value>
+    <value>právě běží na pozadí</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
     <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
-    <value>Traitement en pause</value>
+    <value>Pozastaveno</value>
   </data>
   <data name="loading_next" xml:space="preserve">
-    <value>Chargement du prochain jeu...</value>
+    <value>Načítání následující hry...</value>
   </data>
   <data name="name" xml:space="preserve">
-    <value>Nom</value>
+    <value>Název</value>
   </data>
   <data name="next_check" xml:space="preserve">
-    <value>Prochaine vérification</value>
+    <value>Další kontrola</value>
   </data>
   <data name="not_ingame" xml:space="preserve">
-    <value>Pas en jeu</value>
+    <value>Žádná hra není spuštěná</value>
   </data>
   <data name="official_group" xml:space="preserve">
-    <value>&amp;Groupe officiel</value>
+    <value>&amp;Oficiální skupina</value>
   </data>
   <data name="pause_idling" xml:space="preserve">
-    <value>&amp;Mettre en pause le traitement</value>
+    <value>&amp;Pozastavit</value>
   </data>
   <data name="please_wait" xml:space="preserve">
-    <value>veuillez patienter...</value>
+    <value>čekejte prosím...</value>
   </data>
   <data name="reading_badge_page" xml:space="preserve">
-    <value>Lecture de la page de badge</value>
+    <value>Načítání stránky s odznaky</value>
   </data>
   <data name="release_notes" xml:space="preserve">
-    <value>&amp;Notes de version</value>
+    <value>Poznámky k vydání</value>
   </data>
   <data name="resume_idling" xml:space="preserve">
-    <value>&amp;Reprendre le traitement</value>
+    <value>&amp;Pokračovat</value>
   </data>
   <data name="settings" xml:space="preserve">
-    <value>&amp;Réglages</value>
+    <value>&amp;Nastavení</value>
   </data>
   <data name="signed_in_as" xml:space="preserve">
-    <value>Connecté en tant que</value>
+    <value>Přihlášen jako</value>
   </data>
   <data name="sign_in" xml:space="preserve">
-    <value>Se connecter</value>
+    <value>Přihlásit se</value>
   </data>
   <data name="sign_out" xml:space="preserve">
-    <value>Se déconnecter</value>
+    <value>Odhlásit se</value>
   </data>
   <data name="skip_current_game" xml:space="preserve">
-    <value>&amp;Passer le jeu en cours</value>
+    <value>&amp;Přeskočit aktuální hru</value>
   </data>
   <data name="sorting_results" xml:space="preserve">
-    <value>Tri des résultats basé sur vos réglages, veuillez patienter...</value>
+    <value>Čekejte prosím, probíhá seřazování výsledků na základě nastavení...</value>
   </data>
   <data name="statistics" xml:space="preserve">
-    <value>&amp;Statistiques</value>
+    <value>&amp;Statistiky</value>
   </data>
   <data name="statistics_title" xml:space="preserve">
-    <value>Statistiques</value>
+    <value>Statistiky</value>
   </data>
   <data name="steam_ignored" xml:space="preserve">
-    <value>Statut du client Steam ignoré</value>
+    <value>Status Steam klienta ignorován</value>
   </data>
   <data name="steam_notrunning" xml:space="preserve">
-    <value>Steam n'est pas lancé</value>
+    <value>Steam není spuštěn</value>
   </data>
   <data name="steam_running" xml:space="preserve">
-    <value>Steam est lancé</value>
+    <value>Steam je spuštěn</value>
   </data>
   <data name="update_games_status" xml:space="preserve">
-    <value>Mise à jour du statut des jeux</value>
+    <value>Aktualizovat</value>
   </data>
   <data name="accept" xml:space="preserve">
-    <value>&amp;Accepter</value>
+    <value>&amp;Přijmout</value>
   </data>
   <data name="add" xml:space="preserve">
-    <value>&amp;Ajouter</value>
+    <value>&amp;Přidat</value>
   </data>
   <data name="add_game_blacklist" xml:space="preserve">
-    <value>Ajouter le jeu à la liste noire</value>
+    <value>Přidat hru do seznamu ingnorovaných</value>
   </data>
   <data name="advanced_auth" xml:space="preserve">
-    <value>Afficher les informations d'authentification avancées</value>
+    <value>Zobrazit pokročilé informace o autentifikaci</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Données d'authentification Idle Master</value>
+    <value>Idle Master autentifikační data</value>
   </data>
   <data name="cancel" xml:space="preserve">
-    <value>&amp;Annuler</value>
+    <value>&amp;Zrušit</value>
   </data>
   <data name="cookie_warning" xml:space="preserve">
-    <value>Afficher les informations ci-dessous
+    <value>Zobrazit informace výše
 
-[WARNING]
-Ne partagez cette information avec personne,
-celle-ci peut être utilisée par un attaquant pour se connecter à votre compte Steam.</value>
+[VAROVÁNÍ]
+Následující informace s nikým nesdílejte,
+mohli by být zneužity útočníkem pro přihlášení k vašemu účtu Steam.</value>
   </data>
   <data name="general" xml:space="preserve">
-    <value>Général</value>
+    <value>Obecné</value>
   </data>
   <data name="idle_individual" xml:space="preserve">
-    <value>Traiter chaque jeu individuellement</value>
+    <value>Procházet každou hru zvlášť</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Réglages Idle Master</value>
+    <value>Idle Master nastavení</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
-    <value>Traiter les jeux simultanément jusqu'à 2 heures, puis individuellement</value>
+    <value>Nechat běžet hry na pozadí až 2 hodiny, poté každou zvlášť</value>
   </data>
   <data name="idling_behavior" xml:space="preserve">
-    <value>Comportement de traitement</value>
+    <value>Způsob procházení</value>
   </data>
   <data name="idling_order" xml:space="preserve">
-    <value>Ordre de traitement</value>
+    <value>Priorita procházení</value>
   </data>
   <data name="ignore_client_status" xml:space="preserve">
-    <value>Ignorer l'état du client Steam</value>
+    <value>Ignorovat status Steam klienta</value>
   </data>
   <data name="interface_language" xml:space="preserve">
-    <value>Langue de l'interface</value>
+    <value>Jazyk programu</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>Gérer la liste noire de Idle Master</value>
+    <value>Spravovat ignorované hry</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Réduire Idle Master dans la barre d'état système</value>
+    <value>Minimalizovat Idle Master do oznamovací oblasti</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
   </data>
   <data name="order_default" xml:space="preserve">
-    <value>Par défaut (Ordre Alphabétique)</value>
+    <value>Výchozí (Abecedně)</value>
   </data>
   <data name="order_least" xml:space="preserve">
-    <value>Prioriser les jeux avec le plus petit nombre de cartes à récupérer disponibles</value>
+    <value>Upřednostňovat hry s nejnižším počtem karet</value>
   </data>
   <data name="order_most" xml:space="preserve">
-    <value>Prioriser les jeux avec le plus grand nombre de cartes à récupérer disponibles</value>
+    <value>Upřednostňovat hry s nejvyšším počtem karet</value>
   </data>
   <data name="order_value" xml:space="preserve">
-    <value>Prioriser les jeux avec les cartes de plus hautes valeurs</value>
+    <value>Upřednostňovat hry s nejvyšší cenou karet</value>
   </data>
   <data name="please_login" xml:space="preserve">
-    <value>Veuillez vous connecter à Steam</value>
+    <value>Přihlaste se prosím do Steamu</value>
   </data>
   <data name="please_restart" xml:space="preserve">
-    <value>Veuillez redémarrer l'application pour que le changement de langue prenne effet.</value>
+    <value>Restartujte prosím aplikaci, aby mohlo dojít ke změně jazyka.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Notes de versions de Idle Master</value>
+    <value>Idle Master - Poznámky k vydání</value>
   </data>
   <data name="save" xml:space="preserve">
-    <value>&amp;Sauvegarder</value>
+    <value>&amp;Uložit</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Idle Master enregistre vos informations</value>
+    <value>Idle Master právě ukládá vaše data</value>
   </data>
   <data name="show_username" xml:space="preserve">
-    <value>Afficher le nom d'utilisateur Steam de l'utilisateur connecté</value>
+    <value>Zobrazit Steam jméno přihlášeného uživatele</value>
   </data>
   <data name="this_session" xml:space="preserve">
-    <value>Cette session</value>
+    <value>Toto sezení</value>
   </data>
   <data name="total" xml:space="preserve">
-    <value>Total</value>
+    <value>Celkem</value>
   </data>
   <data name="update" xml:space="preserve">
-    <value>&amp;Mise à jour</value>
+    <value>&amp;Aktualizovat</value>
   </data>
   <data name="validate_failed" xml:space="preserve">
-    <value>Les données que vous avez saisi ne sont pas valides. Veuillez essayer à nouveau.</value>
+    <value>Zadaná data nejsou platná. Zkuste to znovu.</value>
   </data>
   <data name="validating" xml:space="preserve">
-    <value>Validation...</value>
+    <value>Ověřuji...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
     <value>Idle games with more than 2 hours individually, then simultaneously</value>

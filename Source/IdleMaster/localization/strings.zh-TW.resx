@@ -166,7 +166,7 @@
     <value>現在開始掉落</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>掉落完畢</value>
+    <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>掉落已暫停</value>
@@ -221,6 +221,9 @@
   </data>
   <data name="statistics" xml:space="preserve">
     <value>統計數據(&amp;S)</value>
+  </data>
+  <data name="statistics_title" xml:space="preserve">
+    <value>統計數據</value>
   </data>
   <data name="steam_ignored" xml:space="preserve">
     <value>Steam客戶端狀態已忽略</value>
@@ -280,6 +283,9 @@
   <data name="ignore_client_status" xml:space="preserve">
     <value>忽略Steam用戶端狀態</value>
   </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>介面語言</value>
+  </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>管理Idle Master黑名單</value>
   </data>
@@ -303,6 +309,9 @@
   </data>
   <data name="please_login" xml:space="preserve">
     <value>請登入至Steam帳戶</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>請重新啟動程式，使語言更改生效</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>Idle Master版本發佈說明</value>
@@ -330,5 +339,8 @@
   </data>
   <data name="validating" xml:space="preserve">
     <value>驗證中...</value>
+  </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>Idle games with more than 2 hours individually, then simultaneously</value>
   </data>
 </root>

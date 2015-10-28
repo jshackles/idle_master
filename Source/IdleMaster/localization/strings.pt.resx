@@ -166,7 +166,7 @@
     <value>"Idle" agora</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>"Idle" completo</value>
+    <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>"Idle" pausado</value>
@@ -222,6 +222,9 @@
   <data name="statistics" xml:space="preserve">
     <value>Estatísticas</value>
   </data>
+  <data name="statistics_title" xml:space="preserve">
+    <value>Estatísticas</value>
+  </data>
   <data name="steam_ignored" xml:space="preserve">
     <value>Estado do cliente Steam ignorado</value>
   </data>
@@ -235,101 +238,110 @@
     <value>Atualizar o estado dos jogos</value>
   </data>
   <data name="accept" xml:space="preserve">
-    <value>&amp;Accept</value>
+    <value>&amp;Aceitar</value>
   </data>
   <data name="add" xml:space="preserve">
-    <value>&amp;Add</value>
+    <value>&amp;Adicionar</value>
   </data>
   <data name="add_game_blacklist" xml:space="preserve">
-    <value>Add Game to Blacklist</value>
+    <value>Adicionar jogo à lista de jogos bloqueados</value>
   </data>
   <data name="advanced_auth" xml:space="preserve">
-    <value>Display advanced authentication information</value>
+    <value>Exibir informações de autenticação avançadas</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Idle Master Authentication Data</value>
+    <value>Dados de autenticação do Idle Master</value>
   </data>
   <data name="cancel" xml:space="preserve">
-    <value>&amp;Cancel</value>
+    <value>&amp;Cancelar</value>
   </data>
   <data name="cookie_warning" xml:space="preserve">
-    <value>Display information above
+    <value>Exibir informação acima 
 
 [WARNING]
-Do not share this information with anyone,
-as it could potentially be used by an attacker to log into
-your Steam account.</value>
+Não partilhe esta informação com ninguém,
+já que pode ser usada por um invasor
+para aceder à sua conta do Steam.</value>
   </data>
   <data name="general" xml:space="preserve">
-    <value>General</value>
+    <value>Geral</value>
   </data>
   <data name="idle_individual" xml:space="preserve">
-    <value>Idle each game individually</value>
+    <value>Fazer "idle" de cada jogo individualmente</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Idle Master Settings</value>
+    <value>Definições do Idle Master</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
-    <value>Idle games simultaneously up to 2 hours, then individually</value>
+    <value>Fazer "idle" de jogos simultaneamente até 2 horas, em seguida, individualmente</value>
   </data>
   <data name="idling_behavior" xml:space="preserve">
-    <value>Idling Behavior</value>
+    <value>Comportamento de "Idle"</value>
   </data>
   <data name="idling_order" xml:space="preserve">
-    <value>Idling Order</value>
+    <value>Ordem de "Idle"</value>
   </data>
   <data name="ignore_client_status" xml:space="preserve">
-    <value>Ignore Steam client status</value>
+    <value>Ignorar estado do cliente Steam</value>
+  </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>Idioma da interface</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>Manage Idle Master Blacklist</value>
+    <value>Gerir a lista de jogos bloqueados</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Minimize Idle Master to system tray</value>
+    <value>Minimizar Idle Master para a bandeja do sistema</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
   </data>
   <data name="order_default" xml:space="preserve">
-    <value>Default (Alphabetical Order)</value>
+    <value>Padrão (ordem alfabética)</value>
   </data>
   <data name="order_least" xml:space="preserve">
-    <value>Prioritize games with the lowest number of available drops</value>
+    <value>Priorizar jogos com o menor número de cartas disponíveis</value>
   </data>
   <data name="order_most" xml:space="preserve">
-    <value>Prioritize games with the highest number of available drops</value>
+    <value>Priorizar jogos com o maior número de cartas disponíveis</value>
   </data>
   <data name="order_value" xml:space="preserve">
-    <value>Prioritize games with the highest card values</value>
+    <value>Priorizar jogos com cartas de maior valor</value>
   </data>
   <data name="please_login" xml:space="preserve">
-    <value>Please Login to Steam</value>
+    <value>Efetuar Login no Steam</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>Por favor reinicie a aplicação para alterações de linguagem tomarem efeito.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Idle Master Release Notes</value>
+    <value>Notas de lançamento do Idle Master</value>
   </data>
   <data name="save" xml:space="preserve">
-    <value>&amp;Save</value>
+    <value>&amp;Guardar</value>
   </data>
   <data name="saving_info" xml:space="preserve">
     <value>O Idle Master está a guardar a tua informação</value>
   </data>
   <data name="show_username" xml:space="preserve">
-    <value>Show Steam username of signed on user</value>
+    <value>Mostrar nome de utilizador ligado ao Steam</value>
   </data>
   <data name="this_session" xml:space="preserve">
-    <value>This Session</value>
+    <value>Esta sessão</value>
   </data>
   <data name="total" xml:space="preserve">
     <value>Total</value>
   </data>
   <data name="update" xml:space="preserve">
-    <value>&amp;Update</value>
+    <value>&amp;Atualizar</value>
   </data>
   <data name="validate_failed" xml:space="preserve">
-    <value>The data you've entered isn't valid.  Please try again.</value>
+    <value>Os dados que introduziu não são válidos. Por favor, tente novamente.</value>
   </data>
   <data name="validating" xml:space="preserve">
-    <value>Validating...</value>
+    <value>A validar...</value>
+  </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>Idle games with more than 2 hours individually, then simultaneously</value>
   </data>
 </root>

@@ -22,7 +22,7 @@ namespace IdleMaster
         private void frmStatistics_Load(object sender, EventArgs e)
         {
             // Localize Form
-            this.Text = localization.strings.statistics.Replace("&", "");
+            this.Text = localization.strings.statistics_title;
             btnOK.Text = localization.strings.accept;
             lblSessionHeader.Text = localization.strings.this_session + ":";
             lblTotalHeader.Text = localization.strings.total + ":";

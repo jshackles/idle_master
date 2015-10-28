@@ -300,6 +300,15 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Idle games with more than 2 hours individually, then simultaneously.
+        /// </summary>
+        internal static string idle_onethenmany {
+            get {
+                return ResourceManager.GetString("idle_onethenmany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Idle games simultaneously up to 2 hours, then individually.
         /// </summary>
         internal static string idle_simultaneous {
@@ -318,7 +327,7 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Idling complete.
+        ///   Looks up a localized string similar to Idling complete, no more card drops available.
         /// </summary>
         internal static string idling_complete {
             get {
@@ -629,6 +638,15 @@ namespace IdleMaster.localization {
         internal static string statistics {
             get {
                 return ResourceManager.GetString("statistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics.
+        /// </summary>
+        internal static string statistics_title {
+            get {
+                return ResourceManager.GetString("statistics_title", resourceCulture);
             }
         }
         

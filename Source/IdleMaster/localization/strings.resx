@@ -166,7 +166,7 @@
     <value>idle now</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete</value>
+    <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Idling paused</value>
@@ -221,6 +221,9 @@
   </data>
   <data name="statistics" xml:space="preserve">
     <value>&amp;Statistics</value>
+  </data>
+  <data name="statistics_title" xml:space="preserve">
+    <value>Statistics</value>
   </data>
   <data name="steam_ignored" xml:space="preserve">
     <value>Steam client status ignored</value>
@@ -337,5 +340,8 @@ your Steam account.</value>
   </data>
   <data name="validating" xml:space="preserve">
     <value>Validating...</value>
+  </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>Idle games with more than 2 hours individually, then simultaneously</value>
   </data>
 </root>

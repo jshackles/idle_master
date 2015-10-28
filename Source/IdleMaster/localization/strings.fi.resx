@@ -166,7 +166,7 @@
     <value>idlaa nyt</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idlaaminen suoritettu</value>
+    <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Idlaaminen keskeytetty</value>
@@ -222,6 +222,9 @@
   <data name="statistics" xml:space="preserve">
     <value>&amp;Tilastot</value>
   </data>
+  <data name="statistics_title" xml:space="preserve">
+    <value>Tilastot</value>
+  </data>
   <data name="steam_ignored" xml:space="preserve">
     <value>Steam-ohjelman tila jätettiin huomioimatta</value>
   </data>
@@ -253,12 +256,12 @@
     <value>&amp;Peruuta</value>
   </data>
   <data name="cookie_warning" xml:space="preserve">
-    <value>Display information above
+    <value>Näyttää ylläolevat tiedot
 
-[WARNING]
-Do not share this information with anyone,
-as it could potentially be used by an attacker to log into
-your Steam account.</value>
+[VAROITUS]
+Älä jaa näitä tietoja kenenkään kanssa.
+Niitä käyttäjen hyökkääjä voisi mahdollisesti
+kirjautua sinun Steam tilillesi.</value>
   </data>
   <data name="general" xml:space="preserve">
     <value>Yleiset</value>
@@ -280,6 +283,9 @@ your Steam account.</value>
   </data>
   <data name="ignore_client_status" xml:space="preserve">
     <value>Sivuuta Steam ohjelmiston tila</value>
+  </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>Käyttöliittymän kieli</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>Hallitse Idle Masterin mustaa listaa</value>
@@ -304,6 +310,9 @@ your Steam account.</value>
   </data>
   <data name="please_login" xml:space="preserve">
     <value>Kirjaudu Steamiin</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>Käynnistä sovellus uudelleen jotta kielimuutokset tulevat voimaan.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>Idle Master julkaisutiedot</value>
@@ -331,5 +340,8 @@ your Steam account.</value>
   </data>
   <data name="validating" xml:space="preserve">
     <value>Vahvistetaan...</value>
+  </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>Idle games with more than 2 hours individually, then simultaneously</value>
   </data>
 </root>

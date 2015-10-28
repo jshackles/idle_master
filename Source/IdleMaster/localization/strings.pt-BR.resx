@@ -166,7 +166,7 @@
     <value>"Idle" agora</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>"Idling" completo</value>
+    <value>Idling complete, no more card drops available</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>"Idling" em pausa</value>
@@ -221,6 +221,9 @@
   </data>
   <data name="statistics" xml:space="preserve">
     <value>&amp;Estatísticas</value>
+  </data>
+  <data name="statistics_title" xml:space="preserve">
+    <value>Estatísticas</value>
   </data>
   <data name="steam_ignored" xml:space="preserve">
     <value>Estado do cliente Steam ignorado</value>
@@ -279,6 +282,9 @@ não compartilhe esta informação com ninguém, pois pode potencialmente ser us
   <data name="ignore_client_status" xml:space="preserve">
     <value>Ignorar o status do cliente do Steam</value>
   </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>Idioma Da Interface</value>
+  </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>Gerenciar a lista negra do Idle Master</value>
   </data>
@@ -302,6 +308,9 @@ não compartilhe esta informação com ninguém, pois pode potencialmente ser us
   </data>
   <data name="please_login" xml:space="preserve">
     <value>Por favor conecte-se no Steam</value>
+  </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>Por favor, reinicie o aplicativo para que as alterações de linguagem tenham efeito.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>Notas de Lançamento do Idle Master</value>
@@ -329,5 +338,8 @@ não compartilhe esta informação com ninguém, pois pode potencialmente ser us
   </data>
   <data name="validating" xml:space="preserve">
     <value>Validando...</value>
+  </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>Idle games with more than 2 hours individually, then simultaneously</value>
   </data>
 </root>

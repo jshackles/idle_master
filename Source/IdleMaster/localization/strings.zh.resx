@@ -166,7 +166,7 @@
     <value>正在运行</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>全部完成</value>
+    <value>挂卡完成，所有卡牌已经掉光光咯</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>游戏暂停</value>
@@ -175,7 +175,7 @@
     <value>加载下一个游戏...</value>
   </data>
   <data name="name" xml:space="preserve">
-    <value>游戏时间</value>
+    <value>游戏名</value>
   </data>
   <data name="next_check" xml:space="preserve">
     <value>下次刷新</value>
@@ -221,6 +221,9 @@
   </data>
   <data name="statistics" xml:space="preserve">
     <value>统计 (&amp;S)</value>
+  </data>
+  <data name="statistics_title" xml:space="preserve">
+    <value>Idle Master 统计</value>
   </data>
   <data name="steam_ignored" xml:space="preserve">
     <value>Steam状态已被忽略</value>
@@ -279,6 +282,9 @@
   <data name="ignore_client_status" xml:space="preserve">
     <value>忽略Steam运行状态</value>
   </data>
+  <data name="interface_language" xml:space="preserve">
+    <value>界面语言</value>
+  </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>管理 Idle Master 黑名单</value>
   </data>
@@ -286,7 +292,7 @@
     <value>最小化到系统托盘</value>
   </data>
   <data name="ok" xml:space="preserve">
-    <value>&amp;OK</value>
+    <value>确定(&amp;A)</value>
   </data>
   <data name="order_default" xml:space="preserve">
     <value>默认 (按字母排序)</value>
@@ -303,6 +309,9 @@
   <data name="please_login" xml:space="preserve">
     <value>请登录 Steam</value>
   </data>
+  <data name="please_restart" xml:space="preserve">
+    <value>请重启程序使语言更改生效.</value>
+  </data>
   <data name="release_notes_title" xml:space="preserve">
     <value>Idle Master更新记录</value>
   </data>
@@ -316,18 +325,21 @@
     <value>显示当前Steam用户</value>
   </data>
   <data name="this_session" xml:space="preserve">
-    <value>This Session</value>
+    <value>本次统计</value>
   </data>
   <data name="total" xml:space="preserve">
-    <value>Total</value>
+    <value>历史统计</value>
   </data>
   <data name="update" xml:space="preserve">
     <value>更新(&amp;U)</value>
   </data>
   <data name="validate_failed" xml:space="preserve">
-    <value>The data you've entered isn't valid.  Please try again.</value>
+    <value>您输入的数据无效. 请再试一次.</value>
   </data>
   <data name="validating" xml:space="preserve">
-    <value>Validating...</value>
+    <value>验证中...</value>
+  </data>
+  <data name="idle_onethenmany" xml:space="preserve">
+    <value>优先运行已满2小时但仍有卡牌的游戏</value>
   </data>
 </root>
