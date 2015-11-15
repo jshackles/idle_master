@@ -339,6 +339,6 @@ Twojego konta Steam.</value>
     <value>Weryfikuję...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>Farm gry mające ponad 2 godziny pojedynczo, potem równocześnie/value>
   </data>
 </root>
