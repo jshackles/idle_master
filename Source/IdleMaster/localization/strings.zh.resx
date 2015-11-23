@@ -166,7 +166,7 @@
     <value>正在运行</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>运行完成，没有剩余可掉落卡牌</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>游戏暂停</value>
@@ -337,6 +337,6 @@
     <value>验证中...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>依次运行超过2小时的游戏后再同时运行</value>
   </data>
 </root>
