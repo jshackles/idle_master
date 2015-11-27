@@ -121,7 +121,7 @@
     <value>&amp;Sobre</value>
   </data>
   <data name="badge_didnt_load" xml:space="preserve">
-    <value>A página de medalhas não carregou, tentando novamente em __num__ segundos</value>
+    <value>A página de insígnias não carregou, tentando novamente em __num__ segundos</value>
   </data>
   <data name="blacklist" xml:space="preserve">
     <value>&amp;Lista Negra</value>
@@ -166,7 +166,7 @@
     <value>"Idle" agora</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>Processo concluído, não há mais cartas disponíveis</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>"Idling" em pausa</value>
@@ -193,7 +193,7 @@
     <value>por favor, aguarde...</value>
   </data>
   <data name="reading_badge_page" xml:space="preserve">
-    <value>Lendo página das medalhas</value>
+    <value>Lendo a página de insígnias</value>
   </data>
   <data name="release_notes" xml:space="preserve">
     <value>&amp;Notas de lançamento</value>
@@ -211,7 +211,7 @@
     <value>Iniciar sessão</value>
   </data>
   <data name="sign_out" xml:space="preserve">
-    <value>Terminar sessão</value>
+    <value>Finalizar sessão</value>
   </data>
   <data name="skip_current_game" xml:space="preserve">
     <value>&amp;Pular Jogo Atual</value>
@@ -226,10 +226,10 @@
     <value>Estado do cliente Steam ignorado</value>
   </data>
   <data name="steam_notrunning" xml:space="preserve">
-    <value>O steam não está sendo executado</value>
+    <value>O Steam não está sendo executado</value>
   </data>
   <data name="steam_running" xml:space="preserve">
-    <value>O steam está sendo executado</value>
+    <value>O Steam está sendo executado</value>
   </data>
   <data name="update_games_status" xml:space="preserve">
     <value>Atualizar status dos jogos</value>
@@ -247,7 +247,7 @@
     <value>Exibir informações de autenticação avançadas</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Dados de Autenticação do Idle Master</value>
+    <value>Dados de autenticação do Idle Master</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>&amp;Cancelar</value>
@@ -277,10 +277,10 @@ não compartilhe esta informação com ninguém, pois pode potencialmente ser us
     <value>Ordem de "Idling"</value>
   </data>
   <data name="ignore_client_status" xml:space="preserve">
-    <value>Ignorar o status do cliente do Steam</value>
+    <value>Ignorar o status do cliente Steam</value>
   </data>
   <data name="interface_language" xml:space="preserve">
-    <value>Idioma Da Interface</value>
+    <value>Idioma da interface</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
     <value>Gerenciar a lista negra do Idle Master</value>
@@ -304,7 +304,7 @@ não compartilhe esta informação com ninguém, pois pode potencialmente ser us
     <value>Priorizar os jogos com as cartas de maior valor</value>
   </data>
   <data name="please_login" xml:space="preserve">
-    <value>Por favor conecte-se no Steam</value>
+    <value>Por favor, conecte-se ao Steam</value>
   </data>
   <data name="please_restart" xml:space="preserve">
     <value>Por favor, reinicie o aplicativo para que as alterações de linguagem tenham efeito.</value>
@@ -316,7 +316,7 @@ não compartilhe esta informação com ninguém, pois pode potencialmente ser us
     <value>&amp;Salvar</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>O Idle Master está salvando suas informações</value>
+    <value>O Idle Master está salvando as suas informações</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>Mostrar o nome de usuario do Steam do usuario conectado</value>
@@ -337,6 +337,6 @@ não compartilhe esta informação com ninguém, pois pode potencialmente ser us
     <value>Validando...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>"Idlear" jogos com mais de 2 horas individualmente, e então, simultaneamente</value>
   </data>
 </root>

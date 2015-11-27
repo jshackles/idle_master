@@ -166,7 +166,7 @@
     <value>현재 농사중</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>농사가 모두 완료되었습니다. 더 이상 수확할 카드가 없습니다</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>농사가 잠시 중단되었습니다</value>
@@ -269,7 +269,7 @@
     <value>Idle Master 설정</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
-    <value>2시간까지는 동시에 게임들을 돌리고, 이후에는 각각 돌립니다.</value>
+    <value>2시간까지는 동시에 농사를 짓고, 이후에는 따로 농사를 짓습니다</value>
   </data>
   <data name="idling_behavior" xml:space="preserve">
     <value>농사 동작</value>
@@ -338,6 +338,6 @@
     <value>확인 중...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>2시간까지는 따로 농사를 짓고, 이후부터는 동시에 농사를 짓습니다</value>
   </data>
 </root>

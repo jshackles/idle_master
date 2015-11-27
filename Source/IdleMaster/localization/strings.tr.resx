@@ -166,7 +166,7 @@
     <value>rölantiyi başlat</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>Rölanti tamamlandı, daha fazla kart hakkı kalmadı</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Rölanti duraklatıldı</value>
@@ -244,7 +244,7 @@
     <value>Kara Listeye Oyun ekle</value>
   </data>
   <data name="advanced_auth" xml:space="preserve">
-    <value>Özetli doğrulama bilgisini görüntüle</value>
+    <value>Gelişmiş doğrulama bilgisini göster</value>
   </data>
   <data name="auth_data" xml:space="preserve">
     <value>İdle Master doğrulama bilgisi</value>
@@ -338,6 +338,6 @@ aksi halde hırsız tarafından Steam hesabınıza giriş yapılma tehdidi oluş
     <value>Onaylanıyor...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>2 saatten fazla oyunları tek tek, sonra beraber rölanti et</value>
   </data>
 </root>
