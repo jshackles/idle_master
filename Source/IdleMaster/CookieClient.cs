@@ -31,17 +31,15 @@ namespace IdleMaster
 
                 // Check, if cookie should be deleted. This means that sessionID is now invalid and user has to log in again.
                 // Maybe this shoud be done other way (authenticate exception), but because of shared settings and timers in frmMain...
-                if (cookies.Count > 0)
+                Cookie loginCookie = cookies["steamLogin"];
+                if (loginCookie != null && loginCookie.Value == "deleted")
                 {
-                    if (cookies["steamLogin"].Value == "deleted")
-                    {
-                        Settings.Default.sessionid = string.Empty;
-                        Settings.Default.steamLogin = string.Empty;
-                        Settings.Default.steamparental = string.Empty;
-                        Settings.Default.steamMachineAuth = string.Empty;
-                        Settings.Default.steamRememberLogin = string.Empty;
-                        Settings.Default.Save();
-                    }
+                    Settings.Default.sessionid = string.Empty;
+                    Settings.Default.steamLogin = string.Empty;
+                    Settings.Default.steamparental = string.Empty;
+                    Settings.Default.steamMachineAuth = string.Empty;
+                    Settings.Default.steamRememberLogin = string.Empty;
+                    Settings.Default.Save();
                 }
 
                 this.ResponseUri = baseResponse.ResponseUri;
