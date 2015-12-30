@@ -121,7 +121,7 @@
     <value>&amp;Over</value>
   </data>
   <data name="badge_didnt_load" xml:space="preserve">
-    <value>Insige pagina is niet geladen, opnieuw proberen in __num__ seconden</value>
+    <value>Badge pagina is niet geladen, opnieuw proberen in __num__ seconden</value>
   </data>
   <data name="blacklist" xml:space="preserve">
     <value>&amp;Zwarte lijst</value>
@@ -130,13 +130,13 @@
     <value>&amp;Zet de huidige spel op de zwarte lijst</value>
   </data>
   <data name="card_drops_remaining" xml:space="preserve">
-    <value>aantal kaarten resterend</value>
+    <value>resterende kaarten</value>
   </data>
   <data name="currently_ingame" xml:space="preserve">
     <value>Momenteel in het spel</value>
   </data>
   <data name="exit" xml:space="preserve">
-    <value>&amp;Uitgang</value>
+    <value>&amp;Afsluiten</value>
   </data>
   <data name="file" xml:space="preserve">
     <value>&amp;Bestand</value>
@@ -145,7 +145,7 @@
     <value>&amp;Spel</value>
   </data>
   <data name="games_left_to_idle" xml:space="preserve">
-    <value>spellen die inactief gebleven zijn</value>
+    <value>spellen over</value>
   </data>
   <data name="help" xml:space="preserve">
     <value>&amp;Hulp</value>
@@ -163,7 +163,7 @@
     <value>Idle Master is niet verbonden met Steam</value>
   </data>
   <data name="idle_now" xml:space="preserve">
-    <value>inactief nu</value>
+    <value>nu inactief</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
     <value>Idling is compleet, geen card drops meer beschikbaar</value>
@@ -187,16 +187,16 @@
     <value>&amp;Officiële Groep</value>
   </data>
   <data name="pause_idling" xml:space="preserve">
-    <value>&amp;Pauze Idling</value>
+    <value>&amp;Pauzeer Idling</value>
   </data>
   <data name="please_wait" xml:space="preserve">
     <value>wacht alstublieft...</value>
   </data>
   <data name="reading_badge_page" xml:space="preserve">
-    <value>Leest insigne pagina</value>
+    <value>Leest Badge pagina</value>
   </data>
   <data name="release_notes" xml:space="preserve">
-    <value>&amp;Uitgegeven Aantekeningen</value>
+    <value>&amp;Uitgave opmerkingen</value>
   </data>
   <data name="resume_idling" xml:space="preserve">
     <value>&amp;Hervatten</value>
@@ -272,10 +272,10 @@ deze informatie kan worden gebruikt door een aanvaller om in jouw Steam account 
     <value>Idle spellen tegelijkertijd tot 2 uur, daarna individueel</value>
   </data>
   <data name="idling_behavior" xml:space="preserve">
-    <value>Stationair gedrag</value>
+    <value>Idle gedrag</value>
   </data>
   <data name="idling_order" xml:space="preserve">
-    <value>Stationair Bestel</value>
+    <value>Idle Volgorde</value>
   </data>
   <data name="ignore_client_status" xml:space="preserve">
     <value>Negeer Steam client status</value>
@@ -296,13 +296,13 @@ deze informatie kan worden gebruikt door een aanvaller om in jouw Steam account 
     <value>Standaard (Alfabetische Volgorde)</value>
   </data>
   <data name="order_least" xml:space="preserve">
-    <value>Prioriteren spellen met het laagst aantal beschikbare drops</value>
+    <value>Prioriteer spellen met het laagst aantal beschikbare drops</value>
   </data>
   <data name="order_most" xml:space="preserve">
-    <value>Prioriteren spellen met het hoogst aantal beschikbare drops</value>
+    <value>Prioriteer spellen met het hoogst aantal beschikbare drops</value>
   </data>
   <data name="order_value" xml:space="preserve">
-    <value>Prioriteren spellen met de hoogste kaartwaarden</value>
+    <value>Prioriteer spellen met de hoogste kaartwaarden</value>
   </data>
   <data name="please_login" xml:space="preserve">
     <value>Inloggen op Steam</value>
