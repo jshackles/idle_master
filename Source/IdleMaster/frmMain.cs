@@ -566,6 +566,7 @@ namespace IdleMaster
         {
             InitializeComponent();
             AllBadges = new List<Badge>();
+            Properties.Settings.Default.ParentPath = Application.CommonAppDataPath;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
