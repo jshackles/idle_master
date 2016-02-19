@@ -1069,6 +1069,9 @@ namespace IdleMaster
             Settings.Default.mainWindowTop = Top;
             // Use saved position next launch
             Settings.Default.useMainWindowPos = true;
+
+            // Save settings
+            Settings.Default.Save();
         }
     }
 }
