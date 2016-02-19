@@ -712,6 +712,14 @@ namespace IdleMaster
             var scale = graphics.DpiY * 1.625;
             Height = Convert.ToInt32(scale);
 
+            // Don't use saved position first time so Windows can supply a default position
+            if (Settings.Default.useMainWindowPos)
+            {
+                // Set the form position
+                Left = Settings.Default.mainWindowLeft;
+                Top = Settings.Default.mainWindowTop;
+            }
+
             // Set the location of certain elements so that they scale correctly for different DPI settings
             var point = new Point(Convert.ToInt32(graphics.DpiX * 1.14), Convert.ToInt32(lblGameName.Location.Y));
             lblGameName.Location = point;
@@ -770,6 +778,9 @@ namespace IdleMaster
             Settings.Default.steamLogin = string.Empty;
             Settings.Default.myProfileURL = string.Empty;
             Settings.Default.steamparental = string.Empty;
+            Settings.Default.mainWindowLeft = 0;
+            Settings.Default.mainWindowTop = 0;
+            Settings.Default.useMainWindowPos = false;
             Settings.Default.Save();
 
             // Stop the steam-idle process
@@ -1049,6 +1060,15 @@ namespace IdleMaster
         {
             statistics.increaseMinutesIdled();
             statistics.checkCardRemaining((uint)CardsRemaining);
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Save form position
+            Settings.Default.mainWindowLeft = Left;
+            Settings.Default.mainWindowTop = Top;
+            // Use saved position next launch
+            Settings.Default.useMainWindowPos = true;
         }
     }
 }
