@@ -177,6 +177,8 @@ namespace IdleMaster
             // 
             // lblCurrentRemaining
             // 
+            this.lblCurrentRemaining.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblCurrentRemaining.AutoSize = false;
             this.lblCurrentRemaining.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCurrentRemaining.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentRemaining.ForeColor = System.Drawing.Color.Blue;
