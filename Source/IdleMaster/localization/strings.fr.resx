@@ -136,7 +136,7 @@
     <value>Actuellement en jeu</value>
   </data>
   <data name="exit" xml:space="preserve">
-    <value>S&amp;ortir</value>
+    <value>Q&amp;uitter</value>
   </data>
   <data name="file" xml:space="preserve">
     <value>&amp;Fichier</value>
@@ -241,7 +241,7 @@
     <value>&amp;Ajouter</value>
   </data>
   <data name="add_game_blacklist" xml:space="preserve">
-    <value>Ajouter le jeu à la liste noire</value>
+    <value>Ajouter un jeu à la liste noire</value>
   </data>
   <data name="advanced_auth" xml:space="preserve">
     <value>Afficher les informations d'authentification avancées</value>
@@ -296,13 +296,13 @@ celles-ci peuvent être utilisées par un pirate pour se connecter à votre comp
     <value>Par défaut (Ordre Alphabétique)</value>
   </data>
   <data name="order_least" xml:space="preserve">
-    <value>Prioriser les jeux avec le plus petit nombre de cartes restantes disponibles</value>
+    <value>Favoriser les jeux avec le plus petit nombre de cartes restantes</value>
   </data>
   <data name="order_most" xml:space="preserve">
-    <value>Prioriser les jeux avec le plus grand nombre de cartes restantes disponibles</value>
+    <value>Favoriser les jeux avec le plus grand nombre de cartes restantes</value>
   </data>
   <data name="order_value" xml:space="preserve">
-    <value>Prioriser les jeux avec les cartes de plus hautes valeurs</value>
+    <value>Favoriser les jeux avec les cartes de plus hautes valeurs</value>
   </data>
   <data name="please_login" xml:space="preserve">
     <value>Veuillez vous connecter à Steam</value>
@@ -332,12 +332,12 @@ celles-ci peuvent être utilisées par un pirate pour se connecter à votre comp
     <value>&amp;Mettre à jour</value>
   </data>
   <data name="validate_failed" xml:space="preserve">
-    <value>Les données que vous avez saisies ne sont pas valides. Veuillez réessayer.</value>
+    <value>Les informations que vous avez saisies ne sont pas valides. Veuillez réessayer.</value>
   </data>
   <data name="validating" xml:space="preserve">
     <value>Validation...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Traiter les jeux individuellement jusqu'à 2 heures, puis simultanément</value>
+    <value>Traiter les jeux ayant plus de 2 heures individuellement, sinon simultanément</value>
   </data>
 </root>

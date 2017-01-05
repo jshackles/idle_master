@@ -331,7 +331,7 @@ não compartilhe esta informação com ninguém, pois pode potencialmente ser us
     <value>&amp;Atualizar</value>
   </data>
   <data name="validate_failed" xml:space="preserve">
-    <value>Os dados que você digitou não não válidos.  Por favor, tente novamente.</value>
+    <value>Os dados inseridos são inválidos. Por favor, tente novamente.</value>
   </data>
   <data name="validating" xml:space="preserve">
     <value>Validando...</value>
