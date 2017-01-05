@@ -33,7 +33,7 @@ namespace IdleMaster
                 // Maybe this shoud be done other way (authenticate exception), but because of shared settings and timers in frmMain...
                 if (cookies.Count > 0)
                 {
-                    if (cookies["steamLogin"].Value == "deleted")
+                    if (cookies["steamLogin"] != null && cookies["steamLogin"].Value == "deleted")
                     {
                         Settings.Default.sessionid = string.Empty;
                         Settings.Default.steamLogin = string.Empty;
