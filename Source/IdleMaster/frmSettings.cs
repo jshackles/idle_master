@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using IdleMaster.Properties;
-using System.Globalization;
 using System.Threading;
 using System.Text.RegularExpressions;
 
