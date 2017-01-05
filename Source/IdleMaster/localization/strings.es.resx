@@ -166,7 +166,7 @@
     <value>idle ahora</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idiling completado, no hay más cromos disponibles</value>
+    <value>Idling completado, no hay más cromos disponibles</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Idling en pausa</value>
@@ -178,7 +178,7 @@
     <value>Nombre</value>
   </data>
   <data name="next_check" xml:space="preserve">
-    <value>Próxima comprobación</value>
+    <value>Comprobando en...</value>
   </data>
   <data name="not_ingame" xml:space="preserve">
     <value>Actualmente en ningún juego</value>
@@ -270,13 +270,13 @@ tu cuenta de Steam.</value>
     <value>Configuración de Idle Master</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
-    <value>Idlea juegos simultáneamente hasta alcanzar las primeras 2 horas, luego continua individualmente</value>
+    <value>Idlea simultáneamente durante 2 horas y luego continua individualmente</value>
   </data>
   <data name="idling_behavior" xml:space="preserve">
     <value>Comportamiento del idling</value>
   </data>
   <data name="idling_order" xml:space="preserve">
-    <value>Priorizar el idling</value>
+    <value>Prioridad del idling</value>
   </data>
   <data name="ignore_client_status" xml:space="preserve">
     <value>Ignorar el estado del cliente de Steam</value>
@@ -294,7 +294,7 @@ tu cuenta de Steam.</value>
     <value>&amp;OK</value>
   </data>
   <data name="order_default" xml:space="preserve">
-    <value>Predeterminado (Por Orden Alfabético)</value>
+    <value>Predeterminado (por orden alfabético)</value>
   </data>
   <data name="order_least" xml:space="preserve">
     <value>Dar prioridad a los juegos con el menor número de cromos disponibles</value>
@@ -339,6 +339,6 @@ tu cuenta de Steam.</value>
     <value>Validando credenciales...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>"Idlea" juegos con más de 2 horas individualmente, luego simultáneamente</value>
+    <value>Idlea individualmente durante 2 horas y luego continua simultáneamente</value>
   </data>
 </root>
