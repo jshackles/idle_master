@@ -166,7 +166,7 @@
     <value>rulează acum</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>Așteptare completă. nu mai sunt dropuri valabile</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>"Idle" întrerupt</value>
@@ -339,6 +339,6 @@ pentru a se conecta la contul dumneavoastra de Steam.</value>
     <value>Se valideaza...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>Așteaptă pentru jocuri cu 2 sau mai multe ore individual, după simultan</value>
   </data>
 </root>

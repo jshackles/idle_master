@@ -166,7 +166,7 @@
     <value>現在開始掉落</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>掉落結束, 沒有可掉落的卡片</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>掉落已暫停</value>
@@ -338,6 +338,6 @@
     <value>驗證中...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>同時對遊戲時間超過2小時的遊戲進行掛機</value>
   </data>
 </root>

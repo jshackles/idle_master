@@ -166,7 +166,7 @@
     <value>"Idle" agora</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>Processo concluído, não há mais cartas disponíveis</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>"Idle" pausado</value>
@@ -339,6 +339,6 @@ para aceder à sua conta do Steam.</value>
     <value>A validar...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>"Idlear" jogos simultaneamente até duas horas, e a seguir individualmente</value>
   </data>
 </root>

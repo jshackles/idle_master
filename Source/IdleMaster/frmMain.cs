@@ -11,7 +11,6 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 using IdleMaster.Properties;
 using Newtonsoft.Json;
 using Steamworks;

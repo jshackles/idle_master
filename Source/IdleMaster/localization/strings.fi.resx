@@ -166,7 +166,7 @@
     <value>idlaa nyt</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>Idlaaminen valmis, ei enempää löydettäviä kortteja</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Idlaaminen keskeytetty</value>
@@ -339,6 +339,6 @@ kirjautua sinun Steam tilillesi.</value>
     <value>Vahvistetaan...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>Idlaa yli 2 tuntia pelattuja pelejä yksittäin, vähemmän pelattuja samanaikaisesti</value>
   </data>
 </root>

@@ -121,7 +121,7 @@
     <value>&amp;О программе</value>
   </data>
   <data name="badge_didnt_load" xml:space="preserve">
-    <value>Не удалось загрузить страницу со значками, след. попытка через __num__ секунд</value>
+    <value>Не удалось загрузить страницу со значками, повтор через __num__ секунд</value>
   </data>
   <data name="blacklist" xml:space="preserve">
     <value>&amp;Чёрный список</value>
