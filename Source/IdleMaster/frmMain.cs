@@ -35,6 +35,8 @@ namespace IdleMaster
         public int TimeLeft = 900;
         public int RetryCount = 0;
         public int ReloadCount = 0;
+        public int skipType = 900;
+        public bool skipEnabled = false;
         public int CardsRemaining { get { return CanIdleBadges.Sum(b => b.RemainingCard); } }
         public int GamesRemaining { get { return CanIdleBadges.Count(); } }
         public Badge CurrentBadge;
@@ -290,7 +292,16 @@ namespace IdleMaster
             tmrCardDropCheck.Enabled = true;
 
             // Reset the timer
-            TimeLeft = CurrentBadge.RemainingCard == 1 ? 300 : 900;
+            if (CurrentBadge.RemainingCard == 1)
+            {
+                skipType = 300;
+                TimeLeft = 300;
+            }
+            else
+            {
+                skipType = 900;
+                TimeLeft = 900;
+            }
 
             // Set the correct buttons on the form for pause / resume
             btnResume.Visible = false;
@@ -552,8 +563,17 @@ namespace IdleMaster
             else
             {
                 // Resets the clock based on the number of remaining drops
-                TimeLeft = badge.RemainingCard == 1 ? 300 : 900;
-            }
+                if (badge.RemainingCard == 1)
+                {
+                    skipType = 300;
+                    TimeLeft = 300;
+                }
+                else
+                {
+                    skipType = 900;
+                    TimeLeft = 900;
+                }
+           }
 
             lblCurrentRemaining.Text = badge.RemainingCard + " " + localization.strings.card_drops_remaining;
             pbIdle.Value = pbIdle.Maximum - badge.RemainingCard;
@@ -863,7 +883,10 @@ namespace IdleMaster
 
                     isMultipleIdle = CanIdleBadges.Any(b => b.HoursPlayed < 2 && b.InIdle);
                     if (isMultipleIdle)
+                   {
+                        skipType = 360;
                         TimeLeft = 360;
+                    }
                 }
 
                 // Check if user is authenticated and if any badge left to idle
@@ -873,6 +896,16 @@ namespace IdleMaster
             else
             {
                 TimeLeft = TimeLeft - 1;
+                if (skipEnabled)
+                {               
+                    if ( (skipType == 360 && TimeLeft < 355) ||
+                         (skipType == 300 && TimeLeft < 295) ||
+                         (skipType == 900 && TimeLeft < 895)
+                       )
+                        btnSkip.PerformClick();
+                }
+
+
                 lblTimer.Text = TimeSpan.FromSeconds(TimeLeft).ToString(@"mm\:ss");
             }
         }
@@ -1048,6 +1081,11 @@ namespace IdleMaster
         {
             statistics.increaseMinutesIdled();
             statistics.checkCardRemaining((uint)CardsRemaining);
+        }
+
+        private void checkBoxSkipAuto_CheckedChanged(object sender, EventArgs e)
+        {
+            skipEnabled = checkBoxSkipAuto.Checked;
         }
     }
 }

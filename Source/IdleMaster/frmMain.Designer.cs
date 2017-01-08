@@ -85,6 +85,7 @@ namespace IdleMaster
             this.Hours = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblHoursPlayed = new System.Windows.Forms.Label();
             this.tmrStatistics = new System.Windows.Forms.Timer(this.components);
+            this.checkBoxSkipAuto = new System.Windows.Forms.CheckBox();
             this.mnuTop.SuspendLayout();
             this.ssFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReadingPage)).BeginInit();
@@ -539,12 +540,23 @@ namespace IdleMaster
             this.tmrStatistics.Interval = 60000;
             this.tmrStatistics.Tick += new System.EventHandler(this.tmrStatistics_Tick);
             // 
+            // checkBoxSkipAuto
+            // 
+            this.checkBoxSkipAuto.AutoSize = true;
+            this.checkBoxSkipAuto.Location = new System.Drawing.Point(274, 115);
+            this.checkBoxSkipAuto.Name = "checkBoxSkipAuto";
+            this.checkBoxSkipAuto.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxSkipAuto.TabIndex = 30;
+            this.checkBoxSkipAuto.UseVisualStyleBackColor = true;
+            this.checkBoxSkipAuto.CheckedChanged += new System.EventHandler(this.checkBoxSkipAuto_CheckedChanged);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(304, 339);
+            this.Controls.Add(this.checkBoxSkipAuto);
             this.Controls.Add(this.lblHoursPlayed);
             this.Controls.Add(this.GamesState);
             this.Controls.Add(this.lblSignedOnAs);
@@ -644,6 +656,7 @@ namespace IdleMaster
     private Label lblHoursPlayed;
         private Timer tmrStatistics;
         private ToolStripMenuItem statisticsToolStripMenuItem;
+        private CheckBox checkBoxSkipAuto;
     }
 }
 
