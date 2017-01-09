@@ -127,10 +127,10 @@
     <value>&amp;Liste noire</value>
   </data>
   <data name="blacklist_current_game" xml:space="preserve">
-    <value>&amp;Mettre en liste noire le jeu en cours</value>
+    <value>&amp;Mettre le jeu en cours en liste noire</value>
   </data>
   <data name="card_drops_remaining" xml:space="preserve">
-    <value>cartes à récupérer restantes</value>
+    <value>cartes restantes à récupérer</value>
   </data>
   <data name="currently_ingame" xml:space="preserve">
     <value>Actuellement en jeu</value>
@@ -166,7 +166,7 @@
     <value>traitement en cours</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>Traitement terminé, aucune carte restante n'est disponible</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Traitement en pause</value>
@@ -193,7 +193,7 @@
     <value>veuillez patienter...</value>
   </data>
   <data name="reading_badge_page" xml:space="preserve">
-    <value>Lecture de la page de badge</value>
+    <value>Lecture de la page des badges</value>
   </data>
   <data name="release_notes" xml:space="preserve">
     <value>&amp;Notes de version</value>
@@ -255,9 +255,9 @@
   <data name="cookie_warning" xml:space="preserve">
     <value>Afficher les informations ci-dessous
 
-[WARNING]
-Ne partagez cette information avec personne,
-celle-ci peut être utilisée par un attaquant pour se connecter à votre compte Steam.</value>
+[ATTENTION]
+Ne partagez ces informations avec personne,
+celles-ci peuvent être utilisées par un pirate pour se connecter à votre compte Steam.</value>
   </data>
   <data name="general" xml:space="preserve">
     <value>Général</value>
@@ -296,10 +296,10 @@ celle-ci peut être utilisée par un attaquant pour se connecter à votre compte
     <value>Par défaut (Ordre Alphabétique)</value>
   </data>
   <data name="order_least" xml:space="preserve">
-    <value>Prioriser les jeux avec le plus petit nombre de cartes à récupérer disponibles</value>
+    <value>Prioriser les jeux avec le plus petit nombre de cartes restantes disponibles</value>
   </data>
   <data name="order_most" xml:space="preserve">
-    <value>Prioriser les jeux avec le plus grand nombre de cartes à récupérer disponibles</value>
+    <value>Prioriser les jeux avec le plus grand nombre de cartes restantes disponibles</value>
   </data>
   <data name="order_value" xml:space="preserve">
     <value>Prioriser les jeux avec les cartes de plus hautes valeurs</value>
@@ -329,15 +329,15 @@ celle-ci peut être utilisée par un attaquant pour se connecter à votre compte
     <value>Total</value>
   </data>
   <data name="update" xml:space="preserve">
-    <value>&amp;Mise à jour</value>
+    <value>&amp;Mettre à jour</value>
   </data>
   <data name="validate_failed" xml:space="preserve">
-    <value>Les données que vous avez saisi ne sont pas valides. Veuillez essayer à nouveau.</value>
+    <value>Les données que vous avez saisies ne sont pas valides. Veuillez réessayer.</value>
   </data>
   <data name="validating" xml:space="preserve">
     <value>Validation...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>Traiter les jeux individuellement jusqu'à 2 heures, puis simultanément</value>
   </data>
 </root>

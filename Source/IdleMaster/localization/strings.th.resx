@@ -166,7 +166,7 @@
     <value>เปิดดรอปการ์ดเดี๋ยวนี้</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>การ Idle เสร็จสมบูรณ์ ไม่มีการ์ดให้ดรอปเพิ่มอีก</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>หยุดชั่วคราว</value>
@@ -336,6 +336,6 @@
     <value>กำลังตรวจสอบ...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>เปิดเกมที่ต้องใช้เวลามากกว่า 2 ชั่วโมงแยกกัน หลังจากนั้นเปิดพร้อมกัน</value>
   </data>
 </root>

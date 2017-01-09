@@ -166,7 +166,7 @@
     <value>починаємо</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>Процес завершено, більше карток не випаде</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Очікування призупинено</value>
@@ -336,6 +336,6 @@
     <value>Перевірка...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>Запускати ігри з більш-ніж 2 годинами окремо, потім одночасно</value>
   </data>
 </root>

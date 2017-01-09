@@ -166,7 +166,7 @@
     <value>inactief nu</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>Idling is compleet, geen card drops meer beschikbaar</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Idling gestopt</value>
@@ -338,6 +338,6 @@ deze informatie kan worden gebruikt door een aanvaller om in jouw Steam account 
     <value>Bevestigen...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>Idle games met meer dan 2 uur individueel, daarna tegelijkertijd</value>
   </data>
 </root>

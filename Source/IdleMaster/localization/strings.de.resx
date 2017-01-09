@@ -166,7 +166,7 @@
     <value>jetzt aktiv</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>Idlen abgeschlossen, keine weiteren Kartenfunde verfügbar</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Idlen angehalten</value>
@@ -339,6 +339,6 @@ um sich bei deinem Steam Account anzumelden!</value>
     <value>Überprüfe...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>Spiele mit mehr als zwei Stunden Spielzeit einzeln Idlen, danach gleichzeitig</value>
   </data>
 </root>

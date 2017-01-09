@@ -127,7 +127,7 @@
     <value>&amp;Чёрный список</value>
   </data>
   <data name="blacklist_current_game" xml:space="preserve">
-    <value>&amp;В чёрный список текущую игру</value>
+    <value>&amp;Добавить текущую игру в черный список</value>
   </data>
   <data name="card_drops_remaining" xml:space="preserve">
     <value>карт осталось</value>
@@ -166,7 +166,7 @@
     <value>в процессе</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>Процесс завершён, больше нет карт</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Процесс приостановлен</value>
@@ -178,7 +178,7 @@
     <value>Название</value>
   </data>
   <data name="next_check" xml:space="preserve">
-    <value>Следующая проверка</value>
+    <value>След.проверка</value>
   </data>
   <data name="not_ingame" xml:space="preserve">
     <value>Не в игре</value>
@@ -187,7 +187,7 @@
     <value>&amp;Официальная группа</value>
   </data>
   <data name="pause_idling" xml:space="preserve">
-    <value>&amp;Процесс на паузе</value>
+    <value>&amp;Приостановить процесс</value>
   </data>
   <data name="please_wait" xml:space="preserve">
     <value>Пожалуйста, подождите...</value>
@@ -196,7 +196,7 @@
     <value>Проверка наличия карт</value>
   </data>
   <data name="release_notes" xml:space="preserve">
-    <value>&amp;Изменения в версиях</value>
+    <value>&amp;История изменений</value>
   </data>
   <data name="resume_idling" xml:space="preserve">
     <value>&amp;Продолжить процесс</value>
@@ -208,7 +208,7 @@
     <value>Вы вошли как</value>
   </data>
   <data name="sign_in" xml:space="preserve">
-    <value>Войти</value>
+    <value>Авторизация</value>
   </data>
   <data name="sign_out" xml:space="preserve">
     <value>Выйти</value>
@@ -241,7 +241,7 @@
     <value>&amp;Добавить</value>
   </data>
   <data name="add_game_blacklist" xml:space="preserve">
-    <value>Добавить игру в чёрный список</value>
+    <value>Добавить игру в ЧС</value>
   </data>
   <data name="advanced_auth" xml:space="preserve">
     <value>Отобразить дополнительные сведения о проверке подлинности</value>
@@ -288,7 +288,7 @@
     <value>Управление чёрным списком Idle Master</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Минимизировать программу в системный трэй</value>
+    <value>Сворачивать программу в системный трей</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;ОК</value>
@@ -312,7 +312,7 @@
     <value>Пожалуйста, перезапустите программу, чтобы изменения вступили в силу.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Изменения в версиях</value>
+    <value>История изменений</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>&amp;Сохранить</value>
@@ -339,6 +339,6 @@
     <value>Проверка...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>Запускать игры с более, чем 2-я часами отдельно, затем вместе</value>
   </data>
 </root>

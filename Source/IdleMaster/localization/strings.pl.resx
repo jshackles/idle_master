@@ -166,7 +166,7 @@
     <value>farm teraz</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
-    <value>Idling complete, no more card drops available</value>
+    <value>Idlowanie zakończone, brak kart do wydropienia</value>
   </data>
   <data name="idling_paused" xml:space="preserve">
     <value>Farmienie wstrzymane</value>
@@ -339,6 +339,6 @@ Twojego konta Steam.</value>
     <value>Weryfikuję...</value>
   </data>
   <data name="idle_onethenmany" xml:space="preserve">
-    <value>Idle games with more than 2 hours individually, then simultaneously</value>
+    <value>Idluj gry z więcej niż 2 godzinami pojedynczo, potem jednocześnie resztę</value>
   </data>
 </root>
