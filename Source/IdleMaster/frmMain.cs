@@ -106,11 +106,19 @@ namespace IdleMaster
         {
             foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge)))
             {
-                if (badge.HoursPlayed >= 2 && badge.InIdle)
-                    badge.StopIdle();
+                if (!Settings.Default.AlwaysMany)
+                {
+                    if (badge.HoursPlayed >= 2 && badge.InIdle)
+                        badge.StopIdle();
 
-                if (badge.HoursPlayed < 2 && CanIdleBadges.Count(b => b.InIdle) < 30)
-                    badge.Idle();
+                    if (badge.HoursPlayed < 2 && CanIdleBadges.Count(b => b.InIdle) < 30)
+                        badge.Idle();
+                }
+                else
+                {
+                    if (CanIdleBadges.Count(b => b.InIdle) < 30)
+                        badge.Idle();
+                }
             }
 
             RefreshGamesStateListView();
@@ -220,6 +228,10 @@ namespace IdleMaster
                             {
                                 StartMultipleIdle();
                             }
+                        }
+                        else if (Settings.Default.AlwaysMany)
+                        {
+                            StartMultipleIdle();
                         }
                         else
                         {
@@ -861,7 +873,7 @@ namespace IdleMaster
                     await LoadBadgesAsync();
                     UpdateIdleProcesses();
 
-                    isMultipleIdle = CanIdleBadges.Any(b => b.HoursPlayed < 2 && b.InIdle);
+                    isMultipleIdle = CanIdleBadges.Any(b => b.HoursPlayed < 2 && b.InIdle) || Settings.Default.AlwaysMany;
                     if (isMultipleIdle)
                         TimeLeft = 360;
                 }
