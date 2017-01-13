@@ -58,11 +58,17 @@ namespace IdleMaster
             Settings.Default.OneThenMany = false;
             Settings.Default.AlwaysMany = false;
         }
-        else
+        else if (radAlwaysMany.Checked)
         {
             Settings.Default.OnlyOneGameIdle = false;
             Settings.Default.OneThenMany = false;
             Settings.Default.AlwaysMany = true;
+        }
+        else
+        {
+            Settings.Default.OnlyOneGameIdle = false;
+            Settings.Default.OneThenMany = false;
+            Settings.Default.AlwaysMany = false;
         }
         Settings.Default.minToTray = chkMinToTray.Checked;
         Settings.Default.ignoreclient = chkIgnoreClientStatus.Checked;

@@ -935,10 +935,11 @@ namespace IdleMaster
             String previous = Settings.Default.sort;
             Boolean previous_behavior = Settings.Default.OnlyOneGameIdle;
             Boolean previous_behavior2 = Settings.Default.OneThenMany;
+            Boolean previous_behavior3 = Settings.Default.AlwaysMany;
             Form frm = new frmSettings();
             frm.ShowDialog();
 
-            if (previous != Settings.Default.sort || previous_behavior != Settings.Default.OnlyOneGameIdle || previous_behavior2 != Settings.Default.OneThenMany)
+            if (previous != Settings.Default.sort || previous_behavior != Settings.Default.OnlyOneGameIdle || previous_behavior2 != Settings.Default.OneThenMany || previous_behavior3 != Settings.Default.AlwaysMany)
             {
                 StopIdle();
                 AllBadges.Clear();
