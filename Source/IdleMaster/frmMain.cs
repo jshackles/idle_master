@@ -318,6 +318,8 @@ namespace IdleMaster
 
         public void StartMultipleIdle()
         {
+            CurrentBadge = null;
+
             UpdateIdleProcesses();
 
             // Update label controls
