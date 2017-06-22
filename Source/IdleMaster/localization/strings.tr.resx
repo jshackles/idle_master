@@ -130,7 +130,7 @@
     <value>&amp;Şu andaki oyunu kara listeye ekle</value>
   </data>
   <data name="card_drops_remaining" xml:space="preserve">
-    <value>geri kalan kart sayısı</value>
+    <value>Geri kalan kart sayısı</value>
   </data>
   <data name="currently_ingame" xml:space="preserve">
     <value>Şu an oyunda</value>
@@ -145,7 +145,7 @@
     <value>&amp;Oyun</value>
   </data>
   <data name="games_left_to_idle" xml:space="preserve">
-    <value>rölanti edilecek oyun sayısı</value>
+    <value>Rölanti edilecek oyun sayısı</value>
   </data>
   <data name="help" xml:space="preserve">
     <value>&amp;Yardım</value>
@@ -154,7 +154,7 @@
     <value>Saat</value>
   </data>
   <data name="hrs_on_record" xml:space="preserve">
-    <value>oynanmış saat</value>
+    <value>Oynanmış saat</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
     <value>İdle Master şu an Steam ile bağlı</value>
@@ -163,7 +163,7 @@
     <value>İdle Master şu an Steam ile bağlı değil</value>
   </data>
   <data name="idle_now" xml:space="preserve">
-    <value>rölantiyi başlat</value>
+    <value>Rölantiyi başlat</value>
   </data>
   <data name="idling_complete" xml:space="preserve">
     <value>Rölanti tamamlandı, daha fazla kart hakkı kalmadı</value>
@@ -184,13 +184,13 @@
     <value>Şu an oyunda değil</value>
   </data>
   <data name="official_group" xml:space="preserve">
-    <value>&amp;Resmi Grub</value>
+    <value>&amp;Resmi Grup</value>
   </data>
   <data name="pause_idling" xml:space="preserve">
     <value>&amp;Rölantiyi duraklat</value>
   </data>
   <data name="please_wait" xml:space="preserve">
-    <value>lütfen bekleyiniz...</value>
+    <value>Lütfen bekleyiniz...</value>
   </data>
   <data name="reading_badge_page" xml:space="preserve">
     <value>Rozet sayfası okunuyor</value>
