@@ -169,7 +169,8 @@ namespace IdleMaster
             // 
             // lblCurrentStatus
             // 
-            this.lblCurrentStatus.Location = new System.Drawing.Point(15, 135);
+			this.lblCurrentStatus.AutoSize = true;
+			this.lblCurrentStatus.Location = new System.Drawing.Point(15, 135);
             this.lblCurrentStatus.Name = "lblCurrentStatus";
             this.lblCurrentStatus.Size = new System.Drawing.Size(88, 13);
             this.lblCurrentStatus.TabIndex = 11;
