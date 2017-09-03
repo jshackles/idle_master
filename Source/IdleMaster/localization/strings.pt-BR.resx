@@ -130,7 +130,7 @@
     <value>&amp;Adicionar Jogo Atual a Lista Negra</value>
   </data>
   <data name="card_drops_remaining" xml:space="preserve">
-    <value>cartas restantes</value>
+    <value>Cartas restantes</value>
   </data>
   <data name="currently_ingame" xml:space="preserve">
     <value>Atualmente em jogo</value>
@@ -145,7 +145,7 @@
     <value>&amp;Jogo</value>
   </data>
   <data name="games_left_to_idle" xml:space="preserve">
-    <value>jogos restantes para "idlear"</value>
+    <value>Jogo(s) restantes para "idlear"</value>
   </data>
   <data name="help" xml:space="preserve">
     <value>&amp;Ajuda</value>
@@ -154,7 +154,7 @@
     <value>Horas</value>
   </data>
   <data name="hrs_on_record" xml:space="preserve">
-    <value>horas registradas</value>
+    <value>Horas registradas</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
     <value>Idle Master está conectado ao Steam</value>
@@ -190,7 +190,7 @@
     <value>&amp;Pausar "Idling"</value>
   </data>
   <data name="please_wait" xml:space="preserve">
-    <value>por favor, aguarde...</value>
+    <value>Por favor, aguarde um momento...</value>
   </data>
   <data name="reading_badge_page" xml:space="preserve">
     <value>Lendo a página de insígnias</value>
