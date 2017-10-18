@@ -145,7 +145,7 @@
     <value>&amp;Jogo</value>
   </data>
   <data name="games_left_to_idle" xml:space="preserve">
-    <value>Jogo(s) restantes para "idlear"</value>
+    <value>Jogo(s) restante(s) para "idlear"</value>
   </data>
   <data name="help" xml:space="preserve">
     <value>&amp;Ajuda</value>
