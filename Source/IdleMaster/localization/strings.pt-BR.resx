@@ -214,7 +214,7 @@
     <value>Finalizar sessão</value>
   </data>
   <data name="skip_current_game" xml:space="preserve">
-    <value>&amp;Pular Jogo Atual</value>
+    <value>&amp;Pular jogo atual</value>
   </data>
   <data name="sorting_results" xml:space="preserve">
     <value>Organizando resultados baseados nas suas configurações, por favor aguarde...</value>
@@ -241,7 +241,7 @@
     <value>&amp;Adicionar</value>
   </data>
   <data name="add_game_blacklist" xml:space="preserve">
-    <value>Adicionar Jogo a Lista Negra</value>
+    <value>Adicionar jogo a lista negra</value>
   </data>
   <data name="advanced_auth" xml:space="preserve">
     <value>Exibir informações de autenticação avançadas</value>
@@ -286,7 +286,7 @@ não compartilhe esta informação com ninguém, pois pode potencialmente ser us
     <value>Gerenciar a lista negra do Idle Master</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Minimizar o Idle Master à Barra de tarefas do sistema</value>
+    <value>Minimizar o Idle Master à barra de tarefas do sistema</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
