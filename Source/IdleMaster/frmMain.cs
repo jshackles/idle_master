@@ -751,7 +751,7 @@ namespace IdleMaster
 
         private void lblGameName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("http://store.steampowered.com/app/" + CurrentBadge.AppId);
+            Process.Start("steam://store/" + CurrentBadge.AppId);
         }
 
         private void lnkResetCookies_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
