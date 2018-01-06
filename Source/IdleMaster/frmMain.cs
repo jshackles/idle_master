@@ -106,11 +106,19 @@ namespace IdleMaster
         {
             foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge)))
             {
-                if (badge.HoursPlayed >= 2 && badge.InIdle)
-                    badge.StopIdle();
+                if (!Settings.Default.AlwaysMany)
+                {
+                    if (badge.HoursPlayed >= 2 && badge.InIdle)
+                        badge.StopIdle();
 
-                if (badge.HoursPlayed < 2 && CanIdleBadges.Count(b => b.InIdle) < 30)
-                    badge.Idle();
+                    if (badge.HoursPlayed < 2 && CanIdleBadges.Count(b => b.InIdle) < 30)
+                        badge.Idle();
+                }
+                else
+                {
+                    if (CanIdleBadges.Count(b => b.InIdle) < 30)
+                        badge.Idle();
+                }
             }
 
             RefreshGamesStateListView();
@@ -221,6 +229,10 @@ namespace IdleMaster
                                 StartMultipleIdle();
                             }
                         }
+                        else if (Settings.Default.AlwaysMany)
+                        {
+                            StartMultipleIdle();
+                        }
                         else
                         {
                             var multi = CanIdleBadges.Where(b => b.HoursPlayed < 2);
@@ -306,6 +318,8 @@ namespace IdleMaster
 
         public void StartMultipleIdle()
         {
+            CurrentBadge = null;
+
             UpdateIdleProcesses();
 
             // Update label controls
@@ -861,7 +875,7 @@ namespace IdleMaster
                     await LoadBadgesAsync();
                     UpdateIdleProcesses();
 
-                    isMultipleIdle = CanIdleBadges.Any(b => b.HoursPlayed < 2 && b.InIdle);
+                    isMultipleIdle = CanIdleBadges.Any(b => b.HoursPlayed < 2 && b.InIdle) || Settings.Default.AlwaysMany;
                     if (isMultipleIdle)
                         TimeLeft = 360;
                 }
@@ -923,10 +937,11 @@ namespace IdleMaster
             String previous = Settings.Default.sort;
             Boolean previous_behavior = Settings.Default.OnlyOneGameIdle;
             Boolean previous_behavior2 = Settings.Default.OneThenMany;
+            Boolean previous_behavior3 = Settings.Default.AlwaysMany;
             Form frm = new frmSettings();
             frm.ShowDialog();
 
-            if (previous != Settings.Default.sort || previous_behavior != Settings.Default.OnlyOneGameIdle || previous_behavior2 != Settings.Default.OneThenMany)
+            if (previous != Settings.Default.sort || previous_behavior != Settings.Default.OnlyOneGameIdle || previous_behavior2 != Settings.Default.OneThenMany || previous_behavior3 != Settings.Default.AlwaysMany)
             {
                 StopIdle();
                 AllBadges.Clear();
