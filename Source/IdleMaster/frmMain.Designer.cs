@@ -573,6 +573,7 @@ namespace IdleMaster
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Idle Master";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClose);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Resize += new System.EventHandler(this.frmMain_Resize);
