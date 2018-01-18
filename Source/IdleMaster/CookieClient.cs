@@ -57,7 +57,7 @@ namespace IdleMaster
         public static CookieContainer GenerateCookies()
         {
             var cookies = new CookieContainer();
-            var target = new Uri("http://steamcommunity.com");
+            var target = new Uri("https://steamcommunity.com");
             cookies.Add(new Cookie("sessionid", Settings.Default.sessionid) { Domain = target.Host });
             cookies.Add(new Cookie("steamLogin", Settings.Default.steamLogin) { Domain = target.Host });
             cookies.Add(new Cookie("steamparental", Settings.Default.steamparental) { Domain = target.Host });

@@ -413,7 +413,7 @@ namespace IdleMaster
 
         public async Task LoadBadgesAsync()
         {
-            // Settings.Default.myProfileURL = http://steamcommunity.com/id/USER
+            // Settings.Default.myProfileURL = https://steamcommunity.com/id/USER
             var profileLink = Settings.Default.myProfileURL + "/badges";
             var pages = new List<string>() { "?p=1" };
             var document = new HtmlDocument();
@@ -1028,7 +1028,7 @@ namespace IdleMaster
 
         private void officialGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("http://steamcommunity.com/groups/idlemastery");
+            Process.Start("https://steamcommunity.com/groups/idlemastery");
         }
 
         private void tmrBadgeReload_Tick(object sender, EventArgs e)
