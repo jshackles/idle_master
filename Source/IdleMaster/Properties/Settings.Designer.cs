@@ -228,5 +228,17 @@ namespace IdleMaster.Properties {
                 this["OneThenMany"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string steamLoginSecure {
+            get {
+                return ((string)(this["steamLoginSecure"]));
+            }
+            set {
+                this["steamLoginSecure"] = value;
+            }
+        }
     }
 }
