@@ -769,6 +769,7 @@ namespace IdleMaster
             Settings.Default.steamLogin = string.Empty;
             Settings.Default.myProfileURL = string.Empty;
             Settings.Default.steamparental = string.Empty;
+            Settings.Default.steamLoginSecure = string.Empty;
             Settings.Default.Save();
 
             // Stop the steam-idle process
