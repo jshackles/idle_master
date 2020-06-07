@@ -55,15 +55,15 @@ namespace IdleMaster
             // Find the page header, and remove it.  This gives the login form a more streamlined look.
             dynamic htmldoc = wbAuth.Document.DomDocument;
             dynamic globalHeader = htmldoc.GetElementById("global_header");
-            if (globalHeader != null)
+            if (globalHeader != null && !(globalHeader is DBNull))
             {
                 try
                 {
                     globalHeader.parentNode.removeChild(globalHeader);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    Logger.Exception(ex, "frmBrowswer -> wbAuth_DocumentCompleted -> Removing the global_header resulted in an exception");
                 }
 
             }
@@ -86,14 +86,7 @@ namespace IdleMaster
                 }
 
                 browserBarVisibility(true); // Display the browser bar (lock, protocol, url)
-
-                try
-                {
-                    setRememberMeCheckbox(htmldoc);
-                }
-                catch (Exception)
-                {
-                }
+                setRememberMeCheckbox(htmldoc);
 
                 // Tell steam client to generate keys to login on browser
                 if (Settings.Default.QuickLogin)
@@ -108,7 +101,7 @@ namespace IdleMaster
                 try
                 {
                     dynamic parentalNotice = htmldoc.GetElementById("parental_notice");
-                    if (parentalNotice != null)
+                    if (parentalNotice != null && !(parentalNotice is DBNull))
                     {
                         if (parentalNotice.OuterHtml != "")
                         {
@@ -120,9 +113,9 @@ namespace IdleMaster
                         }
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    Logger.Exception(ex, "parental_notice = " + htmldoc.GetElementById("parental_notice"));
                 }
 
                 extractSteamCookies();
@@ -132,21 +125,41 @@ namespace IdleMaster
 
         private void setLoginButtonText(dynamic htmldoc, string text)
         {
-            // Set the "Sign in" button text
-            dynamic steamLoginButton = htmldoc.GetElementById("SteamLogin");
-            if (steamLoginButton != null)
+            if (htmldoc != null)
             {
-                steamLoginButton.Value = text;
+                try
+                {
+                    dynamic steamLoginButton = htmldoc.GetElementById("SteamLogin");
+
+                    if (steamLoginButton != null && !(steamLoginButton is DBNull))
+                    {
+                        steamLoginButton.Value = text;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.Exception(ex, "SteamLogin = " + htmldoc.GetElementById("SteamLogin"));
+                }
             }
         }
 
         private static void setRememberMeCheckbox(dynamic htmldoc)
         {
-            // Set the "Remember me" checkbox
-            dynamic rememberMeCheckBox = htmldoc.GetElementById("remember_login");
-            if (rememberMeCheckBox != null)
+            if (htmldoc != null)
             {
-                rememberMeCheckBox.Checked = true;
+                try
+                {
+                    dynamic rememberMeCheckBox = htmldoc.GetElementById("remember_login");
+                    
+                    if (rememberMeCheckBox != null && !(rememberMeCheckBox is DBNull))
+                    {
+                        rememberMeCheckBox.Checked = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.Exception(ex, "rember_login = " + htmldoc.GetElementById("remember_login"));
+                }
             }
         }
 
@@ -159,45 +172,35 @@ namespace IdleMaster
 
         private void extractSteamCookies()
         {
-            // Get a list of cookies from the current page
             var container = GetUriCookieContainer(wbAuth.Url);
             var cookies = container.GetCookies(wbAuth.Url);
 
-            // Go through the cookie data so that we can extract the cookies we are looking for
             foreach (Cookie cookie in cookies)
             {
-                // Save the "sessionid" cookie
                 if (cookie.Name == "sessionid")
                 {
                     Settings.Default.sessionid = cookie.Value;
                 }
-
-                // Save the "steamLogin" cookie and construct and save the user's profile link
                 else if (cookie.Name == "steamLogin")
                 {
                     Settings.Default.steamLogin = cookie.Value;
                     Settings.Default.myProfileURL = SteamProfile.GetSteamUrl();
                 }
-
                 else if (cookie.Name == "steamLoginSecure")
                 {
                     Settings.Default.steamLoginSecure = cookie.Value;
                     Settings.Default.myProfileURL = SteamProfile.GetSteamUrl();
                 }
-
-                // Save the "steamparental" cookie"
                 else if (cookie.Name == "steamparental")
                 {
                     Settings.Default.steamparental = cookie.Value;
                 }
-
                 else if (cookie.Name == "steamRememberLogin")
                 {
                     Settings.Default.steamRememberLogin = cookie.Value;
                 }
             }
 
-            // Save all of the data to the program settings file, and close this form
             Settings.Default.Save();
         }
 
@@ -306,37 +309,44 @@ namespace IdleMaster
         private void tmrCheck_Tick(object sender, EventArgs e)
         {
             // Prevents the application from "saving" for more than 30 seconds and will attempt to save the cookie data after that time
-            if (SecondsWaiting > 0)
+            if (SecondsWaiting > 0 || wbAuth.ReadyState.Equals(WebBrowserReadyState.Uninitialized))
             {
                 SecondsWaiting -= 1;
             }
             else
             {
-                if (Settings.Default.QuickLogin &&
-                   wbAuth.Url.AbsoluteUri.StartsWith("https://steamcommunity.com/id/"))
+                if (Settings.Default.QuickLogin)
                 {
-                    // The login is completed, and the profile is visible
-                    extractSteamCookies();
-                    tmrCheck.Enabled = false;
-                    Close();
-                }
-                else if (Settings.Default.QuickLogin &&
-                         wbAuth.Url.AbsoluteUri.StartsWith("https://steamcommunity.com/login/home"))
-                {
-                    // For some reason the login is not completed yet
-                    SecondsWaiting = 5;
-
-                    // Attempt to login again
-                    setLoginButtonText(wbAuth.Document.DomDocument, "Attempting to QuickLogin again...");
-                    executeQuickLoginScript();
+                    makeSureLoginHasCompletedOrRefresh();
                 }
                 else
                 {
-                    // Original behavior
-                    tmrCheck.Enabled = false;
-                    Close();
+                    stopTimerAndCloseForm();
                 }
             }
+        }
+
+        private void makeSureLoginHasCompletedOrRefresh()
+        {
+            if (wbAuth.Url.AbsoluteUri.StartsWith("https://steamcommunity.com/id/"))
+            {
+                // The login is completed, and the profile is visible
+                extractSteamCookies();
+                stopTimerAndCloseForm();
+            }
+            else
+            {
+                // For some reason the login is not completed yet, navigating to the login page again
+                SecondsWaiting = 5;
+                wbAuth.Navigate("https://steamcommunity.com/login/home/?goto=my/profile", "_self", null, 
+                    "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko");
+            }
+        }
+
+        private void stopTimerAndCloseForm()
+        {
+            tmrCheck.Enabled = false;
+            Close();
         }
     }
 }

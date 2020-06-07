@@ -47,33 +47,32 @@ namespace IdleMaster
                 Settings.Default.language = cboLanguage.Text;
             }
 
-            if (radOneThenMany.Checked)
+            Settings.Default.OneThenMany = Settings.Default.OnlyOneGameIdle 
+                = Settings.Default.fastMode = Settings.Default.IdlingModeWhitelist = false;
+            
+            if (radFastMode.Checked)
             {
-                Settings.Default.OnlyOneGameIdle = false;
+                Settings.Default.fastMode = true;
+            }
+            else if (radWhitelistMode.Checked)
+            {
+                Settings.Default.IdlingModeWhitelist = true;
+            }
+            else if (radOneThenMany.Checked)
+            {
                 Settings.Default.OneThenMany = true;
-                Settings.Default.fastMode = false; // Disable fast mode
             }
             else
             {
-                Settings.Default.OnlyOneGameIdle = radOneGameOnly.Checked && !radManyThenOne.Checked;
-                Settings.Default.OneThenMany = false;
-
-                // JN: Enable/disable fast mode
-                if (radFastMode.Checked)
-                {
-                    Settings.Default.OnlyOneGameIdle = false;
-                    Settings.Default.fastMode = true;
-                }
-                else
-                {
-                    Settings.Default.fastMode = false;
-                }
+                Settings.Default.OnlyOneGameIdle = !radManyThenOne.Checked;
             }
+
             Settings.Default.minToTray = chkMinToTray.Checked;
             Settings.Default.ignoreclient = chkIgnoreClientStatus.Checked;
             Settings.Default.showUsername = chkShowUsername.Checked;
-            Settings.Default.NoSleep = noSleepBox.Checked;
+            Settings.Default.NoSleep = chkPreventSleep.Checked;
             Settings.Default.QuickLogin = quickLoginBox.Checked;
+            Settings.Default.ShutdownWindowsOnDone = chkShutdown.Checked;
             Settings.Default.Save();
             Close();
         }
@@ -148,6 +147,10 @@ namespace IdleMaster
             {
                 radFastMode.Checked = true;
             }
+            else if (Settings.Default.IdlingModeWhitelist)
+            {
+                radWhitelistMode.Checked = true;
+            }
             else if (Settings.Default.OneThenMany)
             {
                 radOneThenMany.Checked = true;
@@ -174,7 +177,7 @@ namespace IdleMaster
             }
             if (Settings.Default.NoSleep)
             {
-                noSleepBox.Checked = true;
+                chkPreventSleep.Checked = true;
             }
             if (Settings.Default.QuickLogin)
             {
@@ -264,6 +267,11 @@ namespace IdleMaster
         private void QuickLoginBox_CheckedChanged(object sender, EventArgs e)
         {
             Settings.Default.QuickLogin = quickLoginBox.Checked;
+        }
+
+        private void chkShutdown_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Default.ShutdownWindowsOnDone = chkShutdown.Checked;
         }
     }
 }
