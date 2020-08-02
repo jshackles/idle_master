@@ -1,6 +1,6 @@
 Idle Master Extended [![Build status](https://ci.appveyor.com/api/projects/status/96wf12emnlbmo4sj?svg=true)](https://ci.appveyor.com/project/JonasNilson/idle-master-extended)
 ===========
- Get your Steam Trading Cards the Fast Way (Fast Mode Extension)
+ Get your [Steam Trading Cards](https://steamcommunity.com/tradingcards/) the Fast Way (Fast Mode Extension)
  ⭐️ Accepted by the official [Idle Master community](https://steamcommunity.com/groups/idlemastery/discussions/0/1485487749771924917/)
  
 This is a fork of the original [Idle Master](https://github.com/jshackles/idle_master) project (**discontinued** in early 2017) by [jshackles](https://github.com/jshackles) (also known for [Enhanced Steam](https://github.com/jshackles/Enhanced_Steam)).
@@ -8,16 +8,18 @@ This is a fork of the original [Idle Master](https://github.com/jshackles/idle_m
 Download
 -------
 * The latest release is always available here: https://github.com/JonasNilson/idle_master_extended/releases
-  * 💹 Total number of downloads: `430 593` ([source](https://somsubhra.com/github-release-stats/?username=JonasNilson&repository=idle_master_extended), 2020-06-06)
+  * 💹 Total number of downloads: `464 756` ([source](https://somsubhra.com/github-release-stats/?username=JonasNilson&repository=idle_master_extended), 2020-07-03)
 
 Donate
 -------
-* 🎉 [Send me a donation through Steam](https://steamcommunity.com/tradeoffer/new/?partner=180303553&token=gOgA5lWk). I accept anything you throw at me.
-  * **Note**: Only use the trade link directly from here to avoid fake accounts. 
+* 🎉 [Send me a donation through Steam](https://steamcommunity.com/tradeoffer/new/?partner=180303553&token=gOgA5lWk). I accept anything you throw at me. The Steam account id is `JonasNilson` (https://steamcommunity.com/id/JonasNilson)
+  * **Note**: Only use the trade link directly from here to avoid fake accounts.
 
 Troubleshooting and common solutions
 -------
 * Make sure you are eligeable for card drops:
+  * https://steamcommunity.com/tradingcards/
+  * https://steamcommunity.com/tradingcards/faq/
   * https://steamcommunity.com/my/badges
 * Idle Master Steam Group:
   * ⭐ [Read this Thread before posting, it saves time](https://steamcommunity.com/groups/idlemastery/discussions/0/152392786912268315/) 
