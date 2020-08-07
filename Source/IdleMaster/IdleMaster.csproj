@@ -44,11 +44,11 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -68,6 +68,27 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
@@ -108,6 +129,12 @@
     </Compile>
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWhitelist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWhitelist.Designer.cs">
+      <DependentUpon>frmWhitelist.cs</DependentUpon>
     </Compile>
     <Compile Include="frmBlacklist.cs">
       <SubType>Form</SubType>
@@ -164,10 +191,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Statistics.cs" />
     <Compile Include="SteamProfile.cs" />
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWhitelist.resx">
+      <DependentUpon>frmWhitelist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBlacklist.resx">
       <DependentUpon>frmBlacklist.cs</DependentUpon>
@@ -223,7 +254,6 @@
       <LastGenOutput>strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="code signing.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -242,7 +272,6 @@
     <None Include="Resources\x-2x.png" />
     <None Include="Resources\cog-2x.png" />
     <None Include="Resources\check-2x.png" />
-    <EmbeddedResource Include="Resources\CSteamworks.dll" />
     <None Include="Resources\power-standby-2x.png" />
     <None Include="Resources\info-2x.png" />
     <None Include="Resources\media-pause-2x.png" />
@@ -278,6 +307,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo1.ico" />
+    <None Include="Resources\select2-spinner_inverted.gif" />
+    <None Include="Resources\green_lock_shadow.png" />
+    <None Include="Resources\x-2x_w.png" />
+    <None Include="Resources\trash-2x_w.png" />
+    <None Include="Resources\power-standby-2x_w.png" />
+    <None Include="Resources\media-step-forward-2x_w.png" />
+    <None Include="Resources\media-step-forward_w.png" />
+    <None Include="Resources\media-play-2x_w.png" />
+    <None Include="Resources\media-play_w.png" />
+    <None Include="Resources\media-pause-2x_w.png" />
+    <None Include="Resources\media-pause_w.png" />
+    <None Include="Resources\lock-locked-2x_w.png" />
+    <None Include="Resources\info-2x_w.png" />
+    <None Include="Resources\globe-2x_w.png" />
+    <None Include="Resources\eye-2x_w.png" />
+    <None Include="Resources\document-2x_w.png" />
+    <None Include="Resources\cog-2x_w.png" />
+    <None Include="Resources\check-2x_w.png" />
+    <None Include="Resources\bar-chart-2x_w.png" />
+    <None Include="Resources\ban-2x_w.png" />
     <None Include="Resources\bar-chart-2x.png" />
     <None Include="Resources\globe-2x.png" />
     <None Include="Resources\document-2x.png" />

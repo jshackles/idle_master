@@ -31,21 +31,20 @@ namespace IdleMaster
 
                 // Check, if cookie should be deleted. This means that sessionID is now invalid and user has to log in again.
                 // Maybe this shoud be done other way (authenticate exception), but because of shared settings and timers in frmMain...
-                if (cookies.Count > 0)
+                Cookie loginCookie = cookies["steamLoginSecure"];
+                if (loginCookie != null && loginCookie.Value == "deleted")
                 {
-                    if (cookies["steamLogin"] != null && cookies["steamLogin"].Value == "deleted")
-                    {
-                        Settings.Default.sessionid = string.Empty;
-                        Settings.Default.steamLogin = string.Empty;
-                        Settings.Default.steamparental = string.Empty;
-                        Settings.Default.steamMachineAuth = string.Empty;
-                        Settings.Default.steamRememberLogin = string.Empty;
-                        Settings.Default.Save();
-                    }
+                    Settings.Default.sessionid = string.Empty;
+                    Settings.Default.steamLogin = string.Empty;
+                    Settings.Default.steamLoginSecure = string.Empty;
+                    Settings.Default.steamparental = string.Empty;
+                    Settings.Default.steamMachineAuth = string.Empty;
+                    Settings.Default.steamRememberLogin = string.Empty;
+                    Settings.Default.Save();
                 }
 
                 this.ResponseUri = baseResponse.ResponseUri;
-                return baseResponse;                
+                return baseResponse;
             }
             catch (Exception)
             {
@@ -57,9 +56,10 @@ namespace IdleMaster
         public static CookieContainer GenerateCookies()
         {
             var cookies = new CookieContainer();
-            var target = new Uri("http://steamcommunity.com");
+            var target = new Uri("https://steamcommunity.com");
             cookies.Add(new Cookie("sessionid", Settings.Default.sessionid) { Domain = target.Host });
-            cookies.Add(new Cookie("steamLogin", Settings.Default.steamLogin) { Domain = target.Host });
+            //cookies.Add(new Cookie("steamLogin", Settings.Default.steamLogin) { Domain = target.Host });
+            cookies.Add(new Cookie("steamLoginSecure", Settings.Default.steamLoginSecure) { Domain = target.Host });
             cookies.Add(new Cookie("steamparental", Settings.Default.steamparental) { Domain = target.Host });
             cookies.Add(new Cookie("steamRememberLogin", Settings.Default.steamRememberLogin) { Domain = target.Host });
             cookies.Add(new Cookie(GetSteamMachineAuthCookieName(), Settings.Default.steamMachineAuth) { Domain = target.Host });
@@ -68,8 +68,8 @@ namespace IdleMaster
 
         public static string GetSteamMachineAuthCookieName()
         {
-            if (Settings.Default.steamLogin != null && Settings.Default.steamLogin.Length > 17)
-                return string.Format("steamMachineAuth{0}", Settings.Default.steamLogin.Substring(0, 17));
+            if (Settings.Default.steamLoginSecure != null && Settings.Default.steamLoginSecure.Length > 17)
+                return string.Format("steamMachineAuth{0}", Settings.Default.steamLoginSecure.Substring(0, 17));
             return "steamMachineAuth";
         }
 
