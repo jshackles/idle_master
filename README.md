@@ -1,35 +1,39 @@
-Idle Master
-===========
+[![Build status](https://ci.appveyor.com/api/projects/status/96wf12emnlbmo4sj?svg=true)](https://ci.appveyor.com/project/JonasNilson/idle-master-extended)
+![Github All Releases](https://img.shields.io/github/downloads/JonasNilson/idle_master_extended/total.svg)
 
-This program will determine which of your Steam games still have Steam Trading Card drops remaining, and will go through each application to simulate you being “in-game” so that cards will drop.  It will check periodically to see if the game you’re idling has card drops remaining.  When only one drop remains, it will start checking more frequently.  When the game you’re idling has no more cards, it’ll move on to the next game.  When no more cards are available, the program will terminate.
+# 🚀 Idle Master Extended
 
-**This project has been discontinued**, no further bug fixes or changes will be made.  Issues and pull requests will be ignored.  The program should still work (as of Jan 3, 2018) but Valve may make a change that causes the program to become non-functioning at any time.  There are a multitude of forks of this project that are being currently maintained.
+Get your [Steam Trading Cards](https://steamcommunity.com/tradingcards/) the quickest possible way.
 
-Requirements
--------
 
-This application requires Steam to be open and for you to be logged in.  This program is now being developed exclusively for Microsoft Windows.
+## ❓ But what is Idle Master Extended?
 
-Non-Windows versions are available in the [Python repository](https://github.com/jshackles/idle_master_py) but may be deprecated or feature incomplete.
+🔧 This is a fork of the **discontinued** [Idle Master](https://github.com/jshackles/idle_master) project by [jshackles](https://github.com/jshackles) (also known for [Enhanced Steam](https://github.com/jshackles/Enhanced_Steam)):
 
-Setup
--------
+> This program will determine which of your Steam games still have Steam Trading Card drops remaining, and will go through each application to simulate you being “in-game” so that cards will drop. It will check periodically to see if the game you’re idling has card drops remaining. When only one drop remains, it will start checking more frequently. When the game you’re idling has no more cards, it’ll move on to the next game. When no more cards are available, the program will terminate. 
+> 
+> This application requires Steam to be open and for you to be logged in.  This program is now being developed exclusively for Microsoft Windows. Non-Windows versions are available in the [Python repository](https://github.com/jshackles/idle_master_py) but may be deprecated or feature incomplete.
+> 
+> Source: [`jshackles/idle_master`](https://github.com/jshackles/idle_master) 
 
-If you are an end user you can download an install Idle Master directly from http://www.steamidlemaster.com or by launching setup.exe included in the root of this repository.  You can also download the source repository above and compile the application using Microsoft Visual Studio.
 
-Translation
--------
+## 🔽 Download
 
-You can contribute your translation suggestions and vote on existing translations using our new [Translation Page](http://translate.steamidlemaster.com).
+- https://github.com/JonasNilson/idle_master_extended/releases
 
-Credits
--------
 
-Idle Master was created by jshackles, based on the original code created by Stumpokapow.
+## 💭 [Idle Master Extended Wiki](https://github.com/JonasNilson/idle_master_extended/wiki)
 
-Idle Master was writen in C# using Steamworks.NET and CSteamworks by Riley Labrecque (https://github.com/rlabrecque/CSteamworks), and using open source icons from Open Iconic (https://github.com/iconic/open-iconic).
+- 🧰 [Get started](https://github.com/JonasNilson/idle_master_extended/wiki/Get-started)
+- ✨ [Features](https://github.com/JonasNilson/idle_master_extended/wiki/Features)
+- 🔄 [FAQ](https://github.com/JonasNilson/idle_master_extended/wiki/FAQ)
+- 🔨 [Troubleshooting](https://github.com/JonasNilson/idle_master_extended/wiki/Troubleshooting-and-common-solutions)
+- 🎨 [Contribute](https://github.com/JonasNilson/idle_master_extended/wiki/Contribute)
+- 🎁 [Donate](https://github.com/JonasNilson/idle_master_extended/wiki/Donate)
 
-License
--------
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation.  A copy of the GNU General Public License can be found at http://www.gnu.org/licenses/.  For your convenience, a copy of this license is included.
+## Credits
+
+Idle Master was created by [jshackles](https://github.com/jshackles), based on the original code created by Stumpokapow.
+
+Idle Master was written in `C#` using `Steamworks.NET` and [`CSteamworks`](https://github.com/rlabrecque/CSteamworks), and using open source icons from [Open Iconic](https://github.com/iconic/open-iconic).
